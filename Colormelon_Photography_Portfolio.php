@@ -11,6 +11,7 @@
  *
  */
 use Photography_Portfolio\Core\Register_Post_Type;
+use Photography_Portfolio\Core\Router;
 use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Packery\Single_Packery_layout;
@@ -28,13 +29,6 @@ use Photography_Portfolio\Frontend\Layout_Registry;
 final class Colormelon_Photography_Portfolio {
 
 	/**
-	 * Colormelon Photography Portfolio Version
-	 *
-	 * @var stringÅ
-	 */
-	const version = '1.0.0';
-
-	/**
 	 * This is a Singleton class
 	 *
 	 * Singletons are almost always bad, surely not this time. Right?....
@@ -42,14 +36,20 @@ final class Colormelon_Photography_Portfolio {
 	 * @var Core
 	 */
 	protected static $_instance = NULL;
-
 	/**
 	 * @var Layout_Registry $layouts
 	 * Contains all available portfolio layouts
 	 */
 	public $layouts;
-
+	/**
+	 * Colormelon Photography Portfolio Version
+	 *
+	 * @var stringÅ
+	 */
+	private $version = '1.0.0';
 	private $post_type;
+
+	private $router;
 
 
 	/**
@@ -60,8 +60,10 @@ final class Colormelon_Photography_Portfolio {
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'cmp/prepare', $this );
 
+		$this->define_constants();
 
 		$this->post_type = new Register_Post_Type();
+		$this->router    = new Router();
 
 
 		// Setup sub-classes
@@ -136,25 +138,11 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	private function define_constants() {
 
-		$upload_dir = wp_upload_dir();
-
-		$this->define( 'CLM_ABSPATH', dirname( __FILE__ ) . '/' );
-		$this->define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		$this->define( 'CLM_VERSION', $this->version );
-	}
-
-
-	/**
-	 * Define constant if not already set.
-	 *
-	 * @param  string      $name
-	 * @param  string|bool $value
-	 */
-	private function define( $name, $value ) {
-
-		if ( ! defined( $name ) ) {
-			define( $name, $value );
-		}
+		define( 'CLM_ABSPATH', dirname( __FILE__ ) . '/' );
+		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		define( 'CLM_THEME_PATH', 'portfolio/' );
+		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/theme/' );
+		define( 'CLM_VERSION', $this->version );
 	}
 
 
