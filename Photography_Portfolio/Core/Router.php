@@ -99,7 +99,7 @@ class Router {
 		 * If theme doesn't have it, use plugin fallback
 		 */
 		if ( ! $template ) {
-			$template = CLM_ABSPATH . 'theme/' . $full_filename;
+			$template = CLM_PLUGIN_THEME_PATH . $full_filename;
 		}
 
 		return $template;

@@ -19,8 +19,8 @@ class Frontend {
 
 	public function enqueue() {
 
-		wp_enqueue_style( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'resources/build/app.css' );
-		wp_enqueue_script( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'resources/build/app.js' );
+		wp_enqueue_style( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/assets/app.css' );
+		wp_enqueue_script( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/assets/app.js' );
 	}
 
 }

@@ -1,5 +1,17 @@
 <?php
 
+/*
+ *
+ *
+ *
+ * @TODO: Template files should not use PHP Namespaces. Create public functions instead.
+  *
+ *
+ *
+ *
+ */
+
+
 use CLM\Metamod;
 
 /*

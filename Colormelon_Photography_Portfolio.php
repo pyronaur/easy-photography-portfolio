@@ -1,15 +1,5 @@
 <?php
 
-/*
- *
- *
- *
- * @TODO: Template files should not use PHP Namespaces. Create public functions instead.
- *
- *
- *
- *
- */
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Router;
 use Photography_Portfolio\Frontend\Frontend;
@@ -146,11 +136,12 @@ final class Colormelon_Photography_Portfolio {
 	private function define_constants() {
 
 		define( 'CLM_VERSION', $this->version );
-		define( 'CLM_ABSPATH', dirname( __FILE__ ) . '/' );
+		define( 'CLM_ABSPATH', __DIR__ . '/' );
 		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+
 		define( 'CLM_THEME_PATH', 'portfolio/' );
-		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/theme/' );
+		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
 
 	}
 
