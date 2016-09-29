@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Frontend\Layout\Entry;
 
 
-use CLM\Gallery\Attachment;
+use Photography_Portfolio\Frontend\Gallery\Attachment;
 use CLM\Mod;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 
@@ -12,7 +12,7 @@ use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 /**
  * Class Entry
  *
- * @property-read \CLM\Gallery\Attachment $featured_image
+ * @property-read \Photography_Portfolio\Frontend\Gallery\Attachment $featured_image
  *
  * @TODO    :
  *
@@ -28,7 +28,7 @@ class Entry {
 	public $subtitle = false;
 
 	/**
-	 * @var \CLM\Gallery\Attachment $featured_image
+	 * @var \Photography_Portfolio\Frontend\Gallery\Attachment $featured_image
 	 */
 	public $featured_image = false;
 

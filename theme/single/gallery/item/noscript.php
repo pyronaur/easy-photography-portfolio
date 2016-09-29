@@ -1,6 +1,6 @@
 <?php
 /**
- * @var CLM\Gallery\Attachment $attachment
+ * @var \Photography_Portfolio\Frontend\Gallery\Attachment $attachment
  */
 global $attachment;
 ?>

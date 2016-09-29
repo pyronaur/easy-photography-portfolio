@@ -4,8 +4,8 @@
 namespace Photography_Portfolio\Frontend;
 
 
-use CLM\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Contracts\Render_Inline_Attribute;
+use Photography_Portfolio\Frontend\Gallery\Attachment;
 
 
 /**
@@ -64,7 +64,7 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 		 * Note 2: Single Quotes Used: data-item'{JSON_DATA}'
 		 */
 		echo ' data-item=\'' . wp_json_encode( $this->prepare_data() ) . '\' ';
-		
+
 	}
 
 

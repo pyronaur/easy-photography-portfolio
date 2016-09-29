@@ -1,6 +1,6 @@
 <?php
 /**
- * @var CLM\Gallery\Attachment $attachment
+ * @var \Photography_Portfolio\Frontend\Gallery\Attachment $attachment
  */
 global $attachment;
 ?>
@@ -9,3 +9,4 @@ global $attachment;
 <?php if ( $attachment->description ): ?>
 	<figcaption class="caption"><?= wp_kses_post( $attachment->description ); ?></figcaption>
 <?php endif; ?>
+

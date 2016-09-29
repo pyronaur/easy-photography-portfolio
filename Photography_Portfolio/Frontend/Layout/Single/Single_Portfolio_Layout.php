@@ -4,9 +4,9 @@
 namespace Photography_Portfolio\Frontend\Layout\Single;
 
 
-use CLM\Gallery\Attachment;
-use CLM\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Frontend\Gallery\Attachment;
+use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 use Photography_Portfolio\Frontend\Template_Trait;

@@ -2,7 +2,7 @@
 
 /**
  * @var Gallery_Data_Interface $gallery_item
- * @var CLM\Gallery\Attachment $attachment
+ * @var \Photography_Portfolio\Frontend\Gallery\Attachment $attachment
  */
 use CLM\Metamod;
 use Photography_Portoflio\Frontend\Gallery_Data_Interface;
