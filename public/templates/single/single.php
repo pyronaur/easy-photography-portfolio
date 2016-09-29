@@ -12,8 +12,8 @@ global $cm_portfolio;
 
 while ( $cm_portfolio->query->have_posts() ) : $cm_portfolio->query->the_post();
 
-	$cm_portfolio->get( 'single/description' );
-	$cm_portfolio->get( 'single/gallery' );
+	cmp_get_template( 'single/description' );
+	cmp_get_template( 'single/gallery' );
 
 endwhile;
 

@@ -10,7 +10,8 @@ $portfolio = $cm_portfolio;
 
 	<?php while ( $portfolio->query->have_posts() ) : $portfolio->query->the_post(); ?>
 
-		<?php $portfolio->the_entry( get_the_ID() ); ?>
+		<?php cmp_display_entry( get_the_ID() ); ?>
+
 
 	<?php endwhile;
 	wp_reset_postdata(); ?>
