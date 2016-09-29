@@ -12,6 +12,7 @@
  */
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Router;
+use Photography_Portfolio\Frontend\Frontend;
 use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Packery\Single_Packery_layout;
@@ -73,6 +74,12 @@ final class Colormelon_Photography_Portfolio {
 		// Initialize & Configure
 		$this->init_hooks();
 		$this->register_layouts();
+
+
+		/**
+		 * Boot Front-end
+		 */
+		new Frontend();
 
 
 		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
@@ -138,11 +145,13 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	private function define_constants() {
 
+		define( 'CLM_VERSION', $this->version );
 		define( 'CLM_ABSPATH', dirname( __FILE__ ) . '/' );
 		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
 		define( 'CLM_THEME_PATH', 'portfolio/' );
 		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/theme/' );
-		define( 'CLM_VERSION', $this->version );
+
 	}
 
 
