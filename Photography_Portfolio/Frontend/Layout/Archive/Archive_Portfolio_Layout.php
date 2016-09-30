@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Frontend\Layout\Archive;
 
 
-use Photography_Portfolio\Frontend\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 use Photography_Portfolio\Frontend\Template;
 use Photography_Portfolio\Frontend\Template_Trait;

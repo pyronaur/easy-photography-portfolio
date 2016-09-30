@@ -176,7 +176,7 @@ class Entry {
 	 *
 	 * @param Attachment $attachment
 	 *
-	 * @return \Photography_Portfolio\Frontend\Contracts\Render_Inline_Attribute
+	 * @return \Photography_Portfolio\Contracts\Render_Inline_Attribute
 	 */
 	public function data_create_renderer( Attachment $attachment, $sizes ) {
 

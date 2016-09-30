@@ -1,5 +1,5 @@
 <?php
-namespace Photography_Portfolio\Frontend\Contracts;
+namespace Photography_Portfolio\Contracts;
 
 
 /**

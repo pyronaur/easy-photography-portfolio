@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Frontend;
 
 
-use Photography_Portfolio\Frontend\Contracts\Render_Inline_Attribute;
+use Photography_Portfolio\Contracts\Render_Inline_Attribute;
 use Photography_Portfolio\Frontend\Gallery\Attachment;
 
 

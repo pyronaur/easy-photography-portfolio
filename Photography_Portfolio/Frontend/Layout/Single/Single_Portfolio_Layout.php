@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Frontend\Layout\Single;
 
 
-use Photography_Portfolio\Frontend\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
@@ -82,7 +82,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	 *
 	 * @param Attachment $attachment
 	 *
-	 * @return \Photography_Portfolio\Frontend\Contracts\Render_Inline_Attribute
+	 * @return \Photography_Portfolio\Contracts\Render_Inline_Attribute
 	 */
 	public function setup_item_data( Attachment $attachment ) {
 
