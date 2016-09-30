@@ -1,5 +1,6 @@
 <?php
 
+use Photography_Portfolio\Admin\Options_Page;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Router;
 use Photography_Portfolio\Frontend\Frontend;
@@ -7,6 +8,7 @@ use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Maso
 use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Packery\Single_Packery_layout;
 use Photography_Portfolio\Frontend\Layout_Registry;
+use Photography_Portfolio\Settings\Portfolio_Options_Page;
 
 /**
  * Class Portfolio
@@ -42,6 +44,8 @@ final class Colormelon_Photography_Portfolio {
 
 	private $router;
 
+	private $options = false;
+
 
 	/**
 	 * Constructor.
@@ -70,6 +74,10 @@ final class Colormelon_Photography_Portfolio {
 		 * Boot Front-end
 		 */
 		new Frontend();
+
+		if ( is_admin() ) {
+			$this->options = new Options_Page( new Portfolio_Options_Page() );
+		}
 
 
 		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
@@ -119,14 +127,6 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	private function init_hooks() {
 
-		//
-		// This is what WooCommerce does. Not sure if I should follow.
-		//
-		//		register_activation_hook( __FILE__, array( 'WC_Install', 'install' ) );
-		//		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
-		//		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
-		// ......
-		// ......
 	}
 
 
