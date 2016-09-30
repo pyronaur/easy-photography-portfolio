@@ -14,5 +14,7 @@
       "Photography_Portfolio\\": "Photography_Portfolio"
     }
   },
-  "require": {}
+  "require": {
+    "webdevstudios/cmb2": "v2.2.2.1"
+  }
 }

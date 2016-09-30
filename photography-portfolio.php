@@ -26,6 +26,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 require_once __DIR__ . '/Colormelon_Photography_Portfolio.php';
 require_once __DIR__ . '/public/functions/functions.php';
+require_once __DIR__ . '/cmb2.php';
+require_once __DIR__ . '/cmb2_admin.php';
 
 
 /**
