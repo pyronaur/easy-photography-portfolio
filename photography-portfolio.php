@@ -28,6 +28,12 @@
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Include CMB2
+ */
+if ( file_exists( __DIR__ . '/vendor/webdevstudios/cmb2/init.php' ) ) {
+	require_once __DIR__ . '/vendor/webdevstudios/cmb2/init.php';
+}
 
 /**
  * Require the plugin god object.
@@ -38,6 +44,7 @@ require_once __DIR__ . '/Colormelon_Photography_Portfolio.php';
 /**
  * Template Tags, public functions usage in themes
  */
+require_once __DIR__ . '/public/functions/options.php';
 require_once __DIR__ . '/public/functions/functions.php';
 
 
@@ -50,12 +57,7 @@ require_once __DIR__ . '/public/functions/functions.php';
  */
 require_once __DIR__ . '/cmb2.php';
 
-/**
- * Include CMB2
- */
-if ( file_exists( __DIR__ . '/vendor/webdevstudios/cmb2/init.php' ) ) {
-	require_once __DIR__ . '/vendor/webdevstudios/cmb2/init.php';
-}
+
 
 
 /**

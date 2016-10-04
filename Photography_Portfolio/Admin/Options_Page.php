@@ -11,8 +11,8 @@ class Options_Page {
 	protected $title        = '';
 	protected $options_page = '';
 
-	private $key        = '';
-	private $metabox_id = '';
+	private $key        = 'cmp_options';
+	private $metabox_id = 'cmp_options_metabox';
 
 	private $settings;
 
@@ -24,10 +24,7 @@ class Options_Page {
 
 		$this->settings = $settings;
 
-		$this->title      = $this->settings->get_page_title();
-		$this->key        = $this->settings->get_key();
-		$this->metabox_id = $this->settings->get_metabox_id();
-
+		$this->title        = $this->settings->get_page_title();
 		$this->options_page = '';
 
 		add_action( 'admin_init', array( $this, 'init' ) );

@@ -78,8 +78,7 @@ final class Colormelon_Photography_Portfolio {
 		if ( is_admin() ) {
 			$this->options = new Options_Page( new Portfolio_Options_Page() );
 		}
-
-
+		
 		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
 		do_action( 'cmp/loaded', $this );
 

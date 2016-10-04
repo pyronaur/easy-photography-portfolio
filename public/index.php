@@ -11,7 +11,7 @@
  *      Styles, scripts, icons, imagees
  *
  * + public/functions/
- *      Template functions that you can use in themes, instead of having to rely on class names.
+ *      Template functions that you can use in themes, instead of having to rely on classes and namespaces.
  *
  * + public/templates/
  *      That magical direcotry where the plugin looks for layouts.

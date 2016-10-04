@@ -19,9 +19,6 @@
  *
  */
 
-
-use CLM\Metamod;
-
 /*
  *
  * -- Initialize Portfolio
@@ -38,15 +35,6 @@ function CMP_Instance() {
  * -- CLM Portfolio Functions
  *
  */
-function cmp_get_layout( $post_id = NULL ) {
-
-	if ( ! $post_id ) {
-		$post_id = get_the_ID();
-	}
-
-	return Metamod::get_value( 'single_portfolio_layout', $post_id );
-}
-
 
 function cmp_get_class( $class = NULL, $post_id = NULL ) {
 
@@ -116,5 +104,29 @@ if ( ! function_exists( "cmp_get_template" ) ) {
 		global $cm_portfolio;
 
 		$cm_portfolio->get( $name );
+	}
+}
+
+
+if ( ! function_exists( 'cmp_is_portfolio' ) ) {
+	function cmp_is_portfolio() {
+
+
+		// Check if current page is portfolio
+		if (
+			is_post_type_archive( 'portfolio' )
+			|| is_page_template( 'templates/portfolio.php' )
+			|| is_singular( 'portfolio' )
+
+		) {
+			// Yes
+			return true;
+
+		}
+		else {
+			// No
+			return false;
+		}
+
 	}
 }

@@ -16,18 +16,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 
 	}
 
-
-	public function get_metabox_id() {
-
-		return 'cmp_options_metabox';
-	}
-
-
-	public function get_key() {
-
-		return 'cmp_options';
-	}
-
+	
 
 	public function set_fields( $cmb ) {
 
@@ -38,7 +27,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 				'id'      => 'portfolio_layout',
 				'type'    => 'select',
 				'options' => CMP_Instance()->layouts->available_layouts( 'archive' ),
-				
+
 			)
 		);
 
@@ -49,7 +38,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
 				'options' => CMP_Instance()->layouts->available_layouts( 'single' ),
-				
+
 			)
 		);
 

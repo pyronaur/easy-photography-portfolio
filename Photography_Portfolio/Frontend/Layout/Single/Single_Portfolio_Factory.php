@@ -11,7 +11,7 @@ class Single_Portfolio_Factory extends Layout_Factory {
 
 	function find_slug() {
 
-		return Metamod::get_value( 'single_portfolio_layout', get_the_ID() );
+		return cmp_get_layout();
 	}
 
 
