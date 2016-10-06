@@ -22,7 +22,7 @@ gulp.task "sync", ["browser-sync"], ->
 		gulp.start "libs"
 
 	watch "#{Config.sass.source}/**", ->
-		gulp.start "sass"
+		gulp.start "css"
 
 	watch "#{Config.build}/*.js", ->
 		sync.reload()
