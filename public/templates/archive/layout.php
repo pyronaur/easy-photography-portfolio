@@ -6,7 +6,7 @@ global $cm_portfolio;
 $portfolio = $cm_portfolio;
 
 ?>
-<div class="Gallery--masonry js__masonry masonry-portfolio--minimal">
+<div class="PP-Masonry">
 
 	<?php while ( $portfolio->query->have_posts() ) : $portfolio->query->the_post(); ?>
 

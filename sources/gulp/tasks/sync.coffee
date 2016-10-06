@@ -6,7 +6,7 @@ util = require 'gulp-util'
 
 
 gulp.task "browser-sync", ->
-	sync.init "assets/build/*.css",
+	sync.init "public/build/*.css",
 		proxy:
 			target: Config.url
 		open: false

@@ -1,0 +1,85 @@
+$site_max_width = 1200px
+$masonry_gutter_size = 12px
+$masonry_entry_width = $site_max_width / 3
+
+mason_width( $columns )
+	( $masonry_entry_width * $columns )
+
+
+
+//-----------------------------------*/
+// Masonry Entries
+//-----------------------------------*/
+.PP-Masonry
+	width: 100%
+
+	img
+		display: block
+		max-width: 100%
+		padding: 0
+		margin: 0
+
+	&__item, &__sizer
+		outline: 0
+		width: 33%
+		cursor: pointer
+
+		//-----------------------------------*/
+		// Tiny Screen columns
+		//-----------------------------------*/
+		@media $portable
+			width: 50%
+
+		@media $palm
+			width: 100%
+			max-width: 640px
+			margin-left: auto
+			margin-right: auto
+
+
+	&__item
+		border: $masonry_gutter_size solid transparent
+		position: relative
+
+		@media $palm
+			border-width: 0px
+			margin-bottom: $p/2
+
+
+	&__header
+			margin-top: $p
+			margin-bottom: $p - 0.35rem
+
+		.entry-date
+			text-transform: uppercase
+			font-size: 0.875rem
+			color: $gray
+
+		.entry-title
+			font-size: 1.5rem
+			margin-bottom: 0
+
+		.entry-content
+			margin-bottom: $p
+
+			+cf
+			.icon
+				float: right
+
+
+
+.masonry-border
+	border-left: 2px solid $light_gray
+	position: absolute
+	height: 100%
+	width: 2px
+	left: 33%
+	left: calc(33% - 1.5px)
+	top: $tiny
+
+	&:last-child
+		left: 66%
+		left: calc(66% - 1.5px)
+
+	@media $portable
+		display: none

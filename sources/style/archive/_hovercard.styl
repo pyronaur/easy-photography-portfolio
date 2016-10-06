@@ -1,0 +1,108 @@
+.PP-Hovercard /*!
+	  *  Base Styles
+	  */
+	cursor: pointer
+	position: relative
+
+	&, a
+		color: white
+		text-shadow: 0px .03em .05em transparentize(black, 0.33)
+
+	a:hover
+		text-decoration: none
+		color: white
+
+	.has-touch & &__popup
+		display: none
+
+	&__header
+		position: absolute
+		bottom: $p
+		left: $p
+		text-transform: uppercase
+
+		transition: transform .35s ease-out, opacity .3s ease
+
+	&__title
+		font-size: 1.5rem
+
+	&__subtitle
+		font-size: 1rem
+		font-weight: 300
+		text-transform: none
+		font-style: italic
+		margin-bottom: 1rem
+
+	&__view
+		font-size: 1rem
+		display: block
+		position: absolute
+		bottom: 1rem
+		text-transform: uppercase
+
+	&__separator
+		width: 100%
+		max-width: 3rem
+		height: 0
+		margin-bottom: $p * 0.5
+		margin-left: 0
+		border: none
+		border-bottom: 1px solid white
+
+	/*!
+	*  Hovercard Layout
+	*/
+	&__popup
+		display: block
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+		padding: $p
+
+		background-color: transparentize(black, 0.5)
+
+		opacity: 0
+
+		transition: opacity .35s ease
+		cursor: pointer
+
+		// @TODO: Need a Z-Index manager
+		z-index: 500
+
+
+	&__inner
+		width: 100%
+		height: 100%
+		transform: translateY(15px)
+		opacity: 0
+		display: block
+		transition: transform .35s ease-out, opacity .3s ease
+
+	/*!
+	*   Hover State
+	*/
+	&:hover, &.is-without-thumbnail, &__popup:hover
+
+		.PP-Hovercard__header
+			z-index: 550
+			transform: translateY(-3rem)
+
+		.PP-Hovercard__inner
+			opacity: 1
+			transform: translateY(0)
+
+		.PP-Hovercard__popup
+			display: block
+			opacity: 1
+
+	/*!
+	*   @TODO: Style scenarios with no thumbnail
+	*   @TODO: Add class `is-without-thumbnail`
+	*/
+	&.is-without-thumbnail
+		height: 300px
+
+		&__popup
+			opacity: 1

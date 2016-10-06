@@ -9,7 +9,7 @@ stylus = require 'gulp-stylus'
 
 
 development = ->
-	gulp.src("#{Config.sass.source}/*.styl")
+	gulp.src("#{Config.sass.source}/app.styl")
 	.pipe(maps.init())
 	.pipe stylus()
 	.on("error", handle_errors)

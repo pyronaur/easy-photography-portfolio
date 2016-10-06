@@ -3,7 +3,7 @@
  * Available Global Variables: $portfolio, $entry
  *
  * @var $portfolio Photography_Portoflio\Frontend\Layout\Single\Single_Portfolio_Layout
- * @var $entry Photography_Portoflio\Frontend\Layout\Entry\Entry
+ * @var $entry     Photography_Portoflio\Frontend\Layout\Entry\Entry
  *
  * @TODO:
  *      Create user friendly functions to access common template values.
@@ -15,40 +15,34 @@
  */
 ?>
 
-<div class="Gallery__item entry-masonry entry-masonry--portfolio entry-portfolio--hovercard enable-hover" <?php $entry->data_render() ?>
-     id="gallery-<?php the_ID() ?>">
+<div class="PP-Masonry__item PP-Hovercard" <?php $entry->data_render() ?> id="PP-Entry-<?php the_ID() ?>">
 
-	<div class="hovercard__thumbnail">
+	<div class="PP-Masonry__thumbnail">
 		<?php $entry->show_featured_image(); ?>
-	</div> <!-- .hovercard__thumbnail -->
+	</div> <!-- .PP-Hovercard__thumbnail -->
 
-	<h3 class="hovercard__title">
-		<a href="<?php the_permalink(); ?>">
-			<?php the_title(); ?>
-		</a>
-	</h3>
+	<div class="PP-Hovercard__header">
 
-	<div class="hovercard__popup">
-		<div class="hovercard__inner">
-
-			<h2 class="hovercard__title--popup">
-				<a href="<?php the_permalink(); ?>">
-					<?php the_title(); ?>
-				</a>
-			</h2>
-
-			<?php if ( $entry->subtitle ): ?>
-				<h4 class="hovercard__subtitle"><?php echo esc_html( $entry->subtitle ); ?></h4>
-			<?php endif; ?>
-
-
-			<hr class="sepline">
-
-			<a class="view-gallery" href="<?php the_permalink(); ?>">
-				<?php esc_html_e( 'View Gallery', 'bluebird-theme' ) ?>
+		<h3 class="PP-Hovercard__title">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_title(); ?>
 			</a>
+		</h3>
 
-		</div> <!-- .hovercard__inner -->
-	</div> <!-- .hovercard__popup -->
+		<?php if ( $entry->subtitle ): ?>
+			<hr class="PP-Hovercard__separator">
+			<h4 class="PP-Hovercard__subtitle"><?php echo esc_html( $entry->subtitle ); ?></h4>
+		<?php endif; ?>
+
+	</div> <!-- .PP-Hovercard__header -->
+
+
+	<a class="PP-Hovercard__popup" href="<?php the_permalink(); ?>">
+			<span class="PP-Hovercard__inner">
+				<span class="PP-Hovercard__view">
+					<?php esc_html_e( 'View Gallery', 'bluebird-theme' ) ?>
+				</span>
+			</span>
+	</a> <!-- .PP-Hovercard__popup -->
 
 </div>
