@@ -1,0 +1,52 @@
+{
+  "name": "photography-portfolio",
+  "version": "1.0.0",
+  "browser": {
+    "plugin": "./src/javascript/vendor/jquery-plugin.js"
+  },
+  "browserify-shim": {
+    "jQuery": "global:jQuery",
+    "wp_hooks": "global:wp.hooks"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.5",
+    "browser-sync": "^2.11.2",
+    "browserify": "^13.0.1",
+    "browserify-shim": "^3.8.12",
+    "coffee-script": "*",
+    "coffeeify": "^2.0.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-coffee": "*",
+    "gulp-concat": "*",
+    "gulp-download": "0.0.1",
+    "gulp-include": "^2.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-merge": "^0.1.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.2.0",
+    "gulp-sort": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-stylus": "^2.3.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "gulp-wp-pot": "^1.1.1",
+    "gulp-wrap": "*",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.2.0",
+    "map-stream": "0.0.6",
+    "merge-stream": "^1.0.0",
+    "run-sequence": "^1.1.5",
+    "vinyl": "^1.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

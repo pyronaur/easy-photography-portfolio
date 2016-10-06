@@ -3,8 +3,6 @@
 
 namespace Photography_Portfolio\Frontend;
 
-use Photography_Portfolio\Frontend\Template;
-
 
 class Frontend {
 
@@ -24,8 +22,8 @@ class Frontend {
 
 	public function enqueue() {
 
-		wp_enqueue_style( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/assets/app.css' );
-		wp_enqueue_script( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/assets/app.js' );
+		wp_enqueue_style( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/build/app.css' );
+		wp_enqueue_script( 'photography-portfolio', CLM_PLUGIN_DIR_URL . 'public/build/app.js' );
 	}
 
 
