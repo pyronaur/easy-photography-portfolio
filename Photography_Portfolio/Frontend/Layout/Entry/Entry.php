@@ -5,7 +5,6 @@ namespace Photography_Portfolio\Frontend\Layout\Entry;
 
 
 use Photography_Portfolio\Frontend\Gallery\Attachment;
-use CLM\Mod;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 
 
@@ -132,12 +131,12 @@ class Entry {
 
 		$subtitle = false;
 
-		if ( Mod::is_enabled( 'portfolio_enable_subtitle' ) ) {
+		if ( cmp_get_option( 'portfolio_enable_subtitle', false ) ) {
 
 			/**
 			 * If image count is disabled, set subtitle and quit
 			 */
-			$show_image_count = Mod::get_value( 'portfolio_show_image_count' );
+			$show_image_count = cmp_get_option( 'portfolio_show_image_count', false );
 			$subtitle         = trim( get_post_meta( $this->id, 'portfolio_subtitle', true ) );
 
 			/**

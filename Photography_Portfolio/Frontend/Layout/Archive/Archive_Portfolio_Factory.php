@@ -4,14 +4,13 @@
 namespace Photography_Portfolio\Frontend\Layout\Archive;
 
 
-use CLM\Metamod;
 use Photography_Portfolio\Frontend\Layout_Factory;
 
 class Archive_Portfolio_Factory extends Layout_Factory {
 
 	function find_slug() {
 
-		return Metamod::get_value( 'portfolio_layout', get_the_ID() );
+		return cmp_get_archive_layout();
 	}
 
 

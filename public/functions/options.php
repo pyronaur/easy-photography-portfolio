@@ -39,3 +39,18 @@ if ( ! function_exists( "cmp_get_layout" ) ) {
 
 }
 
+
+if ( ! function_exists( "cmp_get_archive_layout" ) ) {
+
+	/**
+	 *
+	 * Get current layout name
+	 *
+	 */
+	function cmp_get_archive_layout() {
+
+		return cmp_get_option( 'portfolio_layout' );
+	}
+
+}
+
