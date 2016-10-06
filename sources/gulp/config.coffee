@@ -18,7 +18,6 @@ GLOBAL.config =
 
 		# Libraries:
 		masonry: "https://raw.githubusercontent.com/desandro/masonry/master/dist/masonry.pkgd.js"
-		flickity: "https://raw.githubusercontent.com/metafizzy/flickity/master/dist/flickity.pkgd.js"
 		packery: "https://raw.githubusercontent.com/metafizzy/packery/master/dist/packery.pkgd.js"
 		imagesLoaded: "https://raw.githubusercontent.com/desandro/imagesloaded/master/imagesloaded.js"
 
