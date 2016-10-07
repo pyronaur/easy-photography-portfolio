@@ -3,7 +3,6 @@
 ###
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-$window = $( window )
 
 class Masonry
 
@@ -18,21 +17,13 @@ class Masonry
 	constructor: ( $parent = $( document ) )->
 		@$container = $parent.find( ".#{@Elements.container}" )
 
-		@Events = [
-			[ 'pp.masonry.destroy', @destroy ]
-			[ 'pp.masonry.refresh', @refresh ]
-			[ 'pp.masonry.init', @start, 100 ]
-			# [ 'pp.masonry.reload', _.debounce( @refresh, 300 ), 50 ]
-		]
-
-		@attach()
 		@create()
 
 
 	create: =>
 		return if @$container.length is 0
 
-		@$container.addClass('is-preparing-masonry')
+		@$container.addClass( 'is-preparing-masonry' )
 
 		@maybe_create_sizer()
 
@@ -44,19 +35,17 @@ class Masonry
 			initLayout  : false
 
 
-		return
-
-	start: =>
-		Hooks.doAction 'pp.masonry.before_start'
-
 		@$container.masonry 'on', 'layoutComplete', =>
+			@$container.removeClass( 'is-preparing-masonry' )
 			Hooks.doAction 'pp.masonry.start'
-			@$container.removeClass('is-preparing-masonry')
 
 		@$container.masonry()
 
+
+		return
+
+
 	destroy: =>
-		@detach()
 		@maybe_remove_sizer()
 
 		if @$container.length > 0
@@ -67,15 +56,6 @@ class Masonry
 
 	refresh: =>
 		@$container.maosnry( 'layout' )
-
-	attach: ->
-		for event in @Events
-			Hooks.addAction.apply( this, event )
-
-	detach: ->
-		for event in @Events
-			Hooks.removeAction.apply( this, event )
-
 
 	###
 
@@ -88,7 +68,7 @@ class Masonry
 
 	maybe_remove_sizer: ->
 		return if @$container.length isnt 1
-		@$container.find(".#{@Elements.sizer}").remove()
+		@$container.find( ".#{@Elements.sizer}" ).remove()
 		return
 
 	sizer_doesnt_exist: -> @$container.find( ".#{@Elements.sizer}" ).length is 0
