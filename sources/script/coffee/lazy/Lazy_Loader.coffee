@@ -10,7 +10,6 @@ class Lazy_Loader
 	constructor: ( @handler ) ->
 		@handler = Hooks.applyFilters 'pp.lazy.handler', @handler
 
-		console.log 'Boop'
 		if @handler
 			@resize_all()
 			@load_all()

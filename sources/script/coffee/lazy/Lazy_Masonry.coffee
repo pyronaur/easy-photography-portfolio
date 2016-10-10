@@ -4,9 +4,6 @@ Item_Data = require( './Item_Data' )
 
 class Lazy_Masonry
 
-	constructor: ->
-		console.log "Setting up Lazy_Masonry"
-
 	resize: ( el ) ->
 		$el = $( el )
 		ratio = new Item_Data( $el ).get_ratio()
@@ -17,31 +14,34 @@ class Lazy_Masonry
 
 	get_width: ->
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
-		$('.PP-Masonry__sizer').width()
+		$( '.PP-Masonry__sizer' ).width()
 
 
-	load: (el) ->
+	load: ( el ) ->
 		$el = $( el )
 
 		image = new Item_Data( $el )
-		src = image.get_url( 'thumb' )
+		thumb = image.get_url( 'thumb' )
+		full = image.get_url('full')
 
 		$el
-			.prepend( """<img src="#{src}" class="is-loading" />""" )
-			.removeClass( 'Lazy-Image' )
+		.prepend( """
+				<a href="#{full}" rel="gallery">
+				<img src="#{thumb}" class="is-loading" />
+				</a>
+		""" )
+		.removeClass( 'Lazy-Image' )
 
 
 		$image = $el.find( 'img' )
 
 		$image.imagesLoaded ->
-			console.log "Image loaded"
 			$image.addClass( 'is-loaded' ).removeClass( 'is-loading' )
 			$el
-				.css( 'min-height', '' )
-				.removeClass( 'lazy-image' )
+			.css( 'min-height', '' )
+			.removeClass( 'lazy-image' )
 #				.find( '.lazy-image__placeholder' )
 #					.velocity( 'fadeOut', -> $( this ).remove() )
-
 
 
 module.exports = Lazy_Masonry
