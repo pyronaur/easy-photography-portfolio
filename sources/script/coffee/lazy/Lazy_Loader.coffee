@@ -11,10 +11,10 @@ class Lazy_Loader
 		@handler = Hooks.applyFilters 'pp.lazy.handler', @handler
 
 		if @handler
-			@resize_all()
+			@prepare()
 			@load_all()
 
-	resize_all: ->
+	prepare: ->
 		$items = $( '.Lazy-Image' )
 
 		$items.each ( key, el ) =>
