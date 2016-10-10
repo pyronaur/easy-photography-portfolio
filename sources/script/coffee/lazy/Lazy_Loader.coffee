@@ -7,7 +7,8 @@ Hooks = require( "wp_hooks" )
 class Lazy_Loader
 
 	Elements:
-		item: 'PP_Lazy_Image'
+		item       : 'PP_Lazy_Image'
+		placeholder: 'PP_Lazy_Image__placeholder'
 
 
 	constructor: ( @handler ) ->
@@ -31,7 +32,7 @@ class Lazy_Loader
 
 	remove_placeholder: ( el ) ->
 		$el = $( el )
-		$el.find( '.Lazy-Image__placeholder, noscript' ).remove()
+		$el.find( ".#{@Elements.placeholder}, noscript" ).remove()
 
 
 module.exports = Lazy_Loader
