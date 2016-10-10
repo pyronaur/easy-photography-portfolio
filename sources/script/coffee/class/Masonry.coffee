@@ -26,6 +26,7 @@ class Masonry
 		@$container.addClass( 'is-preparing-masonry' )
 
 		@maybe_create_sizer()
+		Hooks.doAction 'pp.masonry.start/before'
 
 		# Only initialize, if no masonry exists
 		@$container.masonry
@@ -37,9 +38,11 @@ class Masonry
 
 		@$container.masonry 'on', 'layoutComplete', =>
 			@$container.removeClass( 'is-preparing-masonry' )
-			Hooks.doAction 'pp.masonry.start'
+			Hooks.doAction 'pp.masonry.start/complete'
+
 
 		@$container.masonry()
+		Hooks.doAction 'pp.masonry.start/layout'
 
 
 		return
