@@ -9,5 +9,5 @@ Hooks.addAction 'pp.masonry.start/before', ->
 
 
 Hooks.addAction 'pp.ready', ->
-	if $( '.PP-Masonry' ).length > 0
+	if $( '.PP_Masonry' ).length > 0
 		Hooks.addFilter 'pp.portfolio.handler', -> new Masonry()

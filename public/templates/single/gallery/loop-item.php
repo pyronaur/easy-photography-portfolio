@@ -6,8 +6,8 @@ global $cmp_gallery_data, $attachment;
 $class = array(
 	'Gallery__item',
 	'Gallery__item--' . $attachment->type,
-	'PP-Masonry__item',
-	'Lazy-Image',
+	'PP_Masonry__item',
+	'PP_Lazy_Image',
 	'image-' . $attachment->orientation
 );
 
@@ -19,4 +19,3 @@ $class = array(
 	<?php cmp_get_template( 'single/gallery/item/noscript' ); ?>
 
 </figure> <!-- .Gallery__item -->
-

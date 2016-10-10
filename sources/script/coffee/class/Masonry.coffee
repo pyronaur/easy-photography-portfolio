@@ -7,9 +7,9 @@ Hooks = require( "wp_hooks" )
 class Masonry
 
 	Elements:
-		container: 'PP-Masonry'
-		sizer    : 'PP-Masonry__sizer'
-		item     : 'PP-Masonry__item'
+		container: 'PP_Masonry'
+		sizer    : 'PP_Masonry__sizer'
+		item     : 'PP_Masonry__item'
 
 
 

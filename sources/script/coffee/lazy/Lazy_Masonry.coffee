@@ -14,7 +14,7 @@ class Lazy_Masonry
 
 	get_width: ->
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
-		$( '.PP-Masonry__sizer' ).width()
+		$( '.PP_Masonry__sizer' ).width()
 
 
 	load: ( el ) ->
