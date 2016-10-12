@@ -1,30 +1,24 @@
 $ = require( 'jQuery' )
-Item_Data = require( './Item_Data' )
+Lazy_Loader = require( './Lazy_Loader' )
 
 
-class Lazy_Masonry
+class Lazy_Masonry extends Lazy_Loader
 
-	resize: ( el ) ->
-		$el = $( el )
-		ratio = new Item_Data( $el ).get_ratio()
+	resize: ( item ) ->
+		item.$el.css 'min-height': Math.floor( @get_width() / item.data.get_ratio() )
 
-
-		$el.css
-			'min-height': Math.floor( @get_width() / ratio )
 
 	get_width: ->
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
 		$( '.PP_Masonry__sizer' ).width()
 
 
-	load: ( el ) ->
-		$el = $( el )
+	load: ( item ) ->
 
-		image = new Item_Data( $el )
-		thumb = image.get_url( 'thumb' )
-		full = image.get_url('full')
+		thumb = item.data.get_url( 'thumb' )
+		full = item.data.get_url( 'full' )
 
-		$el
+		item.$el
 		.prepend( """
 				<a href="#{full}" rel="gallery">
 				<img src="#{thumb}" class="is-loading" />
@@ -33,15 +27,24 @@ class Lazy_Masonry
 		.removeClass( 'Lazy-Image' )
 
 
-		$image = $el.find( 'img' )
+		$image = item.$el.find( 'img' )
 
 		$image.imagesLoaded ->
 			$image.addClass( 'is-loaded' ).removeClass( 'is-loading' )
-			$el
+			item.$el
 			.css( 'min-height', '' )
 			.removeClass( 'lazy-image' )
-#				.find( '.lazy-image__placeholder' )
-#					.velocity( 'fadeOut', -> $( this ).remove() )
+	#				.find( '.lazy-image__placeholder' )
+	#					.velocity( 'fadeOut', -> $( this ).remove() )
 
+
+	handle_scroll: ( e ) =>
+		console.log "Scroll"
+
+	attach_events: ->
+		$( window ).on 'scroll', @handle_scroll
+
+	detach_events: ->
+		$( window ).off 'scroll', @handle_scroll
 
 module.exports = Lazy_Masonry
