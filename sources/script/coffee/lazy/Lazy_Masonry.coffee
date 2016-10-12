@@ -1,8 +1,13 @@
 $ = require( 'jQuery' )
 Lazy_Loader = require( './Lazy_Loader' )
-
+__WINDOW = require( '../global/Window' )
 
 class Lazy_Masonry extends Lazy_Loader
+
+	constructor: ->
+		@debounced_load_items_in_view = _.debounce( @load_items_in_view, 50 )
+		super()
+
 
 	resize: ( item ) ->
 		item.$el.css 'min-height': Math.floor( @get_width() / item.data.get_ratio() )
@@ -12,6 +17,7 @@ class Lazy_Masonry extends Lazy_Loader
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
 		$( '.PP_Masonry__sizer' ).width()
 
+	autoload: => @load_items_in_view()
 
 	load: ( item ) ->
 
@@ -26,25 +32,50 @@ class Lazy_Masonry extends Lazy_Loader
 		""" )
 		.removeClass( 'Lazy-Image' )
 
-
+		item.loaded = true
 		$image = item.$el.find( 'img' )
-
-		$image.imagesLoaded ->
+		$image.imagesLoaded =>
 			$image.addClass( 'is-loaded' ).removeClass( 'is-loading' )
 			item.$el
 			.css( 'min-height', '' )
-			.removeClass( 'lazy-image' )
-	#				.find( '.lazy-image__placeholder' )
-	#					.velocity( 'fadeOut', -> $( this ).remove() )
+			.removeClass( @Elements.item )
+			.find( ".#{@Elements.placeholder}" )
+			.fadeOut 400, -> $( this ).remove()
 
 
-	handle_scroll: ( e ) =>
-		console.log "Scroll"
+
+
+
+	load_items_in_view: =>
+		for item, key in @Items
+			if not item.loaded and @in_loose_view( item.el )
+				@load( item )
+
+
+
+	in_loose_view: ( el ) ->
+		return true if not el.getBoundingClientRect?
+		rect = el.getBoundingClientRect()
+
+		# Sensitivity in Pixels
+		sensitivity = 100
+		return (
+			# Y Axis
+			rect.top + rect.height >= -sensitivity and # top
+				rect.bottom - rect.height <= __WINDOW.height + sensitivity and
+
+				# X Axis
+				rect.left + rect.width >= -sensitivity and
+				rect.right - rect.width <= __WINDOW.width + sensitivity
+
+		)
 
 	attach_events: ->
-		$( window ).on 'scroll', @handle_scroll
+		$( window ).on 'scroll', @debounced_load_items_in_view
+		super()
 
 	detach_events: ->
-		$( window ).off 'scroll', @handle_scroll
+		$( window ).off 'scroll', @debounced_load_items_in_view
+		super()
 
 module.exports = Lazy_Masonry

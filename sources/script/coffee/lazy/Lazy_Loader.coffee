@@ -11,22 +11,21 @@ class Lazy_Loader
 		item       : 'PP_Lazy_Image'
 		placeholder: 'PP_Lazy_Image__placeholder'
 
-	Data: []
+	Items: []
 
 
 	constructor: () ->
-		console.log 'Constructuring'
 		@setup_data()
-		@attach_events()
 		@resize_all()
-		@load_all()
+		@attach_events()
 
 
 	###
 		Abstract Methods
 	###
-	resize: -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `resize` method" )
-	load  : -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `load` method" )
+	resize  : -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `resize` method" )
+	load    : -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `load` method" )
+	autoload: -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `autoload` method" )
 
 
 	setup_data: ->
@@ -35,10 +34,11 @@ class Lazy_Loader
 		$items.each ( key, el ) =>
 			# I wish there was a prettier way to write this
 			$el = $( el )
-			@Data.push
-				el  : el
-				$el : $el
-				data: new Item_Data( $el )
+			@Items.push
+				el    : el
+				$el   : $el
+				data  : new Item_Data( $el )
+				loaded: false
 
 		return
 
@@ -47,10 +47,10 @@ class Lazy_Loader
 		Methods
 	###
 	resize_all: ->
-		@resize( item ) for item in @Data
+		@resize( item ) for item in @Items
 
 	load_all: ->
-		for item in @Data
+		for item in @Items
 			@load( item )
 			@remove_placeholder( item )
 
@@ -61,5 +61,10 @@ class Lazy_Loader
 	destroy: ->
 		@detach_events()
 
+	attach_events: ->
+		Hooks.addAction 'pp.lazy.autoload', @autoload
+
+	detach_events: ->
+		Hooks.removeAction 'pp.lazy.autoload', @autoload
 
 module.exports = Lazy_Loader

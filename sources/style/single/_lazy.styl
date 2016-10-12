@@ -1,0 +1,35 @@
+@keyframes PP_Spinner {
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+.PP_Lazy_Image__placeholder
+	position: absolute
+	top: 0
+	left: 0
+	height: 100%
+	width: 100%
+	background-color: #f2f2f2
+	border-radius 1px
+
+
+	&:after
+		content: ""
+		width: 25px
+		height: 25px
+		display: block
+
+		border: solid 2px transparent
+		border-top-color: black
+		border-left-color: black
+		border-radius: 50%
+
+		position: absolute
+		top: 50%
+		left: 50%
+
+		top: calc(50% - 12.5px)
+		left: calc(50% - 12.5px)
+
+		animation: PP_Spinner 400ms linear infinite

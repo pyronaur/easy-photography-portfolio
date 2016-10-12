@@ -26,7 +26,7 @@ class Frontend {
 
 		wp_enqueue_style( 'photography-portfolio', $build_directory . '/app.css' );
 		wp_enqueue_script( 'photography-portfolio-libs', $build_directory . '/libs.js' );
-		wp_enqueue_script( 'photography-portfolio', $build_directory . '/app.js', array( 'photography-portfolio-libs' ) );
+		wp_enqueue_script( 'photography-portfolio', $build_directory . '/app.js', array( 'photography-portfolio-libs', 'underscore' ) );
 	}
 
 
