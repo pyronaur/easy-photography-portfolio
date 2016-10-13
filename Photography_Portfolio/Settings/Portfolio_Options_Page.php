@@ -17,7 +17,38 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 	}
 
 
+	public function pages() {
+
+		$args = array(
+			'posts_per_page' => - 1,
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+		);
+
+		$pages = array();
+
+		foreach ( get_posts( $args ) as $post ) {
+			$pages[ (int) $post->ID ] = esc_html( $post->post_title );
+		}
+
+		return $pages;
+	}
+
+
 	public function set_fields( $cmb ) {
+
+		$this->pages();
+		$cmb->add_field(
+			array(
+				'id'               => "portfolio_page",
+				'name'             => esc_html__( 'Portfolio Page', 'MELON_TXT' ),
+				'type'             => 'select',
+				'show_option_none' => true,
+				'options'          => $this->pages(),
+
+			)
+		);
+
 
 		// Set our CMB2 fields
 		$cmb->add_field(
@@ -55,7 +86,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 		$cmb->add_field(
 			array(
 				'id'       => "portfolio_show_image_count",
-				'name'    => esc_html__( 'Show image count in subtitles', 'MELON_TXT' ),
+				'name'     => esc_html__( 'Show image count in subtitles', 'MELON_TXT' ),
 				'required' => array( 'portfolio_enable_subtitle', '=', '1' ),
 
 				'type'    => 'select',

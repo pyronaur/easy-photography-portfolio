@@ -57,6 +57,21 @@ class Is {
 	}
 
 
+	public function is_portfolio_front_page( $query ) {
+
+		if ( ! is_a( $query, 'WP_Query' ) ) {
+			return false;
+		}
+
+		return ( get_option( 'show_on_front' ) == 'page'
+		         && get_option( 'page_on_front' )
+		         && $query->get( 'page_id' ) == get_option( 'page_on_front' )
+		         && cmp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
+		);
+
+	}
+
+
 	/**
 	 *
 	 *
@@ -86,10 +101,37 @@ class Is {
 
 	protected function set_is_archive( \WP_Query $query ) {
 
+		/**
+		 * domain.com/portfolio/ is a portfolio archive. No doubt, no doubt.
+		 */
 		$result = $query->is_post_type_archive( 'portfolio' );
 
+		if ( $result === true ) {
+			$this->is_archive = $result;
+		}
 
-		$this->is_archive = $result;
+
+		/**
+		 *  Check if current Page is supposed to be an Archive
+		 *  Modify the WP_Query if so:
+		 */
+		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === cmp_get_option( 'portfolio_page', false ) ) {
+			// modify query_vars:
+			$query->set( 'post_type', 'portfolio' );  // override 'post_type'
+			$query->set( 'pagename', NULL );  // override 'pagename'
+			$query->set( 'page_id', '' );  // override 'pagename'
+			$query->set( 'posts_per_page', - 1 );
+
+
+			$query->is_singular = 0;
+			$query->is_page     = 0;
+
+			/**
+			 * Set is_archive
+			 */
+			$this->is_archive = true;
+		}
+
 
 	}
 }
