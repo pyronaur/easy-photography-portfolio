@@ -111,22 +111,8 @@ if ( ! function_exists( "cmp_get_template" ) ) {
 if ( ! function_exists( 'cmp_is_portfolio' ) ) {
 	function cmp_is_portfolio() {
 
-
-		// Check if current page is portfolio
-		if (
-			is_post_type_archive( 'portfolio' )
-			|| is_page_template( 'templates/portfolio.php' )
-			|| is_singular( 'portfolio' )
-
-		) {
-			// Yes
-			return true;
-
-		}
-		else {
-			// No
-			return false;
-		}
+		return CMP_Instance()->is->portfolio();
+		
 
 	}
 }

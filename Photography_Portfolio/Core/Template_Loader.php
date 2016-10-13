@@ -26,17 +26,20 @@ class Template_Loader {
 		}
 
 
+		$portfolio = CMP_Instance();
+
+		
 		/**
 		 * Single Portfolio Entry
 		 */
-		if ( is_single() && 'portfolio' === get_post_type() ) {
+		if ( $portfolio->is->single() ) {
 			return $this->load_file( 'single-portfolio' );
 		}
 
 		/**
 		 * Taxonomies ( Portfolio Categories )
 		 */
-		if ( is_tax( get_object_taxonomies( 'portfolio_category' ) ) ) {
+		if ( $portfolio->is->category() ) {
 
 			$term = get_queried_object();
 
@@ -56,11 +59,7 @@ class Template_Loader {
 		/**
 		 * Full Archive
 		 */
-		if ( is_post_type_archive( 'portfolio' )
-			// WooCommerce does this too:
-			// ||
-			// is_page( wc_get_page_id( 'shop' ) )
-		) {
+		if ( $portfolio->is->archive() ) {
 			return $this->load_file( 'archive-portfolio' );
 		}
 

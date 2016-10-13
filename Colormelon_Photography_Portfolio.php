@@ -1,6 +1,7 @@
 <?php
 
 use Photography_Portfolio\Admin\Options_Page;
+use Photography_Portfolio\Core\Is;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Frontend;
@@ -34,16 +35,22 @@ final class Colormelon_Photography_Portfolio {
 	 * Contains all available portfolio layouts
 	 */
 	public $layouts;
+
+	/**
+	 * @var $is Is
+	 * Determines if portfolio is active
+	 */
+	public $is;
+
+
 	/**
 	 * Colormelon Photography Portfolio Version
 	 *
-	 * @var stringÅ
+	 * @var string
 	 */
 	private $version = '1.0.0';
 	private $post_type;
-
 	private $template_loader;
-
 	private $options = false;
 
 
@@ -58,6 +65,7 @@ final class Colormelon_Photography_Portfolio {
 		$this->define_constants();
 
 		$this->post_type       = new Register_Post_Type();
+		$this->is              = new Is();
 		$this->template_loader = new Template_Loader();
 
 
@@ -78,7 +86,7 @@ final class Colormelon_Photography_Portfolio {
 		if ( is_admin() ) {
 			$this->options = new Options_Page( new Portfolio_Options_Page() );
 		}
-		
+
 		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
 		do_action( 'cmp/loaded', $this );
 

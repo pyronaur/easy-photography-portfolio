@@ -36,9 +36,7 @@ class Frontend {
 			return $classes;
 		}
 
-		if ( is_singular( 'portfolio' ) ||
-		     is_page_template( 'templates/single-portfolio.php' )
-		) {
+		if ( CMP_Instance()->is->single() ) {
 			$classes[] = 'Portfolio--' . cmp_get_layout();
 		}
 
