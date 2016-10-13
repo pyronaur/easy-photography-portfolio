@@ -2,7 +2,7 @@
 
 use Photography_Portfolio\Admin\Options_Page;
 use Photography_Portfolio\Core\Register_Post_Type;
-use Photography_Portfolio\Core\Router;
+use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Frontend;
 use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
@@ -42,7 +42,7 @@ final class Colormelon_Photography_Portfolio {
 	private $version = '1.0.0';
 	private $post_type;
 
-	private $router;
+	private $template_loader;
 
 	private $options = false;
 
@@ -57,8 +57,8 @@ final class Colormelon_Photography_Portfolio {
 
 		$this->define_constants();
 
-		$this->post_type = new Register_Post_Type();
-		$this->router    = new Router();
+		$this->post_type       = new Register_Post_Type();
+		$this->template_loader = new Template_Loader();
 
 
 		// Setup sub-classes

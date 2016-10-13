@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Core;
 
 
-class Router {
+class Template_Loader {
 
 	/**
 	 * Router constructor.
