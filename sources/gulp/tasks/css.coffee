@@ -11,7 +11,9 @@ stylus = require 'gulp-stylus'
 development = ->
 	gulp.src("#{Config.sass.source}/app.styl")
 	.pipe(maps.init())
-	.pipe stylus()
+	.pipe stylus(
+		'include css': true
+	)
 	.on("error", handle_errors)
 	.pipe autoprefixer()
 	.pipe maps.write()

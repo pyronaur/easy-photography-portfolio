@@ -15,3 +15,6 @@ Hooks.addAction 'pp.loaded', ->
 
 # Initialize Masonry Layout
 require './masonry'
+
+# Initialize Popup Gallery
+require './portfolio/popup'

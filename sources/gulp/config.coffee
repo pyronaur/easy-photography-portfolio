@@ -8,8 +8,7 @@ GLOBAL.config =
 	external_libs:
 
 		# Gallery
-		photoswipe: "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe.js"
-		photoswipe_ui: "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe-ui-default.js"
+		lightgallery: "https://raw.githubusercontent.com/sachinchoolur/lightGallery/master/dist/js/lightgallery.js"
 
 		# Essentials
 		fitvids: "https://raw.githubusercontent.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
@@ -18,8 +17,9 @@ GLOBAL.config =
 
 		# Libraries:
 		masonry: "https://raw.githubusercontent.com/desandro/masonry/master/dist/masonry.pkgd.js"
-		packery: "https://raw.githubusercontent.com/metafizzy/packery/master/dist/packery.pkgd.js"
 		imagesLoaded: "https://raw.githubusercontent.com/desandro/imagesloaded/master/imagesloaded.js"
+
+
 
 	# **************************
 	# 	Sass
