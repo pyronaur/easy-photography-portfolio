@@ -9,22 +9,22 @@
  * @var $entry     Photography_Portoflio\Frontend\Layout\Entry\Entry
  */
 ?>
-<div class="PP_Portfolio_Description">
-	<div class="PP_Portfolio_Description__inner">
+<div class="PP_Description">
+	<div class="PP_Description__inner">
 
-		<h1 class="PP_Portfolio_Description__title">
+		<h1 class="PP_Description__title">
 			<?php the_title() ?>
 		</h1>
 
 		<?php if ( $entry->subtitle ): ?>
-			<span class="PP_Portfolio_Description__subtitle"><?= esc_html( $entry->subtitle ); ?></span>
+			<span class="PP_Description__subtitle"><?= esc_html( $entry->subtitle ); ?></span>
 		<?php endif; ?>
 
 		<?php if ( get_the_content() ): ?>
-			<div class="PP_Portfolio_Description__content">
+			<div class="PP_Description__content">
 				<?php the_content(); ?>
-			</div> <!-- .PP_Portfolio_Description__content -->
+			</div> <!-- .PP_Description__content -->
 		<?php endif; ?>
 
-	</div> <!-- .PP_Portfolio_Description__inner -->
-</div> <!-- PP_Portfolio_Description -->
+	</div> <!-- .PP_Description__inner -->
+</div> <!-- PP_Description -->

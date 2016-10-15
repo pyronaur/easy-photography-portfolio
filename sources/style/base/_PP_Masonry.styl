@@ -14,7 +14,7 @@ mason_width( $columns )
 	margin: $masonry_gutter_size
 	calc_sub(100%, $masonry_gutter_size*2)
 
-	img
+	&__thumbnail > img
 		display: block
 		max-width: 100%
 		padding: 0
@@ -50,20 +50,3 @@ mason_width( $columns )
 	&__header
 			margin-top: $p
 			margin-bottom: $p - 0.35rem
-
-
-.masonry-border
-	border-left: 2px solid lightgray
-	position: absolute
-	height: 100%
-	width: 2px
-	left: 33%
-	left: calc(33% - 1.5px)
-	top: $tiny
-
-	&:last-child
-		left: 66%
-		left: calc(66% - 1.5px)
-
-	@media $portable
-		display: none

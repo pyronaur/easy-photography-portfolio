@@ -7,9 +7,9 @@ Item_Data = require( '../lazy/Item_Data' )
 
 get_data = ( el ) ->
 	$el = $( el )
-	$container = $el.closest( '.Portfolio-Gallery' )
+	$container = $el.closest( '.PP_Gallery' )
 
-	$items = $container.find( '.Gallery__item' )
+	$items = $container.find( '.PP_Gallery__item' )
 
 	items = $items.map ( key, item ) ->
 		i = new Item_Data( $( item ) )
@@ -25,7 +25,7 @@ get_data = ( el ) ->
 
 Hooks.addAction 'pp.ready', ->
 
-	$( '.Gallery__item' ).on 'click', ( e ) ->
+	$( '.PP_Gallery__item' ).on 'click', ( e ) ->
 		e.preventDefault()
 
 
@@ -35,7 +35,7 @@ Hooks.addAction 'pp.ready', ->
 		$el.lightGallery
 			dynamic  : true
 			dynamicEl: get_data( this )
-			index    : $( '.Gallery__item' ).index $el
+			index    : $( '.PP_Gallery__item' ).index $el
 			speed    : 350
 			preload  : 3
 			download : false

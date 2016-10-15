@@ -1,2 +1,2 @@
 <?php get_header( 'portfolio' ); ?>
-<div class="hentry page pp-wrapper">
+<div class="hentry page PP_Wrapper">

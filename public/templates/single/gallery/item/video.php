@@ -14,6 +14,6 @@ global $attachment;
 	</a>
 </div>
 
-<div class="Gallery__item--video__wrapper js__video-wrapper">
+<div class="PP_Gallery__item--video__wrapper js__video-wrapper">
 	<?php echo $attachment->get_video(); ?>
 </div>

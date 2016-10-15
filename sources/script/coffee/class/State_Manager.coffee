@@ -12,7 +12,7 @@ class State_Manager
 #		@$win = $( window )
 
 		@$doc.on 'ready', @ready
-		@$doc.find( '.pp-wrapper' ).imagesLoaded( @loaded )
+		@$doc.find( '.PP_Wrapper' ).imagesLoaded( @loaded )
 
 
 	ready: =>
