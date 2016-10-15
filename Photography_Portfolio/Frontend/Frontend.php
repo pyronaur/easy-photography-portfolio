@@ -24,9 +24,9 @@ class Frontend {
 
 		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
 
-		wp_enqueue_style( 'photography-portfolio', $build_directory . '/app.css' );
-		wp_enqueue_script( 'photography-portfolio-libs', $build_directory . '/libs.js' );
-		wp_enqueue_script( 'photography-portfolio', $build_directory . '/app.js', array( 'photography-portfolio-libs', 'underscore' ) );
+		wp_enqueue_style( 'PP-style', $build_directory . '/app.css' );
+		wp_enqueue_script( 'PP-libs', $build_directory . '/libs.js' );
+		wp_enqueue_script( 'PP-app', $build_directory . '/app.js', array( 'PP-libs', 'underscore' ) );
 	}
 
 
@@ -36,14 +36,24 @@ class Frontend {
 			return $classes;
 		}
 
+		// If this is portfolio, add core portfolio class
+		$classes[] = 'PP_Portfolio';
+
+
+		// Single Portfolio
 		if ( CMP_Instance()->is->single() ) {
-			$classes[] = 'Portfolio--' . cmp_get_layout();
+			$classes[] = 'PP_Single';
+			$classes[] = 'PP_Single--' . cmp_get_layout();
 		}
 
-		$classes[] = 'is-portfolio';
+		// Portfolio Archive & Categories
+		if ( CMP_Instance()->is->archive() || CMP_Instance()->is->category() ) {
+			$classes[] = 'PP_Archive';
+			$classes[] = 'PP_Archive--' . cmp_get_layout();
+		}
+
 
 		return $classes;
-
 	}
 
 
