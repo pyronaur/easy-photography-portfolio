@@ -116,7 +116,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'cmp' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'MELON_TXT' ), '2.1' );
 	}
 
 
@@ -125,7 +125,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'cmp' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'MELON_TXT' ), '2.1' );
 	}
 
 
