@@ -49,7 +49,7 @@ if ( ! function_exists( "cmp_get_archive_layout" ) ) {
 	 */
 	function cmp_get_archive_layout() {
 
-		return cmp_get_option( 'portfolio_layout' );
+		return sanitize_html_class( cmp_get_option( 'portfolio_layout' ) );
 	}
 
 }

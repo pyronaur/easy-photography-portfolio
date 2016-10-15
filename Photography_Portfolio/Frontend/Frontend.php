@@ -49,7 +49,7 @@ class Frontend {
 		// Portfolio Archive & Categories
 		if ( CMP_Instance()->is->archive() || CMP_Instance()->is->category() ) {
 			$classes[] = 'PP_Archive';
-			$classes[] = 'PP_Archive--' . cmp_get_layout();
+			$classes[] = 'PP_Archive--' . cmp_get_archive_layout();
 		}
 
 
