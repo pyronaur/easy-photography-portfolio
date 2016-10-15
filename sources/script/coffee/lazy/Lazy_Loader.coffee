@@ -10,6 +10,8 @@ class Lazy_Loader
 	Elements:
 		item       : 'PP_Lazy_Image'
 		placeholder: 'PP_Lazy_Image__placeholder'
+		link : 'PP_JS_Lazy__link'
+		image: 'PP_JS_Lazy__image'
 
 	Items: []
 

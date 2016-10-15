@@ -26,8 +26,8 @@ class Lazy_Masonry extends Lazy_Loader
 
 		item.$el
 		.prepend( """
-				<a href="#{full}" rel="gallery">
-				<img src="#{thumb}" class="is-loading" />
+				<a class="#{@Elements.link}" href="#{full}" rel="gallery">
+				<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
 				</a>
 		""" )
 		.removeClass( 'Lazy-Image' )
@@ -35,12 +35,13 @@ class Lazy_Masonry extends Lazy_Loader
 		item.loaded = true
 		$image = item.$el.find( 'img' )
 		$image.imagesLoaded =>
-			$image.addClass( 'is-loaded' ).removeClass( 'is-loading' )
+
+			$image.addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
 			item.$el
-			.css( 'min-height', '' )
-			.removeClass( @Elements.item )
-			.find( ".#{@Elements.placeholder}" )
-			.fadeOut 400, -> $( this ).remove()
+				.css( 'min-height', '' )
+				.removeClass( @Elements.item )
+				.find( ".#{@Elements.placeholder}" )
+				.fadeOut 400, -> $( this ).remove()
 
 
 
