@@ -1,8 +1,8 @@
 $ = require( 'jQuery' )
-Lazy_Loader = require( './Lazy_Loader' )
+Abstract_Lazy_Loader = require( './Abstract_Lazy_Loader' )
 __WINDOW = require( '../global/Window' )
 
-class Lazy_Masonry extends Lazy_Loader
+class Lazy_Masonry extends Abstract_Lazy_Loader
 
 	constructor: ->
 		@debounced_load_items_in_view = _.debounce( @load_items_in_view, 50 )
@@ -38,10 +38,10 @@ class Lazy_Masonry extends Lazy_Loader
 
 			$image.addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
 			item.$el
-				.css( 'min-height', '' )
-				.removeClass( @Elements.item )
-				.find( ".#{@Elements.placeholder}" )
-				.fadeOut 400, -> $( this ).remove()
+			.css( 'min-height', '' )
+			.removeClass( @Elements.item )
+			.find( ".#{@Elements.placeholder}" )
+			.fadeOut 400, -> $( this ).remove()
 
 
 

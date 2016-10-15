@@ -6,7 +6,7 @@ Hooks = require( "wp_hooks" )
 
     Handles all the events required to fully handle a portfolio layout process
 ###
-class Portfolio_Actions
+class Abstract_Portfolio_Actions
 
 	constructor: ( args ) ->
 		@setup_actions()
@@ -36,4 +36,4 @@ class Portfolio_Actions
 	refresh   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `refresh` method" )
 	destroy   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `destroy` method" )
 
-module.exports = Portfolio_Actions
+module.exports = Abstract_Portfolio_Actions

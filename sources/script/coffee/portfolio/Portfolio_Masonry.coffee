@@ -3,7 +3,7 @@
 ###
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-Portfolio_Actions = require( './../class/Portfolio_Actions' )
+Portfolio_Actions = require( './../class/Abstract_Portfolio_Actions' )
 
 
 class Portfolio_Masonry extends Portfolio_Actions
