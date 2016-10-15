@@ -19,11 +19,10 @@ class Masonry
 
 		@create()
 
-
-	create: =>
+	prepare: =>
 		return if @$container.length is 0
 
-		@$container.addClass( 'is-preparing-masonry' )
+		@$container.addClass( 'PP_JS__loading_masonry' )
 
 		@maybe_create_sizer()
 		Hooks.doAction 'pp.masonry.start/before'
@@ -35,15 +34,17 @@ class Masonry
 			gutter      : 0
 			initLayout  : false
 
-
 		@$container.masonry 'on', 'layoutComplete', =>
-			@$container.removeClass( 'is-preparing-masonry' )
-			Hooks.doAction 'pp.masonry.start/complete'
+				Hooks.doAction 'pp.masonry.start/complete'
+				@$container
+					.removeClass( 'PP_JS__loading_masonry' )
+					.addClass( 'PP_JS__loading_complete' )
 
 
+
+	create: =>
 		@$container.masonry()
 		Hooks.doAction 'pp.masonry.start/layout'
-
 
 		return
 

@@ -3,6 +3,8 @@
 	100% { transform: rotate(360deg); }
 }
 
+.PP_Lazy_Image
+	min-height: 100px
 
 .PP_Lazy_Image__placeholder
 	position: absolute
@@ -10,9 +12,9 @@
 	left: 0
 	height: 100%
 	width: 100%
+	height: calc(100% + 1px)
 	background-color: #f2f2f2
 	border-radius 1px
-
 
 	&:after
 		content: ""

@@ -13,6 +13,12 @@ mason_width( $columns )
 .PP_Masonry
 	margin: $masonry_gutter_size
 	calc_sub(100%, $masonry_gutter_size*2)
+	opacity: 1
+
+	.js &:not(.PP_JS__loading_complete)
+		opacity: 0
+		visibility: hidden
+		transition: opacity 500ms ease
 
 	&__thumbnail > img
 		display: block
@@ -44,7 +50,7 @@ mason_width( $columns )
 
 		@media $palm
 			border-width: 0px
-			margin-bottom: $p/2
+			margin-bottom: $p
 
 
 	&__header
