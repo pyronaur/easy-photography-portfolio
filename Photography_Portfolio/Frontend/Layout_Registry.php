@@ -137,4 +137,9 @@ class Layout_Registry {
 	}
 
 
+	public function get_default( $layout_group ) {
+
+		return key( $this->available_layouts( $layout_group ) );
+	}
+
 }
