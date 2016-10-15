@@ -23,7 +23,7 @@ get_data = ( el ) ->
 	return items
 
 
-Hooks.addAction 'pp.ready', ->
+Hooks.addAction 'pp.core.ready', ->
 
 	$( '.PP_Gallery__item' ).on 'click', ( e ) ->
 		e.preventDefault()

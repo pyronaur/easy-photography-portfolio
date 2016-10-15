@@ -1,6 +1,6 @@
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-Masonry = require( './class/Masonry' )
+Portfolio_Masonry = require( './portfolio/Portfolio_Masonry' )
 Lazy_Masonry = require( './lazy/Lazy_Masonry' )
 
 Hooks.addAction 'pp.masonry.start/before', ->
@@ -15,7 +15,7 @@ Hooks.addAction 'pp.masonry.start/complete', ->
 	Hooks.doAction 'pp.lazy.autoload'
 
 
-Hooks.addAction 'pp.ready', ->
+Hooks.addAction 'pp.core.ready', ->
 	if $( '.PP_Masonry' ).length > 0
-		Hooks.addFilter 'pp.portfolio.handler', -> new Masonry()
+		new Portfolio_Masonry( $(document) )
 

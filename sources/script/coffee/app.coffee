@@ -2,16 +2,15 @@
     Dependencies
 ###
 Hooks = require( "wp_hooks" )
+Core = require( './class/Core' )
 Portfolio = require( './class/Portfolio' )
-State_Manager = require( './class/State_Manager' )
+
 
 # Keep track of App State
-App_State = new State_Manager()
-
+new Core()
 
 # Initialize Portfolio
-Hooks.addAction 'pp.loaded', ->
-	portfolio = new Portfolio()
+Hooks.addAction 'pp.core.ready', ( -> new Portfolio() ), 50
 
 # Initialize Masonry Layout
 require './masonry'

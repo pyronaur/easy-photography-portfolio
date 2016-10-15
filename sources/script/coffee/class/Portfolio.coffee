@@ -1,21 +1,23 @@
 Hooks = require( "wp_hooks" )
 
+###
+
+    # Initialize Portfolio Core
+	---
+		Using p50 @ pp.loaded
+		Late priority is going to force explicit priority in any other moving parts that are going to touch portfolio layout at `pp.loaded`
+	---
+
+###
 class Portfolio
 
 	constructor: ->
-		###
-    		Event Based Portfolio is going to start soon
-		###
-		@handler = Hooks.applyFilters 'pp.portfolio.handler', false
+		Hooks.addAction 'pp.core.loaded', @create, 50
+		@prepare()
 
-		if @handler
-
-			Hooks.addAction 'pp.portfolio.create', @handler.create, 50
-			Hooks.addAction 'pp.portfolio.refresh', @handler.refresh, 50
-			Hooks.addAction 'pp.portfolio.destroy', @handler.destroy, 50
-
-			# Automatically detach when destroying
-			Hooks.addAction 'pp.portfolio.destroy', @auto_destroy, 500
+	prepare: ->
+		Hooks.doAction 'pp.portfolio.prepare'
+		return
 
 	create: ->
 		Hooks.doAction 'pp.portfolio.create'
@@ -30,13 +32,8 @@ class Portfolio
 	destroy: ->
 		# Destroy
 		Hooks.doAction 'pp.portfolio.destroy'
+		Hooks.removeAction 'pp.loaded', @create, 50
 		return
-
-	auto_destroy: ->
-		# Detach Events
-		Hooks.removeAction 'pp.portfolio.create', @handler.create, 50
-		Hooks.removeAction 'pp.portfolio.refresh', @handler.refresh, 50
-		Hooks.removeAction 'pp.portfolio.destroy', @handler.destroy, 50
 
 
 module.exports = Portfolio
