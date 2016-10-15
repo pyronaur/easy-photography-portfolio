@@ -5,6 +5,7 @@ namespace Photography_Portfolio\Frontend\Layout\Entry;
 
 
 use Photography_Portfolio\Frontend\Gallery\Attachment;
+use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 
 
