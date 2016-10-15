@@ -8,7 +8,7 @@ $class = array(
 	'PP_Gallery__item--' . $attachment->type,
 	'PP_Masonry__item',
 	'PP_Lazy_Image',
-	'image-' . $attachment->orientation
+	'image-' . $attachment->orientation,
 );
 
 ?>
@@ -16,6 +16,7 @@ $class = array(
 <figure class="<?php echo implode( "  ", $class ) ?>" <?php $cmp_gallery_data->render(); ?>>
 
 	<?php cmp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
+	<?php cmp_get_template( 'single/gallery/caption' ); ?>
 	<?php cmp_get_template( 'single/gallery/item/noscript' ); ?>
 
 </figure> <!-- .PP_Gallery__item -->
