@@ -8,7 +8,7 @@
 	<?php
 	/**
 	 * Start a loop and load all gallery items
-	 * @loads /single/gallery/loop-item.php
+	 * @load /single/gallery/loop-item.php
 	 */
 	pp_display_gallery();
 	?>
