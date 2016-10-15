@@ -1,5 +1,5 @@
 $site_max_width = 1200px
-$masonry_gutter_size = 12px
+$masonry_gutter_size = 9px
 $masonry_entry_width = $site_max_width / 3
 
 mason_width( $columns )
@@ -11,7 +11,8 @@ mason_width( $columns )
 // Masonry Entries
 //-----------------------------------*/
 .PP_Masonry
-	width: 100%
+	margin: $masonry_gutter_size
+	calc_sub(100%, $masonry_gutter_size*2)
 
 	img
 		display: block
@@ -21,7 +22,7 @@ mason_width( $columns )
 
 	&__item, &__sizer
 		outline: 0
-		width: 33%
+		width: 33.333%
 		cursor: pointer
 
 		//-----------------------------------*/
@@ -49,23 +50,6 @@ mason_width( $columns )
 	&__header
 			margin-top: $p
 			margin-bottom: $p - 0.35rem
-
-		.entry-date
-			text-transform: uppercase
-			font-size: 0.875rem
-			color: gray
-
-		.entry-title
-			font-size: 1.5rem
-			margin-bottom: 0
-
-		.entry-content
-			margin-bottom: $p
-
-			+cf
-			.icon
-				float: right
-
 
 
 .masonry-border

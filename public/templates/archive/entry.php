@@ -30,7 +30,6 @@
 		</h3>
 
 		<?php if ( $entry->subtitle ): ?>
-			<hr class="PP_Hovercard__separator">
 			<h4 class="PP_Hovercard__subtitle"><?php echo esc_html( $entry->subtitle ); ?></h4>
 		<?php endif; ?>
 
