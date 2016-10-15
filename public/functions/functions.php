@@ -47,8 +47,8 @@ function cmp_get_class( $class = NULL, $post_id = NULL ) {
 		$classes = array_map( 'esc_attr', $class );
 	}
 
-	// Add Gallery--{{type}} to class
-	$classes[] = 'Gallery--' . cmp_get_layout( $post_id );
+	// Add PP_Gallery--{{type}} to class
+	$classes[] = 'PP_Gallery--' . cmp_get_layout( $post_id );
 
 	$classes = array_map( 'esc_attr', $classes );
 
