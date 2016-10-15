@@ -34,7 +34,7 @@ if ( ! function_exists( "cmp_get_layout" ) ) {
 	 */
 	function cmp_get_layout() {
 
-		return cmp_get_option( 'single_portfolio_layout' );
+		return sanitize_html_class( cmp_get_option( 'single_portfolio_layout' ) );
 	}
 
 }
