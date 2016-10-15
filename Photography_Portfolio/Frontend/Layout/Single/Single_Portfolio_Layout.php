@@ -62,18 +62,18 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	 */
 	public function display_gallery() {
 
-		global $cmp_gallery_data;
+		global $pp_gallery_data;
 		global $attachment;
 
 		foreach ( Gallery::get_all( $this->id ) as $attachment ) {
 
-			$cmp_gallery_data = $this->setup_item_data( $attachment );
+			$pp_gallery_data = $this->setup_item_data( $attachment );
 			$this->get( 'single/gallery/loop-item' );
 
 		}
 
 		// Don't pollute global scope. Remove the variables after we're done.
-		unset( $attachment, $cmp_gallery_data );
+		unset( $attachment, $pp_gallery_data );
 	}
 
 

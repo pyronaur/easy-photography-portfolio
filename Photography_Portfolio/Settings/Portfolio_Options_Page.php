@@ -56,7 +56,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 				'name'    => esc_html__( 'Portfolio Archive Layout', 'MELON_TXT' ),
 				'id'      => 'portfolio_layout',
 				'type'    => 'select',
-				'options' => CMP_Instance()->layouts->available_layouts( 'archive' ),
+				'options' => PP_Instance()->layouts->available_layouts( 'archive' ),
 
 			)
 		);
@@ -66,7 +66,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 				'name'    => esc_html__( 'Single Portfolio Layout', 'MELON_TXT' ),
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
-				'options' => CMP_Instance()->layouts->available_layouts( 'single' ),
+				'options' => PP_Instance()->layouts->available_layouts( 'single' ),
 
 			)
 		);

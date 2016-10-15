@@ -63,4 +63,4 @@ require_once __DIR__ . '/cmb2.php';
 /**
  * Boot Colormelon_Photography_Portfolio
  */
-CMP_Instance();
+PP_Instance();

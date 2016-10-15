@@ -11,8 +11,8 @@ class Options_Page {
 	protected $title        = '';
 	protected $options_page = '';
 
-	private $key        = 'cmp_options';
-	private $metabox_id = 'cmp_options_metabox';
+	private $key        = 'pp_options';
+	private $metabox_id = 'pp_options_metabox';
 
 	private $settings;
 

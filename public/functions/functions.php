@@ -24,7 +24,7 @@
  * -- Initialize Portfolio
  *
  */
-function CMP_Instance() {
+function PP_Instance() {
 
 	return Colormelon_Photography_Portfolio::instance();
 }
@@ -36,7 +36,7 @@ function CMP_Instance() {
  *
  */
 
-function cmp_get_class( $class = NULL, $post_id = NULL ) {
+function pp_get_class( $class = NULL, $post_id = NULL ) {
 
 	$classes = array();
 
@@ -48,7 +48,7 @@ function cmp_get_class( $class = NULL, $post_id = NULL ) {
 	}
 
 	// Add PP_Gallery--{{type}} to class
-	$classes[] = 'PP_Gallery--' . cmp_get_layout( $post_id );
+	$classes[] = 'PP_Gallery--' . pp_get_layout( $post_id );
 
 	$classes = array_map( 'esc_attr', $classes );
 
@@ -56,31 +56,31 @@ function cmp_get_class( $class = NULL, $post_id = NULL ) {
 }
 
 
-function cmp_class( $class = NULL, $post_id = NULL ) {
+function pp_class( $class = NULL, $post_id = NULL ) {
 
 	// Separates classes with a double space, collates classes for post DIV
-	echo 'class="' . join( '  ', cmp_get_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( '  ', pp_get_class( $class, $post_id ) ) . '"';
 }
 
 
-if ( ! function_exists( "cmp_display_archive" ) ) {
-	function cmp_display_archive() {
+if ( ! function_exists( "pp_display_archive" ) ) {
+	function pp_display_archive() {
 
 		Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
 	}
 }
 
 
-if ( ! function_exists( "cmp_display_single_portfolio" ) ) {
-	function cmp_display_single_portfolio() {
+if ( ! function_exists( "pp_display_single_portfolio" ) ) {
+	function pp_display_single_portfolio() {
 
 		Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
 	}
 }
 
 
-if ( ! function_exists( "cmp_display_gallery" ) ) {
-	function cmp_display_gallery() {
+if ( ! function_exists( "pp_display_gallery" ) ) {
+	function pp_display_gallery() {
 
 		global $cm_portfolio;
 
@@ -88,8 +88,8 @@ if ( ! function_exists( "cmp_display_gallery" ) ) {
 	}
 }
 
-if ( ! function_exists( "cmp_display_entry" ) ) {
-	function cmp_display_entry( $post_id ) {
+if ( ! function_exists( "pp_display_entry" ) ) {
+	function pp_display_entry( $post_id ) {
 
 		global $cm_portfolio;
 
@@ -98,8 +98,8 @@ if ( ! function_exists( "cmp_display_entry" ) ) {
 }
 
 
-if ( ! function_exists( "cmp_get_template" ) ) {
-	function cmp_get_template( $name ) {
+if ( ! function_exists( "pp_get_template" ) ) {
+	function pp_get_template( $name ) {
 
 		global $cm_portfolio;
 
@@ -108,11 +108,11 @@ if ( ! function_exists( "cmp_get_template" ) ) {
 }
 
 
-if ( ! function_exists( 'cmp_is_portfolio' ) ) {
-	function cmp_is_portfolio() {
+if ( ! function_exists( 'pp_is_portfolio' ) ) {
+	function pp_is_portfolio() {
 
-		return CMP_Instance()->is->portfolio();
-		
+		return PP_Instance()->is->portfolio();
+
 
 	}
 }

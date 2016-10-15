@@ -8,9 +8,9 @@
  * @TODO:
  *      Create user friendly functions to access common template values.
  *      For example:
- *          `cmp_subtitle()` instead of  `$entry->subtitle`
+ *          `pp_subtitle()` instead of  `$entry->subtitle`
  *                               and/or
- *          `cmp_data()` instead `of $entry->data_render`
+ *          `pp_data()` instead `of $entry->data_render`
  *
  */
 ?>

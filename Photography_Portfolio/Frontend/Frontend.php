@@ -43,7 +43,7 @@ class Frontend {
 
 	public function adjust_body_class( $classes ) {
 
-		if ( ! cmp_is_portfolio() ) {
+		if ( ! pp_is_portfolio() ) {
 			return $classes;
 		}
 
@@ -52,15 +52,15 @@ class Frontend {
 
 
 		// Single Portfolio
-		if ( CMP_Instance()->is->single() ) {
+		if ( PP_Instance()->is->single() ) {
 			$classes[] = 'PP_Single';
-			$classes[] = 'PP_Single--' . cmp_get_layout();
+			$classes[] = 'PP_Single--' . pp_get_layout();
 		}
 
 		// Portfolio Archive & Categories
-		if ( CMP_Instance()->is->archive() || CMP_Instance()->is->category() ) {
+		if ( PP_Instance()->is->archive() || PP_Instance()->is->category() ) {
 			$classes[] = 'PP_Archive';
-			$classes[] = 'PP_Archive--' . cmp_get_archive_layout();
+			$classes[] = 'PP_Archive--' . pp_get_archive_layout();
 		}
 
 

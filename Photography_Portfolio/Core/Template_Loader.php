@@ -26,7 +26,7 @@ class Template_Loader {
 		}
 
 
-		$portfolio = CMP_Instance();
+		$portfolio = PP_Instance();
 
 		
 		/**

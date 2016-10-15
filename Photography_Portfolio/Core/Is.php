@@ -66,7 +66,7 @@ class Is {
 		return ( get_option( 'show_on_front' ) == 'page'
 		         && get_option( 'page_on_front' )
 		         && $query->get( 'page_id' ) == get_option( 'page_on_front' )
-		         && cmp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
+		         && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
 		);
 
 	}
@@ -115,7 +115,7 @@ class Is {
 		 *  Check if current Page is supposed to be an Archive
 		 *  Modify the WP_Query if so:
 		 */
-		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === cmp_get_option( 'portfolio_page', false ) ) {
+		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === pp_get_option( 'portfolio_page', false ) ) {
 			// modify query_vars:
 			$query->set( 'post_type', 'portfolio' );  // override 'post_type'
 			$query->set( 'pagename', NULL );  // override 'pagename'

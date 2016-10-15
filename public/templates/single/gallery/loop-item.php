@@ -1,6 +1,6 @@
 <?php
 
-global $cmp_gallery_data, $attachment;
+global $pp_gallery_data, $attachment;
 
 
 $class = array(
@@ -13,10 +13,10 @@ $class = array(
 
 ?>
 
-<figure class="<?php echo implode( "  ", $class ) ?>" <?php $cmp_gallery_data->render(); ?>>
+<figure class="<?php echo implode( "  ", $class ) ?>" <?php $pp_gallery_data->render(); ?>>
 
-	<?php cmp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
-	<?php cmp_get_template( 'single/gallery/caption' ); ?>
-	<?php cmp_get_template( 'single/gallery/item/noscript' ); ?>
+	<?php pp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
+	<?php pp_get_template( 'single/gallery/caption' ); ?>
+	<?php pp_get_template( 'single/gallery/item/noscript' ); ?>
 
 </figure> <!-- .PP_Gallery__item -->

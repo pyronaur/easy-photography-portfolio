@@ -1,7 +1,7 @@
 <?php
 
 
-if ( ! function_exists( "cmp_get_option" ) ) {
+if ( ! function_exists( "pp_get_option" ) ) {
 	/**
 	 * Easy way to get option values
 	 *
@@ -10,7 +10,7 @@ if ( ! function_exists( "cmp_get_option" ) ) {
 	 *
 	 * @return mixed|null
 	 */
-	function cmp_get_option( $option, $default = NULL ) {
+	function pp_get_option( $option, $default = NULL ) {
 
 
 		/**
@@ -20,7 +20,7 @@ if ( ! function_exists( "cmp_get_option" ) ) {
 		 * Filters have been touched if `apply_filters()` returns anything else than `[undefined]`
 		 * In that case, return that value
 		 */
-		$value = apply_filters( 'cmp_option_' . $option, '[undefined]', $default );
+		$value = apply_filters( 'pp_option_' . $option, '[undefined]', $default );
 		if ( $value !== '[undefined]' ) {
 			return $value;
 		}
@@ -41,7 +41,7 @@ if ( ! function_exists( "cmp_get_option" ) ) {
 		 * Priority #3: `cmb2_get_option()`
 		 * Get the option from wordpress options
 		 */
-		$value = cmb2_get_option( 'cmp_options', $option );
+		$value = cmb2_get_option( 'pp_options', $option );
 
 		if ( ! $value && $default !== NULL ) {
 			return $default;
@@ -54,31 +54,31 @@ if ( ! function_exists( "cmp_get_option" ) ) {
 }
 
 
-if ( ! function_exists( "cmp_get_layout" ) ) {
+if ( ! function_exists( "pp_get_layout" ) ) {
 
 	/**
 	 *
 	 * Get current layout name
 	 *
 	 */
-	function cmp_get_layout() {
+	function pp_get_layout() {
 
-		return sanitize_html_class( cmp_get_option( 'single_portfolio_layout' ) );
+		return sanitize_html_class( pp_get_option( 'single_portfolio_layout' ) );
 	}
 
 }
 
 
-if ( ! function_exists( "cmp_get_archive_layout" ) ) {
+if ( ! function_exists( "pp_get_archive_layout" ) ) {
 
 	/**
 	 *
 	 * Get current layout name
 	 *
 	 */
-	function cmp_get_archive_layout() {
+	function pp_get_archive_layout() {
 
-		return sanitize_html_class( cmp_get_option( 'portfolio_layout' ) );
+		return sanitize_html_class( pp_get_option( 'portfolio_layout' ) );
 	}
 
 }
