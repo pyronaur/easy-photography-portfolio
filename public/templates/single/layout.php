@@ -1,4 +1,9 @@
 <?php
+/*
+ * Generic Single Portfolio View
+ * @since 1.0.0
+ * @modified 1.0.0
+ */
 
 while ( have_posts() ) : the_post();
 

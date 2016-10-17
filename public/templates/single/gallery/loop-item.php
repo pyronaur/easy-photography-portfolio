@@ -1,4 +1,9 @@
 <?php
+/*
+ * Gallery Loop Item
+ * @since 1.0.0
+ * @modified 1.0.0
+ */
 
 global $pp_gallery_data, $attachment;
 

@@ -1,4 +1,10 @@
 <?php
+/*
+ * Gallery Loop
+ * @since 1.0.0
+ * @modified 1.0.0
+ */
+
 /**
  * @TODO: Move `PP_Masonry`
  */

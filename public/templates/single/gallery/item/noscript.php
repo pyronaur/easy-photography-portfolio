@@ -1,4 +1,9 @@
 <?php
+/*
+ * Gallery Item Type: Noscript Fallback
+ * @since 1.0.0
+ * @modified 1.0.0
+ */
 /**
  * @var \Photography_Portfolio\Frontend\Gallery\Attachment $attachment
  */
