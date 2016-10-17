@@ -101,7 +101,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		set_query_var( 'entry', $entry );
 
 		// Get the template
-		$this->get( 'single/single' );
+		$this->get( 'single/layout' );
 
 	}
 
