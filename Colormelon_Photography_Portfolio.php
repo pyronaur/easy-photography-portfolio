@@ -1,13 +1,11 @@
 <?php
 
 use Photography_Portfolio\Admin\Options_Page;
+use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Is;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Frontend;
-use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout;
-use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
-use Photography_Portfolio\Frontend\Layout\Single\Packery\Single_Packery_layout;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Settings\Portfolio_Options_Page;
 
@@ -70,21 +68,20 @@ final class Colormelon_Photography_Portfolio {
 
 
 		// Setup sub-classes
-		$this->layouts = new Layout_Registry();
-
+		// Register Layouts
+		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
 		// Initialize & Configure
 		$this->init_hooks();
-		$this->register_layouts();
-
 
 		/**
 		 * Boot Front-end
 		 */
-		new Frontend();
-
 		if ( is_admin() ) {
 			$this->options = new Options_Page( new Portfolio_Options_Page() );
+		}
+		else {
+			new Frontend();
 		}
 
 		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
@@ -149,48 +146,6 @@ final class Colormelon_Photography_Portfolio {
 
 		define( 'CLM_THEME_PATH', 'portfolio/' );
 		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
-
-	}
-
-
-	/**
-	 *
-	 */
-	private function register_layouts() {
-
-
-		/**
-		 * Portfolio Archive
-		 */
-		$this->layouts->add(
-
-			Archive_Masonry_Hovercard_Layout::class,
-			'archive',
-			'masonry-hovercard',
-			esc_html__( 'Masonry with hover', 'MELON_TXT' )
-
-		);
-
-		/**
-		 * Single Portfolio
-		 */
-		$this->layouts->add(
-
-			Single_Masonry_Layout::class,
-			'single',
-			'masonry',
-			esc_html__( 'Masonry', 'MELON_TXT' )
-
-		);
-
-		$this->layouts->add(
-
-			Single_Packery_layout::class,
-			'single',
-			'packery',
-			esc_html__( 'Cropped Masonry', 'MELON_TXT' )
-
-		);
 
 	}
 

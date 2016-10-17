@@ -71,6 +71,7 @@ abstract class Layout_Factory {
 	public static function display( $layout_slug = NULL, $query = NULL ) {
 
 		if ( ! $query ) {
+
 			global $wp_query;
 			$query = $wp_query;
 
