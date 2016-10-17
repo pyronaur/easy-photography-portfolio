@@ -18,59 +18,13 @@ class Template_Loader {
 			return $template;
 		}
 
-
 		/**
-		 * Get main instance
+		 * Load wrapper if this is portfolio
 		 */
-		$portfolio = PP_Instance();
+		if ( PP_Instance()->query->is_portfolio() ) {
 
+			return Template::locate( [ 'wrapper.php', 'photography-portfolio.php' ] );
 
-		/**
-		 * If current page load isn't portfolio - don't bother.
-		 */
-		if ( ! $portfolio->query->is_portfolio() ) {
-			return $template; // exit
-		}
-
-
-		/**
-		 * Single Portfolio Entry
-		 *
-		 * @loads single-portfolio.php
-		 */
-		if ( $portfolio->query->is_single() ) {
-			return Template::locate( 'single-portfolio.php' );
-		}
-
-
-		/**
-		 * Taxonomies ( Portfolio Categories )
-		 *
-		 * @loads taxonomy-{term}.php
-		 * @loads archive-portfolio.php
-		 */
-		if ( $portfolio->query->is_category() ) {
-
-			$files = [ ];
-			$term  = get_queried_object();
-
-			if ( is_tax( 'portfolio_category' ) ) {
-				$files[] = 'taxonomy-' . $term->taxonomy . '.php';
-			}
-			$files[] = 'archive-portfolio.php';
-
-			return Template::locate( $files );
-
-
-		}
-
-		/**
-		 * Archive
-		 *
-		 * @loads archive-portfolio.php
-		 */
-		if ( $portfolio->query->is_archive() ) {
-			return Template::locate( 'archive-portfolio.php' );
 		}
 
 

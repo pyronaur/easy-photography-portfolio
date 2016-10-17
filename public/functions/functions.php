@@ -1,4 +1,6 @@
 <?php
+use Photography_Portfolio\Frontend\Layout\View;
+
 /**
  *
  *
@@ -62,6 +64,13 @@ function pp_class( $class = NULL, $post_id = NULL ) {
 	echo 'class="' . join( '  ', pp_get_class( $class, $post_id ) ) . '"';
 }
 
+
+if ( ! function_exists( "pp_load_view" ) ) {
+	function pp_load_view() {
+
+		View::load();
+	}
+}
 
 if ( ! function_exists( "pp_archive_layout" ) ) {
 
