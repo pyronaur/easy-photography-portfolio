@@ -63,16 +63,26 @@ function pp_class( $class = NULL, $post_id = NULL ) {
 }
 
 
-if ( ! function_exists( "pp_display_archive" ) ) {
-	function pp_display_archive() {
+if ( ! function_exists( "pp_archive_layout" ) ) {
+
+	/**
+	 * Start a loop and load all gallery items
+	 * @load /archive/layout.php
+	 */
+	function pp_archive_layout() {
 
 		Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
 	}
 }
 
 
-if ( ! function_exists( "pp_display_single_portfolio" ) ) {
-	function pp_display_single_portfolio() {
+if ( ! function_exists( "pp_single_layout" ) ) {
+
+	/**
+	 * Start a loop and load all gallery items
+	 * @load /single/layout.php
+	 */
+	function pp_single_layout() {
 
 		Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
 	}

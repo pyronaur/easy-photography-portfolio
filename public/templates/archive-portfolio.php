@@ -9,7 +9,7 @@ do_action( 'cmp/wrapper/start' );
  * Start a loop and load all gallery items
  * @load /archive/layout.php
  */
-pp_display_archive();
+pp_archive_layout();
 
 
 /**
