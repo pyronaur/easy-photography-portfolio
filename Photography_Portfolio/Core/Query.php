@@ -46,10 +46,13 @@ class Query {
 
 	public function set_variables( \WP_Query $query ) {
 
+		if ( ! $query->is_main_query() ) {
+			return;
+		}
+
 		$this->set_is_archive( $query );
 		$this->set_is_category( $query );
 		$this->set_is_single( $query );
-
 	}
 
 
@@ -70,7 +73,7 @@ class Query {
 		 *  Modify the WP_Query if so:
 		 */
 		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === pp_get_option( 'portfolio_page', false ) ) {
-			
+
 			// modify query_vars:
 			$query->set( 'post_type', 'portfolio' );  // override 'post_type'
 			$query->set( 'pagename', NULL );  // override 'pagename'
