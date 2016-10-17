@@ -4,6 +4,10 @@
 namespace Photography_Portfolio\Frontend;
 
 
+use Photography_Portfolio\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Layout;
+use Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Layout;
+
 abstract class Layout_Factory {
 	protected $layout_slug;
 	protected $query;
@@ -18,31 +22,12 @@ abstract class Layout_Factory {
 	}
 
 
-	abstract function find_slug();
-
-
-	abstract function get_layout_class( $layout_slug );
-
-
-	public function set_slug( $layout_slug = NULL ) {
-
-		if ( ! $layout_slug ) {
-			$layout_slug = $this->find_slug();
-		}
-		$this->layout_slug = $layout_slug;
-
-		return $this;
-	}
-
-
 	/**
-	 * @param \WP_Query $query
-	 * @param string    $layout_slug
-	 *
-	 *
 	 * Method to display a layout
 	 *
-	 *
+	 * @var             $cm_portfolio Layout_Factory_Interface instance
+	 * @see Single_Portfolio_Layout
+	 * @see Archive_Portfolio_Layout
 	 */
 	public function load() {
 
@@ -59,6 +44,10 @@ abstract class Layout_Factory {
 	}
 
 
+	/**
+	 * Create a layout instance
+	 * @return Layout_Factory_Interface instance
+	 */
 	public function create_layout_instance() {
 
 		$layout_class = $this->get_layout_class( $this->layout_slug );
@@ -68,6 +57,17 @@ abstract class Layout_Factory {
 	}
 
 
+	abstract function get_layout_class( $layout_slug );
+
+
+	/**
+	 * Render the layout
+	 *
+	 * @param (optional) $layout_slug
+	 * @param (optional) $query
+	 *
+	 * @return static
+	 */
 	public static function display( $layout_slug = NULL, $query = NULL ) {
 
 		if ( ! $query ) {
@@ -85,6 +85,34 @@ abstract class Layout_Factory {
 
 		return $factory;
 	}
+
+
+	/**
+	 * Set and store the layout slug
+	 *
+	 * @uses $this->find_slug()
+	 *
+	 * @param null $layout_slug (optional)
+	 *
+	 * @return $this
+	 */
+	public function set_slug( $layout_slug = NULL ) {
+
+		if ( ! $layout_slug ) {
+			$layout_slug = $this->find_slug();
+		}
+		$this->layout_slug = $layout_slug;
+
+		return $this;
+	}
+
+
+	/**
+	 * Get the layout slug
+	 * For example "masonry-hovercard" for single-portfolio entries or "masonry" for archives
+	 * @return string slug
+	 */
+	abstract function find_slug();
 
 
 }
