@@ -39,7 +39,6 @@ abstract class Layout_Factory {
 	 * @param \WP_Query $query
 	 * @param string    $layout_slug
 	 *
-	 * @return Archive_Portfolio_Layout
 	 *
 	 * Method to display a layout
 	 *
