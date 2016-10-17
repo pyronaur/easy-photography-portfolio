@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Core;
 
 
-class Is {
+class Query {
 
 	protected $is_archive;
 	protected $is_single;
@@ -20,29 +20,25 @@ class Is {
 	}
 
 
-	public
-	function portfolio() {
+	public function is_portfolio() {
 
 		return ( $this->is_archive || $this->is_single || $this->is_category );
 	}
 
 
-	public
-	function single() {
+	public function is_single() {
 
 		return $this->is_single;
 	}
 
 
-	public
-	function archive() {
+	public function is_archive() {
 
 		return $this->is_archive;
 	}
 
 
-	public
-	function category() {
+	public function is_category() {
 
 		return $this->is_category;
 	}
@@ -54,48 +50,6 @@ class Is {
 		$this->set_is_category( $query );
 		$this->set_is_single( $query );
 
-	}
-
-
-	public function is_portfolio_front_page( $query ) {
-
-		if ( ! is_a( $query, 'WP_Query' ) ) {
-			return false;
-		}
-
-		return ( get_option( 'show_on_front' ) == 'page'
-		         && get_option( 'page_on_front' )
-		         && $query->get( 'page_id' ) == get_option( 'page_on_front' )
-		         && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
-		);
-
-	}
-
-
-	/**
-	 *
-	 *
-	 * Private Functions
-	 *
-	 *
-	 */
-
-	protected function set_is_single( \WP_Query $query ) {
-
-		$result = $query->is_single() && 'portfolio' === $query->get( 'post_type' );
-
-
-		$this->is_single = $result;
-
-	}
-
-
-	protected function set_is_category( \WP_Query $query ) {
-
-		$result = $query->is_tax( get_object_taxonomies( 'portfolio_category' ) );
-
-
-		$this->is_category = $result;
 	}
 
 
@@ -132,6 +86,48 @@ class Is {
 			$this->is_archive = true;
 		}
 
+
+	}
+
+
+	protected function set_is_category( \WP_Query $query ) {
+
+		$result = $query->is_tax( get_object_taxonomies( 'portfolio_category' ) );
+
+
+		$this->is_category = $result;
+	}
+
+
+	/**
+	 *
+	 *
+	 * Private Functions
+	 *
+	 *
+	 */
+
+	protected function set_is_single( \WP_Query $query ) {
+
+		$result = $query->is_single() && 'portfolio' === $query->get( 'post_type' );
+
+
+		$this->is_single = $result;
+
+	}
+
+
+	public function is_portfolio_front_page( $query ) {
+
+		if ( ! is_a( $query, 'WP_Query' ) ) {
+			return false;
+		}
+
+		return ( get_option( 'show_on_front' ) == 'page'
+		         && get_option( 'page_on_front' )
+		         && $query->get( 'page_id' ) == get_option( 'page_on_front' )
+		         && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
+		);
 
 	}
 }

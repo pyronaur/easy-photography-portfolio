@@ -2,7 +2,7 @@
 
 use Photography_Portfolio\Admin\Options_Page;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
-use Photography_Portfolio\Core\Is;
+use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Frontend;
@@ -31,7 +31,7 @@ final class Colormelon_Photography_Portfolio {
 	public $layouts;
 
 	/**
-	 * @var $query Is
+	 * @var $query Query
 	 * Determines if portfolio is active
 	 */
 	public $query;
@@ -61,7 +61,7 @@ final class Colormelon_Photography_Portfolio {
 
 		// Initialize Core
 		$this->post_type       = new Register_Post_Type();
-		$this->query           = new Is();
+		$this->query           = new Query();
 		$this->template_loader = new Template_Loader();
 
 

@@ -32,14 +32,14 @@ class Template_Loader {
 		/**
 		 * Single Portfolio Entry
 		 */
-		if ( $portfolio->is->single() ) {
+		if ( $portfolio->query->is_single() ) {
 			return $this->load_file( 'single-portfolio' );
 		}
 
 		/**
 		 * Taxonomies ( Portfolio Categories )
 		 */
-		if ( $portfolio->is->category() ) {
+		if ( $portfolio->query->is_category() ) {
 
 			$term = get_queried_object();
 
@@ -59,7 +59,7 @@ class Template_Loader {
 		/**
 		 * Full Archive
 		 */
-		if ( $portfolio->is->archive() ) {
+		if ( $portfolio->query->is_archive() ) {
 			return $this->load_file( 'archive-portfolio' );
 		}
 

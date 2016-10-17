@@ -121,7 +121,7 @@ if ( ! function_exists( "pp_get_template" ) ) {
 if ( ! function_exists( 'pp_is_portfolio' ) ) {
 	function pp_is_portfolio() {
 
-		return PP_Instance()->is->portfolio();
+		return PP_Instance()->query->is_portfolio();
 
 
 	}
