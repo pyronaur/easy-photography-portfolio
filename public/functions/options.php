@@ -55,14 +55,14 @@ if ( ! function_exists( "pp_get_option" ) ) {
 }
 
 
-if ( ! function_exists( "pp_get_layout" ) ) {
+if ( ! function_exists( "pp_get_single_slug" ) ) {
 
 	/**
 	 *
-	 * Get current layout name
+	 * Get single layout slug
 	 *
 	 */
-	function pp_get_layout() {
+	function pp_get_single_slug() {
 
 		return sanitize_html_class(
 			pp_get_option( 'single_portfolio_layout', PP_Instance()->layouts->get_default( 'single' ) )
@@ -72,14 +72,14 @@ if ( ! function_exists( "pp_get_layout" ) ) {
 }
 
 
-if ( ! function_exists( "pp_get_archive_layout" ) ) {
+if ( ! function_exists( "pp_get_archive_slug" ) ) {
 
 	/**
 	 *
-	 * Get current layout name
+	 * Get archive layout slug
 	 *
 	 */
-	function pp_get_archive_layout() {
+	function pp_get_archive_slug() {
 
 		return sanitize_html_class(
 			pp_get_option( 'portfolio_layout', PP_Instance()->layouts->get_default( 'archive' ) )

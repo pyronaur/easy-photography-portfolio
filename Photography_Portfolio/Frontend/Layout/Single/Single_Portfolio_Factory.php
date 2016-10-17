@@ -11,7 +11,7 @@ class Single_Portfolio_Factory extends Layout_Factory {
 
 	function find_slug() {
 
-		return pp_get_layout();
+		return pp_get_single_slug();
 	}
 
 
