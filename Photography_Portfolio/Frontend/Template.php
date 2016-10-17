@@ -8,21 +8,20 @@ class Template {
 
 	public static function get( $slug, $name = NULL ) {
 
-		$template = false;
+		$search = array();
 
-
-		/**
-		 * Try to look for slug-name.php first
-		 */
+		// Only include slug-name.php if `name` is set ( avoid loading `slug-.php` )
 		if ( $name ) {
-			$template = self::locate_template( "{$slug}-{$name}.php" );
+			$search[] = "{$slug}-{$name}.php";
 		}
 
-		if ( ! $template ) {
-			$template = self::locate_template( "{$slug}.php" );
-		}
+		// Always fall back on slug.php
+		$search[] = "{$slug}.php";
 
-		// Allow 3rd party plugins to filter template file from their plugin.
+		// Search for the template file
+		$template = self::locate_by_array( $search );
+
+		// Allow 3rd party plugins to modify the tempalte path
 		$template = apply_filters( 'cmp/template/get', $template, $slug, $name );
 
 		/**
@@ -35,7 +34,22 @@ class Template {
 	}
 
 
-	public static function locate_template( $filename ) {
+	public static function locate_by_array( $filenames ) {
+
+		$filenames = array_unique( $filenames );
+		$found     = false;
+
+		foreach ( $filenames as $filename ) {
+			if ( $found = self::locate_by_filename( $filename ) ) {
+				break;
+			}
+		}
+
+		return $found;
+	}
+
+
+	public static function locate_by_filename( $filename ) {
 
 		$debug_mode = false;
 		$template   = false;
@@ -51,6 +65,37 @@ class Template {
 		}
 
 		return $template;
+	}
+
+
+	public static function locate( $files ) {
+
+		/**
+		 * Find template by array of filenames
+		 */
+		if ( is_array( $files ) ) {
+			$located = self::locate_by_array( $files );
+		}
+
+		/**
+		 * Find template by string
+		 */
+		else {
+			$located = self::locate_by_filename( $files );
+		}
+
+		/*
+		 * Fallback, in case both locators above failed
+		 */
+		if ( ! $located ) {
+			$located = self::locate_by_array( array( 'photography-portfolio.php', 'index.php' ) );
+		}
+
+
+		/**
+		 * Return the located template path
+		 */
+		return $located;
 	}
 
 }
