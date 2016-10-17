@@ -69,6 +69,10 @@ final class Colormelon_Photography_Portfolio {
 		// Register Layouts
 		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
+
+		// Initialize Hooks
+		$this->hooks();
+
 		/**
 		 * == Boot ==
 		 * Either the front or backend
@@ -98,6 +102,16 @@ final class Colormelon_Photography_Portfolio {
 
 		define( 'CLM_THEME_PATH', 'portfolio/' );
 		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
+
+	}
+
+
+	public function hooks() {
+
+		/*
+		 * Load Photography Portfolio templates when needed:
+		 */
+		add_filter( 'template_include', array( Template_Loader::class, 'load' ) );
 
 	}
 

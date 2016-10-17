@@ -6,17 +6,8 @@ namespace Photography_Portfolio\Core;
 
 class Template_Loader {
 
-	/**
-	 * Router constructor.
-	 */
-	public function __construct() {
 
-		//		add_action( 'template_redirect', array( $this, 'template_loader' ) );
-		add_filter( 'template_include', array( $this, 'template_loader' ) );
-	}
-
-
-	public function template_loader( $template ) {
+	public static function load( $template ) {
 
 		/**
 		 * Exceptions
@@ -28,12 +19,12 @@ class Template_Loader {
 
 		$portfolio = PP_Instance();
 
-		
+
 		/**
 		 * Single Portfolio Entry
 		 */
 		if ( $portfolio->query->is_single() ) {
-			return $this->load_file( 'single-portfolio' );
+			return self::load_file( 'single-portfolio' );
 		}
 
 		/**
@@ -50,7 +41,7 @@ class Template_Loader {
 				$file = 'archive-product';
 			}
 
-			return $this->load_file( $file );
+			return self::load_file( $file );
 
 
 		}
@@ -60,7 +51,7 @@ class Template_Loader {
 		 * Full Archive
 		 */
 		if ( $portfolio->query->is_archive() ) {
-			return $this->load_file( 'archive-portfolio' );
+			return self::load_file( 'archive-portfolio' );
 		}
 
 		/**
@@ -71,7 +62,7 @@ class Template_Loader {
 	}
 
 
-	public function load_file( $filename ) {
+	public static function load_file( $filename ) {
 
 		$files = array( 'photography-portfolio.php' );
 
@@ -81,12 +72,12 @@ class Template_Loader {
 		$files[] = CLM_THEME_PATH . $full_filename;
 
 
-		return $this->locate_template( $files, $full_filename );
+		return self::locate_template( $files, $full_filename );
 
 	}
 
 
-	public function locate_template( $files, $full_filename ) {
+	public static function locate_template( $files, $full_filename ) {
 
 		/**
 		 * Look for template in theme folder
