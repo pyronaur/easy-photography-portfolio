@@ -5,8 +5,7 @@
  * @var $portfolio Photography_Portoflio\Frontend\Layout\Single\Single_Portfolio_Layout
  * @var $entry     Photography_Portoflio\Frontend\Layout\Entry\Entry
  *
- * @TODO:
- *      Create user friendly functions to access common template values.
+ * @TODO: Create user friendly functions to access common template values.
  *      For example:
  *          `pp_subtitle()` instead of  `$entry->subtitle`
  *                               and/or
