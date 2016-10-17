@@ -10,24 +10,20 @@ use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Settings\Portfolio_Options_Page;
 
 /**
- * Class Portfolio
- * @package Portfolio
- *
- *          Looks like this is going to become the God Class.
- *          Let's refactor this later
- *          Of course we will.
+ * Colormelon_Photography_Portfolio
+ * @package Photography_Portfolio
+ * @type Singleton God Object, the worst kind. Yet serves its function.
  *
  */
 final class Colormelon_Photography_Portfolio {
 
 	/**
 	 * This is a Singleton class
-	 *
 	 * Singletons are almost always bad, surely not this time. Right?....
-	 *
-	 * @var Core
 	 */
 	protected static $_instance = NULL;
+
+
 	/**
 	 * @var Layout_Registry $layouts
 	 * Contains all available portfolio layouts
@@ -35,10 +31,10 @@ final class Colormelon_Photography_Portfolio {
 	public $layouts;
 
 	/**
-	 * @var $is Is
+	 * @var $query Is
 	 * Determines if portfolio is active
 	 */
-	public $is;
+	public $query;
 
 
 	/**
@@ -57,13 +53,15 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __construct() {
 
+		// Constants should be defined before anything else happens.
+		$this->define_constants();
+
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'cmp/prepare', $this );
 
-		$this->define_constants();
-
+		// Initialize Core
 		$this->post_type       = new Register_Post_Type();
-		$this->is              = new Is();
+		$this->query           = new Is();
 		$this->template_loader = new Template_Loader();
 
 
@@ -71,11 +69,9 @@ final class Colormelon_Photography_Portfolio {
 		// Register Layouts
 		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
-		// Initialize & Configure
-		$this->init_hooks();
-
 		/**
-		 * Boot Front-end
+		 * == Boot ==
+		 * Either the front or backend
 		 */
 		if ( is_admin() ) {
 			$this->options = new Options_Page( new Portfolio_Options_Page() );
@@ -91,12 +87,30 @@ final class Colormelon_Photography_Portfolio {
 
 
 	/**
+	 * Define CLM Constants
+	 */
+	private function define_constants() {
+
+		define( 'CLM_VERSION', $this->version );
+		define( 'CLM_ABSPATH', __DIR__ . '/' );
+		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+
+		define( 'CLM_THEME_PATH', 'portfolio/' );
+		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
+
+	}
+
+
+	/**
 	 * Main Instance.
 	 *
-	 * Ensures only one instance of WooCommerce is loaded or can be loaded.
+	 * Ensures only one instance of Colormelon_Photography_Portfolio is loaded or can be loaded.
 	 *
 	 * @static
 	 * @return Core instance
+	 *
+	 * Very Heavily inspired by WooCommerce
 	 */
 	public static function instance() {
 
@@ -123,30 +137,6 @@ final class Colormelon_Photography_Portfolio {
 	public function __wakeup() {
 
 		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'MELON_TXT' ), '2.1' );
-	}
-
-
-	/**
-	 * Hook into actions and filters.
-	 */
-	private function init_hooks() {
-
-	}
-
-
-	/**
-	 * Define CLM Constants
-	 */
-	private function define_constants() {
-
-		define( 'CLM_VERSION', $this->version );
-		define( 'CLM_ABSPATH', __DIR__ . '/' );
-		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
-
-		define( 'CLM_THEME_PATH', 'portfolio/' );
-		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
-
 	}
 
 
