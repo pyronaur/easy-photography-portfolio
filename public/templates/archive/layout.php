@@ -1,19 +1,10 @@
-<?php
-/**
- * @var $portfolio Photography_Portoflio\Frontend\Layout\Single\Single_Portfolio_Layout
- */
-global $cm_portfolio;
-$portfolio = $cm_portfolio;
-
-?>
 <div class="PP_Masonry">
 
-	<?php while ( $portfolio->query->have_posts() ) : $portfolio->query->the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 
 		<?php pp_display_entry( get_the_ID() ); ?>
 
 
-	<?php endwhile;
-	wp_reset_postdata(); ?>
+	<?php endwhile; ?>
 
 </div>
