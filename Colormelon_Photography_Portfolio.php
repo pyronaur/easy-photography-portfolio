@@ -122,7 +122,7 @@ final class Colormelon_Photography_Portfolio {
 	 * Ensures only one instance of Colormelon_Photography_Portfolio is loaded or can be loaded.
 	 *
 	 * @static
-	 * @return Core instance
+	 * @return Colormelon_Photography_Portfolio instance
 	 *
 	 * Very Heavily inspired by WooCommerce
 	 */
