@@ -10,7 +10,7 @@ class Archive_Portfolio_Factory extends Layout_Factory {
 
 	function find_slug() {
 
-		return pp_get_archive_slug();
+		return pp_slug_archive();
 	}
 
 

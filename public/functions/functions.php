@@ -1,15 +1,5 @@
 <?php
 use Photography_Portfolio\Frontend\Layout\View;
-
-/**
- *
- *
- * Available Global Variables: $cm_portfolio, $entry
- *
- * @var $cm_portfolio Photography_Portoflio\Frontend\Layout\Single\Single_Portfolio_Layout
- * @var $entry        Photography_Portoflio\Frontend\Layout\Entry\Entry
- */
-
 /*
  *
  *
@@ -50,7 +40,7 @@ function pp_get_class( $class = NULL, $post_id = NULL ) {
 	}
 
 	// Add PP_Gallery--{{type}} to class
-	$classes[] = 'PP_Gallery--' . pp_get_single_slug( $post_id );
+	$classes[] = 'PP_Gallery--' . pp_slug_single( $post_id );
 
 	$classes = array_map( 'esc_attr', $classes );
 
@@ -72,26 +62,26 @@ if ( ! function_exists( "pp_load_view" ) ) {
 	}
 }
 
-if ( ! function_exists( "pp_archive_layout" ) ) {
+if ( ! function_exists( "pp_display_archive" ) ) {
 
 	/**
 	 * Start a loop and load all gallery items
 	 * @load /archive/layout.php
 	 */
-	function pp_archive_layout() {
+	function pp_display_archive() {
 
 		Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
 	}
 }
 
 
-if ( ! function_exists( "pp_single_layout" ) ) {
+if ( ! function_exists( "pp_display_single" ) ) {
 
 	/**
 	 * Start a loop and load all gallery items
 	 * @load /single/layout.php
 	 */
-	function pp_single_layout() {
+	function pp_display_single() {
 
 		Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
 	}
@@ -138,14 +128,14 @@ if ( ! function_exists( 'pp_is_portfolio' ) ) {
 
 
 
-if ( ! function_exists( "pp_get_single_slug" ) ) {
+if ( ! function_exists( "pp_slug_single" ) ) {
 
 	/**
 	 *
 	 * Get single layout slug
 	 *
 	 */
-	function pp_get_single_slug() {
+	function pp_slug_single() {
 
 		return sanitize_html_class(
 			pp_get_option( 'single_portfolio_layout', PP_Instance()->layouts->get_default( 'single' ) )
@@ -155,14 +145,14 @@ if ( ! function_exists( "pp_get_single_slug" ) ) {
 }
 
 
-if ( ! function_exists( "pp_get_archive_slug" ) ) {
+if ( ! function_exists( "pp_slug_archive" ) ) {
 
 	/**
 	 *
 	 * Get archive layout slug
 	 *
 	 */
-	function pp_get_archive_slug() {
+	function pp_slug_archive() {
 
 		return sanitize_html_class(
 			pp_get_option( 'portfolio_layout', PP_Instance()->layouts->get_default( 'archive' ) )

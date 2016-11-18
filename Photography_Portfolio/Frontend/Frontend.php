@@ -54,13 +54,13 @@ class Frontend {
 		// Single Portfolio
 		if ( PP_Instance()->query->is_single() ) {
 			$classes[] = 'PP_Single';
-			$classes[] = 'PP_Single--' . pp_get_single_slug();
+			$classes[] = 'PP_Single--' . pp_slug_single();
 		}
 
 		// Portfolio Archive & Categories
 		if ( PP_Instance()->query->is_archive() || PP_Instance()->query->is_category() ) {
 			$classes[] = 'PP_Archive';
-			$classes[] = 'PP_Archive--' . pp_get_archive_slug();
+			$classes[] = 'PP_Archive--' . pp_slug_archive();
 		}
 
 
