@@ -1,6 +1,7 @@
 <?php
 namespace Photography_Portfolio\Frontend\Gallery;
 
+
 class Gallery {
 
 	private $ID;
@@ -30,6 +31,16 @@ class Gallery {
 
 
 	/**
+	 * Get all gallery items
+	 * @return array of \Photography_Portfolio\Frontend\Gallery\Attachment objects
+	 */
+	public function all() {
+
+		return $this->get_items( $this->get_item_ids() );
+	}
+
+
+	/**
 	 * @param array $gallery_ids
 	 *
 	 * @return array of \Photography_Portfolio\Frontend\Gallery\Attachment objects
@@ -43,27 +54,6 @@ class Gallery {
 		}
 
 		return $out;
-	}
-
-
-	/**
-	 * Get all gallery items
-	 * @return array of \Photography_Portfolio\Frontend\Gallery\Attachment objects
-	 */
-	public function all() {
-
-		return $this->get_items( $this->get_item_ids() );
-	}
-
-
-	/**
-	 * @param int $count
-	 *
-	 * @return array of \Photography_Portfolio\Frontend\Gallery\Attachment objects
-	 */
-	public function get( $count = 0 ) {
-
-		return $this->get_items( $this->get_item_ids( $count ) );
 	}
 
 
@@ -87,6 +77,17 @@ class Gallery {
 		}
 
 		return $gallery;
+	}
+
+
+	/**
+	 * @param int $count
+	 *
+	 * @return array of \Photography_Portfolio\Frontend\Gallery\Attachment objects
+	 */
+	public function get( $count = 0 ) {
+
+		return $this->get_items( $this->get_item_ids( $count ) );
 	}
 
 
