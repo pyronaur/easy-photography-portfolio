@@ -8,8 +8,8 @@
 /**
  * Available Global Variables: $portfolio, $entry
  *
- * @var $portfolio Photography_Portoflio\Frontend\Layout\Single\Single_Portfolio_Layout
- * @var $entry     Photography_Portoflio\Frontend\Layout\Entry\Entry
+ * @var $portfolio Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Layout
+ * @var $entry     Photography_Portfolio\Frontend\Layout\Entry\Entry
  *
  * @TODO: Create user friendly functions to access common template values.
  *      For example:
