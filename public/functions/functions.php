@@ -56,110 +56,89 @@ function pp_class( $class = NULL, $post_id = NULL ) {
 }
 
 
-if ( ! function_exists( "pp_load_view" ) ) {
-	function pp_load_view() {
+function pp_load_view() {
 
-		View::load();
-	}
-}
-
-if ( ! function_exists( "pp_display_archive" ) ) {
-
-	/**
-	 * Start a loop and load all gallery items
-	 * @load /archive/layout.php
-	 */
-	function pp_display_archive() {
-
-		Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
-	}
+	View::load();
 }
 
 
-if ( ! function_exists( "pp_display_single" ) ) {
+/**
+ * Start a loop and load all gallery items
+ * @load /archive/layout.php
+ */
+function pp_display_archive() {
 
-	/**
-	 * Start a loop and load all gallery items
-	 * @load /single/layout.php
-	 */
-	function pp_display_single() {
-
-		Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
-	}
+	Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
 }
 
 
-if ( ! function_exists( "pp_display_gallery" ) ) {
-	function pp_display_gallery() {
+/**
+ * Start a loop and load all gallery items
+ * @load /single/layout.php
+ */
+function pp_display_single() {
 
-		global $cm_portfolio;
-
-		$cm_portfolio->display_gallery();
-	}
-}
-
-if ( ! function_exists( "pp_display_entry" ) ) {
-	function pp_display_entry( $post_id ) {
-
-		global $cm_portfolio;
-
-		$cm_portfolio->the_entry( $post_id );
-	}
+	Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
 }
 
 
-if ( ! function_exists( "pp_get_template" ) ) {
-	function pp_get_template( $name ) {
+function pp_display_gallery() {
 
-		global $cm_portfolio;
+	global $cm_portfolio;
 
-		$cm_portfolio->get( $name );
-	}
+	$cm_portfolio->display_gallery();
 }
 
 
-if ( ! function_exists( 'pp_is_portfolio' ) ) {
-	function pp_is_portfolio() {
+function pp_display_entry( $post_id ) {
 
-		return PP_Instance()->query->is_portfolio();
+	global $cm_portfolio;
 
-
-	}
+	$cm_portfolio->the_entry( $post_id );
 }
 
 
-if ( ! function_exists( "pp_slug_single" ) ) {
+function pp_get_template( $name ) {
 
-	/**
-	 *
-	 * Get single layout slug
-	 *
-	 */
-	function pp_slug_single() {
+	global $cm_portfolio;
 
-		return sanitize_html_class(
-			pp_get_option( 'single_portfolio_layout', PP_Instance()->layouts->get_default( 'single' ) )
-		);
-	}
+	$cm_portfolio->get( $name );
+}
+
+
+function pp_is_portfolio() {
+
+	return PP_Instance()->query->is_portfolio();
+
 
 }
 
 
-if ( ! function_exists( "pp_slug_archive" ) ) {
+/**
+ *
+ * Get single layout slug
+ *
+ */
+function pp_slug_single() {
 
-	/**
-	 *
-	 * Get archive layout slug
-	 *
-	 */
-	function pp_slug_archive() {
-
-		return sanitize_html_class(
-			pp_get_option( 'portfolio_layout', PP_Instance()->layouts->get_default( 'archive' ) )
-		);
-	}
-
+	return sanitize_html_class(
+		pp_get_option( 'single_portfolio_layout', PP_Instance()->layouts->get_default( 'single' ) )
+	);
 }
+
+
+/**
+ *
+ * Get archive layout slug
+ *
+ */
+function pp_slug_archive() {
+
+	return sanitize_html_class(
+		pp_get_option( 'portfolio_layout', PP_Instance()->layouts->get_default( 'archive' ) )
+	);
+}
+
 
 function pp_slug_current() {
 
