@@ -1,5 +1,6 @@
 <?php
 use Photography_Portfolio\Frontend\Layout\View;
+
 /*
  *
  *
@@ -127,7 +128,6 @@ if ( ! function_exists( 'pp_is_portfolio' ) ) {
 }
 
 
-
 if ( ! function_exists( "pp_slug_single" ) ) {
 
 	/**
@@ -159,4 +159,19 @@ if ( ! function_exists( "pp_slug_archive" ) ) {
 		);
 	}
 
+}
+
+function pp_slug_current() {
+
+	// Single Portfolio
+	if ( PP_Instance()->query->is_single() ) {
+		return pp_slug_single();
+	}
+
+	// Portfolio Archive & Categories
+	if ( PP_Instance()->query->is_archive() || PP_Instance()->query->is_category() ) {
+		return pp_slug_archive();
+	}
+
+	return false;
 }
