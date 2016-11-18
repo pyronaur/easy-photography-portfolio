@@ -77,9 +77,9 @@ class Gallery {
 		$gallery = get_post_meta( $this->ID, "village_gallery", true );
 
 		if ( ! $gallery ) {
-			die( "Gallery for Post ID: `$this->ID` was empty" );
+			trigger_error( "Gallery for Post ID: `$this->ID` was empty" );
 
-			return false;
+			return array();
 		}
 
 		if ( is_int( $count ) && $count > 0 ) {
