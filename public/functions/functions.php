@@ -43,6 +43,8 @@ function pp_get_class( $class = NULL, $post_id = NULL ) {
 	// Add PP_Gallery--{{type}} to class
 	$classes[] = 'PP_Gallery--' . pp_slug_single( $post_id );
 
+	$classes = apply_filters( 'pp_get_class', $classes, $post_id, $class );
+
 	$classes = array_map( 'esc_attr', $classes );
 
 	return array_unique( $classes );
