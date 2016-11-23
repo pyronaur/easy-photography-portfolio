@@ -37,6 +37,10 @@ class Entry {
 	 */
 	public $featured_image_size = 'full';
 
+	public $attached_sizes = [
+		'full' => 'full',
+	];
+
 	/**
 	 * @var
 	 */
@@ -188,7 +192,7 @@ class Entry {
 
 		$attachment = new Attachment( get_post_thumbnail_id( $this->id ) );
 
-		return $this->data_create_renderer( $attachment, array( $this->featured_image_size ) );
+		return $this->data_create_renderer( $attachment, $this->attached_sizes );
 
 	}
 
