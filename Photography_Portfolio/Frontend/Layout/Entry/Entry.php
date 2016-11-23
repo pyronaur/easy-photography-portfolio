@@ -89,15 +89,6 @@ class Entry {
 
 
 	/**
-	 * @return bool
-	 */
-	public function has_featured_image() {
-
-		return ( $this->featured_image != false );
-	}
-
-
-	/**
 	 *
 	 */
 	public function show_featured_image() {
@@ -107,6 +98,15 @@ class Entry {
 		}
 	}
 
+
+	/**
+	 * @return bool
+	 */
+	public function has_featured_image() {
+
+		return ( $this->featured_image != false );
+	}
+
 	/**
 	 *
 	 *
@@ -114,6 +114,7 @@ class Entry {
 	 *
 	 *
 	 */
+
 
 	/**
 	 * @return $this
@@ -175,16 +176,10 @@ class Entry {
 	 *
 	 */
 
-	/**
-	 * Parse gallery item data, must have a render() method to render inline attribute(s)
-	 *
-	 * @param Attachment $attachment
-	 *
-	 * @return \Photography_Portfolio\Contracts\Render_Inline_Attribute
-	 */
-	public function data_create_renderer( Attachment $attachment, $sizes ) {
 
-		return new Gallery_Data_Renderer( $attachment, $sizes );
+	public function data_render() {
+
+		$this->data_setup()->render();
 	}
 
 
@@ -197,9 +192,16 @@ class Entry {
 	}
 
 
-	public function data_render() {
+	/**
+	 * Parse gallery item data, must have a render() method to render inline attribute(s)
+	 *
+	 * @param Attachment $attachment
+	 *
+	 * @return \Photography_Portfolio\Contracts\Render_Inline_Attribute
+	 */
+	public function data_create_renderer( Attachment $attachment, $sizes ) {
 
-		$this->data_setup()->render();
+		return new Gallery_Data_Renderer( $attachment, $sizes );
 	}
 
 
