@@ -5,7 +5,7 @@
  * @modified 1.0.0
  */
 ?>
-<div class="PP_Masonry">
+<div <?php pp_class( 'PP_Archive_Container' ); ?>>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
