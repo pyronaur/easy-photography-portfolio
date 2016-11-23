@@ -20,16 +20,10 @@ mason_width( $columns )
 		visibility: hidden
 		transition: opacity 500ms ease
 
-	&__thumbnail > img
-		display: block
-		max-width: 100%
-		padding: 0
-		margin: 0
-
-	&__item, &__sizer
+	
+	&__sizer, &__item
 		outline: 0
 		width: 33.333%
-		cursor: pointer
 
 		//-----------------------------------*/
 		// Tiny Screen columns
@@ -51,7 +45,6 @@ mason_width( $columns )
 		@media $palm
 			border-width: 0px
 			margin-bottom: $p
-
 
 	&__header
 			margin-top: $p

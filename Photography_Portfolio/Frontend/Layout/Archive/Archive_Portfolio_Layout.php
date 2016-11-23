@@ -5,6 +5,7 @@ namespace Photography_Portfolio\Frontend\Layout\Archive;
 
 
 use Photography_Portfolio\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Frontend\Filter_CSS_Classes;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 use Photography_Portfolio\Frontend\Template;
 use Photography_Portfolio\Frontend\Template_Trait;
@@ -16,6 +17,7 @@ use Photography_Portfolio\Frontend\Template_Trait;
 abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 	use Template_Trait;
+	use Filter_CSS_Classes;
 
 
 	/**
@@ -51,6 +53,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 		$this->query = $query;
 		$this->slug  = $slug;
+		$this->maybe_filter_css_classes();
 	}
 
 
@@ -58,8 +61,23 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 *
 	 */
 	public function display() {
-		
+
 		$this->get( 'archive/layout' );
+
+	}
+
+
+	/**
+	 * Method to display a single entry of a portfolio archive
+	 *
+	 * @see Template_Trait - $this->slug is always implied when getting a template
+	 *
+	 * @param $id
+	 */
+	public function the_entry( $id ) {
+
+		set_query_var( 'entry', $this->create_entry( $id ) );
+		$this->get( 'archive/entry' );
 
 	}
 
@@ -76,21 +94,6 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		return ( new Entry( $id ) )
 			->setup_featured_image( $this->attached_sizes['thumb'] )
 			->setup_subtitle();
-	}
-
-
-	/**
-	 * Method to display a single entry of a portfolio archive
-	 *
-	 * @see Template_Trait - $this->slug is always implied when getting a template
-	 *
-	 * @param $id
-	 */
-	public function the_entry( $id ) {
-
-		set_query_var( 'entry', $this->create_entry( $id ) );
-		$this->get( 'archive/entry' );
-
 	}
 
 }

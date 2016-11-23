@@ -16,6 +16,13 @@
 	.has-touch & &__popup
 		display: none
 
+.PP_Hovercard .PP_Entry
+	&__thumbnail > img
+		display: block
+		max-width: 100%
+		padding: 0
+		margin: 0
+
 	&__header
 		position: absolute
 		bottom: $p
@@ -41,7 +48,7 @@
 	/*!
 	*  Hovercard Layout
 	*/
-	&__popup
+	&__more
 		display: block
 		position: absolute
 		left: 0
@@ -69,29 +76,29 @@
 		display: block
 		transition: transform .35s ease-out, opacity .3s ease
 
-	/*!
-	*   Hover State
-	*/
-	&:hover, &.PP--no-thumbnail, &__popup:hover
+/*!
+*   Hover State
+*/
+.PP_Hovercard:hover, &.PP--no-thumbnail, PP_Entry__more:hover
 
-		.PP_Hovercard__header
-			z-index: 550
-			transform: translateY(-3rem)
+	.PP_Entry__header
+		z-index: 550
+		transform: translateY(-3rem)
 
-		.PP_Hovercard__inner
-			opacity: 1
-			transform: translateY(0)
+	.PP_Entry__inner
+		opacity: 1
+		transform: translateY(0)
 
-		.PP_Hovercard__popup
-			display: block
-			opacity: 1
+	.PP_Entry__more
+		display: block
+		opacity: 1
 
-	/*!
-	*   @TODO: Style scenarios with no thumbnail
-	*   @TODO: Add class `PP--no-thumbnail`
-	*/
-	&.PP--no-thumbnail
-		height: 300px
+/*!
+*   @TODO: Style scenarios with no thumbnail
+*   @TODO: Add class `PP--no-thumbnail`
+*/
+&.PP--no-thumbnail
+	height: 300px
 
-		&__popup
-			opacity: 1
+	&__popup
+		opacity: 1

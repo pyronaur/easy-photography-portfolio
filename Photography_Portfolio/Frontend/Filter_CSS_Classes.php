@@ -30,7 +30,8 @@ trait Filter_CSS_Classes {
 		foreach ( $this->appended_classes as $needle => $append ) {
 
 			if ( in_array( $needle, $classes ) ) {
-				$classes[] = $append;
+
+				$classes = array_merge( $classes, (array) $append );
 			}
 
 		}

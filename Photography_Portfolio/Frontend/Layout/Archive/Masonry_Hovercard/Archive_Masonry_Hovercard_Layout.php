@@ -15,4 +15,7 @@ class Archive_Masonry_Hovercard_Layout extends Archive_Portfolio_Layout {
 		'full'  => 'full',
 	);
 
+	public $appended_classes = [
+		'PP_Entry' => [ 'PP_Masonry__item', 'PP_Hovercard' ],
+	];
 }
