@@ -75,7 +75,7 @@ class Portfolio_Masonry extends Portfolio_Actions
 		Reload the layout
 	###
 	refresh: =>
-		@$container.maosnry( 'layout' )
+		@$container.masonry( 'layout' )
 
 
 
