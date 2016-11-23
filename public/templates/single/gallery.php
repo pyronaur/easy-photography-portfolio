@@ -5,11 +5,8 @@
  * @modified 1.0.0
  */
 
-/**
- * @TODO: Move `PP_Masonry`
- */
 ?>
-<div <?php pp_class( 'PP_Gallery PP_Masonry' ) ?>>
+<div <?php pp_class( 'PP_Gallery' ) ?>>
 
 	<?php
 	/**

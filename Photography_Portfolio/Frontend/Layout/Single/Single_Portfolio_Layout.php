@@ -5,6 +5,7 @@ namespace Photography_Portfolio\Frontend\Layout\Single;
 
 
 use Photography_Portfolio\Contracts\Layout_Factory_Interface;
+use Photography_Portfolio\Frontend\Filter_CSS_Classes;
 use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
@@ -18,6 +19,7 @@ use Photography_Portfolio\Frontend\Template_Trait;
 abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
 	use Template_Trait;
+	use Filter_CSS_Classes;
 
 	/**
 	 * @var $slug
@@ -41,7 +43,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	);
 
 	/**
-	 * @var Post ID
+	 * @var $id `post_id`
 	 */
 	public $id;
 
@@ -54,6 +56,10 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query = $query;
 		$this->slug  = $slug;
 		$this->id    = $query->get_queried_object_id();
+
+		$this->maybe_filter_css_classes();
+
+
 	}
 
 

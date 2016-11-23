@@ -14,5 +14,14 @@ class Single_Masonry_Layout extends Single_Portfolio_Layout {
 		'full'  => 'full',
 
 	);
-	
+
+	public $appended_classes  = [
+		'PP_Gallery' => 'PP_Masonry',
+	    'PP_Gallery__item' => 'PP_Masonry__item'
+	];
+
+
+
+
+
 }
