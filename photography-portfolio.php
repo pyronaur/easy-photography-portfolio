@@ -58,9 +58,7 @@ require_once __DIR__ . '/public/functions/functions.php';
 require_once __DIR__ . '/cmb2.php';
 
 
-
-
 /**
  * Boot Colormelon_Photography_Portfolio
  */
-PP_Instance();
+add_action( 'after_setup_theme', 'PP_Instance' );
