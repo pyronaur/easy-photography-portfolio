@@ -17,8 +17,12 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
 		$( '.PP_Masonry__sizer' ).width()
 
+	# ???? - refactor this
+	# @TODO: Not clear enough what this does
 	autoload: => @load_items_in_view()
 
+
+	# @TODO: This loads an image, not any item
 	load: ( item ) ->
 
 		thumb = item.data.get_url( 'thumb' )
