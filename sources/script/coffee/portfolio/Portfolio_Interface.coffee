@@ -36,4 +36,7 @@ class Portfolio_Interface
 	refresh   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `refresh` method" )
 	destroy   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `destroy` method" )
 
+
+
+window.PP_Modules.Portfolio_Interface = Portfolio_Interface
 module.exports = Portfolio_Interface

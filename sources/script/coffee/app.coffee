@@ -5,6 +5,9 @@ Hooks = require( "wp_hooks" )
 $ = require( 'jQuery' )
 
 
+# Expose some Photography Portfolio modules to the public for extensibility
+window.PP_Modules = {}
+
 ###
 	Boot on `document.ready`
 ###
@@ -31,4 +34,4 @@ require './portfolio/start'
 require './gallery/popup'
 
 # Lazy Loading
-require './lazy/index'
+require './lazy/start'

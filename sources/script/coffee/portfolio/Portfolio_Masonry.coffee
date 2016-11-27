@@ -103,5 +103,5 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 		return
 
-
+window.PP_Modules.Portfolio_Masonry = Portfolio_Masonry
 module.exports = Portfolio_Masonry

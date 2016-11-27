@@ -72,4 +72,6 @@ class Lazy_Loader
 	detach_events: ->
 		Hooks.removeAction 'pp.lazy.autoload', @autoload
 
+
+window.PP_Modules.Lazy_Loader = Lazy_Loader
 module.exports = Lazy_Loader
