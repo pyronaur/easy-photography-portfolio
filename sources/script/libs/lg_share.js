@@ -1,4 +1,4 @@
-/*! lg-share - v1.0.1 - 2016-09-30
+/*! lg-share - v1.0.2 - 2016-11-26
 * http://sachinchoolur.github.io/lightGallery
 * Copyright (c) 2016 Sachin N; Licensed GPLv3 */
 
@@ -39,7 +39,9 @@
         this.core = $(element).data('lightGallery');
 
         this.core.s = $.extend({}, defaults, this.core.s);
-        this.init();
+        if (this.core.s.share) {
+            this.init();
+        }
 
         return this;
     };
