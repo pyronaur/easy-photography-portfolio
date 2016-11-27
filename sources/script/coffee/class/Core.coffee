@@ -15,15 +15,17 @@ class Core
 
 	attach_events: ->
 		@$doc.on 'ready', @ready
-		@$doc.find( '.PP_Wrapper' ).imagesLoaded( @loaded )
 
 		return
 
 
 	# Trigger pp.core.ready
-	ready: ->
+	ready: =>
 		if Hooks.applyFilters( 'pp.core.ready', true )
 			Hooks.doAction 'pp.core.ready'
+
+		# Trigger imagesLoaded event when images have loaded
+		@$doc.find( '.PP_Wrapper' ).imagesLoaded( @loaded )
 
 		return
 
