@@ -83,4 +83,10 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		$( window ).off 'scroll', @debounced_load_items_in_view
 		super()
 
+	destroy: ->
+		for item, key in @Items
+			item.$el.css 'min-height', ''
+
+		super()
+
 module.exports = Lazy_Masonry
