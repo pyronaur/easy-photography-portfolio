@@ -17,14 +17,14 @@ class Abstract_Portfolio_Actions
 		Hooks.addAction 'pp.portfolio.create', @create, 50
 		Hooks.addAction 'pp.portfolio.refresh', @refresh, 50
 		Hooks.addAction 'pp.portfolio.destroy', @destroy, 50
-		Hooks.addAction 'pp.portfolio.destroy', @purge_actions, 50
+		Hooks.addAction 'pp.portfolio.destroy', @purge_actions, 100
 
 	purge_actions: ->
 		Hooks.removeAction 'pp.portfolio.create', @prepare, 50
 		Hooks.removeAction 'pp.portfolio.create', @create, 50
 		Hooks.removeAction 'pp.portfolio.refresh', @refresh, 50
 		Hooks.removeAction 'pp.portfolio.destroy', @destroy, 50
-		Hooks.removeAction 'pp.portfolio.destroy', @purge_actions, 50
+		Hooks.removeAction 'pp.portfolio.destroy', @purge_actions, 100
 
 
 	###
