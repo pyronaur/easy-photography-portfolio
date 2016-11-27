@@ -24,14 +24,10 @@ init_lazy_loader = ->
 
 	if lazy_instance
 		lazy_instance.destroy()
-		lazy_instance = null
 
 	# By default Lazy_Masonry is handling Lazy-Loading
 	# Check if anyone wants to hijack handler
-	lazy_instance = Hooks.applyFilters 'pp.lazy.handler', Lazy_Masonry
-
-	# Maybe Destroy Previous lazy_instance
-	new lazy_instance()
+	lazy_instance = new (Hooks.applyFilters 'pp.lazy.handler', Lazy_Masonry)
 
 
 ###
@@ -42,6 +38,9 @@ Hooks.addAction 'pp.core.ready', init_masonry
 
 # Initialize lazy loader after the portfolio is prepared, p = 100
 Hooks.addAction 'pp.portfolio.prepare', init_lazy_loader, 100
+Hooks.addAction 'pp.portfolio.destroy', ->
+	lazy_instance.destroy()
+	lazy_instance = null
 
 
 # Load first masonry images when the layout has completed
