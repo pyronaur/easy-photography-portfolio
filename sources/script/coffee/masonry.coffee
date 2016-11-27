@@ -33,7 +33,6 @@ init_lazy_loader = ->
 ###
 	Setup Events
 ###
-
 Hooks.addAction 'pp.core.ready', init_masonry
 
 # Initialize lazy loader after the portfolio is prepared, p = 100

@@ -22,7 +22,9 @@ get_data = ( el ) ->
 
 	return items
 
-
+###
+    @TODO: Need detach/destroy methods
+###
 Hooks.addAction 'pp.core.ready', ->
 
 	$( '.PP_Gallery__item' ).on 'click', ( e ) ->
