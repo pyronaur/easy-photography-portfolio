@@ -31,6 +31,9 @@ class Lazy_Loader
 
 
 	setup_data: ->
+
+		@Items = []
+
 		$items = $( ".#{@Elements.item}" )
 
 		$items.each ( key, el ) =>
