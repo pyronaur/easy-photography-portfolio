@@ -1,6 +1,6 @@
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-Lazy_Masonry = require( './../lazy/Lazy_Masonry' )
+Lazy_Masonry = require( './Lazy_Masonry' )
 
 
 lazy_instance = false

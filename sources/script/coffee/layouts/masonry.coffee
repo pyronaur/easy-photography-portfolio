@@ -1,6 +1,6 @@
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-Portfolio_Masonry = require( './Portfolio_Masonry' )
+Portfolio_Masonry = require( './../portfolio/Portfolio_Masonry' )
 
 is_masonry = -> $( '.PP_Masonry' ).length > 0
 

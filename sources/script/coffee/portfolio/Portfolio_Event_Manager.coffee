@@ -9,7 +9,7 @@ Hooks = require( "wp_hooks" )
 	---
 
 ###
-class Portfolio_Manager
+class Portfolio_Event_Manager
 
 	prepare: ->
 		Hooks.doAction 'pp.portfolio.prepare'
@@ -32,4 +32,4 @@ class Portfolio_Manager
 		return
 
 
-module.exports = Portfolio_Manager
+module.exports = Portfolio_Event_Manager

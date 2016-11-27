@@ -1,6 +1,6 @@
 $ = require( 'jQuery' )
 Abstract_Lazy_Loader = require( './Abstract_Lazy_Loader' )
-__WINDOW = require( '../global/Window' )
+__WINDOW = require( '../core/Window' )
 
 class Lazy_Masonry extends Abstract_Lazy_Loader
 

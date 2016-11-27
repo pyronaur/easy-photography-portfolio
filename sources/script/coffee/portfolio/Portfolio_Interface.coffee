@@ -6,7 +6,7 @@ Hooks = require( "wp_hooks" )
 
     Handles all the events required to fully handle a portfolio layout process
 ###
-class Abstract_Portfolio_Actions
+class Portfolio_Interface
 
 	constructor: ( args ) ->
 		@setup_actions()
@@ -30,10 +30,10 @@ class Abstract_Portfolio_Actions
 	###
     	Require these methods
 	###
-	initialize: -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `initialize` method" )
-	prepare   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `prepare` method" )
-	create    : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `create` method" )
-	refresh   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `refresh` method" )
-	destroy   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Actions` must implement `destroy` method" )
+	initialize: -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `initialize` method" )
+	prepare   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `prepare` method" )
+	create    : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `create` method" )
+	refresh   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `refresh` method" )
+	destroy   : -> throw new Error( "[Abstract] Any subclass of `Portfolio_Interface` must implement `destroy` method" )
 
-module.exports = Abstract_Portfolio_Actions
+module.exports = Portfolio_Interface
