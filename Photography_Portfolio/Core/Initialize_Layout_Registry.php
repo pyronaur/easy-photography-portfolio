@@ -46,16 +46,6 @@ class Initialize_Layout_Registry {
 
 		);
 
-		$layout_registry->add(
-
-			Single_Packery_layout::class,
-			'single',
-			'packery',
-			esc_html__( 'Cropped Masonry', 'MELON_TXT' )
-
-		);
-
-
 		/**
 		 * You can use this hook to either register or de-register any layout
 		 * @hook `pp/register_layouts`
