@@ -22,6 +22,8 @@ class Portfolio_Masonry extends Portfolio_Actions
 	###
 		Prepare & Attach Events
     	Don't show anything yet.
+
+		@called on hook `pp.portfolio.prepare`
 	###
 	prepare: =>
 		return if @$container.length is 0
@@ -29,8 +31,6 @@ class Portfolio_Masonry extends Portfolio_Actions
 		@$container.addClass( 'PP_JS__loading_masonry' )
 
 		@maybe_create_sizer()
-		Hooks.doAction 'pp.masonry.start/before'
-
 
 		# Only initialize, if no masonry exists
 		masonry_settings = Hooks.applyFilters 'pp.masonry.settings',
@@ -41,25 +41,28 @@ class Portfolio_Masonry extends Portfolio_Actions
 
 		@$container.masonry( masonry_settings )
 
-		@$container.masonry 'on', 'layoutComplete', =>
-			Hooks.doAction 'pp.masonry.start/complete'
+		@$container.masonry 'once', 'layoutComplete', =>
 			@$container
-			.removeClass( 'PP_JS__loading_masonry' )
-			.addClass( 'PP_JS__loading_complete' )
+				.removeClass( 'PP_JS__loading_masonry' )
+				.addClass( 'PP_JS__loading_complete' )
+
+			# @trigger refresh event
+			# triggers `@refresh()`
+			Hooks.doAction 'pp.portfolio.refresh'
 
 
 	###
 		Start the Portfolio
+		@called on hook `pp.portfolio.create`
 	###
 	create: =>
 		@$container.masonry()
-		Hooks.doAction 'pp.masonry.start/layout'
-
 		return
 
 
 	###
 		Destroy
+		@called on hook `pp.portfolio.destroy`
 	###
 	destroy: =>
 		@maybe_remove_sizer()
@@ -73,6 +76,7 @@ class Portfolio_Masonry extends Portfolio_Actions
 
 	###
 		Reload the layout
+		@called on hook `pp.portfolio.refresh`
 	###
 	refresh: =>
 		@$container.masonry( 'layout' )
@@ -80,9 +84,7 @@ class Portfolio_Masonry extends Portfolio_Actions
 
 
 	###
-
 		Create a sizer element for jquery-masonry to use
-
 	###
 	maybe_create_sizer: ->
 		@create_sizer() if @sizer_doesnt_exist()
