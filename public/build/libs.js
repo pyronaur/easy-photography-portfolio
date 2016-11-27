@@ -1,6 +1,6 @@
-/*! lightgallery - v1.3.5 - 2016-09-30
+/*! lightgallery - v1.3.6 - 2016-11-18
 * http://sachinchoolur.github.io/lightGallery/
-* Copyright (c) 2016 Sachin N; Licensed Apache 2.0 */
+* Copyright (c) 2016 Sachin N; Licensed GPLv3 */
 (function(root, factory) {
     if (typeof define === "function" && define.amd) {
         // AMD. Register as an anonymous module unless amdModuleId is set
@@ -13,7 +13,7 @@
         // like Node.
         module.exports = factory(require("jquery"));
     } else {
-        factory(jQuery);
+        factory(root["jQuery"]);
     }
 })(this, function($) {
     (function() {
@@ -1753,7 +1753,7 @@
         $.fn.lightGallery.modules.Thumbnail = Thumbnail;
     })();
 });
-/*! lg-share - v1.0.1 - 2016-09-30
+/*! lg-share - v1.0.2 - 2016-11-26
 * http://sachinchoolur.github.io/lightGallery
 * Copyright (c) 2016 Sachin N; Licensed GPLv3 */
 (function(root, factory) {
@@ -1787,7 +1787,9 @@
         var Share = function(element) {
             this.core = $(element).data("lightGallery");
             this.core.s = $.extend({}, defaults, this.core.s);
-            this.init();
+            if (this.core.s.share) {
+                this.init();
+            }
             return this;
         };
         Share.prototype.init = function() {
@@ -2135,7 +2137,7 @@
     // Internal counter for unique video names.
     $.fn.fitVids._count = 0;
 })(window.jQuery || window.Zepto);
-/*! VelocityJS.org (1.3.1). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
+/*! VelocityJS.org (1.3.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
 /*************************
  Velocity jQuery Shim
  *************************/
@@ -2412,8 +2414,8 @@
         position: function() {
             /* jQuery */
             function offsetParentFn(elem) {
-                var offsetParent = elem.offsetParent || document;
-                while (offsetParent && (offsetParent.nodeType.toLowerCase !== "html" && offsetParent.style.position === "static")) {
+                var offsetParent = elem.offsetParent;
+                while (offsetParent && offsetParent.nodeName.toLowerCase() !== "html" && offsetParent.style && offsetParent.style.position === "static") {
                     offsetParent = offsetParent.offsetParent;
                 }
                 return offsetParent || document;
@@ -2539,6 +2541,9 @@
             return elements;
         }
         var Type = {
+            isNumber: function(variable) {
+                return typeof variable === "number";
+            },
             isString: function(variable) {
                 return typeof variable === "string";
             },
@@ -2555,9 +2560,9 @@
             isNodeList: function(variable) {
                 return typeof variable === "object" && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(variable)) && variable.length !== undefined && (variable.length === 0 || typeof variable[0] === "object" && variable[0].nodeType > 0);
             },
-            /* Determine if variable is a wrapped jQuery or Zepto element. */
+            /* Determine if variable is an array-like wrapped jQuery, Zepto or similar element. */
             isWrapped: function(variable) {
-                return variable && (variable.jquery || window.Zepto && window.Zepto.zepto.isZ(variable));
+                return variable && (Type.isArray(variable) || Type.isNumber(variable.length) && !Type.isString(variable) && !Type.isFunction(variable));
             },
             isSVG: function(variable) {
                 return window.SVGElement && variable instanceof window.SVGElement;
@@ -2676,7 +2681,7 @@
             version: {
                 major: 1,
                 minor: 3,
-                patch: 1
+                patch: 2
             },
             /* Set to 1 or 2 (most verbose) to output debug info to console. */
             debug: false,
@@ -3351,6 +3356,10 @@
                                     return extracted;
 
                                   case "inject":
+                                    /* If we have a pattern then it might already have the right values */
+                                    if (/^rgb/.test(propertyValue)) {
+                                        return propertyValue;
+                                    }
                                     /* If this is IE<=8 and an alpha component exists, strip it off. */
                                     if (IE <= 8) {
                                         if (propertyValue.split(" ").length === 4) {
@@ -3508,17 +3517,32 @@
                 },
                 /* The class add/remove functions are used to temporarily apply a "velocity-animating" class to elements while they're animating. */
                 addClass: function(element, className) {
-                    if (element.classList) {
-                        element.classList.add(className);
-                    } else {
-                        element.className += (element.className.length ? " " : "") + className;
+                    if (element) {
+                        if (element.classList) {
+                            element.classList.add(className);
+                        } else if (Type.isString(element.className)) {
+                            // Element.className is around 15% faster then set/getAttribute
+                            element.className += (element.className.length ? " " : "") + className;
+                        } else {
+                            // Work around for IE strict mode animating SVG - and anything else that doesn't behave correctly - the same way jQuery does it
+                            var currentClass = element.getAttribute(IE <= 7 ? "className" : "class") || "";
+                            element.setAttribute("class", currentClass + (currentClass ? " " : "") + className);
+                        }
                     }
                 },
                 removeClass: function(element, className) {
-                    if (element.classList) {
-                        element.classList.remove(className);
-                    } else {
-                        element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+                    if (element) {
+                        if (element.classList) {
+                            element.classList.remove(className);
+                        } else if (Type.isString(element.className)) {
+                            // Element.className is around 15% faster then set/getAttribute
+                            // TODO: Need some jsperf tests on performance - can we get rid of the regex and maybe use split / array manipulation?
+                            element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+                        } else {
+                            // Work around for IE strict mode animating SVG - and anything else that doesn't behave correctly - the same way jQuery does it
+                            var currentClass = element.getAttribute(IE <= 7 ? "className" : "class") || "";
+                            element.setAttribute("class", currentClass.replace(new RegExp("(^|s)" + className.split(" ").join("|") + "(s|$)", "gi"), " "));
+                        }
                     }
                 }
             },
@@ -4457,12 +4481,12 @@
 								 start value since easings can only be non-hex strings or arrays. */
                                 if (!Type.isArray(valueData[1]) && /^[\d-]/.test(valueData[1]) || Type.isFunction(valueData[1]) || CSS.RegEx.isHex.test(valueData[1])) {
                                     startValue = valueData[1];
-                                } else if (Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1]) || Type.isArray(valueData[1])) {
+                                } else if (Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1]) && Velocity.Easings[valueData[1]] || Type.isArray(valueData[1])) {
                                     easing = skipResolvingEasing ? valueData[1] : getEasing(valueData[1], opts.duration);
                                     /* Don't bother validating startValue's value now since the ensuing property cycling logic inherently does that. */
-                                    if (valueData[2] !== undefined) {
-                                        startValue = valueData[2];
-                                    }
+                                    startValue = valueData[2];
+                                } else {
+                                    startValue = valueData[1] || valueData[2];
                                 }
                             } else {
                                 endValue = valueData;
@@ -4485,7 +4509,7 @@
                         var fixPropertyValue = function(property, valueData) {
                             /* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
                             var rootProperty = CSS.Hooks.getRoot(property), rootPropertyValue = false, /* Parse out endValue, easing, and startValue from the property's data. */
-                            endValue = valueData[0], easing = valueData[1], startValue = valueData[2];
+                            endValue = valueData[0], easing = valueData[1], startValue = valueData[2], pattern;
                             /**************************
 							 Start Value Sourcing
 							 **************************/
@@ -4553,38 +4577,108 @@
                                 }
                                 return [ numericValue, unitType ];
                             };
-                            /* Separate startValue. */
-                            separatedValue = separateValue(property, startValue);
-                            startValue = separatedValue[0];
-                            startValueUnitType = separatedValue[1];
-                            /* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
-                            separatedValue = separateValue(property, endValue);
-                            endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
-                                operator = subMatch;
-                                /* Strip the operator off of the value. */
-                                return "";
-                            });
-                            endValueUnitType = separatedValue[1];
-                            /* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
-                            startValue = parseFloat(startValue) || 0;
-                            endValue = parseFloat(endValue) || 0;
-                            /***************************************
-							 Property-Specific Value Conversion
-							 ***************************************/
-                            /* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
-                            if (endValueUnitType === "%") {
-                                /* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
-								 which is identical to the em unit's behavior, so we piggyback off of that. */
-                                if (/^(fontSize|lineHeight)$/.test(property)) {
-                                    /* Convert % into an em decimal value. */
-                                    endValue = endValue / 100;
-                                    endValueUnitType = "em";
-                                } else if (/^scale/.test(property)) {
-                                    endValue = endValue / 100;
-                                    endValueUnitType = "";
-                                } else if (/(Red|Green|Blue)$/i.test(property)) {
-                                    endValue = endValue / 100 * 255;
-                                    endValueUnitType = "";
+                            if (Type.isString(startValue) && Type.isString(endValue)) {
+                                pattern = "";
+                                var iStart = 0, // index in startValue
+                                iEnd = 0, // index in endValue
+                                aStart = [], // array of startValue numbers
+                                aEnd = [];
+                                // array of endValue numbers
+                                while (iStart < startValue.length && iEnd < endValue.length) {
+                                    var cStart = startValue[iStart], cEnd = endValue[iEnd];
+                                    if (/[\d\.]/.test(cStart) && /[\d\.]/.test(cEnd)) {
+                                        var tStart = cStart, // temporary character buffer
+                                        tEnd = cEnd, // temporary character buffer
+                                        dotStart = ".", // Make sure we can only ever match a single dot in a decimal
+                                        dotEnd = ".";
+                                        // Make sure we can only ever match a single dot in a decimal
+                                        while (++iStart < startValue.length) {
+                                            cStart = startValue[iStart];
+                                            if (cStart === dotStart) {
+                                                dotStart = "..";
+                                            } else if (!/\d/.test(cStart)) {
+                                                break;
+                                            }
+                                            tStart += cStart;
+                                        }
+                                        while (++iEnd < endValue.length) {
+                                            cEnd = endValue[iEnd];
+                                            if (cEnd === dotEnd) {
+                                                dotEnd = "..";
+                                            } else if (!/\d/.test(cEnd)) {
+                                                break;
+                                            }
+                                            tEnd += cEnd;
+                                        }
+                                        if (tStart === tEnd) {
+                                            pattern += tStart;
+                                        } else {
+                                            pattern += "{" + aStart.length + "}";
+                                            aStart.push(parseFloat(tStart));
+                                            aEnd.push(parseFloat(tEnd));
+                                        }
+                                    } else if (cStart === cEnd) {
+                                        pattern += cStart;
+                                        iStart++;
+                                        iEnd++;
+                                    } else {
+                                        // TODO: changing units, fixing colours
+                                        break;
+                                    }
+                                }
+                                if (iStart !== startValue.length || iEnd !== endValue.length) {
+                                    if (Velocity.debug) {
+                                        console.error('Trying to pattern match mis-matched strings ["' + endValue + '", "' + startValue + '"]');
+                                    }
+                                    pattern = undefined;
+                                }
+                                if (pattern) {
+                                    if (aStart.length) {
+                                        if (Velocity.debug) {
+                                            console.log('Pattern found "' + pattern + '" -> ', aStart, aEnd, startValue, endValue);
+                                        }
+                                        startValue = aStart;
+                                        endValue = aEnd;
+                                        endValueUnitType = startValueUnitType = "";
+                                    } else {
+                                        pattern = undefined;
+                                    }
+                                }
+                            }
+                            if (!pattern) {
+                                /* Separate startValue. */
+                                separatedValue = separateValue(property, startValue);
+                                startValue = separatedValue[0];
+                                startValueUnitType = separatedValue[1];
+                                /* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
+                                separatedValue = separateValue(property, endValue);
+                                endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
+                                    operator = subMatch;
+                                    /* Strip the operator off of the value. */
+                                    return "";
+                                });
+                                endValueUnitType = separatedValue[1];
+                                /* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
+                                startValue = parseFloat(startValue) || 0;
+                                endValue = parseFloat(endValue) || 0;
+                                /***************************************
+								 Property-Specific Value Conversion
+								 ***************************************/
+                                /* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
+                                if (endValueUnitType === "%") {
+                                    /* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
+									 which is identical to the em unit's behavior, so we piggyback off of that. */
+                                    if (/^(fontSize|lineHeight)$/.test(property)) {
+                                        /* Convert % into an em decimal value. */
+                                        endValue = endValue / 100;
+                                        endValueUnitType = "em";
+                                    } else if (/^scale/.test(property)) {
+                                        endValue = endValue / 100;
+                                        endValueUnitType = "";
+                                    } else if (/(Red|Green|Blue)$/i.test(property)) {
+                                        endValue = endValue / 100 * 255;
+                                        endValueUnitType = "";
+                                    }
                                 }
                             }
                             /***************************
@@ -4774,6 +4868,9 @@
                                 unitType: endValueUnitType,
                                 easing: easing
                             };
+                            if (pattern) {
+                                tweensContainer[property].pattern = pattern;
+                            }
                             if (Velocity.debug) {
                                 console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
                             }
@@ -5066,17 +5163,25 @@
                                 /******************************
 								 Current Value Calculation
 								 ******************************/
-                                /* If this is the last tick pass (if we've reached 100% completion for this tween),
-								 ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
-                                if (percentComplete === 1) {
+                                if (Type.isString(tween.pattern)) {
+                                    var patternReplace = percentComplete === 1 ? function($0, index) {
+                                        return tween.endValue[index];
+                                    } : function($0, index) {
+                                        var startValue = tween.startValue[index], tweenDelta = tween.endValue[index] - startValue;
+                                        return startValue + tweenDelta * easing(percentComplete, opts, tweenDelta);
+                                    };
+                                    currentValue = tween.pattern.replace(/{(\d+)}/g, patternReplace);
+                                } else if (percentComplete === 1) {
+                                    /* If this is the last tick pass (if we've reached 100% completion for this tween),
+									 ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
                                     currentValue = tween.endValue;
                                 } else {
+                                    /* Otherwise, calculate currentValue based on the current delta from startValue. */
                                     var tweenDelta = tween.endValue - tween.startValue;
                                     currentValue = tween.startValue + tweenDelta * easing(percentComplete, opts, tweenDelta);
-                                    /* If no value change is occurring, don't proceed with DOM updating. */
-                                    if (!firstTick && currentValue === tween.currentValue) {
-                                        continue;
-                                    }
+                                }
+                                if (!firstTick && currentValue === tween.currentValue) {
+                                    continue;
                                 }
                                 tween.currentValue = currentValue;
                                 /* If we're tweening a fake 'tween' property in order to log transition values, update the one-per-call variable so that
@@ -5106,7 +5211,7 @@
                                     /* setPropertyValue() returns an array of the property name and property value post any normalization that may have been performed. */
                                     /* Note: To solve an IE<=8 positioning bug, the unit type is dropped when setting a property value of 0. */
                                     var adjustedSetData = CSS.setPropertyValue(element, /* SET */
-                                    property, tween.currentValue + (parseFloat(currentValue) === 0 ? "" : tween.unitType), tween.rootPropertyValue, tween.scrollData);
+                                    property, tween.currentValue + (IE < 9 && parseFloat(currentValue) === 0 ? "" : tween.unitType), tween.rootPropertyValue, tween.scrollData);
                                     /*******************
 									 Hooks: Part II
 									 *******************/
@@ -5412,7 +5517,7 @@
             };
         });
         return Velocity;
-    }(window.jQuery || window.Zepto || window, window, document);
+    }(window.jQuery || window.Zepto || window, window, window ? window.document : undefined);
 });
 (function(window, undefined) {
     "use strict";
