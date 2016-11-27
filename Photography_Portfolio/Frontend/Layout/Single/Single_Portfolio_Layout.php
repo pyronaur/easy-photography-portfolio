@@ -57,8 +57,6 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->slug  = $slug;
 		$this->id    = $query->get_queried_object_id();
 
-		$this->maybe_filter_css_classes();
-
 
 	}
 
@@ -97,6 +95,8 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
 
 	public function display() {
+
+		$this->maybe_filter_css_classes();
 
 		// Create Entry instance
 		$entry = ( new Entry( $this->id ) )

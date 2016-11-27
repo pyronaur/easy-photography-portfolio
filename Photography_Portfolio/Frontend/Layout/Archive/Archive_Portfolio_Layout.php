@@ -53,7 +53,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 		$this->query = $query;
 		$this->slug  = $slug;
-		$this->maybe_filter_css_classes();
+
 	}
 
 
@@ -62,6 +62,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 */
 	public function display() {
 
+		$this->maybe_filter_css_classes();
 		$this->get( 'archive/layout' );
 
 	}
