@@ -4,16 +4,12 @@ Hooks = require( "wp_hooks" )
 
     # Initialize Portfolio Core
 	---
-		Using p50 @ pp.loaded
+		Using p50 @ `pp.core.ready`
 		Late priority is going to force explicit priority in any other moving parts that are going to touch portfolio layout at `pp.loaded`
 	---
 
 ###
-class Portfolio
-
-	constructor: ->
-		Hooks.addAction 'pp.core.loaded', @create, 50
-		@prepare()
+class Portfolio_Manager
 
 	prepare: ->
 		Hooks.doAction 'pp.portfolio.prepare'
@@ -36,4 +32,4 @@ class Portfolio
 		return
 
 
-module.exports = Portfolio
+module.exports = Portfolio_Manager

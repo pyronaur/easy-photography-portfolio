@@ -1,20 +1,25 @@
 ###
-    Dependencies
+    Load Dependencies
 ###
 Hooks = require( "wp_hooks" )
 Core = require( './class/Core' )
-Portfolio = require( './class/Portfolio' )
+$ = require( 'jQuery' )
 
+###
+	Load App
+###
+require './portfolio/prepare'
 
-# Keep track of App State
-new Core()
+###
+	Boot on `document.ready`
+###
+$( document ).ready ->
 
-# Initialize Portfolio
-Hooks.addAction 'pp.core.ready', ( -> new Portfolio() ), 50
+	# Only run this script when body has `PP_Portfolio` class
+	return if not $( 'body' ).hasClass( 'PP_Portfolio' )
 
-# Initialize Masonry Layout
-require './masonry'
+	# Boot
+	Photography_Portfolio = new Core()
+	Photography_Portfolio.ready()
 
-# Initialize Popup Gallery
-require './portfolio/popup'
-
+	return
