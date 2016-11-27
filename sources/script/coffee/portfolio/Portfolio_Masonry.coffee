@@ -16,8 +16,8 @@ class Portfolio_Masonry extends Portfolio_Interface
 	###
 		Initialize
 	###
-	initialize: ( $parent ) ->
-		@$container = $parent.find( ".#{@Elements.container}" )
+	initialize: ->
+		@$container = $( ".#{@Elements.container}" )
 
 	###
 		Prepare & Attach Events

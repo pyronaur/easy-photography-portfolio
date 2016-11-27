@@ -24,11 +24,8 @@ $( document ).ready ->
 	Load App
 ###
 
-# Portfolio Manager
-require './portfolio/index'
-
-# Layouts
-require './layouts/masonry'
+# Start Portfolio
+require './portfolio/start'
 
 # Gallery
 require './gallery/popup'
