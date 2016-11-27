@@ -30,8 +30,8 @@ class Frontend {
 		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
 
 		wp_enqueue_style( 'PP-style', $build_directory . '/app.css' );
-		wp_enqueue_script( 'PP-libs', $build_directory . '/libs.js' );
-		wp_enqueue_script( 'PP-app', $build_directory . '/app.js', array( 'PP-libs', 'underscore' ) );
+		wp_enqueue_script( 'PP-libs', $build_directory . '/libs.js', [], CLM_VERSION, true );
+		wp_enqueue_script( 'PP-app', $build_directory . '/app.js', [ 'PP-libs', 'underscore' ], CLM_VERSION, true );
 	}
 
 
