@@ -72,7 +72,8 @@ class Query {
 		 *  Check if current Page is supposed to be an Archive
 		 *  Modify the WP_Query if so:
 		 */
-		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === pp_get_option( 'portfolio_page', false ) ) {
+		if ( $this->is_portfolio_front_page( $query ) || $this->is_portfolio_page( $query ) ) {
+
 
 			// modify query_vars:
 			$query->set( 'post_type', 'pp_post' );  // override 'post_type'
@@ -133,5 +134,11 @@ class Query {
 		         && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
 		);
 
+	}
+
+
+	public function is_portfolio_page( \WP_Query $query ) {
+
+		return (int) $query->get_queried_object_id() === (int) pp_get_option( 'portfolio_page', false );
 	}
 }
