@@ -61,7 +61,7 @@ class Query {
 		/**
 		 * domain.com/portfolio/ is a portfolio archive. No doubt, no doubt.
 		 */
-		$result = $query->is_post_type_archive( 'portfolio' );
+		$result = $query->is_post_type_archive( 'pp_post' );
 
 		if ( $result === true ) {
 			$this->is_archive = $result;
@@ -75,7 +75,7 @@ class Query {
 		if ( $this->is_portfolio_front_page( $query ) || $query->get_queried_object_id() === pp_get_option( 'portfolio_page', false ) ) {
 
 			// modify query_vars:
-			$query->set( 'post_type', 'portfolio' );  // override 'post_type'
+			$query->set( 'post_type', 'pp_post' );  // override 'post_type'
 			$query->set( 'pagename', NULL );  // override 'pagename'
 			$query->set( 'page_id', '' );  // override 'pagename'
 			$query->set( 'posts_per_page', - 1 );
@@ -96,7 +96,7 @@ class Query {
 
 	protected function set_is_category( \WP_Query $query ) {
 
-		$result = $query->is_tax( get_object_taxonomies( 'portfolio_category' ) );
+		$result = $query->is_tax( get_object_taxonomies( 'pp_post_category' ) );
 
 
 		$this->is_category = $result;
@@ -113,7 +113,7 @@ class Query {
 
 	protected function set_is_single( \WP_Query $query ) {
 
-		$result = $query->is_single() && 'portfolio' === $query->get( 'post_type' );
+		$result = $query->is_single() && 'pp_post' === $query->get( 'post_type' );
 
 
 		$this->is_single = $result;

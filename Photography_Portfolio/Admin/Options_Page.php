@@ -123,7 +123,7 @@ class Options_Page {
 	public function add_options_page() {
 
 		$this->options_page = add_submenu_page(
-			'edit.php?post_type=portfolio',
+			'edit.php?post_type=pp_post',
 			$this->title,
 			$this->title,
 			'manage_options',

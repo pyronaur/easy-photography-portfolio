@@ -47,7 +47,7 @@ class View {
 			$files = [ ];
 			$term  = get_queried_object();
 
-			if ( is_tax( 'portfolio_category' ) ) {
+			if ( is_tax( 'pp_post_category' ) ) {
 				$files[] = 'taxonomy-' . $term->taxonomy . '.php';
 			}
 			$files[] = 'archive-portfolio.php';
