@@ -1,6 +1,7 @@
 <?php
 
 use Photography_Portfolio\Admin\Options_Page;
+use Photography_Portfolio\Admin\PP_Post_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
@@ -43,9 +44,12 @@ final class Colormelon_Photography_Portfolio {
 	 * @var string
 	 */
 	private $version = '1.0.0';
+
+
 	private $post_type;
 	private $template_loader;
-	private $options = false;
+	private $options   = false;
+	private $metaboxes = false;
 
 
 	/**
@@ -78,7 +82,8 @@ final class Colormelon_Photography_Portfolio {
 		 * Either the front or backend
 		 */
 		if ( is_admin() ) {
-			$this->options = new Options_Page( new Portfolio_Options_Page() );
+			$this->options   = new Options_Page( new Portfolio_Options_Page() );
+			$this->metaboxes = new PP_Post_Meta();
 		}
 		else {
 			new Frontend();
