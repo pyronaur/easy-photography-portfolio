@@ -9,6 +9,7 @@ use Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Layout;
 
 abstract class Layout_Factory {
+
 	protected $layout_slug;
 	protected $query;
 
@@ -57,7 +58,15 @@ abstract class Layout_Factory {
 	}
 
 
+	/**
+	 * Find layout class name by slug
+	 *
+	 * @param $layout_slug
+	 *
+	 * @return Layout_Factory based class
+	 */
 	abstract function get_layout_class( $layout_slug );
+
 
 	/**
 	 * Set and store the layout slug
@@ -68,23 +77,11 @@ abstract class Layout_Factory {
 	 *
 	 * @return $this
 	 */
-	public function set_slug( $layout_slug = NULL ) {
+	public function set_slug( $layout_slug ) {
 
-		if ( ! $layout_slug ) {
-			$layout_slug = $this->find_slug();
-		}
 		$this->layout_slug = $layout_slug;
 
 		return $this;
 	}
-
-
-	/**
-	 * Get the layout slug
-	 * For example "masonry-hovercard" for single-portfolio entries or "masonry" for archives
-	 * @return string slug
-	 */
-	abstract function find_slug();
-
-
+	
 }
