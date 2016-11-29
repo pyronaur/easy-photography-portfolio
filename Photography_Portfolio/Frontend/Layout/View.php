@@ -10,7 +10,8 @@ class View {
 
 	public static function load() {
 
-		$template = self::find_view();
+		$template = self::locate_template_file();
+
 		/**
 		 * Load Template if template is found
 		 */
@@ -20,7 +21,7 @@ class View {
 	}
 
 
-	public static function find_view() {
+	public static function locate_template_file() {
 
 
 		$portfolio = PP_Instance();
