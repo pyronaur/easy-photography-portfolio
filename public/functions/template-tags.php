@@ -3,6 +3,27 @@ use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Template;
 
+
+
+/**
+ * Get Portfolio Template
+ * Kind of like `get_template_part()`
+ *
+ * @param      $template
+ * @param null $slug
+ */
+function pp_get_template( $template, $slug = NULL ) {
+
+	if ( NULL === $slug ) {
+		$slug = pp_slug_current();
+	}
+
+
+	Template::get( $template, $slug );
+}
+
+
+
 /**
  * Kind of like `get_post_class()`
  *
@@ -40,23 +61,6 @@ function pp_class( $class = '' ) {
 	echo 'class="' . join( '  ', pp_get_class( $class ) ) . '"';
 }
 
-
-/**
- * Get Portfolio Template
- * Kind of like `get_template_part()`
- *
- * @param      $template
- * @param null $slug
- */
-function pp_get_template( $template, $slug = NULL ) {
-
-	if ( NULL === $slug ) {
-		$slug = pp_slug_current();
-	}
-
-
-	Template::get( $template, $slug );
-}
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Portfolio Entry
