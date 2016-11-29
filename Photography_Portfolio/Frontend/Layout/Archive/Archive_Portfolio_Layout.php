@@ -54,9 +54,9 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 *
 	 */
 	public function display() {
-
+		
 		$this->maybe_filter_css_classes();
-		$this->get( 'archive/layout' );
+		pp_get_template( 'archive/layout' );
 
 	}
 
