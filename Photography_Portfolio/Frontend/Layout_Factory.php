@@ -37,7 +37,7 @@ class Layout_Factory {
 
 		global $pp_layout;
 
-		$pp_layout = $this->create_layout_instance( $this->query );
+		$pp_layout = $this->create_layout_instance();
 		$pp_layout->display();
 
 		// Don't pollute global scope. Remove the variable after we're done.
