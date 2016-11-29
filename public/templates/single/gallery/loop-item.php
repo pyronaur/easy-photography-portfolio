@@ -16,7 +16,7 @@ $class = array(
 
 ?>
 
-<figure <?php pp_class( $class ) ?> <?php pp_get_gallery_data(); ?>>
+<figure <?php pp_class( $class ) ?> <?php pp_gallery_data_attribute(); ?>>
 
 	<?php pp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
 	<?php pp_get_template( 'single/gallery/caption' ); ?>

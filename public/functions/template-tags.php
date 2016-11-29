@@ -59,7 +59,27 @@ function pp_get_template( $template, $slug = NULL ) {
 }
 
 
-function pp_get_gallery_data() {
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Portfolio Entry
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function pp_get_subtitle() {
+
+	global $pp_layout;
+
+	return $pp_layout->entry->get_subtitle();
+}
+
+function pp_has_subtitle() {
+
+	return ( ! empty( pp_get_subtitle() ) );
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Portfolio Gallery
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function pp_gallery_data_attribute() {
 
 	global $pp_layout;
 
@@ -71,7 +91,7 @@ function pp_get_gallery_data() {
  * Check if gallery exists and has attachments
  * @return bool
  */
-function pp_gallery_has_data() {
+function pp_gallery_has_items() {
 
 	global $pp_layout;
 
@@ -86,7 +106,7 @@ function pp_gallery_has_data() {
  * Setup the current attachment
  * @return mixed
  */
-function pp_gallery_setup_data() {
+function pp_gallery_setup_item() {
 
 	global $pp_layout;
 
@@ -102,17 +122,4 @@ function pp_get_gallery_attachment() {
 	global $pp_layout;
 
 	return $pp_layout->gallery->get_the_attachment();
-}
-
-
-function pp_get_subtitle() {
-
-	global $pp_layout;
-
-	return $pp_layout->entry->get_subtitle();
-}
-
-function pp_has_subtitle() {
-
-	return ( ! empty( pp_get_subtitle() ) );
 }

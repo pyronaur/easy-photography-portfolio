@@ -21,8 +21,8 @@
 	<div <?php pp_class( 'PP_Gallery' ) ?>>
 
 		<?php
-		if ( pp_gallery_has_data() ):
-			while ( pp_gallery_has_data() ): pp_gallery_setup_data();
+		if ( pp_gallery_has_items() ):
+			while ( pp_gallery_has_items() ): pp_gallery_setup_item();
 
 				pp_get_template( 'single/gallery/loop-item' );
 
