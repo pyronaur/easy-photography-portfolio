@@ -71,7 +71,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	public function the_entry( $id ) {
 
 		set_query_var( 'entry', $this->create_entry( $id ) );
-		pp_get_template( 'archive/entry' );
+		pp_get_template( 'archive/entry', $this->slug );
 
 	}
 

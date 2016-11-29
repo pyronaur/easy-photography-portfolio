@@ -108,7 +108,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 			->setup_subtitle();
 
 		// Get the template
-		pp_get_template( 'single/layout' );
+		pp_get_template( 'single/layout', $this->slug );
 
 	}
 
