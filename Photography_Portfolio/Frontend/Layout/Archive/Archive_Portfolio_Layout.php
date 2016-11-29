@@ -25,16 +25,12 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 * Required, used as key to store the layout
 	 */
 	public $slug;
+
 	/**
 	 * @var \WP_Query $query
 	 * The portfolio post ID
 	 */
 	public $query;
-
-	/**
-	 * @var Template $template
-	 */
-	public $template;
 
 	/**
 	 * @var array
