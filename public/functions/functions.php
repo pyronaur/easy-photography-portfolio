@@ -95,25 +95,25 @@ function pp_display_single() {
 
 function pp_display_gallery() {
 
-	global $cm_portfolio;
+	global $pp_layout;
 
-	$cm_portfolio->display_gallery();
+	$pp_layout->display_gallery();
 }
 
 
 function pp_display_entry( $post_id ) {
 
-	global $cm_portfolio;
+	global $pp_layout;
 
-	$cm_portfolio->the_entry( $post_id );
+	$pp_layout->the_entry( $post_id );
 }
 
 
 function pp_get_template( $name ) {
 
-	global $cm_portfolio;
+	global $pp_layout;
 
-	$cm_portfolio->get( $name );
+	$pp_layout->get( $name );
 }
 
 

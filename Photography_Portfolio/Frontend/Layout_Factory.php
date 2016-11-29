@@ -28,20 +28,20 @@ class Layout_Factory {
 	/**
 	 * Method to display a layout
 	 *
-	 * @var             $cm_portfolio Layout_Factory_Interface instance
+	 * @var             $pp_layout Layout_Factory_Interface instance
 	 * @see Single_Portfolio_Layout
 	 * @see Archive_Portfolio_Layout
 	 */
 	public function load() {
 
 
-		global $cm_portfolio;
+		global $pp_layout;
 
-		$cm_portfolio = $this->create_layout_instance( $this->query );
-		$cm_portfolio->display();
+		$pp_layout = $this->create_layout_instance( $this->query );
+		$pp_layout->display();
 
 		// Don't pollute global scope. Remove the variable after we're done.
-		unset ( $cm_portfolio );
+		unset ( $pp_layout );
 
 
 	}
