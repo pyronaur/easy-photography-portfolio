@@ -22,7 +22,7 @@ class Template {
 		$template = self::locate_by_array( $search );
 
 		// Allow 3rd party plugins to modify the tempalte path
-		$template = apply_filters( 'cmp/template/get', $template, $slug, $name );
+		$template = apply_filters( 'pp/template/get', $template, $slug, $name );
 
 		/**
 		 * Load Template if template is found

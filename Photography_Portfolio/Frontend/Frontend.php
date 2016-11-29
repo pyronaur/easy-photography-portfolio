@@ -18,8 +18,8 @@ class Frontend {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 
 		// Hook into Self
-		add_action( 'cmp/wrapper/start', [ $this, 'render_wrapper_start' ] );
-		add_action( 'cmp/wrapper/end', [ $this, 'render_wrapper_end' ] );
+		add_action( 'pp/wrapper/start', [ $this, 'render_wrapper_start' ] );
+		add_action( 'pp/wrapper/end', [ $this, 'render_wrapper_end' ] );
 
 
 	}

@@ -130,7 +130,7 @@ class Entry {
 	/**
 	 * Get the subtitle
 	 *
-	 * @apply_filters `cmp/entry/subtitle`
+	 * @apply_filters `pp/entry/subtitle`
 	 * @return bool|mixed|void
 	 */
 	public function get_subtitle() {
@@ -163,7 +163,7 @@ class Entry {
 		}
 
 
-		return apply_filters( 'cmp/entry/subtitle', $subtitle, $this->id );
+		return apply_filters( 'pp/entry/subtitle', $subtitle, $this->id );
 
 	}
 

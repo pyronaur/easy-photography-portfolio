@@ -61,7 +61,7 @@ final class Colormelon_Photography_Portfolio {
 		$this->define_constants();
 
 		// If there is anything you want to do before the plugin configures itself
-		do_action( 'cmp/prepare', $this );
+		do_action( 'pp/prepare', $this );
 
 		// Initialize Core
 		$this->post_type       = new Register_Post_Type();
@@ -89,8 +89,8 @@ final class Colormelon_Photography_Portfolio {
 			new Frontend();
 		}
 
-		// Trigger `cmp/loaded` as soon as the plugin is fully loaded
-		do_action( 'cmp/loaded', $this );
+		// Trigger `pp/loaded` as soon as the plugin is fully loaded
+		do_action( 'pp/loaded', $this );
 
 	}
 
@@ -160,5 +160,3 @@ final class Colormelon_Photography_Portfolio {
 
 
 }
-
-
