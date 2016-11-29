@@ -46,6 +46,9 @@ require_once __DIR__ . '/Colormelon_Photography_Portfolio.php';
  */
 require_once __DIR__ . '/public/functions/options.php';
 require_once __DIR__ . '/public/functions/functions.php';
+require_once __DIR__ . '/public/functions/slugs.php';
+require_once __DIR__ . '/public/functions/display-tags.php';
+require_once __DIR__ . '/public/functions/template-tags.php';
 
 
 /**
