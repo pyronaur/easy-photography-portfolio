@@ -67,7 +67,10 @@ function pp_load_view() {
  */
 function pp_display_archive() {
 
-	Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory::display();
+	global $wp_query;
+	$view = new Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory( $wp_query );
+
+	$view->set_slug( pp_slug_archive() )->load();
 }
 
 
@@ -77,7 +80,12 @@ function pp_display_archive() {
  */
 function pp_display_single() {
 
-	Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory::display();
+	global $wp_query;
+	$view = new Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory( $wp_query );
+
+
+	$view->set_slug( pp_slug_single() )->load();
+
 }
 
 

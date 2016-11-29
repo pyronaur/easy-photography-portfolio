@@ -59,34 +59,6 @@ abstract class Layout_Factory {
 
 	abstract function get_layout_class( $layout_slug );
 
-
-	/**
-	 * Render the layout
-	 *
-	 * @param (optional) $layout_slug
-	 * @param (optional) $query
-	 *
-	 * @return static
-	 */
-	public static function display( $layout_slug = NULL, $query = NULL ) {
-
-		if ( ! $query ) {
-
-			global $wp_query;
-			$query = $wp_query;
-
-		}
-
-
-		$factory = new static( $query );
-		$factory
-			->set_slug( $layout_slug )
-			->load();
-
-		return $factory;
-	}
-
-
 	/**
 	 * Set and store the layout slug
 	 *
