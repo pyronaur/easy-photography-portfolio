@@ -51,24 +51,3 @@ function pp_display_single() {
 	pp_display( 'single', pp_slug_single() );
 
 }
-
-
-
-
-
-
-
-function pp_display_gallery() {
-
-	global $pp_layout;
-
-	$pp_layout->display_gallery();
-}
-
-
-function pp_display_entry( $post_id ) {
-
-	global $pp_layout;
-
-	$pp_layout->the_entry( $post_id );
-}

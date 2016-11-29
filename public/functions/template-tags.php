@@ -58,21 +58,20 @@ function pp_get_template( $template, $slug = NULL ) {
 	Template::get( $template, $slug );
 }
 
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Portfolio Entry
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function pp_get_subtitle() {
+function pp_entry_get_subtitle() {
 
 	global $pp_layout;
 
 	return $pp_layout->entry->get_subtitle();
 }
 
-function pp_has_subtitle() {
+function pp_entry_has_subtitle() {
 
-	return ( ! empty( pp_get_subtitle() ) );
+	return ( ! empty( pp_entry_get_subtitle() ) );
 }
 
 

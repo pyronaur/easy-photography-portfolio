@@ -9,7 +9,7 @@
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php pp_display_entry( get_the_ID() ); ?>
+		<?php pp_get_template( 'archive/entry' ); ?>
 
 
 	<?php endwhile; ?>

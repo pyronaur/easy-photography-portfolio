@@ -47,6 +47,9 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query = $query;
 		$this->slug  = $slug;
 
+		add_action( 'the_post', [ $this, 'setup_postdata' ] );
+
+
 	}
 
 
@@ -59,22 +62,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		pp_get_template( 'archive/layout' );
 
 	}
-
-
-	/**
-	 * Method to display a single entry of a portfolio archive
-	 *
-	 * @see Template_Trait - $this->slug is always implied when getting a template
-	 *
-	 * @param $id
-	 */
-	public function the_entry( $id ) {
-
-		set_query_var( 'entry', $this->create_entry( $id ) );
-		pp_get_template( 'archive/entry', $this->slug );
-
-	}
-
+	
 
 	/**
 	 * Method to create a new entry
@@ -83,11 +71,14 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 *
 	 * @return Entry instance
 	 */
-	public function create_entry( $id ) {
+	public function setup_postdata() {
 
-		return ( new Entry( $id ) )
+		$entry = ( new Entry( get_the_ID() ) )
 			->setup_featured_image( $this->attached_sizes['thumb'] )
 			->setup_subtitle();
+
+		set_query_var( 'entry', $entry );
+
 	}
 
 }
