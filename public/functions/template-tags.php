@@ -1,4 +1,6 @@
 <?php
+use Photography_Portfolio\Frontend\Gallery\Attachment;
+use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Template;
 
 /**
@@ -54,4 +56,63 @@ function pp_get_template( $template, $slug = NULL ) {
 
 
 	Template::get( $template, $slug );
+}
+
+
+function pp_get_gallery_data() {
+
+	global $pp_layout;
+
+	$data = new Gallery_Data_Renderer( pp_get_gallery_attachment(), $pp_layout->attached_sizes );
+	$data->render();
+}
+
+/**
+ * Check if gallery exists and has attachments
+ * @return bool
+ */
+function pp_gallery_has_data() {
+
+	global $pp_layout;
+
+	if ( ! isset( $pp_layout ) || ! isset( $pp_layout->gallery ) ) {
+		return false;
+	}
+
+	return $pp_layout->gallery->has_data();
+}
+
+/**
+ * Setup the current attachment
+ * @return mixed
+ */
+function pp_gallery_setup_data() {
+
+	global $pp_layout;
+
+	return $pp_layout->gallery->the_attachment();
+}
+
+/**
+ * Fetch the current attachment
+ * @return Attachment
+ */
+function pp_get_gallery_attachment() {
+
+	global $pp_layout;
+
+	return $pp_layout->gallery->get_the_attachment();
+}
+
+
+function pp_get_subtitle() {
+
+	global $pp_layout;
+
+	return $pp_layout->entry->get_subtitle();
+}
+
+function pp_has_subtitle() {
+
+	return ( ! empty( pp_get_subtitle() ) );
 }

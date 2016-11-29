@@ -5,11 +5,7 @@
  * @modified 1.0.0
  */
 
-global $attachment;
-
-/**
- * @TODO: Remove global
- */
+$attachment = pp_get_gallery_attachment();
 
 if ( $attachment->description ): ?>
 	<figcaption class="PP_Gallery__caption"><?= wp_kses_post( $attachment->description ); ?></figcaption>

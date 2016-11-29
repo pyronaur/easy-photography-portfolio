@@ -4,10 +4,8 @@
  * @since 1.0.0
  * @modified 1.0.0
  */
-/**
- * @var \Photography_Portfolio\Frontend\Gallery\Attachment $attachment
- */
-global $attachment;
+
+$attachment = pp_get_gallery_attachment();
 ?>
 <noscript>
 	<img src="<?php echo esc_url( $attachment->get_image_url( 'large' ) ) ?>"

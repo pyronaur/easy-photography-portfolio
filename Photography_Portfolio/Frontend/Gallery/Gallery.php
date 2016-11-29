@@ -67,8 +67,6 @@ class Gallery {
 		$gallery = get_post_meta( $this->ID, 'pp_gallery', true );
 
 		if ( ! $gallery ) {
-			trigger_error( "Gallery for Post ID: `$this->ID` was empty" );
-
 			return array();
 		}
 
@@ -76,7 +74,7 @@ class Gallery {
 			$gallery = array_splice( $gallery, 0, $count );
 		}
 
-		return array_keys($gallery);
+		return array_keys( $gallery );
 	}
 
 

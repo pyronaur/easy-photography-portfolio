@@ -18,5 +18,3 @@ function pp_is_portfolio() {
 
 	return PP_Instance()->query->is_portfolio();
 }
-
-

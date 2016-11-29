@@ -7,12 +7,12 @@ namespace Photography_Portfolio\Frontend\Layout\Single;
 use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 use Photography_Portfolio\Frontend\Filter_CSS_Classes;
 use Photography_Portfolio\Frontend\Gallery\Attachment;
-use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 
 /**
  * Class Single_Portfolio_Layout
+ * @property \Photography_Portfolio\Frontend\Gallery\Gallery gallery
  * @package Photography_Portfolio\Frontend\Layout\Single
  */
 abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
@@ -48,38 +48,21 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
 	public $entry;
 
+	public $gallery;
+
 
 	/**
 	 * Single_Portfolio_Layout constructor.
 	 */
 	public function __construct( $slug, \WP_Query $query ) {
 
-		$this->query = $query;
-		$this->slug  = $slug;
-		$this->id    = $query->get_queried_object_id();
-		$this->entry = new Entry( $this->id );
+		$this->query   = $query;
+		$this->slug    = $slug;
+		$this->id      = $query->get_queried_object_id();
+		$this->entry   = new Entry( $this->id );
+		$this->gallery = new Single_Portfolio_Gallery( $this->id );
 
 
-	}
-
-
-	/**
-	 *  Display Gallery
-	 */
-	public function display_gallery() {
-
-		global $pp_gallery_data;
-		global $attachment;
-
-		foreach ( Gallery::get_all( $this->id ) as $attachment ) {
-
-			$pp_gallery_data = $this->setup_item_data( $attachment );
-			pp_get_template( 'single/gallery/loop-item' );
-
-		}
-
-		// Don't pollute global scope. Remove the variables after we're done.
-		unset( $attachment, $pp_gallery_data );
 	}
 
 
@@ -103,8 +86,6 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		// Create Entry instance
 		$this->entry
 			->setup_featured_image( $this->attached_sizes['thumb'] )
-		// Enable $entry access in template
-		set_query_var( 'entry', $entry );
 			->setup_subtitle();
 
 		// Get the template

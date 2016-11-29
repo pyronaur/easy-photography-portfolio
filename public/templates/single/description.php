@@ -6,13 +6,7 @@
  */
 
 /**
- *
  * Display entry Title, Subtitle, Description
- *
- * Available Global Variables: $portfolio, $entry
- *
- * @var $portfolio Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Layout
- * @var $entry     Photography_Portfolio\Frontend\Layout\Entry\Entry
  */
 ?>
 <div class="PP_Description">
@@ -22,8 +16,8 @@
 			<?php the_title() ?>
 		</h1>
 
-		<?php if ( $entry->subtitle ): ?>
-			<span class="PP_Description__subtitle"><?= esc_html( $entry->subtitle ); ?></span>
+		<?php if ( pp_has_subtitle() ): //$entry->subtitle ): ?>
+			<span class="PP_Description__subtitle"><?= esc_html( pp_get_subtitle() ); ?></span>
 		<?php endif; ?>
 
 		<?php if ( get_the_content() ): ?>

@@ -5,8 +5,7 @@
  * @modified 1.0.0
  */
 
-global $pp_gallery_data, $attachment;
-
+$attachment = pp_get_gallery_attachment();
 
 $class = array(
 	'PP_Gallery__item',
@@ -17,7 +16,7 @@ $class = array(
 
 ?>
 
-<figure <?php pp_class( $class ) ?> <?php $pp_gallery_data->render(); ?>>
+<figure <?php pp_class( $class ) ?> <?php pp_get_gallery_data(); ?>>
 
 	<?php pp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
 	<?php pp_get_template( 'single/gallery/caption' ); ?>
