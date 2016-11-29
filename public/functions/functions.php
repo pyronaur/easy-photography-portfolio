@@ -1,6 +1,7 @@
 <?php
 use Photography_Portfolio\Frontend\Layout\View;
 use Photography_Portfolio\Frontend\Layout_Factory;
+use Photography_Portfolio\Frontend\Template;
 
 /*
  *
@@ -109,11 +110,14 @@ function pp_display_entry( $post_id ) {
 }
 
 
-function pp_get_template( $name ) {
+function pp_get_template( $template, $slug = NULL ) {
 
-	global $pp_layout;
+	if ( NULL === $slug ) {
+		$slug = pp_slug_current();
+	}
 
-	$pp_layout->get( $name );
+
+	Template::get( $template, $slug );
 }
 
 

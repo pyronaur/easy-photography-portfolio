@@ -7,8 +7,6 @@ namespace Photography_Portfolio\Frontend\Layout\Archive;
 use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 use Photography_Portfolio\Frontend\Filter_CSS_Classes;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
-use Photography_Portfolio\Frontend\Template;
-use Photography_Portfolio\Frontend\Template_Trait;
 
 /**
  * Class Archive_Portfolio_Layout
@@ -16,7 +14,6 @@ use Photography_Portfolio\Frontend\Template_Trait;
  */
 abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
-	use Template_Trait;
 	use Filter_CSS_Classes;
 
 
@@ -74,7 +71,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	public function the_entry( $id ) {
 
 		set_query_var( 'entry', $this->create_entry( $id ) );
-		$this->get( 'archive/entry' );
+		pp_get_template( 'archive/entry' );
 
 	}
 

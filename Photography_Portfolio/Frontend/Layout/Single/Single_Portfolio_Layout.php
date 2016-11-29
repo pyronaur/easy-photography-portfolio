@@ -10,7 +10,6 @@ use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Layout\Entry\Entry;
-use Photography_Portfolio\Frontend\Template_Trait;
 
 /**
  * Class Single_Portfolio_Layout
@@ -18,7 +17,6 @@ use Photography_Portfolio\Frontend\Template_Trait;
  */
 abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
-	use Template_Trait;
 	use Filter_CSS_Classes;
 
 	/**
@@ -48,6 +46,9 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	public $id;
 
 
+	public $entry;
+
+
 	/**
 	 * Single_Portfolio_Layout constructor.
 	 */
@@ -56,6 +57,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query = $query;
 		$this->slug  = $slug;
 		$this->id    = $query->get_queried_object_id();
+		$this->entry = new Entry( $this->id );
 
 
 	}
@@ -72,7 +74,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		foreach ( Gallery::get_all( $this->id ) as $attachment ) {
 
 			$pp_gallery_data = $this->setup_item_data( $attachment );
-			$this->get( 'single/gallery/loop-item' );
+			pp_get_template( 'single/gallery/loop-item' );
 
 		}
 
@@ -99,15 +101,14 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->maybe_filter_css_classes();
 
 		// Create Entry instance
-		$entry = ( new Entry( $this->id ) )
+		$this->entry
 			->setup_featured_image( $this->attached_sizes['thumb'] )
-			->setup_subtitle();
-
 		// Enable $entry access in template
 		set_query_var( 'entry', $entry );
+			->setup_subtitle();
 
 		// Get the template
-		$this->get( 'single/layout' );
+		pp_get_template( 'single/layout' );
 
 	}
 
