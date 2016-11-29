@@ -6,23 +6,23 @@ namespace Photography_Portfolio\Frontend;
 
 class Template {
 
-	public static function get( $slug, $name = NULL ) {
+	public static function get( $base, $slug = NULL ) {
 
 		$search = array();
 
-		// Only include slug-name.php if `name` is set ( avoid loading `slug-.php` )
-		if ( $name ) {
-			$search[] = "{$slug}-{$name}.php";
+		// Only include base-name.php if `name` is set ( avoid loading `slug-.php` )
+		if ( $slug ) {
+			$search[] = "{$base}-{$slug}.php";
 		}
 
 		// Always fall back on slug.php
-		$search[] = "{$slug}.php";
+		$search[] = "{$base}.php";
 
 		// Search for the template file
 		$template = self::locate_by_array( $search );
 
 		// Allow 3rd party plugins to modify the tempalte path
-		$template = apply_filters( 'pp/template/get', $template, $slug, $name );
+		$template = apply_filters( 'pp/template/get', $template, $base, $slug );
 
 		/**
 		 * Load Template if template is found
