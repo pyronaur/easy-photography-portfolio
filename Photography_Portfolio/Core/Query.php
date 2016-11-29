@@ -104,14 +104,6 @@ class Query {
 	}
 
 
-	/**
-	 *
-	 *
-	 * Private Functions
-	 *
-	 *
-	 */
-
 	protected function set_is_single( \WP_Query $query ) {
 
 		$result = $query->is_single() && 'pp_post' === $query->get( 'post_type' );
