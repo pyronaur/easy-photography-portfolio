@@ -47,22 +47,12 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query = $query;
 		$this->slug  = $slug;
 
-		add_action( 'the_post', [ $this, 'setup_postdata' ] );
-
-
-	}
-
-
-	/**
-	 *
-	 */
-	public function display() {
-
 		$this->maybe_filter_css_classes();
-		pp_get_template( 'archive/layout' );
+		add_action( 'pp/get_template/archive/entry', [ $this, 'setup_postdata' ] );
+
 
 	}
-	
+
 
 	/**
 	 * Method to create a new entry

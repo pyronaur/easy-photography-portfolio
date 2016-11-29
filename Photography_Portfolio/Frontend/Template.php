@@ -22,13 +22,16 @@ class Template {
 		$template = self::locate_by_array( $search );
 
 		// Allow 3rd party plugins to modify the tempalte path
-		$template = apply_filters( 'pp/template/get', $template, $base, $slug );
+		$template = apply_filters( 'pp/get_template', $template, $base, $slug );
 
 		/**
 		 * Load Template if template is found
 		 */
 		if ( $template ) {
+
+			do_action( 'pp/get_template/' . $base, $template, $base, $slug );
 			load_template( $template, false );
+
 		}
 
 	}
@@ -40,7 +43,8 @@ class Template {
 		$found     = false;
 
 		foreach ( $filenames as $filename ) {
-			if ( $found = self::locate_by_filename( $filename ) ) {
+			$found = self::locate_by_filename( $filename );
+			if ( $found ) {
 				break;
 			}
 		}

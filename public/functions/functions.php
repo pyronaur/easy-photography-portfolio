@@ -1,4 +1,5 @@
 <?php
+use Photography_Portfolio\Frontend\Layout\View;
 
 /**
  * Easy access to our god-class
@@ -17,4 +18,10 @@ function PP_Instance() {
 function pp_is_portfolio() {
 
 	return PP_Instance()->query->is_portfolio();
+}
+
+
+function pp_load_view() {
+
+	View::load();
 }

@@ -5,8 +5,6 @@ namespace Photography_Portfolio\Frontend;
 
 
 use Photography_Portfolio\Contracts\Layout_Factory_Interface;
-use Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Layout;
-use Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Layout;
 
 class Layout_Factory {
 
@@ -25,24 +23,20 @@ class Layout_Factory {
 	}
 
 
-	/**
-	 * Method to display a layout
-	 *
-	 * @var             $pp_layout Layout_Factory_Interface instance
-	 * @see Single_Portfolio_Layout
-	 * @see Archive_Portfolio_Layout
-	 */
-	public function load() {
+	public static function autoload( $layout, $slug ) {
 
 
+		global $wp_query;
 		global $pp_layout;
 
-		$pp_layout = $this->create_layout_instance();
-		$pp_layout->display();
+		$layout_class_name = PP_Instance()->layouts->find_class( $layout, $slug );
 
-		// Don't pollute global scope. Remove the variable after we're done.
-		unset ( $pp_layout );
+		$factory = new static( $wp_query, $slug, $layout_class_name );
 
+		/**
+		 * Expose $pp_layout as a global for use in template functions
+		 */
+		$pp_layout = $factory->create_layout_instance();
 
 	}
 

@@ -7,6 +7,7 @@ use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Frontend;
+use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Settings\Portfolio_Options_Page;
 
@@ -117,6 +118,29 @@ final class Colormelon_Photography_Portfolio {
 		 * Load Photography Portfolio templates when needed:
 		 */
 		add_filter( 'template_include', array( Template_Loader::class, 'load' ) );
+
+
+		/**
+		 * Autoload Archive Data
+		 */
+		add_action(
+			'pp/get_template/archive/layout',
+			function () {
+
+				Layout_Factory::autoload( 'archive', pp_slug_archive() );
+			}
+		);
+
+		/**
+		 * Autoload Single Portfolio entry data
+		 */
+		add_action(
+			'pp/get_template/single/layout',
+			function () {
+
+				Layout_Factory::autoload( 'single', pp_slug_single() );
+			}
+		);
 
 	}
 

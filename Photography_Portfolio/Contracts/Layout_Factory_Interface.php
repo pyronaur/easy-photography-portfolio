@@ -14,7 +14,4 @@ interface Layout_Factory_Interface {
 	 */
 	public function __construct( $layout_slug, \WP_Query $query );
 
-
-	public function display();
-
 }

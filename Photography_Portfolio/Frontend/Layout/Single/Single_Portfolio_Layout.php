@@ -62,6 +62,9 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->entry   = new Entry( $this->id );
 		$this->gallery = new Single_Portfolio_Gallery( $this->id );
 
+		$this->maybe_filter_css_classes();
+		add_action( 'pp/get_template/archive/entry', [ $this, 'setup_postdata' ] );
+
 
 	}
 
@@ -79,19 +82,12 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	}
 
 
-	public function display() {
-
-		$this->maybe_filter_css_classes();
+	public function setup_postdata() {
 
 		// Create Entry instance
 		$this->entry
 			->setup_featured_image( $this->attached_sizes['thumb'] )
 			->setup_subtitle();
 
-		// Get the template
-		pp_get_template( 'single/layout', $this->slug );
-
 	}
-
-
 }
