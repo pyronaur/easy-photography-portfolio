@@ -67,7 +67,5 @@ class View {
 			return Template::locate( 'archive-portfolio.php' );
 		}
 
-		var_dump( $portfolio->query );
-
 	}
 }
