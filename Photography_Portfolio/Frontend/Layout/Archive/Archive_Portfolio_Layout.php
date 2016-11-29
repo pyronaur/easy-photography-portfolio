@@ -40,12 +40,20 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 
 	/**
+	 * Store $entry for public access
+	 * @var Entry $entry
+	 */
+	public $entry;
+
+
+	/**
 	 * Archive_Portfolio_Layout constructor.
 	 */
 	public function __construct( $slug, \WP_Query $query ) {
 
 		$this->query = $query;
 		$this->slug  = $slug;
+
 
 		$this->maybe_filter_css_classes();
 		add_action( 'pp/get_template/archive/entry', [ $this, 'setup_postdata' ] );
@@ -55,7 +63,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 
 	/**
-	 * Method to create a new entry
+	 * Method run via hook each time before pp_get_layout() is called to populate entry data
 	 *
 	 * @param $id
 	 *
@@ -63,11 +71,11 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 */
 	public function setup_postdata() {
 
-		$entry = ( new Entry( get_the_ID() ) )
+		$this->entry = ( new Entry( get_the_ID() ) )
 			->setup_featured_image( $this->attached_sizes['thumb'] )
 			->setup_subtitle();
 
-		set_query_var( 'entry', $entry );
+		set_query_var( 'entry', $this->entry );
 
 	}
 

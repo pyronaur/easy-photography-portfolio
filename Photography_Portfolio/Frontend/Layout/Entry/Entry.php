@@ -190,7 +190,9 @@ class Entry {
 	 *
 	 * ---------------------- Data ----------------------
 	 *
-	 *
+	 * @TODO: Refactor please. Something doesn't feel right here.
+	 *          * Not DRY
+	 *          * Not 100% Clear what is what
 	 */
 
 

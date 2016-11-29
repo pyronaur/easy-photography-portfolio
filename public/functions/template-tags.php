@@ -4,7 +4,6 @@ use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Template;
 
 
-
 /**
  * Get Portfolio Template
  * Kind of like `get_template_part()`
@@ -21,7 +20,6 @@ function pp_get_template( $template, $slug = NULL ) {
 
 	Template::get( $template, $slug );
 }
-
 
 
 /**
@@ -78,6 +76,27 @@ function pp_entry_has_subtitle() {
 	return ( ! empty( pp_entry_get_subtitle() ) );
 }
 
+function pp_entry_the_featured_image() {
+
+	global $pp_layout;
+	$pp_layout->entry->show_featured_image();
+}
+
+
+function pp_entry_has_featured_image() {
+
+	global $pp_layout;
+
+	return $pp_layout->entry->has_featured_image();
+}
+
+function pp_entry_data_attribute() {
+
+	global $pp_layout;
+
+	$data = new Gallery_Data_Renderer( $pp_layout->entry->featured_image, $pp_layout->attached_sizes );
+	$data->render();
+}
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Portfolio Gallery

@@ -16,7 +16,7 @@
 			<?php the_title() ?>
 		</h1>
 
-		<?php if ( pp_entry_has_subtitle() ): //$entry->subtitle ): ?>
+		<?php if ( pp_entry_has_subtitle() ): ?>
 			<span class="PP_Description__subtitle"><?= esc_html( pp_entry_get_subtitle() ); ?></span>
 		<?php endif; ?>
 
