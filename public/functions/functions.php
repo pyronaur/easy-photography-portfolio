@@ -1,5 +1,6 @@
 <?php
 use Photography_Portfolio\Frontend\Layout\View;
+use Photography_Portfolio\Frontend\Layout_Factory;
 
 /*
  *
@@ -61,16 +62,23 @@ function pp_load_view() {
 }
 
 
+function pp_display( $layout_type, $layout_slug ) {
+
+	global $wp_query;
+	$layout_class_name = PP_Instance()->layouts->find_class( $layout_type, $layout_slug );
+
+	$view = new Layout_Factory( $wp_query, $layout_slug, $layout_class_name );
+	$view->load();
+}
+
 /**
  * Start a loop and load all gallery items
  * @load /archive/layout.php
  */
 function pp_display_archive() {
 
-	global $wp_query;
-	$view = new Photography_Portfolio\Frontend\Layout\Archive\Archive_Portfolio_Factory( $wp_query );
+	pp_display( 'archive', pp_slug_archive() );
 
-	$view->set_slug( pp_slug_archive() )->load();
 }
 
 
@@ -80,11 +88,7 @@ function pp_display_archive() {
  */
 function pp_display_single() {
 
-	global $wp_query;
-	$view = new Photography_Portfolio\Frontend\Layout\Single\Single_Portfolio_Factory( $wp_query );
-
-
-	$view->set_slug( pp_slug_single() )->load();
+	pp_display( 'single', pp_slug_single() );
 
 }
 

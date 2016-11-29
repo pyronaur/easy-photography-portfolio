@@ -4,6 +4,8 @@
 namespace Photography_Portfolio\Frontend;
 
 
+use Photography_Portfolio\Contracts\Layout_Factory_Interface;
+
 class Layout_Registry {
 
 	protected $registry = array();
@@ -15,7 +17,7 @@ class Layout_Registry {
 	 * @param string                   $layout_group - Which group of layouts to add this to ?
 	 * @param Layout_Factory_Interface $classname    - Fully qualified class name
 	 *
-	 * @return bool
+	 * @return Layout_Registry instance
 	 * @throws \Exception
 	 */
 	public function add( $classname, $layout_group, $slug, $label ) {
@@ -50,6 +52,28 @@ class Layout_Registry {
 
 
 	/**
+	 *
+	 * @param string $layout_group
+	 * @param string $classname
+	 *
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public function validate_registration_class( $layout_group, $classname ) {
+
+
+		/**
+		 * Make sure that class exists
+		 */
+		if ( ! class_exists( $classname ) ) {
+			throw new \Exception( "Class $classname does not exist" );
+		}
+
+		return true;
+	}
+
+
+	/**
 	 * Remove portfolio layout from registry
 	 *
 	 * @param Layout_Factory_Interface $classname - Fully qualified class name
@@ -72,49 +96,12 @@ class Layout_Registry {
 
 
 	/**
-	 *
-	 * @param string Layout group
-	 * @param $classname
-	 *
-	 * @return bool
-	 * @throws \Exception
-	 */
-	public function validate_registration_class( $layout_group, $classname ) {
-
-
-		/**
-		 * Make sure that class exists
-		 */
-		if ( ! class_exists( $classname ) ) {
-			throw new \Exception( "Class $classname does not exist" );
-		}
-
-		return true;
-	}
-
-
-	/**
 	 * Return registered portfolio items
 	 * @return array
 	 */
 	public function all() {
 
 		return $this->registry;
-	}
-
-
-	/**
-	 * Return registered portfolio items in an associative array
-	 * @return array
-	 */
-	public function available_layouts( $layout_group ) {
-
-		$layouts = array();
-		foreach ( $this->registry[ $layout_group ] as $item ) {
-			$layouts[ $item['key'] ] = $item['label'];
-		}
-
-		return $layouts;
 	}
 
 
@@ -140,6 +127,21 @@ class Layout_Registry {
 	public function get_default( $layout_group ) {
 
 		return key( $this->available_layouts( $layout_group ) );
+	}
+
+
+	/**
+	 * Return registered portfolio items in an associative array
+	 * @return array
+	 */
+	public function available_layouts( $layout_group ) {
+
+		$layouts = array();
+		foreach ( $this->registry[ $layout_group ] as $item ) {
+			$layouts[ $item['key'] ] = $item['label'];
+		}
+
+		return $layouts;
 	}
 
 }
