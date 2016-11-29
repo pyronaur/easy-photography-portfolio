@@ -22,6 +22,7 @@ use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
  *      * Remove `Mod::`
  */
 class Entry {
+
 	/**
 	 * @var bool
 	 */
@@ -131,39 +132,55 @@ class Entry {
 	 * Get the subtitle
 	 *
 	 * @apply_filters `pp/entry/subtitle`
-	 * @return bool|mixed|void
+	 * @return bool|string
 	 */
 	public function get_subtitle() {
 
 		$subtitle = false;
 
-		if ( pp_get_option( 'portfolio_enable_subtitle', false ) ) {
+		/**
+		 * Exit early if a there is a subtitle returned by a filter
+		 */
+		if ( has_filter( 'pp/entry/subtitle' ) ) {
+			$subtitle = apply_filters( 'pp/entry/subtitle', $subtitle, $this );
 
-			/**
-			 * If image count is disabled, set subtitle and quit
-			 */
-			$show_image_count = pp_get_option( 'portfolio_show_image_count', false );
-			$subtitle         = trim( get_post_meta( $this->id, 'portfolio_subtitle', true ) );
-
-			/**
-			 * Count images, maybe set subtitle to image count
-			 */
-			if (
-				'always' == $show_image_count
-				|| ( 'only_missing' == $show_image_count && empty( $subtitle ) )
-			) {
-
-				$gallery     = new Gallery( $this->id );
-				$image_count = count( $gallery->all() );
-				$image_count = ( $image_count > 0 ) ? $image_count : 0;
-
-				$subtitle = sprintf( esc_html__( '%d images', 'MELON_TXT' ), $image_count );
-
+			if ( $subtitle !== false ) {
+				return $subtitle;
 			}
+
+		}
+
+		/**
+		 * Only get a subtitle, if subtitles are enabled
+		 */
+		if ( ! pp_get_option( 'portfolio_enable_subtitle', false ) ) {
+			return false;
+		}
+
+		/**
+		 * If image count is disabled, set subtitle and quit
+		 */
+		$show_image_count = pp_get_option( 'portfolio_show_image_count', false );
+		$subtitle         = trim( get_post_meta( $this->id, 'portfolio_subtitle', true ) );
+
+		/**
+		 * Count images, maybe set subtitle to image count
+		 */
+		if (
+			'always' == $show_image_count
+			|| ( 'only_missing' == $show_image_count && empty( $subtitle ) )
+		) {
+
+			$gallery     = new Gallery( $this->id );
+			$image_count = count( $gallery->all() );
+			$image_count = ( $image_count > 0 ) ? $image_count : 0;
+
+			$subtitle = sprintf( esc_html__( '%d images', 'MELON_TXT' ), $image_count );
+
 		}
 
 
-		return apply_filters( 'pp/entry/subtitle', $subtitle, $this->id );
+		return $subtitle;
 
 	}
 
