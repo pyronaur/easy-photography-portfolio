@@ -68,14 +68,13 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	 * @param $id
 	 *
 	 * @return Entry instance
+	 * @TODO: This still needs a better interface. This isn't dry ( entry setup is repeated in single-portfolio too )
 	 */
 	public function setup_postdata() {
 
 		$this->entry = ( new Entry( get_the_ID() ) )
 			->setup_featured_image( $this->attached_sizes['thumb'] )
 			->setup_subtitle();
-
-		set_query_var( 'entry', $this->entry );
 
 	}
 
