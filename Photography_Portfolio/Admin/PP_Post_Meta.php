@@ -50,7 +50,7 @@ class PP_Post_Meta {
 		/*
 		 * Allow metabox extension
 		 */
-		do_action( 'pp/setup/metabox', $cmb );
+		do_action( 'pp/core/metabox', $cmb );
 
 	}
 }

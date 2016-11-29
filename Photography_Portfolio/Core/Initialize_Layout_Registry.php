@@ -50,7 +50,7 @@ class Initialize_Layout_Registry {
 		 * You can use this hook to either register or de-register any layout
 		 * @hook `pp/register_layouts`
 		 */
-		do_action( 'pp/register_layouts', $layout_registry );
+		do_action( 'pp/core/register_layouts', $layout_registry );
 
 
 		/**
