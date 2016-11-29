@@ -18,8 +18,8 @@ $class = array(
 
 <figure <?php pp_class( $class ) ?> <?php pp_gallery_data_attribute(); ?>>
 
-	<?php pp_get_template( 'single/gallery/item/' . $attachment->type ); ?>
-	<?php pp_get_template( 'single/gallery/caption' ); ?>
-	<?php pp_get_template( 'single/gallery/item/noscript' ); ?>
+	<?php pp_get_template( 'gallery/item/' . $attachment->type ); ?>
+	<?php pp_get_template( 'gallery/caption' ); ?>
+	<?php pp_get_template( 'gallery/item/noscript' ); ?>
 
 </figure> <!-- .PP_Gallery__item -->

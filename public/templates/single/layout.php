@@ -24,7 +24,7 @@
 		if ( pp_gallery_has_items() ):
 			while ( pp_gallery_has_items() ): pp_gallery_setup_item();
 
-				pp_get_template( 'single/gallery/loop-item' );
+				pp_get_template( 'gallery/loop-item' );
 
 			endwhile;
 		endif;
