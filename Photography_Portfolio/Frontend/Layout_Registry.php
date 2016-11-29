@@ -17,7 +17,7 @@ class Layout_Registry {
 	 * @param string                   $layout_group - Which group of layouts to add this to ?
 	 * @param Layout_Factory_Interface $classname    - Fully qualified class name
 	 *
-	 * @return Layout_Registry instance
+	 * @return bool|Layout_Registry instance
 	 * @throws \Exception
 	 */
 	public function add( $classname, $layout_group, $slug, $label ) {
@@ -45,7 +45,6 @@ class Layout_Registry {
 			'label' => $label,
 			'class' => $classname,
 		);
-
 
 		return $this;
 	}
