@@ -9,5 +9,5 @@ interface Options_Page_Settings {
 	public function get_page_title();
 
 
-	public function set_fields( $cmb_instance );
+	public function set_fields( \CMB2 $cmb_instance );
 }

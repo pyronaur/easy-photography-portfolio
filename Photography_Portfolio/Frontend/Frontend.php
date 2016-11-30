@@ -21,6 +21,9 @@ class Frontend {
 		add_action( 'pp/wrapper/start', [ $this, 'render_wrapper_start' ] );
 		add_action( 'pp/wrapper/end', [ $this, 'render_wrapper_end' ] );
 
+		// Adjust .PP_Wrapper classes
+		add_filter( 'pp_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
+
 
 	}
 
@@ -65,6 +68,27 @@ class Frontend {
 
 
 		return $classes;
+	}
+
+
+	public function adjust_wrapper_class( $classes, $class ) {
+
+		/**
+		 * Only affect .PP_Wrapper
+		 */
+
+		if ( ! in_array( 'PP_Wrapper', $class ) ) {
+			return $classes;
+		}
+
+		$custom_classes = pp_get_option( 'pp_wrapper_class' );
+
+		if ( $custom_classes ) {
+			$classes = array_merge( $classes, pp_get_class( $custom_classes ) );
+		}
+
+		return $classes;
+
 	}
 
 

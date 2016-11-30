@@ -17,25 +17,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 	}
 
 
-	public function pages() {
-
-		$args = array(
-			'posts_per_page' => - 1,
-			'post_type'      => 'page',
-			'post_status'    => 'publish',
-		);
-
-		$pages = array();
-
-		foreach ( get_posts( $args ) as $post ) {
-			$pages[ (int) $post->ID ] = esc_html( $post->post_title );
-		}
-
-		return $pages;
-	}
-
-
-	public function set_fields( $cmb ) {
+	public function set_fields( \CMB2 $cmb ) {
 
 		$this->pages();
 		$cmb->add_field(
@@ -101,5 +83,39 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 		);
 
 
+		$cmb->add_field(
+			array(
+				'id'      => "pp_wrapper_class",
+				'name'    => esc_html__( 'Wrapper CSS Classes', 'MELON_TXT' ),
+				'desc'    => esc_html__(
+					'Some themes use different wrapper class-names than the standard.
+					 You can enter custom CSS classnames here to make the plugin compatible with your theme',
+					'MELON_TXT'
+				),
+				'type'    => 'text',
+				'default' => '',
+
+			)
+		);
+
+
+	}
+
+
+	public function pages() {
+
+		$args = array(
+			'posts_per_page' => - 1,
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+		);
+
+		$pages = array();
+
+		foreach ( get_posts( $args ) as $post ) {
+			$pages[ (int) $post->ID ] = esc_html( $post->post_title );
+		}
+
+		return $pages;
 	}
 }
