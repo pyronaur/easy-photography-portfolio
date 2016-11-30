@@ -175,7 +175,7 @@ class Entry {
 			$image_count = count( $gallery->all() );
 			$image_count = ( $image_count > 0 ) ? $image_count : 0;
 
-			$subtitle = sprintf( esc_html__( '%d images', 'MELON_TXT' ), $image_count );
+			$subtitle = sprintf( esc_html__( '%d images', 'pp-plugin' ), $image_count );
 
 		}
 

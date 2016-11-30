@@ -8,7 +8,7 @@ gulp.task "pot", ->
 	.pipe( sort() )
 	.pipe( wpPot( {
 
-					  domain: 'MELON_TXT',
+					  domain: 'pp-plugin',
 					  destFile: 'photography-portfolio.pot',
 					  package: 'Photography Portfolio',
 					  bugReport: 'http://help.colormelon.com',

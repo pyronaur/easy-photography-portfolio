@@ -21,7 +21,7 @@ class PP_Post_Meta {
 		$cmb = new_cmb2_box(
 			array(
 				'id'           => 'pp_post_meta',
-				'title'        => __( 'Photography Portfolio', 'MELON_TXT' ),
+				'title'        => __( 'Photography Portfolio', 'pp-plugin' ),
 				'object_types' => array( 'pp_post' ),
 				'context'      => 'normal',
 				'priority'     => 'high',
@@ -37,11 +37,11 @@ class PP_Post_Meta {
 				'preview_size' => array( 125, 125, true ), // Default: array( 50, 50 )
 				// Optional, override default text strings
 				'text'         => array(
-					'add_upload_files_text' => esc_html__( 'Add Images', 'MELON_TXT' ),
-					'remove_image_text'     => esc_html__( 'Remove Image', 'MELON_TXT' ),
-					'file_text'             => esc_html__( 'File:', 'MELON_TXT' ),
-					'file_download_text'    => esc_html__( 'Download', 'MELON_TXT' ),
-					'remove_text'           => esc_html__( 'Remove', 'MELON_TXT' ),
+					'add_upload_files_text' => esc_html__( 'Add Images', 'pp-plugin' ),
+					'remove_image_text'     => esc_html__( 'Remove Image', 'pp-plugin' ),
+					'file_text'             => esc_html__( 'File:', 'pp-plugin' ),
+					'file_download_text'    => esc_html__( 'Download', 'pp-plugin' ),
+					'remove_text'           => esc_html__( 'Remove', 'pp-plugin' ),
 				),
 			)
 		);

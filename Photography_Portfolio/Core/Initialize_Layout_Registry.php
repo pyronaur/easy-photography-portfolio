@@ -30,7 +30,7 @@ class Initialize_Layout_Registry {
 			Archive_Masonry_Hovercard_Layout::class,
 			'archive',
 			'masonry-hovercard',
-			esc_html__( 'Masonry with hover', 'MELON_TXT' )
+			esc_html__( 'Masonry with hover', 'pp-plugin' )
 
 		);
 
@@ -42,7 +42,7 @@ class Initialize_Layout_Registry {
 			Single_Masonry_Layout::class,
 			'single',
 			'masonry',
-			esc_html__( 'Masonry', 'MELON_TXT' )
+			esc_html__( 'Masonry', 'pp-plugin' )
 
 		);
 

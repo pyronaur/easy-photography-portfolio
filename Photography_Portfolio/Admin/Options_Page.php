@@ -50,7 +50,7 @@ class Options_Page {
 			return;
 		}
 
-		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'MELON_TXT' ), 'updated' );
+		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'pp-plugin' ), 'updated' );
 		settings_errors( $this->key . '-notices' );
 	}
 
