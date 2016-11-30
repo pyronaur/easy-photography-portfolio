@@ -114,18 +114,13 @@ class Layout_Registry {
 	 */
 	public function find_class( $layout_group, $layout_slug ) {
 
-		if ( ! isset( $this->registry[ $layout_group ][ $layout_slug ] ) ) {
-			throw new \Exception( "Layout `$layout_slug` is not defined in Portfolio_Item_Factory`" );
+		if ( ! in_array( $layout_slug, array_keys( $this->available_layouts( $layout_group ) ) ) ) {
+			trigger_error( "Layout `$layout_slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
+			$layout_slug = $this->get_default( $layout_group );
 		}
 
 		return $this->registry[ $layout_group ][ $layout_slug ]['class'];
 
-	}
-
-
-	public function get_default( $layout_group ) {
-
-		return key( $this->available_layouts( $layout_group ) );
 	}
 
 
@@ -141,6 +136,12 @@ class Layout_Registry {
 		}
 
 		return $layouts;
+	}
+
+
+	public function get_default( $layout_group ) {
+
+		return key( $this->available_layouts( $layout_group ) );
 	}
 
 }
