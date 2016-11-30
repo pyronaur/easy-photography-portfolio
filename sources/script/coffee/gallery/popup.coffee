@@ -12,11 +12,17 @@ get_data = ( el ) ->
 	$items = $container.find( '.PP_Gallery__item' )
 
 	items = $items.map ( key, item ) ->
-		i = new Item_Data( $( item ) )
+		item_data = new Item_Data( $( item ) )
+
+
+		if item_data.get_type() is 'video'
+			full = item_data.get_or_false( 'video_url' )
+		else
+			full = item_data.get_url( 'full' )
 
 		return {
-			src  : i.get_url( 'full' )
-			thumb: i.get_url( 'thumb' )
+			src  : full
+			thumb: item_data.get_url( 'thumb' )
 		}
 
 
@@ -41,3 +47,4 @@ Hooks.addAction 'pp.core.ready', ->
 			speed    : 350
 			preload  : 3
 			download : false
+			videoMaxWidth: $(window).width() * 0.8

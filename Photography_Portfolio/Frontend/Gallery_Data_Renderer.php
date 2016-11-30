@@ -30,6 +30,20 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 	}
 
 
+	/**
+	 * Output HTML data="" attribute
+	 */
+	public function render() {
+
+		/**
+		 * Note 1: Space before and after ` data-item='{JSON_DATA}' ` so we don't break HTML
+		 * Note 2: Single Quotes Used: data-item'{JSON_DATA}'
+		 */
+		echo ' data-item=\'' . wp_json_encode( $this->prepare_data() ) . '\' ';
+
+	}
+
+
 	public function prepare_data() {
 
 		$data = array(
@@ -48,22 +62,15 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 			);
 		}
 
+		/**
+		 * Maybe add video URL ?
+		 */
+
+		if ( $this->attachment->type_is( 'video' ) ) {
+			$data['video_url'] = $this->attachment->get_video_url();
+		}
 
 		return apply_filters( 'pp/gallery/prepare_data', $data, $this );
-
-	}
-
-
-	/**
-	 * Output HTML data="" attribute
-	 */
-	public function render() {
-
-		/**
-		 * Note 1: Space before and after ` data-item='{JSON_DATA}' ` so we don't break HTML
-		 * Note 2: Single Quotes Used: data-item'{JSON_DATA}'
-		 */
-		echo ' data-item=\'' . wp_json_encode( $this->prepare_data() ) . '\' ';
 
 	}
 
