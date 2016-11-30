@@ -13,13 +13,13 @@ Photography Portfolio is the hottest plugin on earth for Photographers. Designed
 == Description ==
 
 ## Portfolio for Photographers
-Photography Portfolio is a plugin made for real people, real photographers. Install the plugin, add your portfolio entries and you have a portfolio! Simple as that! Doesn't which WordPress theme you use!
+Photography Portfolio is a simple and elegant plugin made for real photographers. Install the plugin, add your portfolio entries and you have a portfolio! Simple as that! Doesn't matter which WordPress theme you use!
 
 After years of making premium Photography WordPress themes, we decided that the world really needs a simple, yet powerful Photography Portfolio plugin, which is why Photography Portfolio is finally here.
-It's simple enough that anyone can use it (not to worry, if it's not simple enough for you, we're already working on video tutorials), yet flexible enough to be extended by any theme developer with plenty of WordPress hooks and action!
+It's simple enough that anyone can use it (not to worry, if it's not simple enough for you, we're already working on video tutorials), yet flexible enough to be extended by any theme developer with plenty of WordPress hooks and actions!
 
 ## Quick Overview
-Version 1.0.0 is quite minimal and simple, so here is a quick overview:
+Version 1.0.0 is quite minimal and simple, but here is a quick overview:
 * You have a single portfolio on your site
 * In that portfolio you add "Portfolio Entries", and each entry contains a single Gallery and an optional description.
 * Each portfolio entry can be attached to as many "portfolio categories" as you like.
