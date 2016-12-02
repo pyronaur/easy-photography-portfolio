@@ -131,6 +131,9 @@ class Query {
 
 	public function is_portfolio_page( \WP_Query $query ) {
 
-		return (int) $query->get_queried_object_id() === (int) pp_get_option( 'portfolio_page', false );
+		$qID = $query->get_queried_object_id();
+
+		return ( $qID > 0 && ( (int) $qID === (int) pp_get_option( 'portfolio_page', false ) ) );
 	}
+	
 }
