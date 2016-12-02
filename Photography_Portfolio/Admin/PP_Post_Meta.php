@@ -13,10 +13,29 @@ class PP_Post_Meta {
 	public function __construct() {
 
 		add_action( 'cmb2_init', [ $this, 'add_metabox' ] );
+
+		/**
+		 * @TODO: Implement this in a pretty way, this needs CSS and JavaScript
+		 */
+		// add_action( 'edit_form_after_title', [ $this, 'move_metabox_after_post_title' ] );
+
+
 	}
 
+//	/**
+//	 * Display checkbox metabox below title field
+//	 * @link https://github.com/WordPress/WordPress/blob/56d6682461be82da1a3bafc454dad2c9da451a38/wp-admin/edit-form-advanced.php#L517-L523
+//	 */
+//	public function move_metabox_after_post_title() {
+//
+//		$cmb = cmb2_get_metabox( 'pp_post_meta' );
+//		if ( in_array( get_post_type(), $cmb->prop( 'object_types' ), 1 ) ) {
+//			$cmb->show_form();
+//		}
+//	}
 
-	function add_metabox() {
+
+	public function add_metabox() {
 
 		$cmb = new_cmb2_box(
 			array(
@@ -30,7 +49,7 @@ class PP_Post_Meta {
 
 		$cmb->add_field(
 			array(
-				'name'         => 'Gallery',
+
 				'desc'         => '',
 				'id'           => 'pp_gallery',
 				'type'         => 'file_list',
