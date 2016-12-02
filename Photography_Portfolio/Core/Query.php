@@ -26,12 +26,6 @@ class Query {
 	}
 
 
-	public function is_single() {
-
-		return $this->is_single;
-	}
-
-
 	public function is_archive() {
 
 		return $this->is_archive;
@@ -135,5 +129,11 @@ class Query {
 
 		return ( $qID > 0 && ( (int) $qID === (int) pp_get_option( 'portfolio_page', false ) ) );
 	}
-	
+
+
+	public function is_single() {
+
+		return $this->is_single;
+	}
+
 }
