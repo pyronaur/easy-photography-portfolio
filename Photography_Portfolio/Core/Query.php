@@ -66,7 +66,7 @@ class Query {
 		 *  Check if current Page is supposed to be an Archive
 		 *  Modify the WP_Query if so:
 		 */
-		if ( $this->is_portfolio_front_page( $query ) || $this->is_portfolio_page( $query ) ) {
+		if ( ( $this->is_portfolio_front_page_active() && $this->is_portfolio_front_page( $query ) ) || $this->is_portfolio_page( $query ) ) {
 
 
 			// modify query_vars:
@@ -100,15 +100,24 @@ class Query {
 
 	protected function set_is_single( \WP_Query $query ) {
 
-		$result = $query->is_single() && 'pp_post' === $query->get( 'post_type' );
+		$is_pp_post      = ( $query->get( 'post_type' ) === 'pp_post' );
+		$this->is_single = ( $is_pp_post
+		                     && (
+			                     $query->is_single() || $this->is_portfolio_front_page( $query )
+		                     )
+		);
 
-
-		$this->is_single = $result;
-
+		return $this->is_single;
 	}
 
 
-	public function is_portfolio_front_page( $query ) {
+	public function is_portfolio_front_page_active() {
+
+		return ( pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' ) );
+	}
+
+
+	public function is_portfolio_front_page( \WP_Query $query ) {
 
 		if ( ! is_a( $query, 'WP_Query' ) ) {
 			return false;
@@ -117,7 +126,6 @@ class Query {
 		return ( get_option( 'show_on_front' ) == 'page'
 		         && get_option( 'page_on_front' )
 		         && $query->get( 'page_id' ) == get_option( 'page_on_front' )
-		         && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' )
 		);
 
 	}
