@@ -2,6 +2,7 @@
 
 use Photography_Portfolio\Admin\Options_Page;
 use Photography_Portfolio\Admin\PP_Post_Meta;
+use Photography_Portfolio\Core\Add_Attachment_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
@@ -48,6 +49,7 @@ final class Colormelon_Photography_Portfolio {
 
 
 	private $post_type;
+	private $attachment_meta;
 	private $template_loader;
 	private $options   = false;
 	private $metaboxes = false;
@@ -66,6 +68,7 @@ final class Colormelon_Photography_Portfolio {
 
 		// Initialize Core
 		$this->post_type       = new Register_Post_Type();
+		$this->attachment_meta = new Add_Attachment_Meta();
 		$this->query           = new Query();
 		$this->template_loader = new Template_Loader();
 
