@@ -25,6 +25,7 @@
 /**
  * Composer Autoloading
  * Requires PHP 5.3.29+
+ * @TODO: Check for PHP Version!!!
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
