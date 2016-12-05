@@ -29,7 +29,7 @@ function pp_get_option( $option, $default = NULL ) {
 	 * Get `$option` from post meta
 	 */
 	if ( in_the_loop() ) {
-		$value = get_post_meta( get_the_ID(), $option, true );
+		$value = get_post_meta( get_the_ID(), 'pp_' . $option, true );
 
 		if ( $value && $value !== $default ) {
 			return $value;
