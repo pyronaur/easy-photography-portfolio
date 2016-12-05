@@ -145,3 +145,64 @@ function pp_get_gallery_attachment() {
 
 	return $pp_layout->gallery->get_the_attachment();
 }
+
+
+// ------------------------
+//   Archive Template Tags
+// ------------------------
+function pp_get_archive_title() {
+
+	$title = '';
+
+	if ( is_tax( 'pp_post_category' ) ) {
+		$title = single_term_title();
+	}
+
+	elseif ( is_post_type_archive( 'pp_post' ) || PP_Instance()->query->is_portfolio_page() ) {
+		$title = get_the_title( pp_get_option( 'portfolio_page', false ) );
+		if ( $title ) {
+			return $title;
+		}
+	}
+
+	return apply_filters( 'pp/template/archive_title', $title );
+}
+
+
+function pp_the_archive_title() {
+
+	$title = pp_get_archive_title();
+
+	if ( $title ) {
+		echo $title;
+	}
+}
+
+function pp_get_archive_content() {
+
+	$content = '';
+	if ( is_tax( 'pp_post_category' ) ) {
+		$content = term_description();
+	}
+	if ( is_post_type_archive( 'pp_post' ) || PP_Instance()->query->is_portfolio_page() ) {
+		$content = get_post( pp_get_option( 'portfolio_page', false ) )->post_content;
+	}
+
+	return apply_filters( 'pp/template/archive_content', $content );
+}
+
+function pp_the_archive_content() {
+
+	$content = pp_get_archive_content();
+
+	/**
+	 * @copied from `the_content()`
+	 * Filters the post content.
+	 *
+	 * @param string $content Content of the current post.
+	 */
+	$content = apply_filters( 'the_content', $content );
+	$content = str_replace( ']]>', ']]&gt;', $content );
+
+	echo $content;
+}
