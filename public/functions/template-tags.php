@@ -73,7 +73,7 @@ function pp_entry_get_subtitle() {
 
 function pp_entry_has_subtitle() {
 
-	return ( ! empty( pp_entry_get_subtitle() ) );
+	return ( pp_entry_get_subtitle() != '' );
 }
 
 function pp_entry_the_featured_image() {
