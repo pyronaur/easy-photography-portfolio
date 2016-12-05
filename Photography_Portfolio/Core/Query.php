@@ -14,7 +14,7 @@ class Query {
 	/**
 	 * Router constructor.
 	 */
-	public function __construct( $post_id = NULL ) {
+	public function __construct() {
 
 		add_action( 'pre_get_posts', array( $this, 'set_variables' ) );
 	}
@@ -43,7 +43,7 @@ class Query {
 		if ( ! $query->is_main_query() ) {
 			return;
 		}
-
+		
 		$this->set_is_archive( $query );
 		$this->set_is_category( $query );
 		$this->set_is_single( $query );
