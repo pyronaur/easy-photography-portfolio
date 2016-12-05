@@ -45,6 +45,16 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 
 		$cmb->add_field(
 			array(
+				'name'    => esc_html__( 'Show Titles & Descriptions in Archives', 'pp-plugin' ),
+				'id'      => 'archive_enable_description',
+				'type'    => 'checkbox',
+				'default' => false,
+
+			)
+		);
+
+		$cmb->add_field(
+			array(
 				'name'    => esc_html__( 'Single Portfolio Layout', 'pp-plugin' ),
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
