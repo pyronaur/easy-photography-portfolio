@@ -6,7 +6,11 @@ namespace Photography_Portfolio\Core;
 
 class Query {
 
+	/**
+	 * @var \WP_Query $original_query
+	 */
 	public    $original_query;
+	
 	protected $is_archive;
 	protected $is_single;
 	protected $is_category;
