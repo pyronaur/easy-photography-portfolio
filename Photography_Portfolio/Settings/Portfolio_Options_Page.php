@@ -95,7 +95,7 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 
 		$cmb->add_field(
 			array(
-				'id'      => "pp_wrapper_class",
+				'id'      => "wrapper_class",
 				'name'    => esc_html__( 'Wrapper CSS Classes', 'pp-plugin' ),
 				'desc'    => esc_html__(
 					'Some themes use different wrapper class-names than the standard.
