@@ -81,7 +81,7 @@ class Frontend {
 			return $classes;
 		}
 
-		$custom_classes = pp_get_option( 'pp_wrapper_class' );
+		$custom_classes = pp_get_option( 'wrapper_class' );
 
 		if ( $custom_classes ) {
 			$classes = array_merge( $classes, pp_get_class( $custom_classes ) );
