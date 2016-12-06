@@ -19,54 +19,87 @@
 
 /*
  * @TODO:
- * * Add `subtitle` meta field for posts
+ *      * Add `subtitle` meta field for posts
  *
  */
 
-/**
- * Include Colormelon Photography Portfolio
- */
 
 /**
- * Composer Autoloading
- * Requires PHP 5.3.29+
- * @TODO: Check for PHP Version!!!
+ * This file should work without errors on PHP 5.2.17
+ * Use this instead of __DIR__
  */
-require_once __DIR__ . '/vendor/autoload.php';
+$__DIR = dirname( __FILE__ );
+
 
 /**
- * Include CMB2
+ * Require PHP 5.4
+ * Instantly auto-deactivate if plugin requirements are not met
  */
-if ( file_exists( __DIR__ . '/vendor/webdevstudios/cmb2/init.php' ) ) {
-	require_once __DIR__ . '/vendor/webdevstudios/cmb2/init.php';
+if ( version_compare( phpversion(), '5.4', '<' ) ) {
+
+	include( ABSPATH . "wp-includes/pluggable.php" );
+	require_once $__DIR . '/php-require-54.php';
+
+	$updatePhp = new Photography_Portfolio_Require_PHP54();
+
+	function pp_auto_deactivate() {
+
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+
+	if ( current_user_can( 'activate_plugins' ) ) {
+		add_action( 'admin_notices', array( &$updatePhp, 'admin_notice' ) );
+		add_action( 'admin_init', 'pp_auto_deactivate' );
+	}
 }
 
-/**
- * Require the plugin god object.
- */
-require_once __DIR__ . '/Colormelon_Photography_Portfolio.php';
 
 
-/**
- * Template Tags, public functions usage in themes
- */
-require_once __DIR__ . '/public/functions/options.php';
-require_once __DIR__ . '/public/functions/functions.php';
-require_once __DIR__ . '/public/functions/slugs.php';
-require_once __DIR__ . '/public/functions/template-tags.php';
+// ============================================================================
+//  Initialize Photography Portfolio
+// ============================================================================
+else {
+
+	/**
+	 * Setup Autoloading
+	 */
+	require_once $__DIR . '/vendor/autoload.php';
 
 
-/**
- *
- *
- * CMB2
- *
- *
- */
-require_once __DIR__ . '/cmb2.php';
+	/**
+	 * Include CMB2
+	 */
+	if ( file_exists( $__DIR . '/vendor/webdevstudios/cmb2/init.php' ) ) {
+		require_once $__DIR . '/vendor/webdevstudios/cmb2/init.php';
+	}
 
 
-/**
- * Boot Colormelon_Photography_Portfolio
- */
-add_action( 'after_setup_theme', 'PP_Instance' );
+	/**
+	 * Require the Plugin God object.
+	 */
+	require_once $__DIR . '/Colormelon_Photography_Portfolio.php';
+
+
+	/**
+	 * Template Tags, public functions usage in themes
+	 */
+	require_once $__DIR . '/public/functions/options.php';
+	require_once $__DIR . '/public/functions/functions.php';
+	require_once $__DIR . '/public/functions/slugs.php';
+	require_once $__DIR . '/public/functions/template-tags.php';
+
+
+	/**
+	 * Add CMB2 Symlinks support in development environments
+	 */
+	if ( defined( "WP_DEBUG" ) && WP_DEBUG ) {
+		require_once $__DIR . '/pp-cmb-symlinks.php';
+	}
+
+
+	/**
+	 * Boot Colormelon_Photography_Portfolio
+	 */
+	add_action( 'after_setup_theme', 'PP_Instance' );
+
+}
