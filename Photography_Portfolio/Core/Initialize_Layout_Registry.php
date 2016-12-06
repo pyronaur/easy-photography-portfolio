@@ -4,8 +4,6 @@
 namespace Photography_Portfolio\Core;
 
 
-use Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout;
-use Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout;
 use Photography_Portfolio\Frontend\Layout\Single\Packery\Single_Packery_layout;
 use Photography_Portfolio\Frontend\Layout_Registry;
 
@@ -26,8 +24,7 @@ class Initialize_Layout_Registry {
 		 * Portfolio Archive
 		 */
 		$layout_registry->add(
-
-			Archive_Masonry_Hovercard_Layout::class,
+			'Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout',
 			'archive',
 			'masonry-hovercard',
 			esc_html__( 'Masonry with hover', 'pp-plugin' )
@@ -38,12 +35,10 @@ class Initialize_Layout_Registry {
 		 * Single Portfolio
 		 */
 		$layout_registry->add(
-
-			Single_Masonry_Layout::class,
+			'Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout',
 			'single',
 			'masonry',
 			esc_html__( 'Masonry', 'pp-plugin' )
-
 		);
 
 		/**

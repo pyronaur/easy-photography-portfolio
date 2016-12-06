@@ -120,7 +120,7 @@ final class Colormelon_Photography_Portfolio {
 		/*
 		 * Load Photography Portfolio templates when needed:
 		 */
-		add_filter( 'template_include', array( Template_Loader::class, 'load' ) );
+		add_filter( 'template_include', array( 'Photography_Portfolio\Core\Template_Loader', 'load' ) );
 
 
 		/**
