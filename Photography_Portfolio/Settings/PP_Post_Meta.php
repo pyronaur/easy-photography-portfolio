@@ -12,7 +12,7 @@ class PP_Post_Meta {
 	 */
 	public function __construct() {
 
-		add_action( 'cmb2_init', [ $this, 'add_metabox' ] );
+		add_action( 'cmb2_init', [ $this, 'after_content' ] );
 
 		/**
 		 * @TODO: Implement this in a pretty way, this needs CSS and JavaScript
@@ -34,12 +34,11 @@ class PP_Post_Meta {
 //		}
 //	}
 
-
-	public function add_metabox() {
+	public function after_content() {
 
 		$cmb = new_cmb2_box(
 			array(
-				'id'           => 'pp_post_meta',
+				'id'           => 'pp_post_after_meta',
 				'title'        => __( 'Photography Portfolio', 'pp-plugin' ),
 				'object_types' => array( 'pp_post' ),
 				'context'      => 'normal',
@@ -69,7 +68,7 @@ class PP_Post_Meta {
 		/*
 		 * Allow metabox extension
 		 */
-		do_action( 'pp/core/metabox', $cmb );
+		do_action( 'pp/meta/after_content', $cmb );
 
 	}
 }

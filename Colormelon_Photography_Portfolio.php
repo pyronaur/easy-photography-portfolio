@@ -1,6 +1,6 @@
 <?php
 
-use Photography_Portfolio\Admin\Options_Page;
+use Photography_Portfolio\Admin_View\Options_Page;
 use Photography_Portfolio\Core\Add_Attachment_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
