@@ -1,7 +1,6 @@
 <?php
 
 use Photography_Portfolio\Admin\Options_Page;
-use Photography_Portfolio\Admin\PP_Post_Meta;
 use Photography_Portfolio\Core\Add_Attachment_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
@@ -11,6 +10,7 @@ use Photography_Portfolio\Frontend\Frontend;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Settings\Portfolio_Options_Page;
+use Photography_Portfolio\Settings\PP_Post_Meta;
 
 /**
  * Colormelon_Photography_Portfolio

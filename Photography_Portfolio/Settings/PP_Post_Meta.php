@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Photography_Portfolio\Admin;
+namespace Photography_Portfolio\Settings;
 
 
 class PP_Post_Meta {
