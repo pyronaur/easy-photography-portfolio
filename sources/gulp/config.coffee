@@ -31,8 +31,9 @@ GLOBAL.config =
 	# **************************
 	# 	Sass
 	# **************************
-	sass:
-		source: "./sources/style"
+	styl:
+		app: "./sources/style/app"
+		admin: "./sources/style/admin"
 
 	# **************************
 	# 	CoffeeScript

@@ -20,8 +20,11 @@ Gulp.task "sync", ["browser-sync"], ->
 	Watch "#{Config.libs.source}/**", ->
 		Gulp.start "libs"
 
-	Watch "#{Config.sass.source}/**", ->
-		Gulp.start "css"
+	Watch "#{Config.styl.app}/**", ->
+		Gulp.start "styl"
+
+	Watch "#{Config.styl.admin}/**", ->
+		Gulp.start "styl_admin"
 
 	Watch "#{Config.build}/*.js", ->
 		BSync.reload()

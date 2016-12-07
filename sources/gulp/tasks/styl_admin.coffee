@@ -9,7 +9,7 @@ Stylus = require 'gulp-stylus'
 
 
 development = ->
-	Gulp.src("#{Config.sass.source}/app.styl")
+	Gulp.src("#{Config.styl.admin}/admin.styl")
 	.pipe(Sourcemap.init())
 	.pipe Stylus(
 		'include css': true
@@ -22,7 +22,7 @@ development = ->
 
 
 
-Gulp.task "css", ->
+Gulp.task "styl_admin", ->
 	console.log ""
 	if GLOBAL.production()
 		console.log "Building CSS: ", Utilities.colors.yellow('Production')
