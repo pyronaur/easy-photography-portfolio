@@ -16,14 +16,6 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       pp-plugin
  */
-
-/*
- * @TODO:
- *      * Add `subtitle` meta field for posts
- *
- */
-
-
 /**
  * This file should work without errors on PHP 5.2.17
  * Use this instead of __DIR__

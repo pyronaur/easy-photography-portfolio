@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Photography_Portfolio\Admin;
+namespace Photography_Portfolio\Admin_View;
 
 
 use Photography_Portfolio\Contracts\Options_Page_Settings;
