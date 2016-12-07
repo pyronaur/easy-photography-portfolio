@@ -6,7 +6,7 @@ use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
-use Photography_Portfolio\Frontend\Frontend;
+use Photography_Portfolio\Frontend\Public_View;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Settings\Portfolio_Options_Page;
@@ -90,7 +90,7 @@ final class Colormelon_Photography_Portfolio {
 			$this->metaboxes = new PP_Post_Meta();
 		}
 		else {
-			new Frontend();
+			new Public_View();
 		}
 
 		// Trigger `pp/core/loaded` as soon as the plugin is fully loaded

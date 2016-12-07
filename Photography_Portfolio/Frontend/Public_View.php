@@ -4,11 +4,11 @@
 namespace Photography_Portfolio\Frontend;
 
 
-class Frontend {
+class Public_View {
 
 
 	/**
-	 * Frontend constructor.
+	 * Public_View constructor.
 	 */
 	public function __construct() {
 
