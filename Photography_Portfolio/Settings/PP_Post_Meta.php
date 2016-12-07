@@ -42,13 +42,17 @@ class PP_Post_Meta {
 
 	public function wrapper_open() {
 
-		echo '<div class="postbox" style="margin-top: 3em;"><div class="inside">';
+		echo '
+		<div class="PPA_Metabox PPA_Metabox--bc">
+		';
 	}
 
 
 	public function wrapper_close() {
 
-		echo '</div></div>';
+		echo '
+			</div> <!-- .PPA_Metabox -->
+			';
 	}
 
 
@@ -57,7 +61,6 @@ class PP_Post_Meta {
 		$cmb = new_cmb2_box(
 			array(
 				'id'           => 'pp_post_before_meta',
-				'title'        => 'Portfolio',
 				'object_types' => [ 'pp_post' ],
 				'show_names'   => true,
 				'context'      => 'normal',
@@ -69,7 +72,7 @@ class PP_Post_Meta {
 			array(
 
 				'desc'  => '',
-				'name'  => 'Subtitle',
+				'name'  => esc_html__( 'Entry Subtitle', 'pp-portfolio' ),
 				'title' => 'Portfolio',
 				'id'    => 'pp_subtitle',
 				'type'  => 'text',
