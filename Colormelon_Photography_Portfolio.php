@@ -1,16 +1,14 @@
 <?php
 
-use Photography_Portfolio\Admin_View\Options_Page;
+use Photography_Portfolio\Admin_View\Admin_View;
 use Photography_Portfolio\Core\Add_Attachment_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Core\Template_Loader;
-use Photography_Portfolio\Frontend\Public_View;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
-use Photography_Portfolio\Settings\Portfolio_Options_Page;
-use Photography_Portfolio\Settings\PP_Post_Meta;
+use Photography_Portfolio\Frontend\Public_View;
 
 /**
  * Colormelon_Photography_Portfolio
@@ -51,8 +49,6 @@ final class Colormelon_Photography_Portfolio {
 	private $post_type;
 	private $attachment_meta;
 	private $template_loader;
-	private $options   = false;
-	private $metaboxes = false;
 
 
 	/**
@@ -86,8 +82,7 @@ final class Colormelon_Photography_Portfolio {
 		 * Either the front or backend
 		 */
 		if ( is_admin() ) {
-			$this->options   = new Options_Page( new Portfolio_Options_Page() );
-			$this->metaboxes = new PP_Post_Meta();
+			new Admin_View();
 		}
 		else {
 			new Public_View();
