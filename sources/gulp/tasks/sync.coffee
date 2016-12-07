@@ -1,29 +1,28 @@
-gulp = require("gulp")
-sync = require("browser-sync")
+Gulp = require("gulp")
+BSync = require("browser-sync")
 Config = GLOBAL.config
-watch = require "gulp-watch"
-util = require 'gulp-util'
+Watch = require "gulp-watch"
 
 
-gulp.task "browser-sync", ->
-	sync.init "public/build/*.css",
+Gulp.task "browser-sync", ->
+	BSync.init "public/build/*.css",
 		proxy:
 			target: Config.url
 		open: false
 		port: 3002
 
 
-gulp.task "sync", ["browser-sync"], ->
+Gulp.task "sync", ["browser-sync"], ->
 
-	watch "#{Config.coffee.source}/**", ->
-		gulp.start "coffee"
+	Watch "#{Config.coffee.source}/**", ->
+		Gulp.start "coffee"
 
-	watch "#{Config.libs.source}/**", ->
-		gulp.start "libs"
+	Watch "#{Config.libs.source}/**", ->
+		Gulp.start "libs"
 
-	watch "#{Config.sass.source}/**", ->
-		gulp.start "css"
+	Watch "#{Config.sass.source}/**", ->
+		Gulp.start "css"
 
-	watch "#{Config.build}/*.js", ->
-		sync.reload()
+	Watch "#{Config.build}/*.js", ->
+		BSync.reload()
 	

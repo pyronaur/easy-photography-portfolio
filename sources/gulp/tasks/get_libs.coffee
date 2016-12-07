@@ -1,14 +1,14 @@
 Config = GLOBAL.config
-gulp = require( 'gulp' )
-download = require "gulp-download"
-rename = require 'gulp-rename'
+Gulp = require( 'gulp' )
+Download = require "gulp-download"
+Rename = require 'gulp-rename'
 
 
-gulp.task "getlibs", ->
+Gulp.task "getlibs", ->
 
 	for key, url of Config.external_libs
 		console.log "Downloading #{key} from URL: #{url}"
 
-		download( url )
-		.pipe( rename( basename: key ) )
-		.pipe( gulp.dest( Config.libs.source ) )
+		Download( url )
+		.pipe( Rename( basename: key ) )
+		.pipe( Gulp.dest( Config.libs.source ) )

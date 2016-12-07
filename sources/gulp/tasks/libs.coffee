@@ -1,12 +1,10 @@
 Config 			= GLOBAL.config
-gulp 			= require('gulp')
-coffee 			= require("gulp-coffee")
-handle_errors 	= require('../util/handleErrors')
-concat 			= require "gulp-concat"
-sourcemaps 			= require "gulp-sourcemaps"
-uglify 			= require 'gulp-uglify'
-order = require 'gulp-order'
-util = require 'gulp-util'
+Gulp 			= require('gulp')
+Error_Handle 	= require('../util/handleErrors')
+Concat 			= require "gulp-concat"
+Sourcemap 			= require "gulp-sourcemaps"
+Uglify 			= require 'gulp-uglify'
+Utilities = require 'gulp-util'
 
 
 get_source = ->
@@ -19,7 +17,7 @@ get_source = ->
 
 	libs = lib_order.map (str) -> "#{Config.libs.source}/#{str}.js"
 
-	gulp.src(libs)
+	Gulp.src(libs)
 	
 
 
@@ -33,29 +31,29 @@ development = ->
 			beautify: true
 
 	get_source()
-		.pipe( sourcemaps.init( loadMaps: true ) )
-		.pipe( uglify(  ugly_opts ).on('error', handle_errors) )
-		.pipe( concat("libs.js") )
-		.pipe( gulp.dest(Config.build) )
+		.pipe( Sourcemap.init( loadMaps: true ) )
+		.pipe( Uglify(  ugly_opts ).on('error', Error_Handle) )
+		.pipe( Concat("libs.js") )
+		.pipe( Gulp.dest(Config.build) )
 
 
 
 
 production = ->
 	get_source()
-		.pipe( uglify().on('error', handle_errors) )
-		.pipe( concat("libs.js") )
-		.pipe( gulp.dest(Config.build) )
+		.pipe( Uglify().on('error', Error_Handle) )
+		.pipe( Concat("libs.js") )
+		.pipe( Gulp.dest(Config.build) )
 
 
 
 
 
-gulp.task "libs", ->
+Gulp.task "libs", ->
 	console.log ""
 	if GLOBAL.production()
-		console.log "Contcatenate Libs: ", util.colors.yellow('Production')
+		console.log "Contcatenate Libs: ", Utilities.colors.yellow('Production')
 		production()
 	else
-		console.log "Contcatenate Libs: ", util.colors.green('Development')
+		console.log "Contcatenate Libs: ", Utilities.colors.green('Development')
 		development()

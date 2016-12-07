@@ -1,10 +1,9 @@
-gulp = require("gulp")
-seq = require 'run-sequence'
+Gulp = require( "gulp" )
 
-gulp.task "build", (cb) ->
+Gulp.task "build", ( cb ) ->
 	GLOBAL.set_production()
 
-	gulp.start "libs"
-	gulp.start "sass"
-	gulp.start "coffee"
+	Gulp.start "libs"
+	Gulp.start "sass"
+	Gulp.start "coffee"
 

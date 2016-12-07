@@ -1,21 +1,22 @@
 "use strict"
 
 Config = GLOBAL.config
-browserify = require('browserify')
-gulp = require('gulp')
-source = require('vinyl-source-stream')
-buffer = require('vinyl-buffer')
-uglify = require('gulp-uglify')
-sourcemaps = require('gulp-sourcemaps')
-util = require('gulp-util')
-concat = require('gulp-concat')
-strip_debug = require('gulp-strip-debug')
-handle_errors = require('./../util/handleErrors')
+Browserify = require('browserify')
+Gulp = require('gulp')
+Stream = require('vinyl-source-stream')
+Buffer = require('vinyl-buffer')
+Uglify = require('gulp-uglify')
+Sourcemap = require('gulp-sourcemaps')
+Utilities = require('gulp-util')
+Concat = require('gulp-concat')
+Strip_Debug = require('gulp-strip-debug')
+Error_Handle = require('./../util/handleErrors')
+
 
 
 
 get_source = (debug) ->
-	browserify(
+	Browserify(
 		entries   : Config.coffee.entry
 		debug     : debug
 		extensions: [".coffee", ".js"],
@@ -28,23 +29,23 @@ get_source = (debug) ->
 		}
 
 	)
-	.on("error", handle_errors)
+	.on("error", Error_Handle)
 	.bundle()
-	.on("error", handle_errors)
-	.pipe(source('app.js'))
-	.pipe(buffer())
-	.on("error", handle_errors)
+	.on("error", Error_Handle)
+	.pipe(Stream('app.js'))
+	.pipe(Buffer())
+	.on("error", Error_Handle)
 
 
 development = ->
 	# Build CoffeeScript
 	get_source(true)
-	.pipe(sourcemaps.init(loadMaps: true))
+	.pipe(Sourcemap.init(loadMaps: true))
 
 	# Concat
-	.pipe(concat("app.js"))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest(Config.build))
+	.pipe(Concat("app.js"))
+	.pipe(Sourcemap.write())
+	.pipe(Gulp.dest(Config.build))
 
 
 production = ->
@@ -52,25 +53,25 @@ production = ->
 	get_source(false)
 
 	# Concat
-	.pipe(concat("app.js"))
+	.pipe(Concat("app.js"))
 
 	# Remove console.logs
-	.pipe(strip_debug())
+	.pipe(Strip_Debug())
 
 	# Uglify
-	.pipe(uglify(
+	.pipe(Uglify(
 		debug  : true,
 		options:
 			sourceMap: true,
 	))
-	.pipe(gulp.dest(Config.build))
+	.pipe(Gulp.dest(Config.build))
 
 
-gulp.task "coffee", ->
+Gulp.task "coffee", ->
 	console.log ""
 	if GLOBAL.production()
-		console.log "CoffeeScript: ", util.colors.yellow('Production')
+		console.log "CoffeeScript: ", Utilities.colors.yellow('Production')
 		production()
 	else
-		console.log "CoffeeScript: ", util.colors.green('Development')
+		console.log "CoffeeScript: ", Utilities.colors.green('Development')
 		development()

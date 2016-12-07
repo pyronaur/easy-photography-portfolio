@@ -1,12 +1,12 @@
 
-gulp = require('gulp')
-wpPot = require('gulp-wp-pot')
-sort = require('gulp-sort')
+Gulp = require('gulp')
+WP_Pot = require('gulp-wp-pot')
+Sort = require('gulp-sort')
 
-gulp.task "pot", ->
-	gulp.src( '**/*.php' )
-	.pipe( sort() )
-	.pipe( wpPot( {
+Gulp.task "pot", ->
+	Gulp.src( '**/*.php' )
+	.pipe( Sort() )
+	.pipe( WP_Pot( {
 
 					  domain: 'pp-plugin',
 					  destFile: 'photography-portfolio.pot',
@@ -15,5 +15,5 @@ gulp.task "pot", ->
 					  lastTranslator: 'Colormelon <help@colormelon.com>',
 					  team: 'Colormelon <help@colormelon.com>',
 				  } ) )
-	.pipe( gulp.dest( 'languages' ) )
+	.pipe( Gulp.dest( 'languages' ) )
 	

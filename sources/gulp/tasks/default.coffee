@@ -1,2 +1,3 @@
-gulp = require("gulp")
-gulp.task "default", ["watch"]
+Gulp = require("gulp")
+
+Gulp.task "default", ["sync"]

@@ -1,34 +1,34 @@
-gulp = require("gulp")
+Gulp = require("gulp")
 Config = GLOBAL.config
-notify = require("gulp-notify")
-handle_errors = require("../util/handleErrors")
-autoprefixer = require "gulp-autoprefixer"
-maps = require "gulp-sourcemaps"
-util = require "gulp-util"
-stylus = require 'gulp-stylus'
+Notify = require("gulp-notify")
+Handle = require("../util/handleErrors")
+Autoprefixer = require "gulp-autoprefixer"
+Sourcemap = require "gulp-sourcemaps"
+Utilities = require "gulp-util"
+Stylus = require 'gulp-stylus'
 
 
 development = ->
-	gulp.src("#{Config.sass.source}/app.styl")
-	.pipe(maps.init())
-	.pipe stylus(
+	Gulp.src("#{Config.sass.source}/app.styl")
+	.pipe(Sourcemap.init())
+	.pipe Stylus(
 		'include css': true
 	)
-	.on("error", handle_errors)
-	.pipe autoprefixer()
-	.pipe maps.write()
-	.pipe gulp.dest(Config.build)
+	.on("error", Handle)
+	.pipe Autoprefixer()
+	.pipe Sourcemap.write()
+	.pipe Gulp.dest(Config.build)
 
 
 
 
-gulp.task "css", ->
+Gulp.task "css", ->
 	console.log ""
 	if GLOBAL.production()
-		console.log "Building CSS: ", util.colors.yellow('Production')
+		console.log "Building CSS: ", Utilities.colors.yellow('Production')
 		production()
 	else
-		console.log "Building CSS: ", util.colors.green('Development')
+		console.log "Building CSS: ", Utilities.colors.green('Development')
 		development()
 
 
