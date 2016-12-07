@@ -18,7 +18,7 @@ GLOBAL.config =
 
 		# Essentials
 		fitvids: "https://raw.githubusercontent.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
-		velocity: "https://raw.githubusercontent.com/julianshapiro/velocity/master/velocity.js"
+		# velocity: "https://raw.githubusercontent.com/julianshapiro/velocity/master/velocity.js"
 		wp_js_hooks: "https://raw.githubusercontent.com/carldanley/WP-JS-Hooks/master/src/event-manager.js"
 
 		# Libraries:
