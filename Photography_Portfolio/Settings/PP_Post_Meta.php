@@ -103,7 +103,7 @@ class PP_Post_Meta {
 				'desc'         => '',
 				'id'           => 'pp_gallery',
 				'type'         => 'file_list',
-				'preview_size' => [ 125, 125, true ], // Default: array( 50, 50 )
+				'preview_size' => [ 125, 125, true ], // Default: [50,50]
 				// Optional, override default text strings
 				'text'         => [
 					'add_upload_files_text' => esc_html__( 'Add Images', 'pp-plugin' ),
