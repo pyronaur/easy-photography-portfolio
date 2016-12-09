@@ -5,7 +5,7 @@ $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
 Item_Data = require( './Item_Data' )
 
-class Lazy_Loader
+class Abstract_Lazy_Loader
 
 	Elements:
 		item       : 'PP_Lazy_Image'
@@ -25,9 +25,9 @@ class Lazy_Loader
 	###
 		Abstract Methods
 	###
-	resize  : -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `resize` method" )
-	load    : -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `load` method" )
-	autoload: -> throw new Error( "[Abstract] Any subclass of `Lazy_Loader` must implement `autoload` method" )
+	resize  : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `resize` method" )
+	load    : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `load` method" )
+	autoload: -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `autoload` method" )
 
 
 	setup_data: ->
@@ -73,5 +73,4 @@ class Lazy_Loader
 		Hooks.removeAction 'pp.lazy.autoload', @autoload
 
 
-window.PP_Modules.Lazy_Loader = Lazy_Loader
-module.exports = Lazy_Loader
+module.exports = Abstract_Lazy_Loader
