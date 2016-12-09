@@ -20,7 +20,7 @@ class Portfolio_Interface
 		Hooks.addAction 'pp.portfolio.destroy', @purge_actions, 100
 
 	purge_actions: ->
-		Hooks.removeAction 'pp.portfolio.create', @prepare, 50
+		Hooks.removeAction 'pp.portfolio.prepare', @prepare, 50
 		Hooks.removeAction 'pp.portfolio.create', @create, 50
 		Hooks.removeAction 'pp.portfolio.refresh', @refresh, 50
 		Hooks.removeAction 'pp.portfolio.destroy', @destroy, 50
@@ -38,5 +38,4 @@ class Portfolio_Interface
 
 
 
-window.PP_Modules.Portfolio_Interface = Portfolio_Interface
 module.exports = Portfolio_Interface
