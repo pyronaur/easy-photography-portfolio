@@ -44,5 +44,4 @@ class Item_Data
 	get_type    : -> @get_or_false( 'type' )
 
 
-window.PP_Modules.Item_Data = Item_Data
 module.exports = Item_Data
