@@ -21,8 +21,9 @@ init_lazy_loader = ->
 # Initialize lazy loader after the portfolio is prepared, p = 100
 Hooks.addAction 'pp.portfolio.prepare', init_lazy_loader, 100
 Hooks.addAction 'pp.portfolio.destroy', ->
-	lazy_instance.destroy()
-	lazy_instance = null
+	if lazy_instance
+		lazy_instance.destroy()
+		lazy_instance = null
 
 
 # Load first masonry images when the layout has completed
