@@ -7,6 +7,12 @@ namespace Photography_Portfolio\Settings;
 use Photography_Portfolio\Contracts\Options_Page_Settings;
 
 
+/**
+ * Class Portfolio_Options_Page
+ * @package Photography_Portfolio\Settings
+ *
+ * @TODO: This needs a sensible name to distinguish views from settings
+ */
 class Portfolio_Options_Page implements Options_Page_Settings {
 
 
@@ -93,6 +99,9 @@ class Portfolio_Options_Page implements Options_Page_Settings {
 		);
 
 
+		/**
+		 * @TODO: Wrapper Class option should only be showed in themes that don't natively support PP
+		 */
 		$cmb->add_field(
 			array(
 				'id'      => "wrapper_class",
