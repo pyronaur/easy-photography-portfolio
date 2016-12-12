@@ -104,7 +104,7 @@ final class Colormelon_Photography_Portfolio {
 		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
 
-		define( 'CLM_THEME_PATH', 'portfolio/' );
+		define( 'CLM_THEME_PATH', 'photography-portfolio/' );
 		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . '/public/templates/' );
 
 	}
