@@ -138,6 +138,7 @@ class Entry {
 
 		$subtitle = false;
 
+
 		/**
 		 * Exit early if a there is a subtitle returned by a filter
 		 */
@@ -172,8 +173,7 @@ class Entry {
 		) {
 
 			$gallery     = new Gallery( $this->id );
-			$image_count = count( $gallery->all() );
-			$image_count = ( $image_count > 0 ) ? $image_count : 0;
+			$image_count = $gallery->count();
 
 			$subtitle = sprintf( esc_html__( '%d images', 'pp-plugin' ), $image_count );
 
