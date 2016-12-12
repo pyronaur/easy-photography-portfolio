@@ -1,21 +1,20 @@
 === Photography Portfolio - Easy Portfolio for Photogrpahers ===
 Contributors: colormelon, justnorris
 Donate link: http://colormelon.com/
-Tags: portfolio, photography, gallery, grid, masonry, themeable
+Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery
 Requires at least: 4.6.0
-Tested up to: 4.6.0
+Tested up to: 4.7.0
 Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Photography Portfolio is the hottest plugin on earth for Photographers. Designed to easily integrate in almost any theme while keeping your sanity, even if you have no idea what you're doing.
+Photography Portfolio is a simple and elegant plugin made for real photographers. Install the plugin, add your portfolio entries and you have a portfolio! Simple as that! Doesn't matter which WordPress theme you use!
 
 == Description ==
 
 ## Portfolio for Photographers
-Photography Portfolio is a simple and elegant plugin made for real photographers. Install the plugin, add your portfolio entries and you have a portfolio! Simple as that! Doesn't matter which WordPress theme you use!
 
-After years of making premium Photography WordPress themes, we decided that the world really needs a simple, yet powerful Photography Portfolio plugin, which is why Photography Portfolio is finally here.
+After years of making premium Photography WordPress themes, we decidµed that the world really needs a simple, yet powerful Photography Portfolio plugin, which is why Photography Portfolio is finally here.
 It's simple enough that anyone can use it (not to worry, if it's not simple enough for you, we're already working on video tutorials), yet flexible enough to be extended by any theme developer with plenty of WordPress hooks and actions!
 
 ## Quick Overview
