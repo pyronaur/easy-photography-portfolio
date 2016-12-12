@@ -103,7 +103,7 @@ class Query {
 
 	public function front_page_is_portfolio() {
 
-		return ( get_option( 'show_on_front' ) == 'page' && pp_get_option( 'portfolio_page', false ) == get_option( 'page_on_front' ) );
+		return ( get_option( 'show_on_front' ) == 'page' && pp_get_home_page() == get_option( 'page_on_front' ) );
 	}
 
 
@@ -115,7 +115,7 @@ class Query {
 			$id = (int) $this->original_query->get( 'page_id' );
 		}
 
-		return ( $id > 0 && $id === (int) pp_get_option( 'portfolio_page', 0 ) );
+		return ( $id > 0 && $id === pp_get_home_page() );
 
 	}
 

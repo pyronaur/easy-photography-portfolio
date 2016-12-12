@@ -25,3 +25,9 @@ function pp_load_view() {
 
 	View::load();
 }
+
+
+function pp_get_home_page() {
+
+	return (int) pp_get_option( 'portfolio_page', 0 );
+}
