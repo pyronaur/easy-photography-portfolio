@@ -68,7 +68,7 @@ function pp_entry_get_subtitle() {
 
 	global $pp_layout;
 
-	return $pp_layout->entry->get_subtitle();
+	return $pp_layout->entry->subtitle;
 }
 
 function pp_entry_has_subtitle() {
