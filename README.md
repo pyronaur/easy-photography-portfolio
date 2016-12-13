@@ -38,7 +38,7 @@ Version 1.0 is quite simple with everything you need - albums with images that c
 By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer. I think it might be easier to explain with a demo. Here, have a look:
 
 
-### Photography Portfolio Demos:
+### Demo
 * [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
 * [Aster - Premium WordPress theme for Photographers](http://aster.bycolormelon.com/) - with a custom Horizontal Layout
 * [Bluebird - a Premium Photography theme](http://aster.bycolormelon.com/) - with custom horizontal and masonry layouts, with added previews, horizontal layout and more
