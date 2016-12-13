@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Contracts;
 
 
-interface Options_Page_Settings {
+interface Options_Page_Settings_Interface {
 	
 	public function get_page_title();
 

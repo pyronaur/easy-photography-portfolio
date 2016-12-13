@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Admin_View;
 
 
-use Photography_Portfolio\Contracts\Options_Page_Settings;
+use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
 
 class Options_Page {
 
@@ -20,7 +20,7 @@ class Options_Page {
 	/**
 	 * Options_Page constructor.
 	 */
-	public function __construct( Options_Page_Settings $settings ) {
+	public function __construct( Options_Page_Settings_Interface $settings ) {
 
 		$this->settings = $settings;
 

@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Settings;
 
 
-use Photography_Portfolio\Contracts\Options_Page_Settings;
+use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
 
 
 /**
@@ -13,7 +13,7 @@ use Photography_Portfolio\Contracts\Options_Page_Settings;
  *
  * @TODO: This needs a sensible name to distinguish views from settings
  */
-class Portfolio_Options_Page implements Options_Page_Settings {
+class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 
 	public function get_page_title() {
