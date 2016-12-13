@@ -91,7 +91,7 @@ class Gallery {
 
 	public function count() {
 
-		return count( $this->get_item_ids() ) || 0;
+		return count( $this->get_item_ids() );
 	}
 
 }
