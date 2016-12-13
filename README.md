@@ -1,18 +1,8 @@
-=== Photography Portfolio - Easy Portfolio for Photogrpahers ===
-Contributors: colormelon, justnorris
-Donate link: http://colormelon.com/
-Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery
-Requires at least: 4.6.0
-Tested up to: 4.7.0
-Stable tag: 1.0.0
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+## Photography Portfolio - Easy Portfolio for Photogrpahers
 
-Photography Portfolio is a easy to use and elegant plugin made for photographers. Install the plugin, add portfolio entries and you have a portfolio!
-
-== Description ==
 
 ### Designed for Photographers
+
 Building a Photography Portfolio for WordPress should bdfe easy. So we made a plugin to help you with that!
 
 We love the WordPress community and wholeheartedly agree with the [WordPress Philosophy](https://wordpress.org/about/philosophy/).
@@ -31,10 +21,17 @@ That's exactly what Photography Portfolio does for you online. You create albums
 Then your visitors are able to open any album, quickly scan all of the images, or view them one by one. Simplicity is key!
 
 
-### Our Story
-We have been designing WordPress Portfolio themes for Photographers for years. In that time we've distilled the simplest and most effective ways of building an online Portfolio.
+### Developed for Extensibility
 
-We decided that it is long overdue to give back to the community. So we built a reliable plugin that anyone can use, be it a new Photographer, an existing Customer, or a Developer. At the same time we built the Photography Portfolio Plugin so that we can use it ourselves for our existing customers, yet making it flexible enough so that it can be used in any theme.
+Out of the box Photography Portfolio is built using Masonry Layout (think Pinterest). Quite simply - it's the layout most easily portable to any website layout while keeping the feel of the brand.
+
+For some, a masonry layout might not be enough, it sure isn't enough for our Photography WordPress themes, because of that, this plugin is packed with Actions and Filters. Not only in PHP, but also the JavaScript side.
+
+You can easily extend the plugin with your own custom archive and single-view layouts. Customization is easy as Photography Portfolio plugin templates are based on `get_template_part()` function, similar to the way WooCommerce plugin has a custom template function. That brings a lot of customization power to the table. Pick any part of the view, and either append template parts, or completely rewrite them for either a specific layout or for all layouts.
+
+The JavaScript side is also very opinionated and easily extensible. You can use filters and actions to either modify the existing functionality, for example modifying the core masonry layout just a bit, or completely initialize a brand new layout (like Packery or Horizontal Scroll). If you decide to build a custom view, you can utilize the existing JavaScript hook structure to let the plugin handle all the little things for you.
+
+ourselves for our existing customers, yet making it flexible enough so that it can be used in any theme.
 
 
 ### Quick Overview
@@ -48,18 +45,6 @@ By default, albums and images are displayed in a masonry  layout. You open up an
 
 
 
-### Developed for Extensibility
-
-Out of the box Photography Portfolio is built using Masonry Layout (think Pinterest). Quite simply - it's the layout most easily portable to any website layout while keeping the feel of the brand.
-
-**Warning**: Strong developer language ahead.
-
-For some, a masonry layout might not be enough, it sure isn't enough for our Photography WordPress themes, because of that, this plugin is packed with Actions and Filters. Not only in PHP, but also the JavaScript side.
-
-You can easily extend the plugin with your own custom archive and single-view layouts. Customization is easy as Photography Portfolio plugin templates are based on `get_template_part()` function, similar to the way WooCommerce plugin has a custom template function. That brings a lot of customization power to the table. Pick any part of the view, and either append template parts, or completely rewrite them for either a specific layout or for all layouts.
-
-The JavaScript side is also very opinionated and easily extensible. You can use filters and actions to either modify the existing functionality, for example modifying the core masonry layout just a bit, or completely initialize a brand new layout (like Packery or Horizontal Scroll). If you decide to build a custom view, you can utilize the existing JavaScript hook structure to let the plugin handle all the little things for you.
-
 
 ### WordPress Themes
 We also build premium [WordPress themes for Photographers](https://colormelon.com). Have a look at our *Portfolio* and maybe you fall in love with one of them!
@@ -71,7 +56,7 @@ We respect our users and believe that one can recognize quality on their own, wi
 
 
 
-== Installation ==
+## Installation
 
 **This plugin requires at least PHP 5.4**
 
@@ -81,9 +66,3 @@ We respect our users and believe that one can recognize quality on their own, wi
 4. Go to "Portfolio -> Portfolio Settings" and set "Portfolio Page" to the page you called "Whatever you like"
 5. Add a few Portfolio entries in "Portfolio -> New Portfolio Entry", don't forget to set a thumbnail!
 6. That's it! Enjoy your Portfolio!
-
-
-== Changelog ==
-
-= 1.0.0 =
-* First Release!
