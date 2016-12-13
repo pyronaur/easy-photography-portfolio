@@ -92,6 +92,6 @@ else {
 	/**
 	 * Boot Colormelon_Photography_Portfolio
 	 */
-	add_action( 'after_setup_theme', 'PP_Instance' );
+	add_action( 'after_setup_theme', 'phort_instance' );
 
 }

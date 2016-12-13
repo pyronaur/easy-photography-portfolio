@@ -24,7 +24,7 @@ class View {
 	public static function locate_template_file() {
 
 
-		$portfolio = PP_Instance();
+		$portfolio = phort_instance();
 
 
 		/**

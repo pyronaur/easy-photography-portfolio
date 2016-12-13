@@ -162,7 +162,7 @@ function phort_get_archive_title() {
 		$title = single_term_title();
 	}
 
-	elseif ( is_post_type_archive( 'phort_post' ) || PP_Instance()->query->is_portfolio_page() ) {
+	elseif ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_page() ) {
 		$title = get_the_title( phort_get_option( 'portfolio_page', false ) );
 		if ( $title ) {
 			return $title;
@@ -188,7 +188,7 @@ function phort_get_archive_content() {
 	if ( is_tax( 'phort_post_category' ) ) {
 		$content = term_description();
 	}
-	if ( is_post_type_archive( 'phort_post' ) || PP_Instance()->query->is_portfolio_page() ) {
+	if ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_page() ) {
 		$content = get_post( phort_get_option( 'portfolio_page', false ) )->post_content;
 	}
 

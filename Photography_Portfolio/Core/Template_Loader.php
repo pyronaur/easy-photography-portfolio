@@ -21,7 +21,7 @@ class Template_Loader {
 		/**
 		 * Load wrapper if this is portfolio
 		 */
-		if ( PP_Instance()->query->is_portfolio() ) {
+		if ( phort_instance()->query->is_portfolio() ) {
 
 			return Template::locate( [ 'wrapper.php', 'photography-portfolio.php' ] );
 

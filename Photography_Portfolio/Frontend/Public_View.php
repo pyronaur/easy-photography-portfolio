@@ -55,13 +55,13 @@ class Public_View {
 
 
 		// Single Portfolio
-		if ( PP_Instance()->query->is_single() ) {
+		if ( phort_instance()->query->is_single() ) {
 			$classes[] = 'PP_Single';
 			$classes[] = 'PP_Single--' . phort_slug_single();
 		}
 
 		// Portfolio Archive & Categories
-		if ( PP_Instance()->query->is_archive() || PP_Instance()->query->is_category() ) {
+		if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
 			$classes[] = 'PP_Archive';
 			$classes[] = 'PP_Archive--' . phort_slug_archive();
 		}

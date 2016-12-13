@@ -44,7 +44,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 				'name'    => esc_html__( 'Portfolio Archive Layout', 'phort-plugin' ),
 				'id'      => 'portfolio_layout',
 				'type'    => 'select',
-				'options' => PP_Instance()->layouts->available_layouts( 'archive' ),
+				'options' => phort_instance()->layouts->available_layouts( 'archive' ),
 
 			)
 		);
@@ -64,7 +64,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 				'name'    => esc_html__( 'Single Portfolio Layout', 'phort-plugin' ),
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
-				'options' => PP_Instance()->layouts->available_layouts( 'single' ),
+				'options' => phort_instance()->layouts->available_layouts( 'single' ),
 
 			)
 		);

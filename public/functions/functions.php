@@ -5,7 +5,7 @@ use Photography_Portfolio\Frontend\Layout\View;
  * Easy access to our god-class
  * @return \Colormelon_Photography_Portfolio
  */
-function PP_Instance() {
+function phort_instance() {
 
 	return Colormelon_Photography_Portfolio::instance();
 }
@@ -17,7 +17,7 @@ function PP_Instance() {
  */
 function phort_is_portfolio() {
 
-	return PP_Instance()->query->is_portfolio();
+	return phort_instance()->query->is_portfolio();
 }
 
 
