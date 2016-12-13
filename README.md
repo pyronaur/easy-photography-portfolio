@@ -1,16 +1,15 @@
 ## Photography Portfolio - Easy Portfolio for Photographers
----
 * [Basic Demo](http://default.portfolio.bycolormelon.com/) with Twenty Seventeen Theme
 * [Download on WordPress.org](https://wordpress.org/plugins/photography-portfolio/)
 
-### Designed for Photographers
 ---
+
+### Designed for Photographers
 Building a Photography Portfolio for WordPress should be easy. So we made a plugin to help you with that!
 We love the WordPress community and wholeheartedly agree with the [WordPress Philosophy](https://wordpress.org/about/philosophy/).
 
 
 ### Developed for Extensibility
----
 
 Out of the box, Photography Portfolio is built using Masonry Layout.
 Quite simply - it's the layout most easily portable to any website layout while keeping the feel of the brand.
@@ -22,27 +21,28 @@ You can easily extend the plugin with your own custom archive and single-view la
 The JavaScript side is also easily extensible.
 You can use filters and actions based on [WP-JS-Hooks](https://github.com/carldanley/WP-JS-Hooks) to either modify the existing functionality, for example modifying the core masonry layout just a bit or completely initialize a brand new layout (like Packery or Horizontal Scroll). If you decide to build a custom view, you can utilize the existing JavaScript hook structure to let the plugin handle all the little things for you.
 
+---
 
 ### Demos
----
 
 * [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
 * [Aster - Premium WordPress theme for Photographers](http://aster.bycolormelon.com/) - with a custom Horizontal Layout
 * [Bluebird - a Premium Photography theme](http://aster.bycolormelon.com/) - with custom horizontal and masonry layouts, with added previews, horizontal layout and more
 
 
+---
 
 
 ### WordPress Themes
----
+
 We also build premium [WordPress themes for Photographers](https://colormelon.com). Have a look at our *Portfolio* and maybe you fall in love with one of them!
 Because our business is to build WordPress themes, **this is not "Photography Portfolio Lite"** with a billion up-sells. This is a fully featured Photography Portfolio plugin with albums, images, categories, a Pop-up gallery and even video support.
 We respect our users and believe that one can recognize quality on their own, without being bombarded with constant "buy extra functionality" junk. We know we build awesome *ship*, now you know it too. You can have a look at our premium stuff when you feel like it, if not - that's cool too. Especially if you're just starting out, you might have to cut some corners and bootstrap everything on your own, and even then, we truly believe this plugin is going to do wonders for you! Pick a simple minimalistic theme, install the plugin, and enjoy a clean portfolio website that you can grow on your own!
 
-
+---
 
 ## Installation
----
+
 **This plugin requires at least PHP 5.4**
 
 1. Upload "Photography Portfolio" plugin to the `/wp-content/plugins/` directory
