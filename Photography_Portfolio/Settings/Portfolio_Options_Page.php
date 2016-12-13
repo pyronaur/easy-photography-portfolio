@@ -11,7 +11,7 @@ use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
  * Class Portfolio_Options_Page
  * @package Photography_Portfolio\Settings
  *
- * @TODO: This needs a sensible name to distinguish views from settings
+ * @TODO    : This needs a sensible name to distinguish views from settings
  */
 class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
@@ -100,22 +100,24 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 
 		/**
-		 * @TODO: Wrapper Class option should only be showed in themes that don't natively support PP
+		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
-		$cmb->add_field(
-			array(
-				'id'      => "wrapper_class",
-				'name'    => esc_html__( 'Wrapper CSS Classes', 'pp-plugin' ),
-				'desc'    => esc_html__(
-					'Some themes use different wrapper class-names than the standard.
+		if ( ! pp_has_theme_support() ) {
+			$cmb->add_field(
+				array(
+					'id'      => "wrapper_class",
+					'name'    => esc_html__( 'Wrapper CSS Classes', 'pp-plugin' ),
+					'desc'    => esc_html__(
+						'Some themes use different wrapper class-names than the standard.
 					 You can enter custom CSS classnames here to make the plugin compatible with your theme',
-					'pp-plugin'
-				),
-				'type'    => 'text',
-				'default' => '',
+						'pp-plugin'
+					),
+					'type'    => 'text',
+					'default' => '',
 
-			)
-		);
+				)
+			);
+		}
 
 
 	}
