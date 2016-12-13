@@ -162,7 +162,7 @@ class Entry {
 		 * If image count is disabled, set subtitle and quit
 		 */
 		$show_image_count = pp_get_option( 'portfolio_show_image_count', false );
-		$subtitle         = trim( get_post_meta( $this->id, 'portfolio_subtitle', true ) );
+		$subtitle         = trim( get_post_meta( $this->id, 'pp_subtitle', true ) );
 
 		/**
 		 * Count images, maybe set subtitle to image count
