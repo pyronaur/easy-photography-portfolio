@@ -31,3 +31,9 @@ function pp_get_home_page() {
 
 	return (int) pp_get_option( 'portfolio_page', 0 );
 }
+
+
+function pp_has_theme_support() {
+
+	return get_theme_support( 'photography-portfolio-plugin' );
+}
