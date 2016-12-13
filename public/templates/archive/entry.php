@@ -21,7 +21,7 @@
 		<h3 class="PP_Entry__title">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_title(); ?>
-			</a>x
+			</a>
 		</h3>
 
 		<?php if ( pp_entry_has_subtitle() ): ?>
