@@ -70,7 +70,7 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 			$data['video_url'] = $this->attachment->get_video_url();
 		}
 
-		return apply_filters( 'pp/gallery/prepare_data', $data, $this );
+		return apply_filters( 'phort/gallery/prepare_data', $data, $this );
 
 	}
 

@@ -13,18 +13,18 @@ class Portfolio_Interface
 		@initialize( args )
 
 	setup_actions: ->
-		Hooks.addAction 'pp.portfolio.prepare', @prepare, 50
-		Hooks.addAction 'pp.portfolio.create', @create, 50
-		Hooks.addAction 'pp.portfolio.refresh', @refresh, 50
-		Hooks.addAction 'pp.portfolio.destroy', @destroy, 50
-		Hooks.addAction 'pp.portfolio.destroy', @purge_actions, 100
+		Hooks.addAction 'phort.portfolio.prepare', @prepare, 50
+		Hooks.addAction 'phort.portfolio.create', @create, 50
+		Hooks.addAction 'phort.portfolio.refresh', @refresh, 50
+		Hooks.addAction 'phort.portfolio.destroy', @destroy, 50
+		Hooks.addAction 'phort.portfolio.destroy', @purge_actions, 100
 
 	purge_actions: ->
-		Hooks.removeAction 'pp.portfolio.prepare', @prepare, 50
-		Hooks.removeAction 'pp.portfolio.create', @create, 50
-		Hooks.removeAction 'pp.portfolio.refresh', @refresh, 50
-		Hooks.removeAction 'pp.portfolio.destroy', @destroy, 50
-		Hooks.removeAction 'pp.portfolio.destroy', @purge_actions, 100
+		Hooks.removeAction 'phort.portfolio.prepare', @prepare, 50
+		Hooks.removeAction 'phort.portfolio.create', @create, 50
+		Hooks.removeAction 'phort.portfolio.refresh', @refresh, 50
+		Hooks.removeAction 'phort.portfolio.destroy', @destroy, 50
+		Hooks.removeAction 'phort.portfolio.destroy', @purge_actions, 100
 
 
 	###

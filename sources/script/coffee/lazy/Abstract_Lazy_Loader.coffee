@@ -67,10 +67,10 @@ class Abstract_Lazy_Loader
 		@detach_events()
 
 	attach_events: ->
-		Hooks.addAction 'pp.lazy.autoload', @autoload
+		Hooks.addAction 'phort.lazy.autoload', @autoload
 
 	detach_events: ->
-		Hooks.removeAction 'pp.lazy.autoload', @autoload
+		Hooks.removeAction 'phort.lazy.autoload', @autoload
 
 
 module.exports = Abstract_Lazy_Loader

@@ -6,11 +6,11 @@
  */
 ?>
 
-<div <?php pp_class( 'PP_Entry' ); ?> <?php pp_entry_data_attribute() ?> id="PP_Entry-<?php the_ID() ?>">
+<div <?php phort_class( 'PP_Entry' ); ?> <?php phort_entry_data_attribute() ?> id="PP_Entry-<?php the_ID() ?>">
 
-	<?php if ( pp_entry_has_featured_image() ): ?>
+	<?php if ( phort_entry_has_featured_image() ): ?>
 		<div class="PP_Entry__thumbnail">
-			<?php pp_entry_the_featured_image() ?>
+			<?php phort_entry_the_featured_image() ?>
 		</div> <!-- .PP_Entry__thumbnail -->
 	<?php else: ?>
 		<div class="PP_Entry__thumbnail--replacement"></div>
@@ -24,8 +24,8 @@
 			</a>
 		</h3>
 
-		<?php if ( pp_entry_has_subtitle() ): ?>
-			<h4 class="PP_Entry__subtitle"><?php echo esc_html( pp_entry_get_subtitle() ); ?></h4>
+		<?php if ( phort_entry_has_subtitle() ): ?>
+			<h4 class="PP_Entry__subtitle"><?php echo esc_html( phort_entry_get_subtitle() ); ?></h4>
 		<?php endif; ?>
 
 	</div> <!-- .PP_Entry__header -->
@@ -34,7 +34,7 @@
 	<a class="PP_Entry__more" href="<?php the_permalink(); ?>">
 			<span class="PP_Entry__inner">
 				<span class="PP_Entry__view">
-					<?php esc_html_e( 'View Gallery', 'pp-plugin' ) ?>
+					<?php esc_html_e( 'View Gallery', 'phort-plugin' ) ?>
 				</span>
 			</span>
 	</a> <!-- .PP_Entry__popup -->

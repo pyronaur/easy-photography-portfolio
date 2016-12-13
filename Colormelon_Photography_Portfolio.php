@@ -60,7 +60,7 @@ final class Colormelon_Photography_Portfolio {
 		$this->define_constants();
 
 		// If there is anything you want to do before the plugin configures itself
-		do_action( 'pp/core/prepare', $this );
+		do_action( 'phort/core/prepare', $this );
 
 		// Initialize Core
 		$this->post_type       = new Register_Post_Type();
@@ -88,8 +88,8 @@ final class Colormelon_Photography_Portfolio {
 			new Public_View();
 		}
 
-		// Trigger `pp/core/loaded` as soon as the plugin is fully loaded
-		do_action( 'pp/core/loaded', $this );
+		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
+		do_action( 'phort/core/loaded', $this );
 
 	}
 
@@ -122,10 +122,10 @@ final class Colormelon_Photography_Portfolio {
 		 * Autoload Archive Data
 		 */
 		add_action(
-			'pp/get_template/archive/layout',
+			'phort/get_template/archive/layout',
 			function () {
 
-				Layout_Factory::autoload( 'archive', pp_slug_archive() );
+				Layout_Factory::autoload( 'archive', phort_slug_archive() );
 			}
 		);
 
@@ -133,10 +133,10 @@ final class Colormelon_Photography_Portfolio {
 		 * Autoload Single Portfolio entry data
 		 */
 		add_action(
-			'pp/get_template/single/layout',
+			'phort/get_template/single/layout',
 			function () {
 
-				Layout_Factory::autoload( 'single', pp_slug_single() );
+				Layout_Factory::autoload( 'single', phort_slug_single() );
 			}
 		);
 
@@ -168,7 +168,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'pp-plugin' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'phort-plugin' ), '2.1' );
 	}
 
 
@@ -177,7 +177,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'pp-plugin' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'phort-plugin' ), '2.1' );
 	}
 
 

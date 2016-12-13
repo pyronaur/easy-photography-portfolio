@@ -9,7 +9,7 @@
  *
  * @return mixed|null
  */
-function pp_get_option( $option, $default = NULL ) {
+function phort_get_option( $option, $default = NULL ) {
 
 
 	/**
@@ -19,7 +19,7 @@ function pp_get_option( $option, $default = NULL ) {
 	 * Filters have been touched if `apply_filters()` returns anything else than `[undefined]`
 	 * In that case, return that value
 	 */
-	$value = apply_filters( 'pp_option_' . $option, '[undefined]', $default );
+	$value = apply_filters( 'phort_option_' . $option, '[undefined]', $default );
 	if ( $value !== '[undefined]' ) {
 		return $value;
 	}
@@ -29,7 +29,7 @@ function pp_get_option( $option, $default = NULL ) {
 	 * Get `$option` from post meta
 	 */
 	if ( in_the_loop() ) {
-		$value = get_post_meta( get_the_ID(), 'pp_' . $option, true );
+		$value = get_post_meta( get_the_ID(), 'phort_' . $option, true );
 
 		if ( $value && $value !== $default ) {
 			return $value;
@@ -40,7 +40,7 @@ function pp_get_option( $option, $default = NULL ) {
 	 * Priority #3: `cmb2_get_option()`
 	 * Get the option from wordpress options
 	 */
-	$value = cmb2_get_option( 'pp_options', $option );
+	$value = cmb2_get_option( 'phort_options', $option );
 
 	if ( ! $value && $default !== NULL ) {
 		return $default;

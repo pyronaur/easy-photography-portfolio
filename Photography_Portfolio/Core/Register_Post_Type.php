@@ -21,29 +21,29 @@ class Register_Post_Type {
 	public function register_post_type() {
 
 		$labels = apply_filters(
-			'pp/post_type/labels',
+			'phort/post_type/labels',
 			array(
-				'name'               => _x( 'Portfolio Entries', 'Post Type General Name', 'pp-plugin' ),
-				'singular_name'      => _x( 'Portfolio Entry', 'Post Type Singular Name', 'pp-plugin' ),
-				'menu_name'          => __( 'Portfolio', 'pp-plugin' ),
-				'parent_item_colon'  => __( 'Parent Entry', 'pp-plugin' ),
-				'all_items'          => __( 'All Entries', 'pp-plugin' ),
-				'view_item'          => __( 'View Entries', 'pp-plugin' ),
-				'add_new_item'       => __( 'Add New Portfolio  Entry', 'pp-plugin' ),
-				'add_new'            => __( 'New Portfolio  Entry', 'pp-plugin' ),
-				'edit_item'          => __( 'Edit Portfolio Entry', 'pp-plugin' ),
-				'update_item'        => __( 'Update Entry', 'pp-plugin' ),
-				'search_items'       => __( 'Search portfolio', 'pp-plugin' ),
-				'not_found'          => __( 'No portfolio entries found', 'pp-plugin' ),
-				'not_found_in_trash' => __( 'No portfolio entries found in Trash', 'pp-plugin' ),
+				'name'               => _x( 'Portfolio Entries', 'Post Type General Name', 'phort-plugin' ),
+				'singular_name'      => _x( 'Portfolio Entry', 'Post Type Singular Name', 'phort-plugin' ),
+				'menu_name'          => __( 'Portfolio', 'phort-plugin' ),
+				'parent_item_colon'  => __( 'Parent Entry', 'phort-plugin' ),
+				'all_items'          => __( 'All Entries', 'phort-plugin' ),
+				'view_item'          => __( 'View Entries', 'phort-plugin' ),
+				'add_new_item'       => __( 'Add New Portfolio  Entry', 'phort-plugin' ),
+				'add_new'            => __( 'New Portfolio  Entry', 'phort-plugin' ),
+				'edit_item'          => __( 'Edit Portfolio Entry', 'phort-plugin' ),
+				'update_item'        => __( 'Update Entry', 'phort-plugin' ),
+				'search_items'       => __( 'Search portfolio', 'phort-plugin' ),
+				'not_found'          => __( 'No portfolio entries found', 'phort-plugin' ),
+				'not_found_in_trash' => __( 'No portfolio entries found in Trash', 'phort-plugin' ),
 			)
 		);
 
 		$args = apply_filters(
-			'pp/post_type/args',
+			'phort/post_type/args',
 			array(
-				'label'               => __( 'portfolio', 'pp-plugin' ),
-				'description'         => __( 'Portfolio', 'pp-plugin' ),
+				'label'               => __( 'portfolio', 'phort-plugin' ),
+				'description'         => __( 'Portfolio', 'phort-plugin' ),
 				'labels'              => $labels,
 				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
 				'hierarchical'        => false,
@@ -65,34 +65,34 @@ class Register_Post_Type {
 		);
 
 
-		register_post_type( 'pp_post', $args );
+		register_post_type( 'phort_post', $args );
 	}
 
 
 	public function register_taxonomy() {
 
 		$labels = apply_filters(
-			'pp/taxonomy/labels',
+			'phort/taxonomy/labels',
 			array(
-				'name'                       => _x( 'Portfolio Categories', 'Taxonomy General Name', 'pp-plugin' ),
-				'singular_name'              => _x( 'Portfolio Category', 'Taxonomy Singular Name', 'pp-plugin' ),
-				'menu_name'                  => __( 'Categories', 'pp-plugin' ),
-				'all_items'                  => __( 'All Categories', 'pp-plugin' ),
-				'parent_item'                => __( 'Parent Category', 'pp-plugin' ),
-				'parent_item_colon'          => __( 'Parent Category:', 'pp-plugin' ),
-				'new_item_name'              => __( 'New Category Name', 'pp-plugin' ),
-				'add_new_item'               => __( 'Add New Category', 'pp-plugin' ),
-				'edit_item'                  => __( 'Edit Category', 'pp-plugin' ),
-				'update_item'                => __( 'Update Category', 'pp-plugin' ),
-				'separate_items_with_commas' => __( 'Separate categories with commas', 'pp-plugin' ),
-				'search_items'               => __( 'Search Portfolio categories', 'pp-plugin' ),
-				'add_or_remove_items'        => __( 'Add or remove categories', 'pp-plugin' ),
-				'choose_from_most_used'      => __( 'Choose from the most used categories', 'pp-plugin' ),
+				'name'                       => _x( 'Portfolio Categories', 'Taxonomy General Name', 'phort-plugin' ),
+				'singular_name'              => _x( 'Portfolio Category', 'Taxonomy Singular Name', 'phort-plugin' ),
+				'menu_name'                  => __( 'Categories', 'phort-plugin' ),
+				'all_items'                  => __( 'All Categories', 'phort-plugin' ),
+				'parent_item'                => __( 'Parent Category', 'phort-plugin' ),
+				'parent_item_colon'          => __( 'Parent Category:', 'phort-plugin' ),
+				'new_item_name'              => __( 'New Category Name', 'phort-plugin' ),
+				'add_new_item'               => __( 'Add New Category', 'phort-plugin' ),
+				'edit_item'                  => __( 'Edit Category', 'phort-plugin' ),
+				'update_item'                => __( 'Update Category', 'phort-plugin' ),
+				'separate_items_with_commas' => __( 'Separate categories with commas', 'phort-plugin' ),
+				'search_items'               => __( 'Search Portfolio categories', 'phort-plugin' ),
+				'add_or_remove_items'        => __( 'Add or remove categories', 'phort-plugin' ),
+				'choose_from_most_used'      => __( 'Choose from the most used categories', 'phort-plugin' ),
 			)
 		);
 
 		$args = apply_filters(
-			'pp/taxonomy/args',
+			'phort/taxonomy/args',
 			array(
 				'labels'            => $labels,
 				'hierarchical'      => true,
@@ -105,7 +105,7 @@ class Register_Post_Type {
 		);
 
 
-		register_taxonomy( 'pp_post_category', 'pp_post', $args );
+		register_taxonomy( 'phort_post_category', 'phort_post', $args );
 
 	}
 

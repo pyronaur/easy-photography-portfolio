@@ -15,17 +15,17 @@ init_lazy_loader = ->
 
 	# By default Lazy_Masonry is handling Lazy-Loading
 	# Check if anyone wants to hijack handler
-	lazy_instance = new (Hooks.applyFilters 'pp.lazy.handler', Lazy_Masonry)
+	lazy_instance = new (Hooks.applyFilters 'phort.lazy.handler', Lazy_Masonry)
 
 
 # Initialize lazy loader after the portfolio is prepared, p = 100
-Hooks.addAction 'pp.portfolio.prepare', init_lazy_loader, 100
-Hooks.addAction 'pp.portfolio.destroy', ->
+Hooks.addAction 'phort.portfolio.prepare', init_lazy_loader, 100
+Hooks.addAction 'phort.portfolio.destroy', ->
 	if lazy_instance
 		lazy_instance.destroy()
 		lazy_instance = null
 
 
 # Load first masonry images when the layout has completed
-Hooks.addAction 'pp.portfolio.refresh', ->
-	Hooks.doAction 'pp.lazy.autoload'
+Hooks.addAction 'phort.portfolio.refresh', ->
+	Hooks.doAction 'phort.lazy.autoload'

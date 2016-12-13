@@ -482,7 +482,7 @@ msgstr "http://webdevstudios.com"
 #: includes/CMB2_JS.php:109
 msgctxt "Valid formatDate string for jquery-ui datepicker"
 msgid "mm/dd/yy"
-msgstr "kk/pp/vv"
+msgstr "kk/phort/vv"
 
 #: includes/CMB2_JS.php:129
 msgctxt ""

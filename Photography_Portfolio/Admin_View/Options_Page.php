@@ -11,8 +11,8 @@ class Options_Page {
 	protected $title        = '';
 	protected $options_page = '';
 
-	private $key        = 'pp_options';
-	private $metabox_id = 'pp_options_metabox';
+	private $key        = 'phort_options';
+	private $metabox_id = 'phort_options_metabox';
 
 	private $settings;
 
@@ -50,7 +50,7 @@ class Options_Page {
 			return;
 		}
 
-		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'pp-plugin' ), 'updated' );
+		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'phort-plugin' ), 'updated' );
 		settings_errors( $this->key . '-notices' );
 	}
 
@@ -123,7 +123,7 @@ class Options_Page {
 	public function add_options_page() {
 
 		$this->options_page = add_submenu_page(
-			'edit.php?post_type=pp_post',
+			'edit.php?post_type=phort_post',
 			$this->title,
 			$this->title,
 			'manage_options',

@@ -22,14 +22,14 @@ class Template {
 		$template = self::locate_by_array( $search );
 
 		// Allow 3rd party plugins to modify the tempalte path
-		$template = apply_filters( 'pp/get_template', $template, $base, $slug );
+		$template = apply_filters( 'phort/get_template', $template, $base, $slug );
 
 		/**
 		 * Load Template if template is found
 		 */
 		if ( $template ) {
 
-			do_action( 'pp/get_template/' . $base, $template, $base, $slug );
+			do_action( 'phort/get_template/' . $base, $template, $base, $slug );
 			load_template( $template, false );
 
 		}

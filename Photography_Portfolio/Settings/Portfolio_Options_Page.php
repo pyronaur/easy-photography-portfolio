@@ -18,7 +18,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 	public function get_page_title() {
 
-		return esc_html__( 'Portfolio Settings', 'pp-plugin' );
+		return esc_html__( 'Portfolio Settings', 'phort-plugin' );
 
 	}
 
@@ -29,7 +29,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		$cmb->add_field(
 			array(
 				'id'               => "portfolio_page",
-				'name'             => esc_html__( 'Portfolio Page', 'pp-plugin' ),
+				'name'             => esc_html__( 'Portfolio Page', 'phort-plugin' ),
 				'type'             => 'select',
 				'show_option_none' => true,
 				'options'          => $this->pages(),
@@ -41,7 +41,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		// Set our CMB2 fields
 		$cmb->add_field(
 			array(
-				'name'    => esc_html__( 'Portfolio Archive Layout', 'pp-plugin' ),
+				'name'    => esc_html__( 'Portfolio Archive Layout', 'phort-plugin' ),
 				'id'      => 'portfolio_layout',
 				'type'    => 'select',
 				'options' => PP_Instance()->layouts->available_layouts( 'archive' ),
@@ -51,7 +51,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 		$cmb->add_field(
 			array(
-				'name'    => esc_html__( 'Show Titles & Descriptions in Archives', 'pp-plugin' ),
+				'name'    => esc_html__( 'Show Titles & Descriptions in Archives', 'phort-plugin' ),
 				'id'      => 'archive_enable_description',
 				'type'    => 'checkbox',
 				'default' => false,
@@ -61,7 +61,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 		$cmb->add_field(
 			array(
-				'name'    => esc_html__( 'Single Portfolio Layout', 'pp-plugin' ),
+				'name'    => esc_html__( 'Single Portfolio Layout', 'phort-plugin' ),
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
 				'options' => PP_Instance()->layouts->available_layouts( 'single' ),
@@ -72,7 +72,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 		$cmb->add_field(
 			array(
-				'name'    => esc_html__( 'Enable Portfolio Subtitles', 'pp-plugin' ),
+				'name'    => esc_html__( 'Enable Portfolio Subtitles', 'phort-plugin' ),
 				'id'      => 'portfolio_enable_subtitle',
 				'type'    => 'checkbox',
 				'default' => true,
@@ -84,7 +84,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		$cmb->add_field(
 			array(
 				'id'       => "portfolio_show_image_count",
-				'name'     => esc_html__( 'Show image count in subtitles', 'pp-plugin' ),
+				'name'     => esc_html__( 'Show image count in subtitles', 'phort-plugin' ),
 				'required' => array( 'portfolio_enable_subtitle', '=', '1' ),
 
 				'type'    => 'select',
@@ -102,15 +102,15 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		/**
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
-		if ( ! pp_has_theme_support() ) {
+		if ( ! phort_has_theme_support() ) {
 			$cmb->add_field(
 				array(
 					'id'      => "wrapper_class",
-					'name'    => esc_html__( 'Wrapper CSS Classes', 'pp-plugin' ),
+					'name'    => esc_html__( 'Wrapper CSS Classes', 'phort-plugin' ),
 					'desc'    => esc_html__(
 						'Some themes use different wrapper class-names than the standard.
 					 You can enter custom CSS classnames here to make the plugin compatible with your theme',
-						'pp-plugin'
+						'phort-plugin'
 					),
 					'type'    => 'text',
 					'default' => '',

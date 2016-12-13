@@ -24,7 +24,7 @@
  * @loads /partials/wrapper-start.php
  * @uses  get_header()
  */
-do_action( 'pp/wrapper/start' );
+do_action( 'phort/wrapper/start' );
 
 /**
  * Start a loop and load all gallery items
@@ -32,7 +32,7 @@ do_action( 'pp/wrapper/start' );
  * @loads  /single/layout.php
  * @loads  /archive/layout.php
  */
-pp_load_view();
+phort_load_view();
 
 
 /**
@@ -41,4 +41,4 @@ pp_load_view();
  * @loads /partials/wrapper-end.php
  * @uses  get_footer()
  */
-do_action( 'pp/wrapper/end' );
+do_action( 'phort/wrapper/end' );

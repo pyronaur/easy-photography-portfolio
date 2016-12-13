@@ -5,7 +5,7 @@
  * @modified 1.0.0
  */
 
-$attachment = pp_get_gallery_attachment();
+$attachment = phort_get_gallery_attachment();
 ?>
 <noscript>
 	<img src="<?php echo esc_url( $attachment->get_image_url( 'large' ) ) ?>"

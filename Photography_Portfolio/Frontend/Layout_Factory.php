@@ -27,16 +27,16 @@ class Layout_Factory {
 
 
 		global $wp_query;
-		global $pp_layout;
+		global $phort_layout;
 
 		$layout_class_name = PP_Instance()->layouts->find_class( $layout, $slug );
 
 		$factory = new static( $wp_query, $slug, $layout_class_name );
 
 		/**
-		 * Expose $pp_layout as a global for use in template functions
+		 * Expose $phort_layout as a global for use in template functions
 		 */
-		$pp_layout = $factory->create_layout_instance();
+		$phort_layout = $factory->create_layout_instance();
 
 	}
 

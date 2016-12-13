@@ -9,5 +9,5 @@
  * Start a loop and load all gallery items
  * @load /single/layout.php
  */
-pp_get_template( 'single/layout' );
+phort_get_template( 'single/layout' );
 

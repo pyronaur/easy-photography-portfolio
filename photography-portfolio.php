@@ -14,7 +14,7 @@
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:       pp-plugin
+ * Text Domain:       phort-plugin
  */
 /**
  * This file should work without errors on PHP 5.2.17
@@ -34,14 +34,14 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 
 	$updatePhp = new Photography_Portfolio_Require_PHP54();
 
-	function pp_auto_deactivate() {
+	function phort_auto_deactivate() {
 
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 	}
 
 	if ( current_user_can( 'activate_plugins' ) ) {
 		add_action( 'admin_notices', array( &$updatePhp, 'admin_notice' ) );
-		add_action( 'admin_init', 'pp_auto_deactivate' );
+		add_action( 'admin_init', 'phort_auto_deactivate' );
 	}
 }
 
@@ -85,7 +85,7 @@ else {
 	 * Add CMB2 Symlinks support in development environments
 	 */
 	if ( defined( "WP_DEBUG" ) && WP_DEBUG ) {
-		require_once $__DIR . '/pp-cmb-symlinks.php';
+		require_once $__DIR . '/cmb-symlinks.php';
 	}
 
 

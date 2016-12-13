@@ -9,12 +9,12 @@ $ = require('jQuery')
 Portfolio = new Portfolio_Event_Manager()
 
 # Start Portfolio
-Hooks.addAction 'pp.core.ready', Portfolio.prepare, 50
-Hooks.addAction 'pp.core.loaded', Portfolio.create, 50
+Hooks.addAction 'phort.core.ready', Portfolio.prepare, 50
+Hooks.addAction 'phort.core.loaded', Portfolio.create, 50
 
 
 # Start Masonry Layout
-Hooks.addAction 'pp.core.ready', ->
+Hooks.addAction 'phort.core.ready', ->
 
 	return false if $( '.PP_Masonry' ).length is 0
 

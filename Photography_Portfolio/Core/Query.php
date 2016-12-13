@@ -46,7 +46,7 @@ class Query {
 		/**
 		 * domain.com/portfolio/ is a portfolio archive. No doubt, no doubt.
 		 */
-		$result = $query->is_post_type_archive( 'pp_post' );
+		$result = $query->is_post_type_archive( 'phort_post' );
 
 		if ( $result === true ) {
 			$this->is_archive = $result;
@@ -61,7 +61,7 @@ class Query {
 
 
 			// modify query_vars:
-			$query->set( 'post_type', 'pp_post' );  // override 'post_type'
+			$query->set( 'post_type', 'phort_post' );  // override 'post_type'
 			$query->set( 'pagename', NULL );  // override 'pagename'
 			$query->set( 'page_id', '' );  // override 'pagename'
 
@@ -83,7 +83,7 @@ class Query {
 
 	protected function set_is_category( \WP_Query $query ) {
 
-		$result = $query->is_tax( get_object_taxonomies( 'pp_post_category' ) );
+		$result = $query->is_tax( get_object_taxonomies( 'phort_post_category' ) );
 
 
 		$this->is_category = $result;
@@ -92,9 +92,9 @@ class Query {
 
 	protected function set_is_single( \WP_Query $query ) {
 
-		$is_pp_post      = ( $query->get( 'post_type' ) === 'pp_post' );
-		$this->is_single = ( $is_pp_post &&
-		                     ( $query->is_single() || $query->is_singular( 'pp_post' ) )
+		$is_phort_post      = ( $query->get( 'post_type' ) === 'phort_post' );
+		$this->is_single = ( $is_phort_post &&
+		                     ( $query->is_single() || $query->is_singular( 'phort_post' ) )
 		);
 
 		return $this->is_single;
@@ -103,7 +103,7 @@ class Query {
 
 	public function front_page_is_portfolio() {
 
-		return ( get_option( 'show_on_front' ) == 'page' && pp_get_home_page() == get_option( 'page_on_front' ) );
+		return ( get_option( 'show_on_front' ) == 'page' && phort_get_home_page() == get_option( 'page_on_front' ) );
 	}
 
 
@@ -115,7 +115,7 @@ class Query {
 			$id = (int) $this->original_query->get( 'page_id' );
 		}
 
-		return ( $id > 0 && $id === pp_get_home_page() );
+		return ( $id > 0 && $id === phort_get_home_page() );
 
 	}
 

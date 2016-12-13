@@ -10,16 +10,16 @@
 /**
  * Display Archive Descriptions, if they're enabled
  */
-if ( pp_get_option( 'archive_enable_description', false ) ) {
-	pp_get_template( 'archive/description' );
+if ( phort_get_option( 'archive_enable_description', false ) ) {
+	phort_get_template( 'archive/description' );
 }
 ?>
 
-<div <?php pp_class( 'PP_Archive_Container' ); ?>>
+<div <?php phort_class( 'PP_Archive_Container' ); ?>>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php pp_get_template( 'archive/entry' ); ?>
+		<?php phort_get_template( 'archive/entry' ); ?>
 
 
 	<?php endwhile; ?>

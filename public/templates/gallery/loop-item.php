@@ -5,7 +5,7 @@
  * @modified 1.0.0
  */
 
-$attachment = pp_get_gallery_attachment();
+$attachment = phort_get_gallery_attachment();
 
 $class = array(
 	'PP_Gallery__item',
@@ -16,10 +16,10 @@ $class = array(
 
 ?>
 
-<figure <?php pp_class( $class ) ?> <?php pp_gallery_data_attribute(); ?>>
+<figure <?php phort_class( $class ) ?> <?php phort_gallery_data_attribute(); ?>>
 
-	<?php pp_get_template( 'gallery/item/' . $attachment->type ); ?>
-	<?php pp_get_template( 'gallery/caption' ); ?>
-	<?php pp_get_template( 'gallery/item/noscript' ); ?>
+	<?php phort_get_template( 'gallery/item/' . $attachment->type ); ?>
+	<?php phort_get_template( 'gallery/caption' ); ?>
+	<?php phort_get_template( 'gallery/item/noscript' ); ?>
 
 </figure> <!-- .PP_Gallery__item -->

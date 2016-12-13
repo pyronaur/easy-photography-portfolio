@@ -10,7 +10,7 @@
 
 	<?php
 	// Display the portfolio description
-	pp_get_template( 'single/description' );
+	phort_get_template( 'single/description' );
 	?>
 
 	<?php
@@ -18,13 +18,13 @@
 	 * Display the gallery
 	 */
 	?>
-	<div <?php pp_class( 'PP_Gallery' ) ?>>
+	<div <?php phort_class( 'PP_Gallery' ) ?>>
 
 		<?php
-		if ( pp_gallery_has_items() ):
-			while ( pp_gallery_has_items() ): pp_gallery_setup_item();
+		if ( phort_gallery_has_items() ):
+			while ( phort_gallery_has_items() ): phort_gallery_setup_item();
 
-				pp_get_template( 'gallery/loop-item' );
+				phort_get_template( 'gallery/loop-item' );
 
 			endwhile;
 		endif;

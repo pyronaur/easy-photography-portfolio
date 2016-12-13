@@ -15,25 +15,25 @@ function PP_Instance() {
  * Checks if the current query is a portfolio query
  * @return bool
  */
-function pp_is_portfolio() {
+function phort_is_portfolio() {
 
 	return PP_Instance()->query->is_portfolio();
 }
 
 
-function pp_load_view() {
+function phort_load_view() {
 
 	View::load();
 }
 
 
-function pp_get_home_page() {
+function phort_get_home_page() {
 
-	return (int) pp_get_option( 'portfolio_page', 0 );
+	return (int) phort_get_option( 'portfolio_page', 0 );
 }
 
 
-function pp_has_theme_support() {
+function phort_has_theme_support() {
 
 	return get_theme_support( 'photography-portfolio-plugin' );
 }

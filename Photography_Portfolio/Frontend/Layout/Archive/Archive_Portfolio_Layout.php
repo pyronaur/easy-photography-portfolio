@@ -56,9 +56,9 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 
 		$this->maybe_filter_css_classes();
-		add_action( 'pp/get_template/archive/entry', [ $this, 'setup_postdata' ] );
+		add_action( 'phort/get_template/archive/entry', [ $this, 'setup_postdata' ] );
 
-		add_filter( 'pp_get_class', [ $this, 'filter_entry_class' ] );
+		add_filter( 'phort_get_class', [ $this, 'filter_entry_class' ] );
 
 
 	}
@@ -67,7 +67,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 	public function filter_entry_class( $classes ) {
 
 		if ( in_array( 'PP_Entry', $classes ) ) {
-			if ( ! pp_entry_has_featured_image() ) {
+			if ( ! phort_entry_has_featured_image() ) {
 				$classes[] = 'PP_Entry--no-thumbnail';
 			}
 		}
@@ -77,7 +77,7 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 
 
 	/**
-	 * Method run via hook each time before pp_get_layout() is called to populate entry data
+	 * Method run via hook each time before phort_get_layout() is called to populate entry data
 	 *
 	 * @param $id
 	 *

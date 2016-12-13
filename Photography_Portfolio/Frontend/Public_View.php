@@ -18,11 +18,11 @@ class Public_View {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 
 		// Hook into Self
-		add_action( 'pp/wrapper/start', [ $this, 'render_wrapper_start' ] );
-		add_action( 'pp/wrapper/end', [ $this, 'render_wrapper_end' ] );
+		add_action( 'phort/wrapper/start', [ $this, 'render_wrapper_start' ] );
+		add_action( 'phort/wrapper/end', [ $this, 'render_wrapper_end' ] );
 
 		// Adjust .PP_Wrapper classes
-		add_filter( 'pp_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
+		add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
 
 
 	}
@@ -32,9 +32,9 @@ class Public_View {
 
 		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
 
-		wp_enqueue_style( 'PP-style', $build_directory . '/app.css' );
-		wp_enqueue_script( 'PP-libs', $build_directory . '/libs.js', [], CLM_VERSION, true );
-		wp_enqueue_script( 'PP-app', $build_directory . '/app.js', [ 'PP-libs', 'underscore' ], CLM_VERSION, true );
+		wp_enqueue_style( 'phort-style', $build_directory . '/app.css' );
+		wp_enqueue_script( 'phort-libs', $build_directory . '/libs.js', [ ], CLM_VERSION, true );
+		wp_enqueue_script( 'phort-app', $build_directory . '/app.js', [ 'phort-libs', 'underscore' ], CLM_VERSION, true );
 	}
 
 
@@ -46,7 +46,7 @@ class Public_View {
 
 	public function adjust_body_class( $classes ) {
 
-		if ( ! pp_is_portfolio() ) {
+		if ( ! phort_is_portfolio() ) {
 			return $classes;
 		}
 
@@ -57,13 +57,13 @@ class Public_View {
 		// Single Portfolio
 		if ( PP_Instance()->query->is_single() ) {
 			$classes[] = 'PP_Single';
-			$classes[] = 'PP_Single--' . pp_slug_single();
+			$classes[] = 'PP_Single--' . phort_slug_single();
 		}
 
 		// Portfolio Archive & Categories
 		if ( PP_Instance()->query->is_archive() || PP_Instance()->query->is_category() ) {
 			$classes[] = 'PP_Archive';
-			$classes[] = 'PP_Archive--' . pp_slug_archive();
+			$classes[] = 'PP_Archive--' . phort_slug_archive();
 		}
 
 
@@ -81,10 +81,10 @@ class Public_View {
 			return $classes;
 		}
 
-		$custom_classes = pp_get_option( 'wrapper_class' );
+		$custom_classes = phort_get_option( 'wrapper_class' );
 
 		if ( $custom_classes ) {
-			$classes = array_merge( $classes, pp_get_class( $custom_classes ) );
+			$classes = array_merge( $classes, phort_get_class( $custom_classes ) );
 		}
 
 		return $classes;

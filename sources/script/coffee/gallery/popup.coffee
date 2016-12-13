@@ -31,7 +31,7 @@ get_data = ( el ) ->
 ###
     @TODO: Need detach/destroy methods
 ###
-Hooks.addAction 'pp.core.ready', ->
+Hooks.addAction 'phort.core.ready', ->
 
 	$( '.PP_Gallery__item' ).on 'click', ( e ) ->
 		e.preventDefault()

@@ -64,7 +64,7 @@ class Gallery {
 	 */
 	protected function get_item_ids( $count = 0 ) {
 
-		$gallery = get_post_meta( $this->ID, 'pp_gallery', true );
+		$gallery = get_post_meta( $this->ID, 'phort_gallery', true );
 
 		if ( ! $gallery ) {
 			return array();

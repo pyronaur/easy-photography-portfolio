@@ -1,2 +1,2 @@
 <?php get_header( 'portfolio' ); ?>
-<div <?php pp_class( 'PP_Wrapper' ) ?>>
+<div <?php phort_class( 'PP_Wrapper' ) ?>>

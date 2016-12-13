@@ -23,7 +23,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 		Prepare & Attach Events
     	Don't show anything yet.
 
-		@called on hook `pp.portfolio.prepare`
+		@called on hook `phort.portfolio.prepare`
 	###
 	prepare: =>
 		return if @$container.length is 0
@@ -33,7 +33,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 		@maybe_create_sizer()
 
 		# Only initialize, if no masonry exists
-		masonry_settings = Hooks.applyFilters 'pp.masonry.settings',
+		masonry_settings = Hooks.applyFilters 'phort.masonry.settings',
 			itemSelector: ".#{@Elements.item}"
 			columnWidth : ".#{@Elements.sizer}"
 			gutter      : 0
@@ -48,12 +48,12 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 			# @trigger refresh event
 			# triggers `@refresh()`
-			Hooks.doAction 'pp.portfolio.refresh'
+			Hooks.doAction 'phort.portfolio.refresh'
 
 
 	###
 		Start the Portfolio
-		@called on hook `pp.portfolio.create`
+		@called on hook `phort.portfolio.create`
 	###
 	create: =>
 		@$container.masonry()
@@ -62,7 +62,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 	###
 		Destroy
-		@called on hook `pp.portfolio.destroy`
+		@called on hook `phort.portfolio.destroy`
 	###
 	destroy: =>
 		@maybe_remove_sizer()
@@ -76,7 +76,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 	###
 		Reload the layout
-		@called on hook `pp.portfolio.refresh`
+		@called on hook `phort.portfolio.refresh`
 	###
 	refresh: =>
 		@$container.masonry( 'layout' )

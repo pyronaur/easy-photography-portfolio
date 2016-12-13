@@ -31,7 +31,7 @@ class PP_Post_Meta {
 	 */
 	public function move_metabox_to_after_title() {
 
-		$cmb = cmb2_get_metabox( 'pp_post_before_meta' );
+		$cmb = cmb2_get_metabox( 'phort_post_before_meta' );
 		if ( in_array( get_post_type(), $cmb->prop( 'object_types' ), 1 ) ) {
 			$this->wrapper_open();
 			$cmb->show_form();
@@ -60,8 +60,8 @@ class PP_Post_Meta {
 
 		$cmb = new_cmb2_box(
 			array(
-				'id'           => 'pp_post_before_meta',
-				'object_types' => [ 'pp_post' ],
+				'id'           => 'phort_post_before_meta',
+				'object_types' => [ 'phort_post' ],
 				'show_names'   => true,
 				'context'      => 'normal',
 				'priority'     => 'high',
@@ -72,16 +72,16 @@ class PP_Post_Meta {
 			array(
 
 				'desc'  => '',
-				'name'  => esc_html__( 'Entry Subtitle', 'pp-portfolio' ),
+				'name'  => esc_html__( 'Entry Subtitle', 'phort-plugin' ),
 				'title' => 'Portfolio',
-				'id'    => 'pp_subtitle',
+				'id'    => 'phort_subtitle',
 				'type'  => 'text',
 			)
 		);
 
 
 		// Allow metabox extension
-		do_action( 'pp/meta/before_content', $cmb );
+		do_action( 'phort/meta/before_content', $cmb );
 	}
 
 
@@ -89,9 +89,9 @@ class PP_Post_Meta {
 
 		$cmb = new_cmb2_box(
 			array(
-				'id'           => 'pp_post_after_meta',
-				'title'        => __( 'Photography Portfolio', 'pp-plugin' ),
-				'object_types' => [ 'pp_post' ],
+				'id'           => 'phort_post_after_meta',
+				'title'        => __( 'Photography Portfolio', 'phort-plugin' ),
+				'object_types' => [ 'phort_post' ],
 				'context'      => 'normal',
 				'priority'     => 'high',
 			)
@@ -101,22 +101,22 @@ class PP_Post_Meta {
 			array(
 
 				'desc'         => '',
-				'id'           => 'pp_gallery',
+				'id'           => 'phort_gallery',
 				'type'         => 'file_list',
 				'preview_size' => [ 125, 125, true ], // Default: [50,50]
 				// Optional, override default text strings
 				'text'         => [
-					'add_upload_files_text' => esc_html__( 'Add Images', 'pp-plugin' ),
-					'remove_image_text'     => esc_html__( 'Remove Image', 'pp-plugin' ),
-					'file_text'             => esc_html__( 'File:', 'pp-plugin' ),
-					'file_download_text'    => esc_html__( 'Download', 'pp-plugin' ),
-					'remove_text'           => esc_html__( 'Remove', 'pp-plugin' ),
+					'add_upload_files_text' => esc_html__( 'Add Images', 'phort-plugin' ),
+					'remove_image_text'     => esc_html__( 'Remove Image', 'phort-plugin' ),
+					'file_text'             => esc_html__( 'File:', 'phort-plugin' ),
+					'file_download_text'    => esc_html__( 'Download', 'phort-plugin' ),
+					'remove_text'           => esc_html__( 'Remove', 'phort-plugin' ),
 				],
 			)
 		);
 
 
 		// Allow metabox extension
-		do_action( 'pp/meta/after_content', $cmb );
+		do_action( 'phort/meta/after_content', $cmb );
 	}
 }

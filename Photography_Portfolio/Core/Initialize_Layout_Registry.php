@@ -27,7 +27,7 @@ class Initialize_Layout_Registry {
 			'Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout',
 			'archive',
 			'masonry-hovercard',
-			esc_html__( 'Masonry with hover', 'pp-plugin' )
+			esc_html__( 'Masonry with hover', 'phort-plugin' )
 
 		);
 
@@ -38,14 +38,14 @@ class Initialize_Layout_Registry {
 			'Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout',
 			'single',
 			'masonry',
-			esc_html__( 'Masonry', 'pp-plugin' )
+			esc_html__( 'Masonry', 'phort-plugin' )
 		);
 
 		/**
 		 * You can use this hook to either register or de-register any layout
-		 * @hook `pp/register_layouts`
+		 * @hook `phort/register_layouts`
 		 */
-		do_action( 'pp/core/register_layouts', $layout_registry );
+		do_action( 'phort/core/register_layouts', $layout_registry );
 
 
 		/**
