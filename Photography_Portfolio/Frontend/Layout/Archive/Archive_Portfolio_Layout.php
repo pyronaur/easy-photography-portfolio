@@ -58,7 +58,21 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->maybe_filter_css_classes();
 		add_action( 'pp/get_template/archive/entry', [ $this, 'setup_postdata' ] );
 
+		add_filter( 'pp_get_class', [ $this, 'filter_entry_class' ] );
 
+
+	}
+
+
+	public function filter_entry_class( $classes ) {
+
+		if ( in_array( 'PP_Entry', $classes ) ) {
+			if ( ! pp_entry_has_featured_image() ) {
+				$classes[] = 'PP_Entry--no-thumbnail';
+			}
+		}
+
+		return $classes;
 	}
 
 

@@ -1,0 +1,74 @@
+
+.PP_Entry
+	&__thumbnail > img
+		display: block
+		max-width: 100%
+		padding: 0
+		margin: 0
+
+	&__header
+		position: absolute
+		bottom: $p
+		left: $p
+
+		transform: translate3d(0,0,0)
+		transition: transform .35s ease-out, opacity .3s ease
+
+	&__title, &__subtitle
+		color: white
+
+	&__subtitle
+		font-size: 1rem
+		font-weight: 300
+		text-transform: none
+		margin-bottom: 1rem
+
+	&__view
+		font-size: 1rem
+		display: block
+		position: absolute
+		bottom: 1rem
+		text-transform: uppercase
+
+	/*!
+	*  Hovercard Layout
+	*/
+	&__more
+		display: block
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+		padding: $p
+
+		background-color: transparentize(black, 0.5)
+
+		opacity: 0
+
+		transition: opacity .35s ease
+		cursor: pointer
+
+		// @TODO: Need a Z-Index manager
+		z-index: 200
+
+
+	&__inner
+		width: 100%
+		height: 100%
+		transform: translateY(15px)
+		opacity: 0
+		display: block
+		transition: transform .35s ease-out, opacity .3s ease
+
+
+	// In cases when someone forgets to add a thumbnail
+	&--no-thumbnail
+		height: 300px
+
+	&__thumbnail--replacement
+		background-color: #8c8c8c
+		background: linear-gradient(to top, #8C8C8C, #b3b3b3)
+		display: block
+		width: 100%
+		height: 100%

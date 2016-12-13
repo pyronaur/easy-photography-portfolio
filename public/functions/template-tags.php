@@ -94,6 +94,10 @@ function pp_entry_data_attribute() {
 
 	global $pp_layout;
 
+	if( ! pp_entry_has_featured_image() ) {
+		return false;
+	}
+
 	$data = new Gallery_Data_Renderer( $pp_layout->entry->featured_image, $pp_layout->attached_sizes );
 	$data->render();
 }

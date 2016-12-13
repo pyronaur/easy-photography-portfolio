@@ -12,6 +12,8 @@
 		<div class="PP_Entry__thumbnail">
 			<?php pp_entry_the_featured_image() ?>
 		</div> <!-- .PP_Entry__thumbnail -->
+	<?php else: ?>
+		<div class="PP_Entry__thumbnail--replacement"></div>
 	<?php endif; ?>
 
 	<div class="PP_Entry__header">
@@ -19,7 +21,7 @@
 		<h3 class="PP_Entry__title">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_title(); ?>
-			</a>
+			</a>x
 		</h3>
 
 		<?php if ( pp_entry_has_subtitle() ): ?>
