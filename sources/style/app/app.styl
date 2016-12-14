@@ -15,3 +15,12 @@
 @require "base/*"
 @require "archive/*"
 @require "single/*"
+
+
+/**
+Hopefully a temporary fix for Twenty Seventeen Theme.
+Twenty Seventeen Version 1.0.0 force displays thumbnails on all post types in the header without any filters.
+The only option left is to hide thumbnail with CSS.
+*/
+.PP_Single .single-featured-image-header
+	display: none
