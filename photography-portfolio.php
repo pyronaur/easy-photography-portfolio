@@ -1,15 +1,13 @@
 <?php
 /**
- *
- * @link              http://colormelon.com
- * @since             1.0.0
  * @package           Photography portfolio
+ * @link              http://colormelon.com
  *
  * @wordpress-plugin
  * Plugin Name:       Photography Portfolio
  * Plugin URI:        http://colormelon.com/plugins/photography-portfolio
  * Description:       The only photography portfolio plugin you'll ever need.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Colormelon, justnorris
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
