@@ -90,6 +90,7 @@ svn update --quiet $SVNPATH/trunk --set-depth infinity
 
 echo "Ignoring a few files"
 svn propset svn:ignore "README.md
+.DS_Store
 Thumbs.db
 .git
 .gitignore
