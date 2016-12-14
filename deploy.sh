@@ -59,25 +59,25 @@ elif [ "$PLUGINVERSION" = "$READMEVERSION" ]; then
 fi
 
 # GaryJ: Ignore check for git tag, as git flow release finish creates this.
-#if git show-ref --tags --quiet --verify -- "refs/tags/$PLUGINVERSION"
-#	then
-#		echo "Version $PLUGINVERSION already exists as git tag. Exiting....";
-#		exit 1;
-#	else
-#		echo "Git version does not exist. Let's proceed..."
-#fi
+if git show-ref --tags --quiet --verify -- "refs/tags/$PLUGINVERSION"
+	then
+		echo "Version $PLUGINVERSION already exists as git tag. Exiting....";
+		exit 1;
+	else
+		echo "Git version does not exist. Let's proceed..."
+fi
 
 echo "Changing to $GITPATH"
 cd $GITPATH
 # GaryJ: Commit message variable not needed . Hard coded for SVN trunk commit for consistency.
-#echo -e "Enter a commit message for this new version: \c"
-#read COMMITMSG
+echo -e "Enter a commit message for this new version: \c"
+read COMMITMSG
 # GaryJ: git flow release finish already covers this commit.
-#git commit -am "$COMMITMSG"
+git commit -am "$COMMITMSG"
 
 # GaryJ: git flow release finish already covers this tag creation.
-#echo "Tagging new version in git"
-#git tag -a "$PLUGINVERSION" -m "Tagging version $PLUGINVERSION"
+echo "Tagging new version in git"
+git tag -a "$PLUGINVERSION" -m "Tagging version $PLUGINVERSION"
 
 echo "Pushing git master to origin, with tags"
 git push origin master
