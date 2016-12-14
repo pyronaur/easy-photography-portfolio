@@ -1,4 +1,4 @@
-=== Photography Portfolio - Easy Portfolio for Photographers ===
+=== Photography Portfolio - Portfolio Plugin for Photographers ===
 Contributors: colormelon, justnorris
 Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery
