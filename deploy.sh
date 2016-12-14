@@ -8,7 +8,7 @@ echo
 # Set up some default values. Feel free to change these in your own script
 CURRENTDIR=`pwd`
 PLUGINSLUG="photography-portfolio"
-SVNPATH="/SVN/tmp/$PLUGINSLUG"
+SVNPATH="~/SVN/tmp/$PLUGINSLUG"
 SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 SVNUSER="justnorris"
 PLUGINDIR="."
