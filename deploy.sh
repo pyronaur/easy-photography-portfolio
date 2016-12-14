@@ -9,7 +9,7 @@ echo
 CURRENTDIR=`pwd`
 PLUGINSLUG="photography-portfolio"
 SVNPATH="/SVN/tmp/$PLUGINSLUG"
-SVNURL="http://plugins.svn.wordpress.org/$PLUGINSLUG"
+SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 SVNUSER="justnorris"
 PLUGINDIR="."
 MAINFILE="$PLUGINSLUG.php"
