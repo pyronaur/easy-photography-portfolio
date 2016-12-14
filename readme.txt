@@ -26,7 +26,7 @@ Photography Portfolio plugin is founded upon years of experience in building Pre
 
 It all comes down to the simple structure of a real Portfolio book.
 
-You own a Portfolio album for, let's say your Wedding Photography album. If you happen to do street Photography too, you also probably have another album that has only your best street photography prints.
+You own a Portfolio album for, let's say your Wedding Photography. If you happen to do street Photography too, you also probably have another album that has only your best street photography prints.
 
 That's exactly what Photography Portfolio does for you online. You create albums, add images, and in case you have a huge portfolio, you can categorize albums too.
 
