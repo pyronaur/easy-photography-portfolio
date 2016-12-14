@@ -7,6 +7,15 @@ Sourcemap = require "gulp-sourcemaps"
 Utilities = require "gulp-util"
 Stylus = require 'gulp-stylus'
 
+production = ->
+	Gulp.src("#{Config.styl.app}/app.styl")
+	.pipe Stylus(
+		'include css': true
+	)
+	.on("error", Handle)
+	.pipe Autoprefixer()
+	.pipe Gulp.dest(Config.build)
+
 
 development = ->
 	Gulp.src("#{Config.styl.app}/app.styl")
