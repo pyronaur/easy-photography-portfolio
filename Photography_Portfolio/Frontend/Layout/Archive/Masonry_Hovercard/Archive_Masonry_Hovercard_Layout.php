@@ -11,7 +11,7 @@ class Archive_Masonry_Hovercard_Layout extends Archive_Portfolio_Layout {
 
 	public $attached_sizes = array(
 
-		'thumb' => 'thumbnail_masonry',
+		'thumb' => 'large',
 		'full'  => 'full',
 	);
 

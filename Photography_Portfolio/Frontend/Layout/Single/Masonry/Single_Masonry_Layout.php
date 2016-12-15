@@ -10,7 +10,7 @@ class Single_Masonry_Layout extends Single_Portfolio_Layout {
 	
 	public $attached_sizes = array(
 
-		'thumb' => 'thumbnail_masonry',
+		'thumb' => 'large',
 		'full'  => 'full',
 
 	);

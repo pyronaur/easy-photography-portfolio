@@ -36,7 +36,7 @@ class Entry {
 	/**
 	 * @var string
 	 */
-	public $featured_image_size = 'full';
+	public $featured_image_size;
 
 	public $attached_sizes = [
 		'full' => 'full',
@@ -72,7 +72,7 @@ class Entry {
 	 *
 	 * @return $this for chainability
 	 */
-	public function setup_featured_image( $size = 'full' ) {
+	public function setup_featured_image( $size ) {
 
 		if ( ! has_post_thumbnail( $this->id ) ) {
 			return $this;
