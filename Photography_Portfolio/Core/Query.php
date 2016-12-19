@@ -9,8 +9,8 @@ class Query {
 	/**
 	 * @var \WP_Query $original_query
 	 */
-	public    $original_query;
-	
+	public $original_query;
+
 	protected $is_archive;
 	protected $is_single;
 	protected $is_category;
@@ -57,7 +57,7 @@ class Query {
 		 *  Check if current Page is supposed to be an Archive
 		 *  Modify the WP_Query if so:
 		 */
-		if ( $this->front_page_is_portfolio() && $this->is_portfolio_page() ) {
+		if ( ( $this->front_page_is_portfolio() && $this->is_portfolio_page() ) || ( ! is_front_page() && $this->is_portfolio_page() ) ) {
 
 
 			// modify query_vars:
@@ -92,7 +92,7 @@ class Query {
 
 	protected function set_is_single( \WP_Query $query ) {
 
-		$is_phort_post      = ( $query->get( 'post_type' ) === 'phort_post' );
+		$is_phort_post   = ( $query->get( 'post_type' ) === 'phort_post' );
 		$this->is_single = ( $is_phort_post &&
 		                     ( $query->is_single() || $query->is_singular( 'phort_post' ) )
 		);
