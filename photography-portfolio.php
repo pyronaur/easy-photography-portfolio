@@ -7,7 +7,7 @@
  * Plugin Name:       Photography Portfolio
  * Plugin URI:        http://colormelon.com/plugins/photography-portfolio
  * Description:       The only photography portfolio plugin you'll ever need.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Colormelon, justnorris
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
