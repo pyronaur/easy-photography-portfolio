@@ -895,6 +895,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 .PP_Wrapper {
   max-width: 1600px;
+  min-height: 75vh;
   clear: both;
   margin-left: auto;
   margin-right: auto;
@@ -904,12 +905,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   width: 100%;
   width: calc(100% - 18px);
   opacity: 1;
+  -webkit-transition: opacity 500ms ease;
+  transition: opacity 500ms ease;
 }
 .js .PP_Masonry:not(.PP_JS__loading_complete) {
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 500ms ease;
-  transition: opacity 500ms ease;
 }
 .PP_Masonry__sizer,
 .PP_Masonry__item {
