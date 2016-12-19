@@ -4,7 +4,7 @@ echo
 echo "Version Bump"
 echo
 
-printf "What's the new version?"
+printf "What's the new version? "
 read -e input
 VERSION="${input:-y}"
 
