@@ -48,7 +48,6 @@ final class Colormelon_Photography_Portfolio {
 
 	private $post_type;
 	private $attachment_meta;
-	private $template_loader;
 
 
 	/**
@@ -66,7 +65,6 @@ final class Colormelon_Photography_Portfolio {
 		$this->post_type       = new Register_Post_Type();
 		$this->attachment_meta = new Add_Attachment_Meta();
 		$this->query           = new Query();
-		$this->template_loader = new Template_Loader();
 
 
 		// Setup sub-classes
