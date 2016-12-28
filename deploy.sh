@@ -98,6 +98,7 @@ Thumbs.db
 sources
 gulpfile.coffee
 deploy.sh
+version.sh
 package.json
 node_modules" "$SVNPATH/trunk/"
 
