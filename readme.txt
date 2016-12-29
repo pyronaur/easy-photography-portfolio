@@ -1,21 +1,28 @@
-=== Photography Portfolio - Portfolio Plugin for Photographers ===
+=== Easy Photography Portfolio ===
 Contributors: colormelon, justnorris
 Donate link: http://colormelon.com/
-Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery
+Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.0
 Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Photography Portfolio is an easy to use and elegant plugin made for photographers. Install the plugin, add portfolio entries and you have a portfolio!
+Easy Photography Portfolio is an elegant plugin designed for Photographers. Install the plugin, add portfolio entries and you have a portfolio!
 
 == Description ==
 
+Building a photography portfolio for WordPress should be easy. So we made a plugin to help you with that!
+
+### Demo
+You can view the plugin in action here:
+* [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
+
+Here is a quick overview of the plugin and the setup process:
+https://www.youtube.com/watch?v=MKDWnxmcRWA
+
 
 ### Designed for Photographers
-
-Building a Photography Portfolio for WordPress should be easy. So we made a plugin to help you with that!
 
 We love the WordPress community and wholeheartedly agree with the [WordPress Philosophy](https://wordpress.org/about/philosophy/).
 
@@ -42,16 +49,6 @@ We decided that it is long overdue to give back to the community. So we built a 
 ### Quick Overview
 Version 1.0 is quite simple with everything you need - albums with images that can optionally be arranged in categories!
 By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer. I think it might be easier to explain with a demo. Here, have a look:
-
-
-### Demo
-
-https://www.youtube.com/watch?v=MKDWnxmcRWA
-
-* [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
-* [Aster - Premium WordPress theme for Photographers](http://aster.bycolormelon.com/) - with a custom Horizontal Layout
-* [Bluebird - a Premium Photography theme](http://aster.bycolormelon.com/) - with custom horizontal and masonry layouts, with added previews, horizontal layout and more
-
 
 
 
