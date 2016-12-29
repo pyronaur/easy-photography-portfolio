@@ -19,7 +19,7 @@ class Portfolio_Interface
 		Hooks.addAction 'phort.portfolio.destroy', @destroy, 50
 		Hooks.addAction 'phort.portfolio.destroy', @purge_actions, 100
 
-	purge_actions: ->
+	purge_actions: =>
 		Hooks.removeAction 'phort.portfolio.prepare', @prepare, 50
 		Hooks.removeAction 'phort.portfolio.create', @create, 50
 		Hooks.removeAction 'phort.portfolio.refresh', @refresh, 50
