@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:171, Colormelon_Photography_Portfolio.php:180
+#: Colormelon_Photography_Portfolio.php:169, Colormelon_Photography_Portfolio.php:178
 msgid "Can't do this thing."
 msgstr ""
 
