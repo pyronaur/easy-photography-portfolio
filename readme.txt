@@ -14,11 +14,15 @@ Easy Photography Portfolio is an elegant plugin designed for Photographers. Inst
 
 Building a photography portfolio for WordPress should be easy. So we made a plugin to help you with that!
 
-### Demo
-You can view the plugin in action here:
-* [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
 
-Here is a quick overview of the plugin and the setup process:
+### Quick Overview
+Easy Photography Portfolio is based on the idea of albums with images that can optionally be grouped in categories!
+By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer.
+I think it might be easier to explain with a demo.
+
+Have a look: **[Easy Photography Portfolio Demo](http://default.portfolio.bycolormelon.com/)** with default settings and "Twenty Seventeen Theme".
+
+Here is a quick overview of the plugin and the setup process of that demo site:
 https://www.youtube.com/watch?v=MKDWnxmcRWA
 
 
@@ -44,11 +48,6 @@ Then your visitors are able to open any album, quickly scan all of the images, o
 We have been designing WordPress Portfolio themes for Photographers for years. In that time we've distilled the simplest and most effective ways of building an online Portfolio.
 
 We decided that it is long overdue to give back to the community. So we built a reliable plugin that anyone can use, be it a new Photographer, an existing Customer, or a Developer. At the same time we built the Photography Portfolio Plugin so that we can use it ourselves for our existing customers, yet making it flexible enough so that it can be used in any theme.
-
-
-### Quick Overview
-Version 1.0 is quite simple with everything you need - albums with images that can optionally be arranged in categories!
-By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer. I think it might be easier to explain with a demo. Here, have a look:
 
 
 
