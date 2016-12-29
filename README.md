@@ -1,6 +1,7 @@
 ## Photography Portfolio - Easy Portfolio for Photographers
 * [Basic Demo](http://default.portfolio.bycolormelon.com/) with Twenty Seventeen Theme
 * [Download on WordPress.org](https://wordpress.org/plugins/photography-portfolio/)
+* [How to setup Photography Portfolio Tutorial](https://www.youtube.com/watch?v=MKDWnxmcRWA&t=1s)
 
 ---
 
