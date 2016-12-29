@@ -28,7 +28,6 @@ class Portfolio_Event_Manager
 	destroy: ->
 		# Destroy
 		Hooks.doAction 'phort.portfolio.destroy'
-		Hooks.removeAction 'phort.loaded', @create, 50
 		return
 
 
