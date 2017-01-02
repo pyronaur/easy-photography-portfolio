@@ -13,26 +13,38 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		$( '.PP_Masonry__sizer' ).width()
 
 
-	
-	load: ( item ) ->
 
+	load: ( item ) ->
+		@load_image( item )
+		item.$el.imagesLoaded =>
+			@cleanup_after_load( item )
+
+	load_image: ( item ) ->
+
+		# Get image URLs
 		thumb = item.data.get_url( 'thumb' )
 		full = item.data.get_url( 'full' )
 
+		# Create elements
 		item.$el
-		.prepend( @get_item_html(thumb, full)  )
+		.prepend( @get_item_html( thumb, full ) )
 		.removeClass( 'Lazy-Image' )
 
+		# Make sure this image isn't loaded again
 		item.loaded = true
-		$image = item.$el.find( 'img' )
-		$image.imagesLoaded =>
-			$image.addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
-			item.$el
-			.css( 'min-height', '' )
-			.removeClass( @Elements.item )
-			.find( ".#{@Elements.placeholder}" )
-			.fadeOut 400, -> $( this ).remove()
 
+
+	cleanup_after_load: ( item ) ->
+		# Add image PP_JS_loaded class
+		item.$el.find( 'img' ).addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
+
+		item.$el
+		.css( 'min-height', '' )
+		.removeClass( @Elements.item )
+
+		# Remove Placeholder
+		.find( ".#{@Elements.placeholder}" )
+		.fadeOut( 400, -> $( this ).remove() )
 
 	attach_events: ->
 		# Call Parent first, it's going to create @debounced_autoload
