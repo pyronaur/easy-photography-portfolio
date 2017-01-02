@@ -94,14 +94,15 @@ class Public_View {
 
 	public function render_wrapper_start() {
 
-		Template::get( 'partials/wrapper-start' );
+		phort_get_template( 'partials/wrapper-start' );
+
 
 	}
 
 
 	public function render_wrapper_end() {
 
-		Template::get( 'partials/wrapper-end' );
+		phort_get_template( 'partials/wrapper-end' );
 	}
 
 }
