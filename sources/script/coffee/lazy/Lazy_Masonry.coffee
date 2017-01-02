@@ -12,20 +12,12 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
 		$( '.PP_Masonry__sizer' ).width()
 
+	cleanup_after_load: (item) ->
+		# Remove min-height
+		item.$el.css( 'min-height', '' )
 
-
-
-	cleanup_after_load: ( item ) ->
-		# Add image PP_JS_loaded class
-		item.$el.find( 'img' ).addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
-
-		item.$el
-		.css( 'min-height', '' )
-		.removeClass( @Elements.item )
-
-		# Remove Placeholder
-		.find( ".#{@Elements.placeholder}" )
-		.fadeOut( 400, -> $( this ).remove() )
+		# Run all other cleanups
+		super( item )
 
 	attach_events: ->
 		# Call Parent first, it's going to create @debounced_autoload
@@ -43,12 +35,10 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		# Call parent last, it's going to clean up @debounced_autoload
 		super()
 
-
-
 	destroy: ->
 		for item, key in @Items
 			item.$el.css 'min-height', ''
-
 		super()
+
 
 module.exports = Lazy_Masonry

@@ -27,7 +27,9 @@ class Abstract_Lazy_Loader
 	###
 		Abstract Methods
 	###
-	resize  : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `resize` method" )
+
+	# This is run when a resize or refresh event is detected
+	resize: -> return
 
 	load: ( item ) ->
 		@load_image( item )
@@ -48,8 +50,20 @@ class Abstract_Lazy_Loader
 		# Make sure this image isn't loaded again
 		item.loaded = true
 
+	cleanup_after_load: ( item ) ->
+		# Add image PP_JS_loaded class
+		item.$el.find( 'img' ).addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
 
-	get_item_html: (thumb, full) ->
+		item.$el
+
+		# Remove `PP_Lazy_Image`, as this is not a lazy-loadable image anymore
+		.removeClass( @Elements.item )
+
+		# Remove Placeholder
+		.find( ".#{@Elements.placeholder}" )
+		.fadeOut( 400, -> $( this ).remove() )
+
+	get_item_html: ( thumb, full ) ->
 		"""
 
 		<a class="#{@Elements.link}" href="#{full}" rel="gallery">
@@ -65,7 +79,7 @@ class Abstract_Lazy_Loader
 		$( ".#{@Elements.item}" ).each( @add_item )
 		return
 
-	add_item: (key, el) =>
+	add_item: ( key, el ) =>
 		$el = $( el )
 		@Items.push
 			el    : el
@@ -83,7 +97,7 @@ class Abstract_Lazy_Loader
 
 
 
-    # Automatically Load all items that are `in_loose_view`
+	# Automatically Load all items that are `in_loose_view`
 	autoload: =>
 		for item, key in @Items
 			if not item.loaded and @in_loose_view( item.el )
