@@ -4,13 +4,12 @@ __WINDOW = require( '../core/Window' )
 
 class Lazy_Masonry extends Abstract_Lazy_Loader
 
+	resize_all: ->
+		@placeholder_width = $( '.PP_Masonry__sizer' ).width()
+		super()
+
 	resize: ( item ) ->
-		item.$el.css 'min-height': Math.floor( @get_width() / item.data.get_ratio() )
-
-
-	get_width: ->
-		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
-		$( '.PP_Masonry__sizer' ).width()
+		item.$el.css 'min-height': Math.floor( @placeholder_width / item.data.get_ratio() )
 
 	cleanup_after_load: (item) ->
 		# Remove min-height

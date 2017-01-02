@@ -130,11 +130,13 @@ class Abstract_Lazy_Loader
 		# Create a debounced `autoload` function
 		@debounced_autoload = _.debounce( @autoload, 50 )
 		Hooks.addAction 'phort.portfolio.refresh', @debounced_autoload, 100
+		
 
 	detach_events: ->
 		# Clear the debounced function from instance
 		@debounced_autoload = null
 		Hooks.removeAction 'phort.portfolio.refresh', @debounced_autoload, 100
+		
 
 
 module.exports = Abstract_Lazy_Loader
