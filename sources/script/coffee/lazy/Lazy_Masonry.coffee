@@ -19,19 +19,19 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		super( item )
 
 	attach_events: ->
-		# Call Parent first, it's going to create @debounced_autoload
+		# Call Parent first, it's going to create @throttled_autoload
 		super()
 
 		# Attach
-		$( window ).on 'scroll', @debounced_autoload
+		$( window ).on 'scroll', @throttled_autoload
 
 
 
 	detach_events: ->
 		# Detach
-		$( window ).off 'scroll', @debounced_autoload
+		$( window ).off 'scroll', @throttled_autoload
 
-		# Call parent last, it's going to clean up @debounced_autoload
+		# Call parent last, it's going to clean up @throttled_autoload
 		super()
 
 	destroy: ->

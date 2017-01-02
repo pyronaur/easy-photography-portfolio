@@ -18,7 +18,7 @@ class Abstract_Lazy_Loader
 
 		# Auto-setup when events are attached
 		# Auto-destroy when events are detached
-		@debounced_autoload = null
+		@throttled_autoload = null
 
 		@setup_items()
 		@resize_all()
@@ -128,15 +128,15 @@ class Abstract_Lazy_Loader
 
 	attach_events: ->
 		# Create a debounced `autoload` function
-		@debounced_autoload = _.debounce( @autoload, 50 )
-		Hooks.addAction 'phort.portfolio.refresh', @debounced_autoload, 100
-		
+		@throttled_autoload = _.throttle( @autoload, 50 )
+		Hooks.addAction 'phort.portfolio.refresh', @throttled_autoload, 100
+
 
 	detach_events: ->
 		# Clear the debounced function from instance
-		@debounced_autoload = null
-		Hooks.removeAction 'phort.portfolio.refresh', @debounced_autoload, 100
-		
+		@throttled_autoload = null
+		Hooks.removeAction 'phort.portfolio.refresh', @throttled_autoload, 100
+
 
 
 module.exports = Abstract_Lazy_Loader
