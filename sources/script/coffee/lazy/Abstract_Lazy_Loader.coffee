@@ -7,7 +7,7 @@ Item_Data = require( './Item_Data' )
 __WINDOW = require( '../core/Window' )
 
 class Abstract_Lazy_Loader
-	constructor: () ->
+	constructor: ->
 		@Elements =
 			item       : 'PP_Lazy_Image'
 			placeholder: 'PP_Lazy_Image__placeholder'
