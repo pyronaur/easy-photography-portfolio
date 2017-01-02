@@ -8,10 +8,14 @@ Portfolio_Interface = require( './Portfolio_Interface' )
 
 class Portfolio_Masonry extends Portfolio_Interface
 
-	Elements:
-		container: 'PP_Masonry'
-		sizer    : 'PP_Masonry__sizer'
-		item     : 'PP_Masonry__item'
+	constructor: ->
+
+		@Elements =
+			container: 'PP_Masonry'
+			sizer    : 'PP_Masonry__sizer'
+			item     : 'PP_Masonry__item'
+
+		super()
 
 	###
 		Initialize
@@ -103,5 +107,4 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 		return
 
-window.PP_Modules.Portfolio_Masonry = Portfolio_Masonry
 module.exports = Portfolio_Masonry
