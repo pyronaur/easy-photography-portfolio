@@ -59,11 +59,24 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query   = $query;
 		$this->slug    = $slug;
 		$this->id      = get_the_ID();
+
+		/**
+		 * Allow themes to alter attached image sizes
+		 * Example full string hook would look somthing like this: `phort/masonry/attached_sizes`
+		 *
+		 * @uses apply_filters()
+		 * @since 1.0.5
+		 */
+		$this->attached_sizes = apply_filters("phort/single/$slug/attached_sizes", $this->attached_sizes, $this);
+
+
 		$this->entry   = new Entry( $this->id );
 		$this->gallery = new Single_Portfolio_Gallery( $this->id );
 
 		$this->maybe_filter_css_classes();
 		add_action( 'phort/get_template/archive/entry', [ $this, 'setup_postdata' ] );
+
+
 
 
 	}

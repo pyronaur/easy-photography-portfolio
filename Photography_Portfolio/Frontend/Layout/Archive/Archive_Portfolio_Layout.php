@@ -54,11 +54,30 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->query = $query;
 		$this->slug  = $slug;
 
+		/**
+		 * Allow themes to alter attached image sizes
+		 * Example full string hook would look somthing like this: `phort/masonry/attached_sizes`
+		 *
+		 * @uses apply_filters()
+		 * @since 1.0.5
+		 */
+		$this->attached_sizes = apply_filters("phort/archive/$slug/attached_sizes", $this->attached_sizes, $this);
+
 
 		$this->maybe_filter_css_classes();
+
+		/**
+		 * Setup entry data when `phort_get_template` is used
+		 */
 		add_action( 'phort/get_template/archive/entry', [ $this, 'setup_postdata' ] );
 
+		/**
+		 * Maybe alter the entry class
+		 */
 		add_filter( 'phort_get_class', [ $this, 'filter_entry_class' ] );
+
+
+
 
 
 	}
