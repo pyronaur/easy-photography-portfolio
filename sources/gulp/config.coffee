@@ -54,7 +54,7 @@ GLOBAL.config =
 	# 	JavaScript Libraries
 	# **************************
 	libs:
-		source: "./sources/script/libs"
+		source: "./sources/script/vendor"
 		dest  : "./public/build/libs.js"
 
 
