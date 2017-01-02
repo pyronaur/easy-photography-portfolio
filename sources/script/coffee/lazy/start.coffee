@@ -28,8 +28,3 @@ create = ->
 # Initialize lazy loader after the portfolio is prepared, p = 100
 Hooks.addAction 'phort.portfolio.prepare', create, 100
 Hooks.addAction 'phort.portfolio.destroy', destroy
-
-
-# Load first images when the portfolio layout has completed
-Hooks.addAction 'phort.portfolio.refresh', ->
-	Hooks.doAction 'phort.lazy.refresh'
