@@ -13,23 +13,25 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		$( '.PP_Masonry__sizer' ).width()
 
 
+	get_element_html: (thumb, full) ->
+		"""
+		<a class="#{@Elements.link}" href="#{full}" rel="gallery">
+			<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
+		</a>
+		"""
+
 	load: ( item ) ->
 
 		thumb = item.data.get_url( 'thumb' )
 		full = item.data.get_url( 'full' )
 
 		item.$el
-		.prepend( """
-				<a class="#{@Elements.link}" href="#{full}" rel="gallery">
-				<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
-				</a>
-		""" )
+		.prepend( @element_html(thumb, full)  )
 		.removeClass( 'Lazy-Image' )
 
 		item.loaded = true
 		$image = item.$el.find( 'img' )
 		$image.imagesLoaded =>
-
 			$image.addClass( 'PP_JS__loaded' ).removeClass( 'PP_JS__loading' )
 			item.$el
 			.css( 'min-height', '' )
