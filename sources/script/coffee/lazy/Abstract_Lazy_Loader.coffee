@@ -30,6 +30,13 @@ class Abstract_Lazy_Loader
 	resize  : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `resize` method" )
 	load    : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `load` method" )
 
+	get_item_html: (thumb, full) ->
+		"""
+
+		<a class="#{@Elements.link}" href="#{full}" rel="gallery">
+			<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
+		</a>
+		"""
 
 	setup_items: =>
 		# Clear existing items, if any
