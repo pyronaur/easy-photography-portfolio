@@ -4,11 +4,6 @@ __WINDOW = require( '../core/Window' )
 
 class Lazy_Masonry extends Abstract_Lazy_Loader
 
-	constructor: ->
-		@debounced_load_items_in_view = _.debounce( @load_items_in_view, 50 )
-		super()
-
-
 	resize: ( item ) ->
 		item.$el.css 'min-height': Math.floor( @get_width() / item.data.get_ratio() )
 
@@ -17,12 +12,7 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		# @TODO: Don't touch the DOM in a loop! Store the value and make sure it refreshes properly!
 		$( '.PP_Masonry__sizer' ).width()
 
-	# ???? - refactor this
-	# @TODO: Not clear enough what this does
-	autoload: => @load_items_in_view()
 
-
-	# @TODO: This loads an image, not any item
 	load: ( item ) ->
 
 		thumb = item.data.get_url( 'thumb' )
@@ -48,40 +38,23 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 			.fadeOut 400, -> $( this ).remove()
 
 
-
-
-
-	load_items_in_view: =>
-		for item, key in @Items
-			if not item.loaded and @in_loose_view( item.el )
-				@load( item )
-
-
-
-	in_loose_view: ( el ) ->
-		return true if not el.getBoundingClientRect?
-		rect = el.getBoundingClientRect()
-
-		# Sensitivity in Pixels
-		sensitivity = 100
-		return (
-			# Y Axis
-			rect.top + rect.height >= -sensitivity and # top
-				rect.bottom - rect.height <= __WINDOW.height + sensitivity and
-
-				# X Axis
-				rect.left + rect.width >= -sensitivity and
-				rect.right - rect.width <= __WINDOW.width + sensitivity
-
-		)
-
 	attach_events: ->
-		$( window ).on 'scroll', @debounced_load_items_in_view
+		# Call Parent first, it's going to create @debounced_autoload
 		super()
+
+		# Attach
+		$( window ).on 'scroll', @debounced_autoload
+
+
 
 	detach_events: ->
-		$( window ).off 'scroll', @debounced_load_items_in_view
+		# Detach
+		$( window ).off 'scroll', @debounced_autoload
+
+		# Call parent last, it's going to clean up @debounced_autoload
 		super()
+
+
 
 	destroy: ->
 		for item, key in @Items

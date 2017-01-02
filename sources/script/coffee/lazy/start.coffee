@@ -32,4 +32,4 @@ Hooks.addAction 'phort.portfolio.destroy', destroy
 
 # Load first images when the portfolio layout has completed
 Hooks.addAction 'phort.portfolio.refresh', ->
-	Hooks.doAction 'phort.lazy.autoload'
+	Hooks.doAction 'phort.lazy.refresh'
