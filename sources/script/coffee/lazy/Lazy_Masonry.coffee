@@ -14,25 +14,6 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 
 
 
-	load: ( item ) ->
-		@load_image( item )
-		item.$el.imagesLoaded =>
-			@cleanup_after_load( item )
-
-	load_image: ( item ) ->
-
-		# Get image URLs
-		thumb = item.data.get_url( 'thumb' )
-		full = item.data.get_url( 'full' )
-
-		# Create elements
-		item.$el
-		.prepend( @get_item_html( thumb, full ) )
-		.removeClass( 'Lazy-Image' )
-
-		# Make sure this image isn't loaded again
-		item.loaded = true
-
 
 	cleanup_after_load: ( item ) ->
 		# Add image PP_JS_loaded class

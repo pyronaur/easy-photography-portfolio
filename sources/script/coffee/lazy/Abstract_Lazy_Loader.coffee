@@ -28,7 +28,26 @@ class Abstract_Lazy_Loader
 		Abstract Methods
 	###
 	resize  : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `resize` method" )
-	load    : -> throw new Error( "[Abstract] Any subclass of `Abstract_Lazy_Loader` must implement `load` method" )
+
+	load: ( item ) ->
+		@load_image( item )
+		item.$el.imagesLoaded =>
+			@cleanup_after_load( item )
+
+	load_image: ( item ) ->
+
+		# Get image URLs
+		thumb = item.data.get_url( 'thumb' )
+		full = item.data.get_url( 'full' )
+
+		# Create elements
+		item.$el
+		.prepend( @get_item_html( thumb, full ) )
+		.removeClass( 'Lazy-Image' )
+
+		# Make sure this image isn't loaded again
+		item.loaded = true
+
 
 	get_item_html: (thumb, full) ->
 		"""
