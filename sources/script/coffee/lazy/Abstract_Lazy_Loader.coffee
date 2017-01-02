@@ -16,6 +16,10 @@ class Abstract_Lazy_Loader
 
 		@Items = []
 
+		# Adjustable Sensitivity for @in_view function
+		# Value in pixels
+		@Sensitivity = 100
+
 		# Auto-setup when events are attached
 		# Auto-destroy when events are detached
 		@throttled_autoload = null
@@ -107,16 +111,18 @@ class Abstract_Lazy_Loader
 		return true if not el.getBoundingClientRect?
 		rect = el.getBoundingClientRect()
 
-		# Sensitivity in Pixels
-		sensitivity = 100
+		# Elements not in view if they don't have dimensions
+		return false if rect.height is 0 and rect.width is 0
+
+
 		return (
 			# Y Axis
-			rect.top + rect.height >= -sensitivity and # top
-				rect.bottom - rect.height <= __WINDOW.height + sensitivity and
+			rect.top + rect.height >= -@Sensitivity and # top
+			rect.bottom - rect.height <= __WINDOW.height + @Sensitivity and
 
-				# X Axis
-				rect.left + rect.width >= -sensitivity and
-				rect.right - rect.width <= __WINDOW.width + sensitivity
+			# X Axis
+			rect.left + rect.width >= -@Sensitivity and
+			rect.right - rect.width <= __WINDOW.width + @Sensitivity
 
 		)
 
