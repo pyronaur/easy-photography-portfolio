@@ -7,18 +7,15 @@ namespace Photography_Portfolio\Core;
 class Register_Post_Type {
 
 
-	/**
-	 * Register_Post_type constructor.
-	 */
-	public function __construct() {
+	public static function initialize() {
 
-		add_action( 'init', array( $this, 'register_post_type' ), 5 );
-		add_action( 'init', array( $this, 'register_taxonomy' ), 5 );
-
+		add_action( 'init', array( __CLASS__, 'register_post_type' ), 5 );
+		add_action( 'init', array( __CLASS__, 'register_taxonomy' ), 5 );
+		
 	}
 
 
-	public function register_post_type() {
+	public static function register_post_type() {
 
 		$labels = apply_filters(
 			'phort/post_type/labels',
@@ -69,7 +66,7 @@ class Register_Post_Type {
 	}
 
 
-	public function register_taxonomy() {
+	public static function register_taxonomy() {
 
 		$labels = apply_filters(
 			'phort/taxonomy/labels',

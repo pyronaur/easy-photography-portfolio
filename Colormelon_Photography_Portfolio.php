@@ -46,7 +46,6 @@ final class Colormelon_Photography_Portfolio {
 	private $version = '1.0.4';
 
 
-	private $post_type;
 	private $attachment_meta;
 
 
@@ -61,8 +60,13 @@ final class Colormelon_Photography_Portfolio {
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'phort/core/prepare', $this );
 
-		// Initialize Core
-		$this->post_type       = new Register_Post_Type();
+		/**
+		 * Register post types on `init` action
+		 * post_type:   `phort_post`
+		 * taxonomy:    `phort_post_category`
+		 */
+		Register_Post_Type::initialize();
+
 		$this->attachment_meta = new Add_Attachment_Meta();
 		$this->query           = new Query();
 

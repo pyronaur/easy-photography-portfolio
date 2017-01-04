@@ -88,8 +88,19 @@ else {
 
 
 	/**
+	 * Flush permalinks after plugin is activated
+	 */
+	// phort_plugin_activation_hook lives here:
+	require_once $__DIR . '/activation-hooks.php';
+
+	// register_activation_hook is best called from this file
+	register_activation_hook( __FILE__, 'phort_plugin_activation_hook' );
+
+
+	/**
 	 * Boot Colormelon_Photography_Portfolio
 	 */
 	add_action( 'after_setup_theme', 'phort_instance' );
+
 
 }
