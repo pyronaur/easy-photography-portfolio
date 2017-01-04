@@ -73,9 +73,14 @@ Because our business is to build WordPress themes, **this is not "Photography Po
 We respect our users and believe that one can recognize quality on their own, without being bombarded with constant "buy extra functionality" junk. We know we build awesome *ship*, now you know it too. You can have a look at our premium stuff when you feel like it, if not - that's cool too. Especially if you're just starting out, you might have to cut some corners and bootstrap everything on your own, and even then, we truly believe this plugin is going to do wonders for you! Pick a simple minimalistic theme, install the plugin, and enjoy a clean portfolio website that you can grow on your own!
 
 
+== Frequently Asked Questions ==
 
+= Is this plugin on Github ? =
 
+Of course it is! Have a look here: https://github.com/justnorris/easy-photography-portfolio
 
+= Any examples on how to extend or integrate the plugin in my theme? =
+More to come in time. For now, there is this wiki article: https://github.com/justnorris/easy-photography-portfolio/wiki/Useful-Snippets
 
 == Installation ==
 
@@ -89,7 +94,13 @@ We respect our users and believe that one can recognize quality on their own, wi
 6. That's it! Enjoy your Portfolio!
 
 
+
 == Changelog ==
+
+= 1.0.5 =
+* Fix broken portfolio links
+* Improve JavaScript hooks
+* Other minor improvements
 
 = 1.0.0 =
 * First Release!
