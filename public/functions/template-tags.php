@@ -31,7 +31,7 @@ function phort_get_template( $template, $slug = NULL ) {
  */
 function phort_get_class( $class = '' ) {
 
-	$classes = array();
+	$classes = [];
 
 	if ( $class ) {
 
@@ -94,7 +94,7 @@ function phort_entry_data_attribute() {
 
 	global $phort_layout;
 
-	if( ! phort_entry_has_featured_image() ) {
+	if ( ! phort_entry_has_featured_image() ) {
 		return false;
 	}
 
@@ -160,6 +160,7 @@ function phort_get_archive_title() {
 
 	if ( is_tax( 'phort_post_category' ) ) {
 		$title = single_term_title();
+		$title = single_term_title( '', false );
 	}
 
 	elseif ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_page() ) {
