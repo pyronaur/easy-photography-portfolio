@@ -159,7 +159,6 @@ function phort_get_archive_title() {
 	$title = '';
 
 	if ( is_tax( 'phort_post_category' ) ) {
-		$title = single_term_title();
 		$title = single_term_title( '', false );
 	}
 
