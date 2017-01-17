@@ -5,46 +5,45 @@ $ = require( "jQuery" )
 Hooks = require( "wp_hooks" )
 Item_Data = require( '../lazy/Item_Data' )
 
-get_data = ( el ) ->
-	$el = $( el )
-	$container = $el.closest( '.PP_Gallery' )
 
+get_items = ( $el ) ->
+	$container = $el.closest( '.PP_Gallery' )
 	$items = $container.find( '.PP_Gallery__item' )
 
-	items = $items.map ( key, item ) ->
-		item_data = new Item_Data( $( item ) )
+get_item_data = ->
 
+	item_data = new Item_Data( $( this ) )
 
-		if item_data.get_type() is 'video'
-			full = item_data.get_or_false( 'video_url' )
-		else
-			full = item_data.get_url( 'full' )
+	if item_data.get_type() is 'video'
+		full = item_data.get_or_false( 'video_url' )
+	else
+		full = item_data.get_url( 'full' )
 
-		return {
-			src  : full
-			thumb: item_data.get_url( 'thumb' )
-		}
+	return {
+		src  : full
+		thumb: item_data.get_url( 'thumb' )
+	}
 
-
-	return items
 
 ###
     @TODO: Need detach/destroy methods
 ###
 Hooks.addAction 'phort.core.ready', ->
 
-	$( '.PP_Gallery__item' ).on 'click', ( e ) ->
+
+	$( document ).on 'click', '.PP_Gallery__item', ( e ) ->
 		e.preventDefault()
-
-
 		$el = $( this )
+
+		$items = get_items( $el )
+		data = $items.map( get_item_data )
 
 
 		$el.lightGallery
-			dynamic  : true
-			dynamicEl: get_data( this )
-			index    : $( '.PP_Gallery__item' ).index $el
-			speed    : 350
-			preload  : 3
-			download : false
-			videoMaxWidth: $(window).width() * 0.8
+			dynamic      : true
+			dynamicEl    : data
+			index        : $items.index( $el )
+			speed        : 350
+			preload      : 3
+			download     : false
+			videoMaxWidth: $( window ).width() * 0.8
