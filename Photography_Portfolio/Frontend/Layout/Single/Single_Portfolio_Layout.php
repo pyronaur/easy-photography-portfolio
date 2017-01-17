@@ -74,7 +74,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 		$this->gallery = new Single_Portfolio_Gallery( $this->id );
 
 		$this->maybe_filter_css_classes();
-		add_action( 'phort/get_template/archive/entry', [ $this, 'setup_postdata' ] );
+		add_action( 'phort/get_template/single/layout', [ $this, 'setup_postdata' ] );
 
 
 
