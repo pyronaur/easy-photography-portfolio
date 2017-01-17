@@ -16,6 +16,21 @@ window.PP_Modules =
 	# Extend Abstract_Lazy_Loder to implement lazy loader for your layout
 	Abstract_Lazy_Loader: require( './lazy/Abstract_Lazy_Loader' )
 
+###
+	Includes
+###
+
+# Start Portfolio
+require './portfolio/start'
+
+# Gallery
+require './gallery/popup'
+
+# Lazy Loading
+require './lazy/start'
+
+
+
 
 ###
 	Boot on `document.ready`
@@ -30,17 +45,3 @@ $( document ).ready ->
 	Photography_Portfolio.ready()
 
 	return
-
-
-###
-	Load App
-###
-
-# Start Portfolio
-require './portfolio/start'
-
-# Gallery
-require './gallery/popup'
-
-# Lazy Loading
-require './lazy/start'
