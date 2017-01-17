@@ -35,10 +35,10 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	 * @var array
 	 * Portfolio gallery image sizes
 	 */
-	public $attached_sizes = array(
+	public $attached_sizes = [
 		'thumb' => 'full',
 		'full'  => 'full',
-	);
+	];
 
 	/**
 	 * @var $id `post_id`
@@ -56,28 +56,36 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	 */
 	public function __construct( $slug, \WP_Query $query ) {
 
-		$this->query   = $query;
-		$this->slug    = $slug;
-		$this->id      = get_the_ID();
+		$this->query = $query;
+		$this->slug  = $slug;
+		$this->id    = get_the_ID();
 
 		/**
 		 * Allow themes to alter attached image sizes
 		 * Example full string hook would look somthing like this: `phort/masonry/attached_sizes`
 		 *
-		 * @uses apply_filters()
+		 * @uses  apply_filters()
 		 * @since 1.0.5
 		 */
-		$this->attached_sizes = apply_filters("phort/single/$slug/attached_sizes", $this->attached_sizes, $this);
+		$this->attached_sizes = apply_filters( "phort/single/$slug/attached_sizes", $this->attached_sizes, $this );
 
 
 		$this->entry   = new Entry( $this->id );
 		$this->gallery = new Single_Portfolio_Gallery( $this->id );
 
 		$this->maybe_filter_css_classes();
-		add_action( 'phort/get_template/single/layout', [ $this, 'setup_postdata' ] );
+		$this->setup_postdata();
 
 
+	}
 
+
+	public function setup_postdata() {
+
+		// Create Entry instance
+		$this->entry
+			->setup_featured_image( $this->attached_sizes['thumb'] )
+			->setup_subtitle();
 
 	}
 
@@ -92,15 +100,5 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	public function setup_item_data( Attachment $attachment ) {
 
 		return new Gallery_Data_Renderer( $attachment, $this->attached_sizes );
-	}
-
-
-	public function setup_postdata() {
-
-		// Create Entry instance
-		$this->entry
-			->setup_featured_image( $this->attached_sizes['thumb'] )
-			->setup_subtitle();
-
 	}
 }
