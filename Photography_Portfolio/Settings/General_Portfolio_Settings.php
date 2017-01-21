@@ -13,6 +13,31 @@ use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
  */
 class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
+	protected $defaults = [];
+
+
+	/**
+	 * General_Portfolio_Settings constructor.
+	 */
+	public function __construct() {
+
+		/**
+		 * Allow the defaults to be modified from other themes/plugins
+		 * Note: Defaults are only set after the user clicks “Save Changes” in Portfolio Settings.
+		 */
+		$this->defaults = apply_filters(
+			'phort/general_portfolio_settings/defaults',
+			[
+				'portfolio_layout'           => '',
+				'single_portfolio_layout'    => '',
+				'archive_enable_description' => false,
+				'portfolio_enable_subtitle'  => true,
+				'portfolio_show_image_count' => 'disable',
+
+			]
+		);
+	}
+
 
 	/**
 	 * This will set `General_Portfolio_Settings` title in WordPress Dashboard
@@ -63,6 +88,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'show_option_none' => true,
 				'options'          => $this->get_all_pages(),
 
+
 			]
 		);
 
@@ -92,6 +118,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 					'id'      => 'single_portfolio_layout',
 					'type'    => 'select',
 					'options' => $single_layouts,
+					'default' => $this->defaults['single_portfolio_layout'],
 
 				]
 			);
@@ -104,11 +131,11 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 					'id'      => 'portfolio_layout',
 					'type'    => 'select',
 					'options' => $archive_layouts,
+					'default' => $this->defaults['portfolio_layout'],
 
 				]
 			);
 		}
-
 
 
 		/**
@@ -135,7 +162,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
 				'id'      => 'archive_enable_description',
 				'type'    => 'checkbox',
-				'default' => false,
+				'default' => $this->defaults['archive_enable_description'],
 
 			]
 		);
@@ -147,7 +174,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'desc'    => esc_html__( 'This will add a subtitle field to your Portfolio Posts', 'phort-plugin' ),
 				'id'      => 'portfolio_enable_subtitle',
 				'type'    => 'checkbox',
-				'default' => true,
+				'default' => $this->defaults['portfolio_enable_subtitle'],
 
 			]
 		);
@@ -165,13 +192,10 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 					'only_missing' => "Only Enable when a sub-title is empty",
 					'always'       => 'Always Enable (override sub-titles)',
 				],
-				'default' => 'disable',
+				'default' => $this->defaults['portfolio_enable_subtitle'],
 
 			]
 		);
-
-
-
 
 
 		/**
