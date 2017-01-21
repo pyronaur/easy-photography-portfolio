@@ -34,7 +34,7 @@ class Admin_View {
 		 *
 		 * `phort_post_page_phort_options` is a very special key that WordPress generates. I wouldn't have guessed it.
 		 */
-		if ( $hook !== 'post.php' && $hook !== 'phort_post_page_phort_options' ) {
+		if ( ! in_array( $hook, [ 'post.php', 'post-new.php', 'phort_post_page_phort_options' ] ) ) {
 			return;
 		}
 
