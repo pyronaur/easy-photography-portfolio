@@ -70,7 +70,7 @@ class Options_Page {
 			return $this->{$field};
 		}
 
-		throw new Exception( 'Invalid property: ' . $field );
+		throw new \Exception( 'Invalid property: ' . $field );
 	}
 
 
