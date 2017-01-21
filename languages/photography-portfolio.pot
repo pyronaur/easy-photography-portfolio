@@ -153,39 +153,51 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:21
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:25
 msgid "Portfolio Settings"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:32
-msgid "Portfolio Page"
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:63
+msgid "Main Portfolio Page"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:44
-msgid "Portfolio Archive Layout"
-msgstr ""
-
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:54
-msgid "Show Titles & Descriptions in Archives"
-msgstr ""
-
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:64
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:93
 msgid "Single Portfolio Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:75
-msgid "Enable Portfolio Subtitles"
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:105
+msgid "Portfolio Archive Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:87
-msgid "Show image count in subtitles"
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:132
+msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:109
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:133
+msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
+msgstr ""
+
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:148
+msgid "Subtitles: Enable"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:149
+msgid "This will add a subtitle field to your Portfolio Posts"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:160
+msgid "Subtitles: Show image count"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:161
+msgid "\"Portfolio Subtitles\" must be enabled for this setting to work."
+msgstr ""
+
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:186
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:110
+#: Photography_Portfolio/Settings/Portfolio_Options_Page.php:187
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
