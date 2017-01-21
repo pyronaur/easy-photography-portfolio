@@ -27,9 +27,9 @@ class Options_Page {
 		$this->title        = $this->settings->get_page_title();
 		$this->options_page = '';
 
-		add_action( 'admin_init', array( $this, 'init' ) );
-		add_action( 'admin_menu', array( $this, 'add_options_page' ) );
-		add_action( 'cmb2_admin_init', array( $this, 'add_options_page_metabox' ) );
+		add_action( 'admin_init', [ $this, 'init' ] );
+		add_action( 'admin_menu', [ $this, 'add_options_page' ] );
+		add_action( 'cmb2_admin_init', [ $this, 'add_options_page_metabox' ] );
 
 	}
 
@@ -66,7 +66,7 @@ class Options_Page {
 	public function __get( $field ) {
 
 		// Allowed fields to retrieve
-		if ( in_array( $field, array( 'key', 'metabox_id', 'title', 'options_page' ), true ) ) {
+		if ( in_array( $field, [ 'key', 'metabox_id', 'title', 'options_page' ], true ) ) {
 			return $this->{$field};
 		}
 
@@ -81,19 +81,19 @@ class Options_Page {
 	function add_options_page_metabox() {
 
 		// hook in our save notices
-		add_action( "cmb2_save_options-page_fields_{$this->metabox_id}", array( $this, 'settings_notices' ), 10, 2 );
+		add_action( "cmb2_save_options-page_fields_{$this->metabox_id}", [ $this, 'settings_notices' ], 10, 2 );
 
 		$cmb = new_cmb2_box(
-			array(
+			[
 				'id'         => $this->metabox_id,
 				'hookup'     => false,
 				'cmb_styles' => false,
-				'show_on'    => array(
+				'show_on'    => [
 					// These are important, don't remove
 					'key'   => 'options-page',
-					'value' => array( $this->key, ),
-				),
-			)
+					'value' => [ $this->key, ],
+				],
+			]
 		);
 
 		$this->settings->set_fields( $cmb );
@@ -128,11 +128,11 @@ class Options_Page {
 			$this->title,
 			'manage_options',
 			$this->key,
-			array( $this, 'admin_page_display' )
+			[ $this, 'admin_page_display' ]
 		);
 
 		// Include CMB CSS in the head to avoid FOUC
-		add_action( "admin_print_styles-{$this->options_page}", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
+		add_action( "admin_print_styles-{$this->options_page}", [ 'CMB2_hookup', 'enqueue_cmb_css' ] );
 	}
 
 

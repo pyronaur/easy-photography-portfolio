@@ -8,16 +8,14 @@ use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
 
 
 /**
- * Class Portfolio_Options_Page
+ * Class General_Portfolio_Settings
  * @package Photography_Portfolio\Settings
- *
- * @TODO    : This needs a sensible name to distinguish views from settings
  */
-class Portfolio_Options_Page implements Options_Page_Settings_Interface {
+class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
 
 	/**
-	 * This will set `Portfolio_Options_Page` title in WordPress Dashboard
+	 * This will set `General_Portfolio_Settings` title in WordPress Dashboard
 	 * @return string
 	 */
 	public function get_page_title() {

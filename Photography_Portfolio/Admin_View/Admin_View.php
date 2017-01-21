@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Admin_View;
 
 
-use Photography_Portfolio\Settings\Portfolio_Options_Page;
+use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\PP_Post_Meta;
 
 class Admin_View {
@@ -19,7 +19,7 @@ class Admin_View {
 	public function __construct() {
 
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
-		$this->options   = new Options_Page( new Portfolio_Options_Page() );
+		$this->options   = new Options_Page( new General_Portfolio_Settings() );
 		$this->metaboxes = new PP_Post_Meta();
 	}
 
