@@ -51,56 +51,22 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		 */
 		$cmb->add_field(
 			[
+				'name' => 'Main',
+				'type' => 'title',
+				'id'   => 'main_settings_title',
+			]
+		);
+
+		$cmb->add_field(
+			[
 				'id'               => "portfolio_page",
-				'name'             => esc_html__( 'Portfolio Page', 'phort-plugin' ),
+				'name'             => esc_html__( 'Main Portfolio Page', 'phort-plugin' ),
 				'type'             => 'select',
 				'show_option_none' => true,
 				'options'          => $this->get_all_pages(),
 
 			]
 		);
-
-
-		$cmb->add_field(
-			[
-				'name'    => esc_html__( 'Show Titles & Descriptions in Archives', 'phort-plugin' ),
-				'id'      => 'archive_enable_description',
-				'type'    => 'checkbox',
-				'default' => false,
-
-			]
-		);
-
-
-		$cmb->add_field(
-			[
-				'name'    => esc_html__( 'Enable Portfolio Subtitles', 'phort-plugin' ),
-				'desc'    => esc_html__( 'This will add a subtitle field to your Portfolio Posts', 'phort-plugin' ),
-				'id'      => 'portfolio_enable_subtitle',
-				'type'    => 'checkbox',
-				'default' => true,
-
-			]
-		);
-
-		$cmb->add_field(
-			[
-				'id'       => "portfolio_show_image_count",
-				'name'     => esc_html__( 'Show image count in subtitles', 'phort-plugin' ),
-				'desc'     => esc_html__( '"Portfolio Subtitles" must be enabled for this setting to work.', 'phort-plugin' ),
-				'required' => [ 'portfolio_enable_subtitle', '=', '1' ],
-
-				'type'    => 'select',
-				'options' => [
-					'disable'      => "Disable",
-					'only_missing' => "Only Enable when a sub-title is empty",
-					'always'       => 'Always Enable (override sub-titles)',
-				],
-				'default' => 'disable',
-
-			]
-		);
-
 
 		/**
 		 *
@@ -111,7 +77,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 		if ( $has_layout_settings ) {
 			$cmb->add_field(
 				[
-					'name' => 'Layout Settings',
+					'name' => 'Layout',
 					'type' => 'title',
 					'id'   => 'layout_settings_title',
 				]
@@ -144,6 +110,70 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 				]
 			);
 		}
+
+
+
+		/**
+		 *
+		 * ======== Layout Settings
+		 *
+		 */
+
+		$cmb->add_field(
+			[
+				'name' => 'Other',
+				'type' => 'title',
+				'id'   => 'misc_settings_title',
+			]
+		);
+
+		$cmb->add_field(
+			[
+				'name' => esc_html__( 'Show Archive Titles & Descriptions', 'phort-plugin' ),
+				'desc' => __(
+					'"Archives" are places like "Categories" and your "Main Portfolio Page".',
+					'phort-plugin'
+				),
+
+				'id'      => 'archive_enable_description',
+				'type'    => 'checkbox',
+				'default' => false,
+
+			]
+		);
+
+
+		$cmb->add_field(
+			[
+				'name'    => esc_html__( 'Subtitles: Enable', 'phort-plugin' ),
+				'desc'    => esc_html__( 'This will add a subtitle field to your Portfolio Posts', 'phort-plugin' ),
+				'id'      => 'portfolio_enable_subtitle',
+				'type'    => 'checkbox',
+				'default' => true,
+
+			]
+		);
+
+		$cmb->add_field(
+			[
+				'id'       => "portfolio_show_image_count",
+				'name'     => esc_html__( 'Subtitles: Show image count', 'phort-plugin' ),
+				'desc'     => esc_html__( '"Portfolio Subtitles" must be enabled for this setting to work.', 'phort-plugin' ),
+				'required' => [ 'portfolio_enable_subtitle', '=', '1' ],
+
+				'type'    => 'select',
+				'options' => [
+					'disable'      => "Disable",
+					'only_missing' => "Only Enable when a sub-title is empty",
+					'always'       => 'Always Enable (override sub-titles)',
+				],
+				'default' => 'disable',
+
+			]
+		);
+
+
+
 
 
 		/**
