@@ -9,9 +9,18 @@ class Register_Post_Type {
 
 	public static function initialize() {
 
-		add_action( 'init', array( __CLASS__, 'register_post_type' ), 5 );
-		add_action( 'init', array( __CLASS__, 'register_taxonomy' ), 5 );
-		
+
+		/**
+		 * Turns out taxonomies have to be registered before the
+		 * post type is registered to get pretty URLs like `/portfolio/category/%cat`
+		 *
+		 * @link https://cnpagency.com/blog/the-right-way-to-do-wordpress-custom-taxonomy-rewrites/
+		 *
+		 * `add_action` order is improtant here:
+		 */
+		add_action( 'init', [ __CLASS__, 'register_taxonomy' ], 5 );
+		add_action( 'init', [ __CLASS__, 'register_post_type' ], 5 );
+
 	}
 
 
@@ -19,7 +28,7 @@ class Register_Post_Type {
 
 		$labels = apply_filters(
 			'phort/post_type/labels',
-			array(
+			[
 				'name'               => _x( 'Portfolio Entries', 'Post Type General Name', 'phort-plugin' ),
 				'singular_name'      => _x( 'Portfolio Entry', 'Post Type Singular Name', 'phort-plugin' ),
 				'menu_name'          => __( 'Portfolio', 'phort-plugin' ),
@@ -33,16 +42,16 @@ class Register_Post_Type {
 				'search_items'       => __( 'Search portfolio', 'phort-plugin' ),
 				'not_found'          => __( 'No portfolio entries found', 'phort-plugin' ),
 				'not_found_in_trash' => __( 'No portfolio entries found in Trash', 'phort-plugin' ),
-			)
+			]
 		);
 
 		$args = apply_filters(
 			'phort/post_type/args',
-			array(
+			[
 				'label'               => __( 'portfolio', 'phort-plugin' ),
 				'description'         => __( 'Portfolio', 'phort-plugin' ),
 				'labels'              => $labels,
-				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
+				'supports'            => [ 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ],
 				'hierarchical'        => false,
 				'public'              => true,
 				'show_ui'             => true,
@@ -58,7 +67,7 @@ class Register_Post_Type {
 				'capability_type'     => 'post',
 				'rewrite'             => [ 'slug' => 'portfolio' ],
 
-			)
+			]
 		);
 
 
@@ -70,7 +79,7 @@ class Register_Post_Type {
 
 		$labels = apply_filters(
 			'phort/taxonomy/labels',
-			array(
+			[
 				'name'                       => _x( 'Portfolio Categories', 'Taxonomy General Name', 'phort-plugin' ),
 				'singular_name'              => _x( 'Portfolio Category', 'Taxonomy Singular Name', 'phort-plugin' ),
 				'menu_name'                  => __( 'Categories', 'phort-plugin' ),
@@ -85,12 +94,12 @@ class Register_Post_Type {
 				'search_items'               => __( 'Search Portfolio categories', 'phort-plugin' ),
 				'add_or_remove_items'        => __( 'Add or remove categories', 'phort-plugin' ),
 				'choose_from_most_used'      => __( 'Choose from the most used categories', 'phort-plugin' ),
-			)
+			]
 		);
 
 		$args = apply_filters(
 			'phort/taxonomy/args',
-			array(
+			[
 				'labels'            => $labels,
 				'hierarchical'      => true,
 				'public'            => true,
@@ -98,7 +107,11 @@ class Register_Post_Type {
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,
 				'show_tagcloud'     => false,
-			)
+				'rewrite'           => [
+					'slug'       => 'portfolio/category',
+					'with_front' => false,
+				],
+			]
 		);
 
 
