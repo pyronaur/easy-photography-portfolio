@@ -8,7 +8,7 @@ class Template {
 
 	public static function get( $base, $slug = NULL ) {
 
-		$search = array();
+		$search = [];
 
 		// Only include base-name.php if `name` is set ( avoid loading `slug-.php` )
 		if ( $slug ) {
@@ -22,14 +22,14 @@ class Template {
 		$template = self::locate_by_array( $search );
 
 		// Allow 3rd party plugins to modify the tempalte path
-		$template = apply_filters( 'phort/get_template', $template, $base, $slug );
+		$template = apply_filters( 'phort/get_template/' . $base, $template, $base, $slug );
 
 		/**
 		 * Load Template if template is found
 		 */
 		if ( $template ) {
 
-			do_action( 'phort/get_template/' . $base, $template, $base, $slug );
+			do_action( 'phort/load_template/' . $base, $template, $base, $slug );
 			load_template( $template, false );
 
 		}
@@ -92,7 +92,7 @@ class Template {
 		 * Fallback, in case both locators above failed
 		 */
 		if ( ! $located ) {
-			$located = self::locate_by_array( array( 'photography-portfolio.php', 'index.php' ) );
+			$located = self::locate_by_array( [ 'photography-portfolio.php', 'index.php' ] );
 		}
 
 

@@ -124,7 +124,7 @@ final class Colormelon_Photography_Portfolio {
 		 * Autoload Archive Data
 		 */
 		add_action(
-			'phort/get_template/archive/layout',
+			'phort/load_template/archive/layout',
 			function () {
 
 				Layout_Factory::autoload( 'archive', phort_slug_archive() );
@@ -135,7 +135,7 @@ final class Colormelon_Photography_Portfolio {
 		 * Autoload Single Portfolio entry data
 		 */
 		add_action(
-			'phort/get_template/single/layout',
+			'phort/load_template/single/layout',
 			function () {
 
 				Layout_Factory::autoload( 'single', phort_slug_single() );
