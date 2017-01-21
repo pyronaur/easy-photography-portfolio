@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.0
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -96,6 +96,17 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+
+= 1.0.7 =
+* Correctly set-up postdata in single portfolio layouts
+* Revolutionary new UI when creating a new portfolio entry ( fixed subtitle alignment )
+* Hide layout setting dropdowns if there are no layouts to choose from.
+* Clarify code and comments
+* By default load 100 portfolio entries. If you need more, you're responsible for displaying them properly. Why would you need a portfolio with more than 100 albums ?
+* Remove filter `phort/get_template`.
+* Introduce filter `phort/get_template/{$base}`
+* Allow themes/plugins to modify EPP Defaults
+
 
 = 1.0.5 =
 * Fix broken portfolio links
