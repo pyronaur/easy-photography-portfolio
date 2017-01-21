@@ -21,7 +21,7 @@ class Query {
 	 */
 	public function __construct() {
 
-		add_action( 'pre_get_posts', array( $this, 'set_variables' ) );
+		add_action( 'pre_get_posts', [ $this, 'set_variables' ] );
 	}
 
 
@@ -139,9 +139,11 @@ class Query {
 	 * This isn't pretty, but the ticket has been open since 2012 and isn't fixed at the end of 2016. I have to monkeypatch this.
 	 *
 	 * @param \WP_Query $query
+	 *
 	 * @return bool
 	 */
 	private function hotfixed_is_front_page( \WP_Query $query ) {
+
 		return ( $query->get( 'page_id' ) == get_option( 'page_on_front' ) );
 	}
 
