@@ -16,6 +16,10 @@ use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
 class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 
 
+	/**
+	 * This will set `Portfolio_Options_Page` title in WordPress Dashboard
+	 * @return string
+	 */
 	public function get_page_title() {
 
 		return esc_html__( 'Portfolio Settings', 'phort-plugin' );
@@ -23,6 +27,13 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 	}
 
 
+	/**
+	 *
+	 * Use CMB2 to set the fields.
+	 * This is where all the settings are.
+	 *
+	 * @param \CMB2 $cmb
+	 */
 	public function set_fields( \CMB2 $cmb ) {
 
 
@@ -44,7 +55,7 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 				'name'             => esc_html__( 'Portfolio Page', 'phort-plugin' ),
 				'type'             => 'select',
 				'show_option_none' => true,
-				'options'          => $this->pages(),
+				'options'          => $this->get_all_pages(),
 
 			]
 		);
@@ -159,7 +170,11 @@ class Portfolio_Options_Page implements Options_Page_Settings_Interface {
 	}
 
 
-	public function pages() {
+	/**
+	 * Get all WordPress Pages and return an array that will direclty fit in a select field.
+	 * @return array
+	 */
+	public function get_all_pages() {
 
 		$args = [
 			'posts_per_page' => - 1,
