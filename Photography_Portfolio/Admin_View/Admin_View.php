@@ -27,16 +27,18 @@ class Admin_View {
 	public function enqueue( $hook ) {
 
 		/**
-		 * Only enqueue styles in post editor
+		 * Only enqueue styles when they're necessary
+		 *
+		 *  Edit Posts: `post.php`
+		 *  Theme Options: `phort_post_page_phort_options`
+		 *
+		 * `phort_post_page_phort_options` is a very special key that WordPress generates. I wouldn't have guessed it.
 		 */
-		if ( $hook !== 'post.php' ) {
+		if ( $hook !== 'post.php' && $hook !== 'phort_post_page_phort_options' ) {
 			return;
 		}
 
-		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
-
-		wp_enqueue_style( 'PP-style', $build_directory . '/admin.css' );
-
+		wp_enqueue_style( 'PP-style', CLM_PLUGIN_DIR_URL . 'public/build' . '/admin.css' );
 	}
 
 
