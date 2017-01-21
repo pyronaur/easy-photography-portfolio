@@ -34,7 +34,7 @@
 	Description fields don't work well with checkbox fields out of the box.
 	Adjust them a bit.
  */
-.cmb2-wrap
+.phort_options
 	.cmb2-metabox-description
 		font-style: normal
 		color: #898989
@@ -75,3 +75,9 @@
 	.cmb-type-title.cmb-row
 		margin-top: 2.4rem
 		border-bottom: 1px solid #e3e3e3
+		
+
+// Specificity war with CMB2
+.cmb2-wrap.cmb2-wrap
+	input:focus, textarea:focus
+		background-color: #fff
