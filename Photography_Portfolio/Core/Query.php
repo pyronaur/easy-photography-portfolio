@@ -76,7 +76,9 @@ class Query {
 			$query->set( 'pagename', NULL );  // override 'pagename'
 			$query->set( 'page_id', '' );  // override 'pagename'
 
-			$query->set( 'posts_per_page', - 1 );
+
+			$query->set( 'posts_per_page', 100 );
+			$query->set( 'numberposts', 100 );
 
 
 			$query->is_singular = 0;
