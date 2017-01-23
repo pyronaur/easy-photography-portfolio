@@ -9,7 +9,10 @@
 function phort_slug_single() {
 
 	return sanitize_html_class(
-		phort_get_option( 'single_portfolio_layout', phort_instance()->layouts->get_default( 'single' ) )
+		phort_instance()->layouts->validate(
+			'single',
+			phort_get_option( 'single_portfolio_layout' )
+		)
 	);
 }
 
@@ -22,22 +25,28 @@ function phort_slug_single() {
 function phort_slug_archive() {
 
 	return sanitize_html_class(
-		phort_get_option( 'portfolio_layout', phort_instance()->layouts->get_default( 'archive' ) )
+		phort_instance()->layouts->validate(
+			'archive',
+			phort_get_option( 'portfolio_layout' )
+		)
 	);
+
+	
 }
 
 
 function phort_slug_current() {
 
+	$slug = false;
 	// Single Portfolio
 	if ( phort_instance()->query->is_single() ) {
-		return phort_slug_single();
+		$slug = phort_slug_single();
 	}
 
 	// Portfolio Archive & Categories
 	if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
-		return phort_slug_archive();
+		$slug = phort_slug_archive();
 	}
 
-	return false;
+	return $slug;
 }

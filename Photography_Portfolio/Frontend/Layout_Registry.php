@@ -8,7 +8,7 @@ use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 
 class Layout_Registry {
 
-	protected $registry = array();
+	protected $registry = [];
 
 
 	/**
@@ -37,14 +37,14 @@ class Layout_Registry {
 		 * Create Layout Group if needed
 		 */
 		if ( ! isset( $this->registry[ $layout_group ] ) ) {
-			$this->registry[ $layout_group ] = array();
+			$this->registry[ $layout_group ] = [];
 		}
 
-		$this->registry[ $layout_group ][ $slug ] = array(
+		$this->registry[ $layout_group ][ $slug ] = [
 			'key'   => $slug,
 			'label' => $label,
 			'class' => $classname,
-		);
+		];
 
 		return $this;
 	}
@@ -107,20 +107,59 @@ class Layout_Registry {
 	/**
 	 * Find which PHP Class is resposnible for the requested layout name
 	 *
-	 * @param $layout_slug
+	 * @param $slug
 	 *
 	 * @return Layout_Factory_Interface
 	 * @throws \Exception
 	 */
-	public function find_class( $layout_group, $layout_slug ) {
+	public function find_class( $group, $slug ) {
 
-		if ( ! in_array( $layout_slug, array_keys( $this->available_layouts( $layout_group ) ) ) ) {
-			trigger_error( "Layout `$layout_slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
-			$layout_slug = $this->get_default( $layout_group );
+		$slug = $this->validate( $group, $slug );
+
+		return $this->registry[ $group ][ $slug ]['class'];
+
+	}
+
+
+	/**
+	 * Validate a layout slug
+	 *
+	 * @param $group
+	 * @param $layout
+	 *
+	 * @return $layout ; if incorrect $layout passed, default will be returned
+	 */
+	public function validate( $group, $slug ) {
+
+		if ( ! $this->layout_exists( $group, $slug ) ) {
+			trigger_error( "Layout `$slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
+
+			return $this->get_default_slug( $group );
 		}
 
-		return $this->registry[ $layout_group ][ $layout_slug ]['class'];
+		return $slug;
 
+	}
+
+
+	/**
+	 * Method to check if a layout is registered
+	 *
+	 * @param $group
+	 * @param $slug
+	 *
+	 * @return bool
+	 */
+	public function layout_exists( $group, $slug ) {
+
+		return ( in_array( $slug, array_keys( $this->available_layouts( $group ) ) ) );
+
+	}
+
+
+	public function get_default_slug( $layout_group ) {
+
+		return key( $this->available_layouts( $layout_group ) );
 	}
 
 
@@ -130,7 +169,7 @@ class Layout_Registry {
 	 */
 	public function available_layouts( $layout_group ) {
 
-		$layouts = array();
+		$layouts = [];
 		foreach ( $this->registry[ $layout_group ] as $item ) {
 			$layouts[ $item['key'] ] = $item['label'];
 		}
@@ -138,10 +177,5 @@ class Layout_Registry {
 		return $layouts;
 	}
 
-
-	public function get_default( $layout_group ) {
-
-		return key( $this->available_layouts( $layout_group ) );
-	}
 
 }
