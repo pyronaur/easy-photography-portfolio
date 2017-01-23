@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.0
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,7 +61,6 @@ You can easily extend the plugin with your own custom archive and single-view la
 
 The JavaScript side is also very opinionated and easily extensible. You can use filters and actions to either modify the existing functionality, for example modifying the core masonry layout just a bit or completely initialize a brand new layout (like Packery or Horizontal Scroll). If you decide to build a custom view, you can utilize the existing JavaScript hook structure to let the plugin handle all the little things for you.
 
-ourselves for our existing customers, yet making it flexible enough so that it can be used in any theme.
 
 
 
@@ -96,6 +95,11 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+
+= 1.0.8 =
+* Add function `phort_is_front_page()`
+* Add play button overlay on videos
+* Validate layouts before returning `phort_slug_current()` value
 
 = 1.0.7 =
 * Correctly set-up postdata in single portfolio layouts
