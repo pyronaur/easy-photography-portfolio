@@ -37,3 +37,10 @@ function phort_has_theme_support() {
 
 	return get_theme_support( 'photography-portfolio-plugin' );
 }
+
+
+
+function phort_is_front_page() {
+
+	return phort_instance()->query->is_portfolio_front_page();
+}
