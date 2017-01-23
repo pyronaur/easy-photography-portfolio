@@ -58,16 +58,10 @@ class Query {
 		 *  Modify the WP_Query if so:
 		 */
 		if (
-
-			// I think some legacy code is at play here. Looks like $this->is_portfolio_page() should be sufficient.
-			// @TODO: Test whether we need to even check if current page is or isn't front_page.
-			// @TODO: Next time you write a complex condition, add a comment like this one...
-
-			// If [WP Front Page === Current Page === Portfolio Page], this is a portfolio page
-			( $this->front_page_is_portfolio() && $this->is_portfolio_page() )
+			$this->is_portfolio_front_page()
 			||
-			// If [WP Front Page !== Current Page, but current page is portfolio]
-			( ! $this->hotfixed_is_front_page( $query ) && $this->is_portfolio_page() )
+			// If [Static Front Page is NOT Current Page, but current page is portfolio]
+			( ! $this->is_front_page( $query ) && $this->is_portfolio_home() )
 		) {
 
 
@@ -114,13 +108,63 @@ class Query {
 	}
 
 
-	public function front_page_is_portfolio() {
+	/**
+	 * Check if current page is:
+	 *  * Site Front Page
+	 *  * And is portfolio
+	 *
+	 * @return bool
+	 */
+	public function is_portfolio_front_page() {
 
-		return ( get_option( 'show_on_front' ) == 'page' && phort_get_home_page() == get_option( 'page_on_front' ) );
+		return ( $this->is_portfolio_home_at_static_front_page() && $this->is_portfolio_home() );
 	}
 
 
-	public function is_portfolio_page() {
+	/**
+	 *  WordPress Doesn't correctly detect whther current query `is_front_page` @ `pre_get_posts` hook
+	 * @link https://core.trac.wordpress.org/ticket/21790
+	 *
+	 * This isn't pretty,
+	 * but the ticket has been open since 2012 and isn't fixed at the end of 2016.
+	 * Monkeypatching.
+	 *
+	 * @param \WP_Query $query
+	 *
+	 * @return bool
+	 */
+	private function is_front_page( \WP_Query $query ) {
+
+		return ( $this->get_queried_object_id() == get_option( 'page_on_front' ) );
+	}
+
+
+	/**
+	 *
+	 * Check if current page has been set as the "Main Portfolio Page"
+	 *
+	 * @return bool
+	 */
+	public function is_portfolio_home() {
+
+		$id = $this->get_queried_object_id();
+
+		return ( $id > 0 && $id === phort_get_home_page() );
+
+	}
+
+
+	public function is_portfolio_home_at_static_front_page() {
+
+		return (
+			'page' == get_option( 'show_on_front' )
+			&&
+			phort_get_home_page() == get_option( 'page_on_front' )
+		);
+	}
+
+
+	protected function get_queried_object_id() {
 
 		$id = (int) get_queried_object_id();
 
@@ -128,25 +172,7 @@ class Query {
 			$id = (int) $this->original_query->get( 'page_id' );
 		}
 
-		return ( $id > 0 && $id === phort_get_home_page() );
-
-	}
-
-
-	/**
-	 *  Monkeypatching `is_front_page()`
-	 * `is_front_page()` is buggy in WordPress `pre_get_posts`.
-	 * @link https://core.trac.wordpress.org/ticket/21790
-	 *
-	 * This isn't pretty, but the ticket has been open since 2012 and isn't fixed at the end of 2016. I have to monkeypatch this.
-	 *
-	 * @param \WP_Query $query
-	 *
-	 * @return bool
-	 */
-	private function hotfixed_is_front_page( \WP_Query $query ) {
-
-		return ( $query->get( 'page_id' ) == get_option( 'page_on_front' ) );
+		return $id;
 	}
 
 
