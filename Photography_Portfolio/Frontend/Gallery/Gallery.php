@@ -47,10 +47,17 @@ class Gallery {
 	 */
 	public function get_items( $gallery_ids ) {
 
-		$out = array();
+		$out = [];
 
 		foreach ( $gallery_ids as $attachment_id ) {
-			$out[] = new Attachment( $attachment_id );
+
+			/**
+			 * Only create an attachment if it's a real image.
+			 * Otherwise after content imports
+			 */
+			if ( wp_attachment_is_image( $attachment_id ) ) {
+				$out[] = new Attachment( $attachment_id );
+			}
 		}
 
 		return $out;
@@ -67,7 +74,7 @@ class Gallery {
 		$gallery = get_post_meta( $this->ID, 'phort_gallery', true );
 
 		if ( ! $gallery ) {
-			return array();
+			return [];
 		}
 
 		if ( is_int( $count ) && $count > 0 ) {

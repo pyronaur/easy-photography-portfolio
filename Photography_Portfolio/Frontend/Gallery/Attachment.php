@@ -23,12 +23,6 @@ class Attachment {
 	}
 
 
-	public function type_is( $type ) {
-
-		return ( $type === $this->type );
-	}
-
-
 	public function setup_data() {
 
 		$data = wp_prepare_attachment_for_js( $this->id );
@@ -48,6 +42,16 @@ class Attachment {
 	}
 
 
+	private function setup_type() {
+
+		if ( $this->get_video_url() ) {
+			return 'video';
+		}
+
+		return $this->data['type'];
+	}
+
+
 	public function get_video_url() {
 
 		$video = get_post_meta( $this->id, '_attachment_video_url', true );
@@ -60,9 +64,24 @@ class Attachment {
 	}
 
 
+	public function type_is( $type ) {
+
+		return ( $type === $this->type );
+	}
+
+
 	public function get_video() {
 
-		return wp_oembed_get( $this->get_video_url(), array( 'width' => 1400 ) );
+		return wp_oembed_get( $this->get_video_url(), [ 'width' => 1400 ] );
+
+	}
+
+
+	public function get_size_string( $size = 'full' ) {
+
+		$image = $this->get_size( $size );
+
+		return $image['width'] . 'x' . $image['height'];
 
 	}
 
@@ -80,7 +99,7 @@ class Attachment {
 			return $image;
 		}
 
-		die( "Size `$size` not found, using full image instead" );
+		trigger_error( "Size `$size` not found for attachment `$this->id`, using full image instead" );
 
 		return $sizes['full'];
 	}
@@ -94,20 +113,11 @@ class Attachment {
 			return false;
 		}
 
-		return array(
+		return [
 			'url'    => $image_src[0],
 			'width'  => $image_src[1],
 			'height' => $image_src[2],
-		);
-	}
-
-
-	public function get_size_string( $size = 'full' ) {
-
-		$image = $this->get_size( $size );
-
-		return $image['width'] . 'x' . $image['height'];
-
+		];
 	}
 
 
@@ -141,16 +151,6 @@ class Attachment {
 
 		echo wp_get_attachment_image( $this->id, $size );
 
-	}
-
-
-	private function setup_type() {
-
-		if ( $this->get_video_url() ) {
-			return 'video';
-		}
-
-		return $this->data['type'];
 	}
 
 }

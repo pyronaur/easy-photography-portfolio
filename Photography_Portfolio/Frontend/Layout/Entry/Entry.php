@@ -8,19 +8,6 @@ use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery\Gallery;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 
-
-/**
- * Class Entry
- *
- * @property-read \Photography_Portfolio\Frontend\Gallery\Attachment $featured_image
- *
- * @TODO    :
- *
- *      * Bluebird relies on `has-no-thumbnail` in cases where there is no thumbnail. Figure out where to handle that.
- *      * $entry->hover functionality is removed for now. Restore it somehow. ( `div.hovercard__popup` )
- *      * Need to somehow add class `enable-hover` when it's needed, but not in the plugin? Decisions....
- *      * Remove `Mod::`
- */
 class Entry {
 
 	/**
@@ -74,18 +61,37 @@ class Entry {
 	 */
 	public function setup_featured_image( $size ) {
 
-		if ( ! has_post_thumbnail( $this->id ) ) {
-			return $this;
+
+		$featured_image_id = $this->get_featured_image_id();
+
+		if ( $featured_image_id ) {
+			$this->featured_image_size = $size;
+			$this->featured_image      = new Attachment( $featured_image_id );
 		}
 
-		/**
-		 * @Todo: Maybe check if $size exists ?
-		 */
-		$this->featured_image_size = $size;
-		$this->featured_image      = new Attachment( get_post_thumbnail_id( $this->id ) );
-
-
 		return $this;
+	}
+
+
+	/**
+	 * Have to make sure that `get_post_thumbnail_id` returns the real image.
+	 * Wordpress IDs may be jumbled after importing content, image and post ids may collide.
+	 */
+	public function get_featured_image_id() {
+
+		if ( ! has_post_thumbnail( $this->id ) ) {
+			return false;
+		}
+
+		$featured_image_id = get_post_thumbnail_id( $this->id );
+
+
+		if ( ! wp_attachment_is_image( $featured_image_id ) ) {
+			return false;
+		}
+
+		return $featured_image_id;
+
 	}
 
 
@@ -204,10 +210,16 @@ class Entry {
 
 	public function data_setup() {
 
-		$attachment = new Attachment( get_post_thumbnail_id( $this->id ) );
+		$featured_image_id = $this->get_featured_image_id();
 
-		return $this->data_create_renderer( $attachment, $this->attached_sizes );
+		if ( $featured_image_id ) {
 
+			$attachment = new Attachment( get_post_thumbnail_id( $this->id ) );
+
+			return $this->data_create_renderer( $attachment, $this->attached_sizes );
+		}
+
+		return $this;
 	}
 
 
