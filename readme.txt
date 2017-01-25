@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.0
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -95,6 +95,9 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+
+= 1.0.9 =
+* Always make sure an image exists before trying to display it
 
 = 1.0.8 =
 * Add function `phort_is_front_page()`
