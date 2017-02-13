@@ -10,7 +10,7 @@
 /**
  * Display Archive Descriptions, if they're enabled
  */
-if ( phort_get_option( 'archive_enable_description', false ) ) {
+if ( 'enable' == phort_get_option( 'archive_description', 'disable' ) ) {
 	phort_get_template( 'archive/description' );
 }
 ?>

@@ -28,10 +28,10 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		$this->defaults = apply_filters(
 			'phort/general_portfolio_settings/defaults',
 			[
-				'portfolio_layout'           => '',
-				'single_portfolio_layout'    => '',
-				'archive_enable_description' => false,
-				'portfolio_subtitles'        => 'only_subtitles',
+				'portfolio_layout'        => '',
+				'single_portfolio_layout' => '',
+				'archive_description'     => 'disable',
+				'portfolio_subtitles'     => 'only_subtitles',
 
 			]
 		);
@@ -149,18 +149,21 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 			]
 		);
 
+
 		$cmb->add_field(
 			[
-				'name' => esc_html__( 'Show Archive Titles & Descriptions', 'phort-plugin' ),
-				'desc' => __(
+				'id'      => "archive_description",
+				'name'    => esc_html__( 'Show Archive Titles & Descriptions', 'phort-plugin' ),
+				'desc'    => esc_html__(
 					'"Archives" are places like "Categories" and your "Main Portfolio Page".',
 					'phort-plugin'
 				),
-
-				'id'      => 'archive_enable_description',
-				'type'    => 'checkbox',
-				'default' => $this->defaults['archive_enable_description'],
-
+				'type'    => 'select',
+				'default' => $this->defaults['archive_description'],
+				'options' => [
+					'disable' => esc_html__( 'Disable', 'phort-plugin' ),
+					'enable'  => esc_html__( 'Enable', 'phort-plugin' ),
+				],
 			]
 		);
 
@@ -172,10 +175,10 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'type'    => 'select',
 				'default' => $this->defaults['portfolio_subtitles'],
 				'options' => [
-					'disable'            => esc_html__( 'Disable', 'MELON_TXT' ),
-					'only_subtitles'     => esc_html__( 'Show Only Subtitle', 'MELON_TXT' ),
-					'only_count'         => esc_html__( 'Show Only Image Count', 'MELON_TXT' ),
-					'subtitles_or_count' => esc_html__( 'Show Subtitle or Image Count', 'MELON_TXT' ),
+					'disable'            => esc_html__( 'Disable', 'phort-plugin' ),
+					'only_subtitles'     => esc_html__( 'Show Only Subtitle', 'phort-plugin' ),
+					'only_count'         => esc_html__( 'Show Only Image Count', 'phort-plugin' ),
+					'subtitles_or_count' => esc_html__( 'Show Subtitle or Image Count', 'phort-plugin' ),
 				],
 			]
 		);
