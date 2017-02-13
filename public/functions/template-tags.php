@@ -44,6 +44,14 @@ function phort_get_class( $class = '' ) {
 
 
 	$classes = apply_filters( 'phort_get_class', $classes, $class );
+
+	/**
+	 * For convenience, use `esc_attr` instead of `sanitize_html_class`
+	 * This allows the $classes array to look like this:
+	 * ['classname_a', 'classname_b classname_c class_name_y', 'classname_z']
+	 *
+	 * It's both good and bad, but that's what WordPress uses, so we do too.
+	 */
 	$classes = array_map( 'esc_attr', $classes );
 
 	return array_unique( $classes );
