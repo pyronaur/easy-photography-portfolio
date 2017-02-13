@@ -77,7 +77,7 @@ class Public_View {
 		 * Only affect .PP_Wrapper
 		 */
 
-		if ( ! in_array( 'PP_Wrapper', $class ) ) {
+		if ( ! in_array( 'PP_Wrapper', $classes ) ) {
 			return $classes;
 		}
 
