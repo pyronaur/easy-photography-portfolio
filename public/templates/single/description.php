@@ -9,9 +9,8 @@
  * Display entry Title, Subtitle, Description
  */
 ?>
-<div class="PP_Description">
+<div <?php phort_class( 'PP_Description' ) ?>>
 	<div class="PP_Description__inner">
-
 		<h1 class="PP_Description__title">
 			<?php the_title() ?>
 		</h1>
@@ -25,6 +24,5 @@
 				<?php the_content(); ?>
 			</div> <!-- .PP_Description__content -->
 		<?php endif; ?>
-
 	</div> <!-- .PP_Description__inner -->
 </div> <!-- PP_Description -->

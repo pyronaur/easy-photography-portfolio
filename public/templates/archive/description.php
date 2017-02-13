@@ -10,7 +10,7 @@
  */
 ?>
 
-<div class="PP_Description">
+<div <?php phort_class( 'PP_Description' ) ?>>
 	<div class="PP_Description__inner">
 
 		<h1 class="PP_Description__title">
