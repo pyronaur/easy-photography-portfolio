@@ -31,8 +31,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'portfolio_layout'           => '',
 				'single_portfolio_layout'    => '',
 				'archive_enable_description' => false,
-				'portfolio_enable_subtitle'  => true,
-				'portfolio_show_image_count' => 'disable',
+				'portfolio_subtitles'        => 'only_subtitles',
 
 			]
 		);
@@ -87,8 +86,6 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'type'             => 'select',
 				'show_option_none' => true,
 				'options'          => $this->get_all_pages(),
-
-
 			]
 		);
 
@@ -170,33 +167,18 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
 		$cmb->add_field(
 			[
-				'name'    => esc_html__( 'Subtitles: Enable', 'phort-plugin' ),
-				'desc'    => esc_html__( 'This will add a subtitle field to your Portfolio Posts', 'phort-plugin' ),
-				'id'      => 'portfolio_enable_subtitle',
-				'type'    => 'checkbox',
-				'default' => $this->defaults['portfolio_enable_subtitle'],
-
-			]
-		);
-
-		$cmb->add_field(
-			[
-				'id'       => "portfolio_show_image_count",
-				'name'     => esc_html__( 'Subtitles: Show image count', 'phort-plugin' ),
-				'desc'     => esc_html__( '"Portfolio Subtitles" must be enabled for this setting to work.', 'phort-plugin' ),
-				'required' => [ 'portfolio_enable_subtitle', '=', '1' ],
-
+				'id'      => "portfolio_subtitles",
+				'name'    => esc_html__( 'Album Subtitle', 'phort-plugin' ),
 				'type'    => 'select',
+				'default' => $this->defaults['portfolio_subtitles'],
 				'options' => [
-					'disable'      => "Disable",
-					'only_missing' => "Only Enable when a sub-title is empty",
-					'always'       => 'Always Enable (override sub-titles)',
+					'disable'            => esc_html__( 'Disable', 'MELON_TXT' ),
+					'only_subtitles'     => esc_html__( 'Show Only Subtitle', 'MELON_TXT' ),
+					'only_count'         => esc_html__( 'Show Only Image Count', 'MELON_TXT' ),
+					'subtitles_or_count' => esc_html__( 'Show Subtitle or Image Count', 'MELON_TXT' ),
 				],
-				'default' => $this->defaults['portfolio_enable_subtitle'],
-
 			]
 		);
-
 
 		/**
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support

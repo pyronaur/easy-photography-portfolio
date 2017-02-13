@@ -142,7 +142,16 @@ class Entry {
 	 */
 	public function get_subtitle() {
 
-		$subtitle = false;
+		$subtitle         = false;
+		$subtitle_setting = phort_get_option( 'portfolio_subtitles', 'only_subtitles' );
+
+
+		/**
+		 * Only get a subtitle, if subtitles are enabled
+		 */
+		if ( 'disable' == $subtitle_setting ) {
+			return false;
+		}
 
 
 		/**
@@ -157,25 +166,18 @@ class Entry {
 
 		}
 
-		/**
-		 * Only get a subtitle, if subtitles are enabled
-		 */
-		if ( ! phort_get_option( 'portfolio_enable_subtitle', false ) ) {
-			return false;
-		}
 
 		/**
 		 * If image count is disabled, set subtitle and quit
 		 */
-		$show_image_count = phort_get_option( 'portfolio_show_image_count', false );
-		$subtitle         = trim( get_post_meta( $this->id, 'phort_subtitle', true ) );
+		$subtitle = trim( get_post_meta( $this->id, 'phort_subtitle', true ) );
 
 		/**
 		 * Count images, maybe set subtitle to image count
 		 */
 		if (
-			'always' == $show_image_count
-			|| ( 'only_missing' == $show_image_count && empty( $subtitle ) )
+			'only_count' == $subtitle_setting
+			|| ( 'subtitles_or_count' == $subtitle_setting && empty( $subtitle ) )
 		) {
 
 			$gallery     = new Gallery( $this->id );
