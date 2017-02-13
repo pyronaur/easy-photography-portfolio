@@ -58,10 +58,12 @@ function phort_get_class( $class = '' ) {
 }
 
 
-/*
+/**
  * Kind of like `post_class()`
+ *
+ * @param array $class - Array prefered, strings accepted.
  */
-function phort_class( $class = '' ) {
+function phort_class( $class = [] ) {
 
 	// Separates classes with a double space, collates classes for post DIV
 	echo 'class="' . join( '  ', phort_get_class( $class ) ) . '"';
