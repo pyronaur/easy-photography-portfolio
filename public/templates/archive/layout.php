@@ -22,9 +22,7 @@ if ( 'enable' == phort_get_option( 'archive_description', 'disable' ) ) {
 		<?php do_action( 'phort/archive/loop/start' ); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
-
 			<?php phort_get_template( 'archive/entry' ); ?>
-
 		<?php endwhile; ?>
 
 		<?php do_action( 'phort/archive/loop/end' ); ?>
