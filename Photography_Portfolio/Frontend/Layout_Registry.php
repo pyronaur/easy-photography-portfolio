@@ -132,7 +132,11 @@ class Layout_Registry {
 	public function validate( $group, $slug ) {
 
 		if ( ! $this->layout_exists( $group, $slug ) ) {
-			trigger_error( "Layout `$slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
+			/**
+			 * @TODO: Need a better solution for managing default layout values with solid fallbacks
+			 * Until then, disable this error. Layout is always going to revert to the correct slug if possible anyway.
+			 */
+			// trigger_error( "Layout `$slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
 
 			return $this->get_default_slug( $group );
 		}

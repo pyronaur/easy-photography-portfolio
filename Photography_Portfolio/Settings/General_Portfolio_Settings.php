@@ -21,15 +21,18 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 	 */
 	public function __construct() {
 
+
 		/**
 		 * Allow the defaults to be modified from other themes/plugins
 		 * Note: Defaults are only set after the user clicks “Save Changes” in Portfolio Settings.
+		 *
+		 * @TODO: Need a better solution for managing default layout values with solid fallbacks
 		 */
 		$this->defaults = apply_filters(
 			'phort/general_portfolio_settings/defaults',
 			[
-				'portfolio_layout'        => '',
-				'single_portfolio_layout' => '',
+				'portfolio_layout'        => 'masonry-hovercard',
+				'single_portfolio_layout' => 'masonry',
 				'archive_description'     => 'disable',
 				'portfolio_subtitles'     => 'only_subtitles',
 
