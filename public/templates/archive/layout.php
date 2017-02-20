@@ -2,7 +2,7 @@
 /*
  * Generic Archive Layout
  * @since 1.0.0
- * @modified 1.0.0
+ * @modified 1.1.1
  */
 ?>
 
@@ -15,13 +15,20 @@ if ( 'enable' == phort_get_option( 'archive_description', 'disable' ) ) {
 }
 ?>
 
-<div <?php phort_class( 'PP_Archive_Container' ); ?>>
+<?php do_action( 'phort/archive/container/open' ); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<div <?php phort_class( 'PP_Archive_Container' ); ?>>
 
-		<?php phort_get_template( 'archive/entry' ); ?>
+		<?php do_action( 'phort/archive/loop/start' ); ?>
 
+		<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php endwhile; ?>
+			<?php phort_get_template( 'archive/entry' ); ?>
 
-</div>
+		<?php endwhile; ?>
+
+		<?php do_action( 'phort/archive/loop/end' ); ?>
+
+	</div>
+
+<?php do_action( 'phort/archive/container/open' ); ?>
