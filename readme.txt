@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -95,6 +95,10 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+= 1.1.1 =
+* Make sure images have 100% max width, some themes don't do that by default
+* Add actions for to make it easier to tap into the templates: `phort/{archive|gallery}/loop/{start|end}`
+
 = 1.1.0 =
 * Make sure all top level template wrappers utilize `phort_class()`
 * More elaborate plugin settings with dropdowns instead of checkboxes
