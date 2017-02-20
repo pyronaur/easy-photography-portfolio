@@ -149,55 +149,63 @@ msgstr ""
 msgid "Choose from the most used categories"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Layout/Entry/Entry.php:178
+#: Photography_Portfolio/Frontend/Layout/Entry/Entry.php:186
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:48
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:47
 msgid "Portfolio Settings"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:86
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:85
 msgid "Main Portfolio Page"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:117
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:114
 msgid "Single Portfolio Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:130
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:127
 msgid "Portfolio Archive Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:157
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:156
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:158
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:157
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:173
-msgid "Subtitles: Enable"
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:164, Photography_Portfolio/Settings/General_Portfolio_Settings.php:178
+msgid "Disable"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:165
+msgid "Enable"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:174
-msgid "This will add a subtitle field to your Portfolio Posts"
+msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:185
-msgid "Subtitles: Show image count"
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:179
+msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:186
-msgid "\"Portfolio Subtitles\" must be enabled for this setting to work."
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:180
+msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:208
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:181
+msgid "Show Subtitle or Image Count"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:193
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:209
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:194
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
