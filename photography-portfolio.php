@@ -103,4 +103,12 @@ else {
 	add_action( 'after_setup_theme', 'phort_instance' );
 
 
+    /**
+     * 3rd party plugins & themes compatibility
+     *
+     * @since 1.1.2
+     */
+    require_once $__DIR . '/compatibility/compatibility.php';
+
+
 }
