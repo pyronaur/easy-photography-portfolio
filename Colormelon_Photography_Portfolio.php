@@ -43,7 +43,7 @@ final class Colormelon_Photography_Portfolio {
 	 *
 	 * @var string
 	 */
-	private $version = '1.1.1';
+	private $version = '1.1.2';
 
 
 	private $attachment_meta;
