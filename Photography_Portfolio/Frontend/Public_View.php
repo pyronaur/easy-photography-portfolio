@@ -48,6 +48,7 @@ class Public_View {
 		];
 
 
+		return $settings;
 	}
 
 
@@ -69,8 +70,16 @@ class Public_View {
 
 		// Single Portfolio
 		if ( phort_instance()->query->is_single() ) {
+
 			$classes[] = 'PP_Single';
 			$classes[] = 'PP_Single--' . phort_slug_single();
+
+			$gallery_type = phort_get_option( 'popup_gallery' );
+
+			if ( 'disabled' !== $gallery_type && ! empty( $gallery_type ) ) {
+				$classes[] = 'PP_Popup--' . sanitize_html_class( $gallery_type );
+			}
+
 		}
 
 		// Portfolio Archive & Categories

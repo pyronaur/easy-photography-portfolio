@@ -68,12 +68,19 @@ class Abstract_Lazy_Loader
 		.fadeOut( 400, -> $( this ).remove() )
 
 	get_item_html: ( thumb, full ) ->
-		"""
 
-		<a class="#{@Elements.link}" href="#{full}" rel="gallery">
-			<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
-		</a>
-		"""
+		if 'disable' is window.__phort.popup_gallery
+			return """
+			<div class="#{@Elements.link}" rel="gallery">
+				<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
+			</div>
+			"""
+		else
+			return """
+			<a class="#{@Elements.link}" href="#{full}" rel="gallery">
+				<img class="#{@Elements.image}" src="#{thumb}" class="PP_JS__loading" />
+			</a>
+			"""
 
 	setup_items: =>
 		# Clear existing items, if any

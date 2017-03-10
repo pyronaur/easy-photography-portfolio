@@ -14,7 +14,7 @@ get_item_data = ->
 
 	item_data = new Item_Data( $( this ) )
 
-	if item_data.get_type() is 'video'
+	if item_data.get_type( ) is 'video'
 		full = item_data.get_or_false( 'video_url' )
 	else
 		full = item_data.get_url( 'full' )
@@ -30,9 +30,12 @@ get_item_data = ->
 ###
 Hooks.addAction 'phort.core.ready', ->
 
+	# Only enable jQuery lightGallery if the popup gallery class is found
+	if $( '.PP_Popup--lightgallery' ).length is 0
+		return false
 
-	$( document ).on 'click', '.PP_Gallery__item', ( e ) ->
-		e.preventDefault()
+	$( document ).on 'click', '.PP_Popup--lightgallery .PP_Gallery__item', ( e ) ->
+		e.preventDefault( )
 		$el = $( this )
 
 		$items = get_items( $el )
@@ -46,4 +49,4 @@ Hooks.addAction 'phort.core.ready', ->
 			speed        : 350
 			preload      : 3
 			download     : false
-			videoMaxWidth: $( window ).width() * 0.8
+			videoMaxWidth: $( window ).width( ) * 0.8
