@@ -80,6 +80,9 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 	}
 
 
+	/**
+	 * Setup entry featured image and subtitle
+	 */
 	public function setup_postdata() {
 
 		// Create Entry instance
