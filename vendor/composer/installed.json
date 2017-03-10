@@ -23,7 +23,7 @@
         "suggest": {
             "composer/installers": "~1.0"
         },
-        "time": "2016-06-28 01:27:39",
+        "time": "2016-06-28T01:27:39+00:00",
         "type": "wordpress-plugin",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
