@@ -17,7 +17,7 @@ trait Filter_CSS_Classes {
 		 *
 		 *  Will:
 		 *      Append `PP_Masonry` to all `PP_Gallery` instances
-		 *      when this traid activated
+		 *      when this trait activated
 		 *
 		 *
 		 *
