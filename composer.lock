@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "56391aa3d1cc2d4202d1c250df084006",
+    "content-hash": "5e1247d3ebfc6206380ec88a98c42c14",
     "packages": [
         {
             "name": "webdevstudios/cmb2",
-            "version": "v2.2.2.1",
+            "version": "v2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2.git",
-                "reference": "17d60c71f9f6b27f0e1ab2bbbaae2e5da2ffa7b9"
+                "reference": "badecc7f908781ac14b879c74526f9d055f4a41e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/17d60c71f9f6b27f0e1ab2bbbaae2e5da2ffa7b9",
-                "reference": "17d60c71f9f6b27f0e1ab2bbbaae2e5da2ffa7b9",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/badecc7f908781ac14b879c74526f9d055f4a41e",
+                "reference": "badecc7f908781ac14b879c74526f9d055f4a41e",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2016-06-28T01:27:39+00:00"
+            "time": "2017-02-27T15:05:31+00:00"
         }
     ],
     "packages-dev": [],

@@ -15,6 +15,6 @@
     }
   },
   "require": {
-    "webdevstudios/cmb2": "v2.2.2.1"
+    "webdevstudios/cmb2": "^2.2"
   }
 }
