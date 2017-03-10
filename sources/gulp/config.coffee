@@ -1,7 +1,7 @@
 GLOBAL.config =
 
 	# General Config
-	url  : "http://bird.localbox.in"
+	url  : "http://peebles.demmoo.com"
 	build: "./public/build"
 
 	### External Libraries & Their URLs ###
