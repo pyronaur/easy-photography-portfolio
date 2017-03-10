@@ -14,6 +14,7 @@ use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
 class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
 	protected $defaults = [];
+	protected $settings = [];
 
 
 	/**
@@ -35,9 +36,26 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 				'single_portfolio_layout' => 'masonry',
 				'archive_description'     => 'disable',
 				'portfolio_subtitles'     => 'only_subtitles',
+				'popup_gallery'           => 'lightgallery',
 
 			]
 		);
+
+
+		/**
+		 * Setup filterable settings
+		 */
+		$this->settings = apply_filters(
+			'phort/general_portfolio_settings/settings',
+			[
+				'popup_gallery' => [
+					'disable'      => esc_html__( 'Disable', 'phort-plugin' ),
+					'lightgallery' => esc_html__( 'Enable', 'phort-plugin' ),
+				],
+			]
+		);
+
+
 	}
 
 
@@ -153,6 +171,19 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		);
 
 
+		if ( $this->settings_exist( 'popup_gallery' ) ) {
+			$cmb->add_field(
+				[
+					'id'      => "popup_gallery",
+					'name'    => esc_html__( 'Pop-up Gallery', 'phort-plugin' ),
+					'type'    => 'select',
+					'default' => $this->defaults['popup_gallery'],
+					'options' => $this->settings['popup_gallery'],
+				]
+			);
+		}
+
+
 		$cmb->add_field(
 			[
 				'id'      => "archive_description",
@@ -229,5 +260,12 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		}
 
 		return $pages;
+	}
+
+
+	public function settings_exist( $setting ) {
+
+		return ( ! empty( $this->settings[ $setting ] ) );
+
 	}
 }
