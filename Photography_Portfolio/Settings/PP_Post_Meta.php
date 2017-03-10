@@ -15,9 +15,9 @@ class PP_Post_Meta {
 		add_action( 'cmb2_init', [ $this, 'before_content' ] );
 		add_action( 'cmb2_init', [ $this, 'after_content' ] );
 
-
 		/**
-		 * @TODO: Implement this in a pretty way, this needs CSS and JavaScript
+		 * CMB2 supports `after_title` since version 2.2.4
+		 * But this way is still prettier for the user:
 		 */
 		add_action( 'edit_form_after_title', [ $this, 'move_metabox_to_after_title' ] );
 
