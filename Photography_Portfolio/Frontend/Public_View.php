@@ -33,8 +33,21 @@ class Public_View {
 		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
 
 		wp_enqueue_style( 'phort-style', $build_directory . '/app.css' );
-		wp_enqueue_script( 'phort-libs', $build_directory . '/libs.js', [ ], CLM_VERSION, true );
+		wp_enqueue_script( 'phort-libs', $build_directory . '/libs.js', [], CLM_VERSION, true );
 		wp_enqueue_script( 'phort-app', $build_directory . '/app.js', [ 'phort-libs', 'underscore' ], CLM_VERSION, true );
+
+		wp_localize_script( 'phort-app', '__phort', $this->javascript_settings() );
+
+	}
+
+
+	public function javascript_settings() {
+
+		$settings = [
+			'popup_gallery' => phort_get_option( 'popup_gallery' ),
+		];
+
+
 	}
 
 
