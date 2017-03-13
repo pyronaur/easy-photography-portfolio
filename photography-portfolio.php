@@ -30,7 +30,7 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 	include( ABSPATH . "wp-includes/pluggable.php" );
 	require_once $__DIR . '/php-require-54.php';
 
-	$updatePhp = new Photography_Portfolio_Require_PHP54();
+	$PP_Requre_PHP54 = new Photography_Portfolio_Require_PHP54();
 
 	function phort_auto_deactivate() {
 
@@ -38,7 +38,7 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 	}
 
 	if ( current_user_can( 'activate_plugins' ) ) {
-		add_action( 'admin_notices', array( &$updatePhp, 'admin_notice' ) );
+		add_action( 'admin_notices', array( &$PP_Requre_PHP54, 'admin_notice' ) );
 		add_action( 'admin_init', 'phort_auto_deactivate' );
 	}
 }
@@ -98,17 +98,16 @@ else {
 
 
 	/**
+	 * 3rd party plugins & themes compatibility
+	 *
+	 * @since 1.1.2
+	 */
+	require_once $__DIR . '/compatibility/compatibility.php';
+
+
+	/**
 	 * Boot Colormelon_Photography_Portfolio
 	 */
 	add_action( 'after_setup_theme', 'phort_instance' );
-
-
-    /**
-     * 3rd party plugins & themes compatibility
-     *
-     * @since 1.1.2
-     */
-    require_once $__DIR . '/compatibility/compatibility.php';
-
 
 }
