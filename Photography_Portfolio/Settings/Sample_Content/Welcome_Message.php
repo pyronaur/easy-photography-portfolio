@@ -34,7 +34,7 @@ class Welcome_Message {
 		 * If the current theme has support for Easy Photography Portfolio
 		 */
 		if ( phort_has_theme_support() ) {
-//			return false;
+			return false;
 		}
 
 		global $current_user;
