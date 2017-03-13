@@ -100,7 +100,8 @@ final class Colormelon_Photography_Portfolio {
 		/*
 		 * Load Photography Portfolio templates when needed:
 		 */
-		add_filter( 'template_include', array( 'Photography_Portfolio\Core\Template_Loader', 'load' ), 150 );
+		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
+		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
 
 		/**
@@ -163,6 +164,14 @@ final class Colormelon_Photography_Portfolio {
 	public function __wakeup() {
 
 		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'phort-plugin' ), '2.1' );
+	}
+
+
+	public function action_links( $links ) {
+
+		$links[] = '<a href="' . esc_url( get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' ) ) . '">Settings</a>';
+
+		return $links;
 	}
 
 
