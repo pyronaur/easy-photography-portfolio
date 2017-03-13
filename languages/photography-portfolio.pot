@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:173, Colormelon_Photography_Portfolio.php:182
+#: Colormelon_Photography_Portfolio.php:160, Colormelon_Photography_Portfolio.php:169
 msgid "Can't do this thing."
 msgstr ""
 
@@ -43,7 +43,7 @@ msgctxt "Post Type Singular Name"
 msgid "Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:34, Photography_Portfolio/Core/Register_Post_Type.php:52
+#: Photography_Portfolio/Core/Register_Post_Type.php:34, Photography_Portfolio/Core/Register_Post_Type.php:52, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45
 msgid "Portfolio"
 msgstr ""
 
@@ -241,6 +241,18 @@ msgstr ""
 
 #: Photography_Portfolio/Settings/PP_Post_Meta.php:113
 msgid "Remove"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:52
+msgid "Easy Photography Portfolio"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:119
+msgid "First Portfolio Entry"
+msgstr ""
+
+#: Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:162
+msgid "With a subtitle"
 msgstr ""
 
 #: php-require-54.php:61
