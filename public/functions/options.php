@@ -40,7 +40,10 @@ function phort_get_option( $option, $default = NULL ) {
 	 * Priority #3: `cmb2_get_option()`
 	 * Get the option from wordpress options
 	 */
-	$value = cmb2_get_option( 'phort_options', $option );
+	$options = get_option( 'phort_options' );
+	if ( isset( $options[ $option ] ) ) {
+		$value = $options[ $option ];
+	}
 
 	if ( ! $value && $default !== NULL ) {
 		return $default;
@@ -50,6 +53,19 @@ function phort_get_option( $option, $default = NULL ) {
 	return $value;
 
 
+}
+
+
+function phort_set_option( $option, $value ) {
+
+	$options = get_option( 'phort_options' );
+	if ( ! $options || ! is_array( $options ) ) {
+		$options = [];
+	}
+
+	$options[ $option ] = $value;
+
+	update_option( 'phort_options', $options );
 }
 
 
