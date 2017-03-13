@@ -184,7 +184,7 @@ class Setup_Sample_Content {
 
 		$content = "Welcome to Easy Photography Portfolio! This is your first portfolio entry. Edit or delete it, and start building your portfolio!
 
-If you need help setting up - have a look at our <a href=\"http://colormelon.com/easy-photography-portfolio-setup-guide\">Easy Photography Portfolio setup guide</a>.
+If you need help setting up - have a look at our <a href=\"http://colormelon.com/easy-photography-portfolio-full-setup-guide\">Easy Photography Portfolio setup guide</a>.
 	";
 
 		/**

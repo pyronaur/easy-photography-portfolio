@@ -9,6 +9,7 @@ use Photography_Portfolio\Core\Template_Loader;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Frontend\Public_View;
+use Photography_Portfolio\Settings\Sample_Content\Welcome_Message;
 
 /**
  * Colormelon_Photography_Portfolio
@@ -84,6 +85,7 @@ final class Colormelon_Photography_Portfolio {
 		 */
 		if ( is_admin() ) {
 			new Admin_View();
+			new Welcome_Message();
 		}
 		else {
 			new Public_View();
@@ -91,6 +93,7 @@ final class Colormelon_Photography_Portfolio {
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
 		do_action( 'phort/core/loaded', $this );
+
 
 	}
 
