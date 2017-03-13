@@ -7,7 +7,7 @@
  * Plugin Name:       Easy Photography Portfolio
  * Plugin URI:        http://colormelon.com/plugins/photography-portfolio
  * Description:       Add a photography portfolio to any WordPress theme. Designed for Photographers, yet made with theme developers in mind.
- * Version:           1.1.2
+ * Version:           1.1.3
  * Author:            Colormelon, justnorris
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
