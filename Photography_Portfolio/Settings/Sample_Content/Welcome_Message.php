@@ -56,8 +56,6 @@ class Welcome_Message {
 
 	public
 	function the_notice() {
-
-		// ob_start();
 		?>
 		<div class="Phort_Welcome notice">
 			<h4><span>Welcome To</span> Easy Photography Portfolio</h4>
@@ -69,7 +67,6 @@ class Welcome_Message {
 			<a class="Phort_Hide" href="?<?php echo $this->action_close ?>=1">&times;</a>
 		</div>
 		<?php
-		// return ob_get_clean();
 	}
 
 
