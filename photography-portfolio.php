@@ -22,6 +22,17 @@ $__DIR = dirname( __FILE__ );
 
 
 /**
+ * Define Constants
+ */
+define( 'CLM_ABSPATH', $__DIR . '/' );
+define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+
+define( 'CLM_THEME_PATH', 'photography-portfolio/' );
+define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . 'public/templates/' );
+
+
+/**
  * Require PHP 5.4
  * Instantly auto-deactivate if plugin requirements are not met
  */

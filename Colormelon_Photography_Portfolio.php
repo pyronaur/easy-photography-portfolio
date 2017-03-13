@@ -54,8 +54,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __construct() {
 
-		// Constants should be defined before anything else happens.
-		$this->define_constants();
+		define( 'CLM_VERSION', $this->version );
 
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'phort/core/prepare', $this );
@@ -92,22 +91,6 @@ final class Colormelon_Photography_Portfolio {
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
 		do_action( 'phort/core/loaded', $this );
-
-	}
-
-
-	/**
-	 * Define CLM Constants
-	 */
-	private function define_constants() {
-
-		define( 'CLM_VERSION', $this->version );
-		define( 'CLM_ABSPATH', __DIR__ . '/' );
-		define( 'CLM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		define( 'CLM_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
-
-		define( 'CLM_THEME_PATH', 'photography-portfolio/' );
-		define( 'CLM_PLUGIN_THEME_PATH', CLM_ABSPATH . 'public/templates/' );
 
 	}
 
