@@ -13,5 +13,17 @@ function phort_plugin_activation_hook() {
 	// Flush rewrite rules
 	flush_rewrite_rules();
 
+	// Setup Sample content
+	add_action( 'phort/core/loaded', 'phort_setup_sample_content' );
+
+
+	/**
+	 * Run the Photography Portfolio Plugin
+	 */
+	phort_instance();
+
+}
+function phort_setup_sample_content() {
+	new Photography_Portfolio\Settings\Sample_Content\Setup_Sample_Content();
 }
 
