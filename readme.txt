@@ -95,6 +95,13 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+= 1.1.3 =
+* Show a message with a link to a setup guide when the plugin is activated
+* Add a default portfolio entry if none already exist
+* Add a default portfolio page and automatically set it up in the settings
+* Add a settings link in plugins page
+* Update Tested up to tag
+
 = 1.1.2 =
 * Add option to disable the popup gallery
 * Add WPML Compitability ( thanks to @vukvukovich from WPML )
