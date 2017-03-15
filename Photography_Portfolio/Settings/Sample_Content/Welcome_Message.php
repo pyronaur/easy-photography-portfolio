@@ -61,7 +61,7 @@ class Welcome_Message {
 			<h4><span>Welcome To</span> Easy Photography Portfolio</h4>
 			<p>
 				To get started, have a look at the
-				<a target="_blank" href="http://colormelon.com/easy-photography-portfolio-full-setup-guide">full setup guide</a>
+				<a target="_blank" href="https://colormelon.com/easy-photography-portfolio-full-setup-guide/?utm_source=easy-photography-portfolio&utm_medium=welcome">full setup guide</a>
 				or the <a target="_blank" href="http://go.colormelon.com/epp-tutorial">video tutorial</a>
 			</p>
 			<a class="Phort_Hide" href="?<?php echo $this->action_close ?>=1">&times;</a>
