@@ -4,11 +4,11 @@
 namespace Photography_Portfolio\Settings;
 
 
-class PP_Post_Meta {
+class Portfolio_Entry_Metaboxes {
 
 
 	/**
-	 * PP_Post_Meta constructor.
+	 * Portfolio_Entry_Metaboxes constructor.
 	 */
 	public function __construct() {
 
