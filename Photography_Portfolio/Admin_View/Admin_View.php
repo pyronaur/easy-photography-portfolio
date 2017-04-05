@@ -18,9 +18,12 @@ class Admin_View {
 	 */
 	public function __construct() {
 
+		new Welcome_Message();
+
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
 		$this->options   = new Options_Page( new General_Portfolio_Settings() );
 		$this->metaboxes = new PP_Post_Meta();
+
 	}
 
 
