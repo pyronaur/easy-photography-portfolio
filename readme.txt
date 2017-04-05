@@ -23,7 +23,7 @@ I think it might be easier to explain with a demo.
 Have a look: **[Easy Photography Portfolio Demo](http://default.portfolio.bycolormelon.com/)** with default settings and "Twenty Seventeen Theme".
 
 To help you setup the plugin, I've made a video tutorial:
-https://youtu.be/b5mevuD-hPI?list=PLhppommwLJT7s8fdVDlGzrZoiS8j_yr7W
+[youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
 
 
 ### Designed for Photographers
