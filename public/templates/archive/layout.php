@@ -15,6 +15,12 @@ if ( 'enable' == phort_get_option( 'archive_description', 'disable' ) ) {
 }
 ?>
 
+<?php
+
+var_dump( phort_get_option( 'foobar', 'yes' ) );
+
+?>
+
 <?php do_action( 'phort/archive/container/open' ); ?>
 
 	<div <?php phort_class( 'PP_Archive_Container' ); ?>>

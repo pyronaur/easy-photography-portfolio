@@ -18,10 +18,9 @@ class General_Portfolio_Settings {
 	/**
 	 * General_Portfolio_Settings constructor.
 	 */
-	public function __construct() {
+	public function __construct( Setting_Registry $registry ) {
 
-
-		$this->registry = new Setting_Registry();
+		$this->registry = $registry;
 
 		/**
 		 * Allow the defaults to be modified from other themes/plugins
@@ -55,8 +54,8 @@ class General_Portfolio_Settings {
 
 		$this->set_fields();
 
+		$this->registry = $registry;
 	}
-
 
 
 	public function set_fields() {

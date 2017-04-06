@@ -6,6 +6,7 @@ namespace Photography_Portfolio\Admin_View;
 
 use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Portfolio_Entry_Metaboxes;
+use Photography_Portfolio\Settings\Setting_Registry;
 
 class Admin_View {
 
@@ -34,13 +35,18 @@ class Admin_View {
 
 	public function create_options_pages() {
 
-		$settings = new General_Portfolio_Settings();
+		// Create a global setting registry
+		$registry = new Setting_Registry();
+
+		// Setup General Settings, add them to $registry
+		$settings = new General_Portfolio_Settings( $registry );
+
 
 		// Add General Portfolio Settings in the Options page
 		$this->general_options_page = new CMB2_Options_Page(
 			'phort_options',
 			esc_html__( 'Portfolio Settings', 'phort-plugin' ),
-			$settings->registry->get_all()
+			$registry->get_all()
 		);
 
 
