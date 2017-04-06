@@ -117,7 +117,7 @@ final class Colormelon_Photography_Portfolio {
 	/**
 	 * Constructor is only going to set up the core
 	 */
-	public function boot() {
+	protected function boot() {
 
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'phort/core/prepare', $this );
@@ -145,7 +145,7 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
-	public function setup_settings() {
+	protected function setup_settings() {
 
 		$this->settings = new Setting_Registry();
 
@@ -157,7 +157,7 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
-	public function hooks() {
+	protected function hooks() {
 
 		/*
 		 * Load Photography Portfolio templates when needed:
