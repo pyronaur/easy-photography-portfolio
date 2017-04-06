@@ -88,11 +88,19 @@ function phort_set_option( $option, $value ) {
 }
 
 
-function phort_set_defaults( $settings ) {
+/**
+ * Make it easy for themes and/or extensions to set their own defaults.
+ * For example, if a new layout is added and prefered as the default.
+ *
+ * @see https://github.com/justnorris/easy-photography-portfolio/wiki#change-the-defaults
+ *
+ * @param array $defaults - An array of key => value pairs to customize the defaults
+ */
+function phort_set_defaults( $defaults ) {
 
 	$phort_settings = phort_instance()->settings;
 
-	foreach ( $settings as $option_id => $value ) {
+	foreach ( $defaults as $option_id => $value ) {
 
 		// Validate that an option exists, before trying to set the default value
 		if ( defined( "WP_DEBUG" ) && WP_DEBUG && ! $phort_settings->exists( $option_id ) ) {
