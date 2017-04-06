@@ -9,12 +9,10 @@ class Setting_Registry {
 	protected $registry = [];
 
 
-	public function update( $id, $new_value ) {
+	public function remove( $id ) {
 
-		if ( $this->exists( $id ) && $this->is_valid( $new_value ) ) {
-
-			$this->remove( $id );
-			$this->add( $new_value );
+		if ( $this->exists( $id ) ) {
+			unset( $this->registry[ $id ] );
 
 			return true;
 		}
@@ -27,6 +25,20 @@ class Setting_Registry {
 	public function exists( $id ) {
 
 		return isset( $this->registry[ $id ] );
+
+	}
+
+
+	public function update( $setting ) {
+
+		if ( $this->exists( $setting['id'] ) && $this->is_valid( $setting ) ) {
+
+			$this->registry[ $setting['id'] ] = $setting;
+
+			return true;
+		}
+
+		return false;
 
 	}
 
@@ -48,16 +60,28 @@ class Setting_Registry {
 	}
 
 
-	public function remove( $id ) {
+	public function get( $id ) {
 
 		if ( $this->exists( $id ) ) {
-			$this->registry[ $id ];
-
-			return true;
+			return $this->registry[ $id ];
 		}
 
 		return false;
 
+	}
+
+
+	public function get_all() {
+
+		return $this->registry;
+	}
+
+
+	public function add_all( $settings ) {
+
+		foreach ( $settings as $setting ) {
+			$this->add( $setting );
+		}
 	}
 
 
@@ -89,29 +113,5 @@ class Setting_Registry {
 
 	}
 
-
-	public function get( $id ) {
-
-		if ( $this->exists( $id ) ) {
-			return $this->registry[ $id ];
-		}
-
-		return false;
-
-	}
-
-
-	public function get_all() {
-
-		return $this->registry;
-	}
-
-
-	public function add_all( $settings ) {
-
-		foreach ( $settings as $setting ) {
-			$this->add( $setting );
-		}
-	}
 
 }
