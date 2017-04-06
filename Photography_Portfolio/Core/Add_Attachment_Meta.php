@@ -26,7 +26,7 @@ class Add_Attachment_Meta {
 		$field_value              = get_post_meta( $post->ID, '_attachment_video_url', true );
 		$form_fields['video_url'] = array(
 			'value' => $field_value ? $field_value : '',
-			'label' => esc_html__( 'Video URL', 'bluebird-theme' ),
+			'label' => esc_html__( 'Video URL', 'phort-instance' ),
 			'input' => 'text',
 		);
 
