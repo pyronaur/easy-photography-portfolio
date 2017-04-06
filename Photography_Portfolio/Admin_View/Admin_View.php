@@ -35,20 +35,6 @@ class Admin_View {
 
 	public function create_options_pages() {
 
-		// Setup General Settings
-		$general_settings = new General_Portfolio_Settings();
-
-
-
-		// Add all settings to the registry
-		$registry = phort_instance()->option_registry;
-		$registry->add_all( $general_settings->get_all() );
-
-
-
-		// Expose the registry to modification
-		do_action( 'phort/options/setup_registry', $registry );
-
 
 		// Add General Portfolio Settings in the Options page
 		$this->general_options_page = new CMB2_Options_Page(
@@ -56,7 +42,7 @@ class Admin_View {
 			esc_html__( 'Portfolio Settings', 'phort-plugin' ),
 
 			// For now, there is only 1 admin page, $registry->get_all() is okay for that.
-			$registry->get_all()
+			phort_instance()->settings->get_all()
 		);
 
 

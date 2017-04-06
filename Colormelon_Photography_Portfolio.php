@@ -8,6 +8,7 @@ use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Frontend\Public_View;
+use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Setting_Registry;
 
 /**
@@ -25,10 +26,10 @@ final class Colormelon_Photography_Portfolio {
 	protected static $_instance = NULL;
 
 	/**
-	 * All plugin options will be added in the option_registry
-	 * @var Setting_Registry $option_registry
+	 * All plugin options will be added in the settings
+	 * @var Setting_Registry $settings
 	 */
-	public $option_registry;
+	public $settings;
 
 
 	/**
@@ -74,7 +75,7 @@ final class Colormelon_Photography_Portfolio {
 
 		$this->attachment_meta = new Add_Attachment_Meta();
 		$this->query           = new Query();
-		$this->option_registry = new Setting_Registry();
+		$this->settings        = new Setting_Registry();
 
 
 		// Setup sub-classes
@@ -84,6 +85,9 @@ final class Colormelon_Photography_Portfolio {
 
 		// Initialize Hooks
 		$this->hooks();
+
+		// Setup settings
+		$this->setup_settings();
 
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
@@ -123,6 +127,16 @@ final class Colormelon_Photography_Portfolio {
 			}
 		);
 
+	}
+
+
+	public function setup_settings() {
+
+		// Setup General Settings
+		$general_settings = new General_Portfolio_Settings( $this );
+
+		// Add all settings to the registry
+		$this->settings->add_all( $general_settings->get_all() );
 	}
 
 

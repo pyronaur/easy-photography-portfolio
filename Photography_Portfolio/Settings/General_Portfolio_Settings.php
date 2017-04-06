@@ -10,7 +10,6 @@ namespace Photography_Portfolio\Settings;
  */
 class General_Portfolio_Settings {
 
-	public    $registry;
 	protected $defaults = [];
 	protected $settings = [];
 
@@ -18,7 +17,9 @@ class General_Portfolio_Settings {
 	/**
 	 * General_Portfolio_Settings constructor.
 	 */
-	public function __construct() {
+	public function __construct( $core ) {
+
+		$this->core = $core;
 
 
 		/**
@@ -75,10 +76,8 @@ class General_Portfolio_Settings {
 
 		$settings = [];
 
-		$PP = phort_instance();
-
-		$archive_layouts     = $PP->layouts->available_layouts( 'archive' );
-		$single_layouts      = $PP->layouts->available_layouts( 'single' );
+		$archive_layouts     = $this->core->layouts->available_layouts( 'archive' );
+		$single_layouts      = $this->core->layouts->available_layouts( 'single' );
 		$has_layout_settings = ( count( $archive_layouts ) > 1 || count( $single_layouts ) > 1 );
 
 
