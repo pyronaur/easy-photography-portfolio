@@ -173,7 +173,7 @@ function phort_get_archive_title() {
 	}
 
 	elseif ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_home() ) {
-		$title = get_the_title( phort_get_option( 'portfolio_page', false ) );
+		$title = get_the_title( phort_get_option( 'portfolio_page' ) );
 		if ( $title ) {
 			return $title;
 		}
@@ -199,7 +199,7 @@ function phort_get_archive_content() {
 		$content = term_description();
 	}
 	if ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_home() ) {
-		$content = get_post( phort_get_option( 'portfolio_page', false ) )->post_content;
+		$content = get_post( phort_get_option( 'portfolio_page' ) )->post_content;
 	}
 
 	return apply_filters( 'phort/template/archive_content', $content );

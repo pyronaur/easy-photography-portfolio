@@ -143,7 +143,7 @@ class Entry {
 	public function get_subtitle() {
 
 		$subtitle         = false;
-		$subtitle_setting = phort_get_option( 'portfolio_subtitles', 'only_subtitles' );
+		$subtitle_setting = phort_get_option( 'portfolio_subtitles' );
 
 
 		/**

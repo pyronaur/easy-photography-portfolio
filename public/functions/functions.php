@@ -29,7 +29,7 @@ function phort_load_view() {
 
 function phort_get_home_page() {
 
-	return (int) phort_get_option( 'portfolio_page', 0 );
+	return (int) phort_get_option( 'portfolio_page' );
 }
 
 
@@ -37,7 +37,6 @@ function phort_has_theme_support() {
 
 	return get_theme_support( 'photography-portfolio-plugin' );
 }
-
 
 
 function phort_is_front_page() {
