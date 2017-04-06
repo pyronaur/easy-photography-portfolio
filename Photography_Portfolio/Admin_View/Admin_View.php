@@ -39,7 +39,9 @@ class Admin_View {
 		$registry = new Setting_Registry();
 
 		// Setup General Settings, add them to $registry
-		$settings = new General_Portfolio_Settings( $registry );
+		$general_settings = new General_Portfolio_Settings();
+
+		$registry->add_all( $general_settings->get_all() );
 
 
 		// Add General Portfolio Settings in the Options page

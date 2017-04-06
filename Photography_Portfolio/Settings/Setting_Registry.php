@@ -9,6 +9,14 @@ class Setting_Registry {
 	protected $registry = [];
 
 
+	public function add_all( $settings ) {
+
+		foreach ( $settings as $setting ) {
+			$this->add( $setting );
+		}
+	}
+
+
 	public function add( $setting ) {
 
 		/**
