@@ -102,7 +102,7 @@ For now, there is this wiki article: https://github.com/justnorris/easy-photogra
 
 == Changelog ==
 = 1.1.4 =
-* Better default setting managemengt. Defaults are now used by....default. Even before the options object is populated. Yay.
+* Better default setting management. Defaults are now used by....default. Even before the options object is populated. Yay.
 * Set image height to auto, because as it turns out some themes don't do that out of the box.
 * Introduce `phort_set_defaults`, deprecate setting defaults with hooks
 * Refactor a lot of code, hopefully making it easier to read
