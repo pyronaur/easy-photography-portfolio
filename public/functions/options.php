@@ -14,6 +14,16 @@ function phort_get_option( $option, $deprecated = '' ) {
 	$default    = '';
 	$_undefined = '[undefined]';
 
+
+	/**
+	 * @deprecated at 1.1.4
+	 * @todo       Remove at 1.2.0
+	 */
+	if ( ! empty( $deprecated ) ) {
+		// Never implemented
+		_deprecated_argument( __FUNCTION__, '1.1.4' );
+	}
+
 	/**
 	 * Priority #1: `apply_filters()`
 	 * Allow quick override through WP Filters
