@@ -17,11 +17,15 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:160, Colormelon_Photography_Portfolio.php:169
+#: Colormelon_Photography_Portfolio.php:200, Colormelon_Photography_Portfolio.php:209
 msgid "Can't do this thing."
 msgstr ""
 
-#: Photography_Portfolio/Admin_View/Options_Page.php:53
+#: Photography_Portfolio/Admin_View/Admin_View.php:42
+msgid "Portfolio Settings"
+msgstr ""
+
+#: Photography_Portfolio/Admin_View/CMB2_Options_Page.php:51
 msgid "Settings updated."
 msgstr ""
 
@@ -153,93 +157,89 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:52, Photography_Portfolio/Settings/General_Portfolio_Settings.php:198, Photography_Portfolio/Settings/General_Portfolio_Settings.php:212
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:179, Photography_Portfolio/Settings/General_Portfolio_Settings.php:191
 msgid "Disable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:53, Photography_Portfolio/Settings/General_Portfolio_Settings.php:199
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65, Photography_Portfolio/Settings/General_Portfolio_Settings.php:180
 msgid "Enable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:68
-msgid "Portfolio Settings"
-msgstr ""
-
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:106
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:99
 msgid "Main Portfolio Page"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:135
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:124
 msgid "Single Portfolio Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:148
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:135
 msgid "Portfolio Archive Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:178
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:161
 msgid "Pop-up Gallery"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:190
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:171
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:191
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:172
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:208
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:187
 msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:213
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:192
 msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:214
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:193
 msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:215
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:194
 msgid "Show Subtitle or Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:227
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:204
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:228
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:205
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:75
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:75
 msgid "Entry Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:93
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:93
 msgid "Photography Portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:109
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:109
 msgid "Add Images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:110
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:110
 msgid "Remove Image"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:111
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:111
 msgid "File:"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:112
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:112
 msgid "Download"
 msgstr ""
 
-#: Photography_Portfolio/Settings/PP_Post_Meta.php:113
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:113
 msgid "Remove"
 msgstr ""
 
