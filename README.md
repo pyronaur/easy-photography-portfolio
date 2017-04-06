@@ -1,13 +1,10 @@
 ## Easy Photography Portfolio -  WordPress Plugin
 * [Basic Demo](http://default.portfolio.bycolormelon.com/) with Twenty Seventeen Theme
 * [Download on WordPress.org](https://wordpress.org/plugins/photography-portfolio/)
-* [How to setup Photography Portfolio Tutorial](https://www.youtube.com/watch?v=MKDWnxmcRWA&t=1s)
+* [How to setup Photography Portfolio Tutorial](https://youtu.be/b5mevuD-hPI?list=PLhppommwLJT7s8fdVDlGzrZoiS8j_yr7W)
+* [Useful Snippets in the Wiki](https://github.com/justnorris/easy-photography-portfolio/wiki)
 
 ---
-
-### Designed for Photographers
-Building a Photography Portfolio for WordPress should be easy. So we made a plugin to help you with that!
-We love the WordPress community and wholeheartedly agree with the [WordPress Philosophy](https://wordpress.org/about/philosophy/).
 
 
 ### Developed for Extensibility
@@ -27,8 +24,8 @@ You can use filters and actions based on [WP-JS-Hooks](https://github.com/carlda
 ### Demos
 
 * [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
-* [Aster - Premium WordPress theme for Photographers](http://aster.bycolormelon.com/) - with a custom Horizontal Layout
-* [Bluebird - a Premium Photography theme](http://aster.bycolormelon.com/) - with custom horizontal and masonry layouts, with added previews, horizontal layout and more
+* [Luka - Modern Photography Portfolio](http://luka.bycolormelon.com/) - with a custom Horizontal Layout
+* [Eugene - Photojournalism Type of Theme](http://eugene.bycolormelon.com/) - customized category display, quite a few custom templates and a horizontal layout. Really shows the flexibility of the plugin.
 
 
 ---
