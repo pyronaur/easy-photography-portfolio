@@ -150,7 +150,7 @@ final class Colormelon_Photography_Portfolio {
 		$this->settings = new Setting_Registry();
 
 		// Setup General Settings
-		$general_settings = new General_Portfolio_Settings( $this );
+		$general_settings = new General_Portfolio_Settings( $this->layouts );
 
 		// Add all settings to the registry
 		$this->settings->add_all( $general_settings->get_all() );
