@@ -78,21 +78,9 @@ final class Colormelon_Photography_Portfolio {
 		// Initialize Hooks
 		$this->hooks();
 
-		/**
-		 * == Boot ==
-		 * Either the front or backend
-		 */
-		if ( is_admin() ) {
-			new Admin_View();
-		}
-		else {
-			new Public_View();
-		}
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
 		do_action( 'phort/core/loaded', $this );
-
-
 	}
 
 
@@ -101,6 +89,7 @@ final class Colormelon_Photography_Portfolio {
 		/*
 		 * Load Photography Portfolio templates when needed:
 		 */
+		add_action( 'init', [ $this, 'load_view' ] );
 		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
@@ -126,6 +115,22 @@ final class Colormelon_Photography_Portfolio {
 				Layout_Factory::autoload( 'single', phort_slug_single() );
 			}
 		);
+
+	}
+
+
+	public function load_view() {
+
+		/**
+		 * == Boot ==
+		 * Either the front or backend
+		 */
+		if ( is_admin() ) {
+			new Admin_View();
+		}
+		else {
+			new Public_View();
+		}
 
 	}
 
