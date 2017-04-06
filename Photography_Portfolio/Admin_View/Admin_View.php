@@ -9,8 +9,8 @@ use Photography_Portfolio\Settings\Portfolio_Entry_Metaboxes;
 
 class Admin_View {
 
-	private $options   = false;
-	private $metaboxes = false;
+	private $general_options_page;
+	private $metaboxes;
 
 
 	/**
@@ -18,11 +18,31 @@ class Admin_View {
 	 */
 	public function __construct() {
 
+		// Show welcome message in admin view
 		new Welcome_Message();
 
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
-		$this->options   = new Options_Page( new General_Portfolio_Settings() );
+		// Setup admin pages
+		$this->create_options_pages();
+
+		// Portfolio entry meta fields ( subtitle, gallery, ... )
 		$this->metaboxes = new Portfolio_Entry_Metaboxes();
+
+		// Enqueue scripts
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
+	}
+
+
+	public function create_options_pages() {
+
+		$settings = new General_Portfolio_Settings();
+
+		// Add General Portfolio Settings in the Options page
+		$this->general_options_page = new CMB2_Options_Page(
+			'phort_options',
+			esc_html__( 'Portfolio Settings', 'phort-plugin' ),
+			$settings->registry->get_all()
+		);
+
 
 	}
 

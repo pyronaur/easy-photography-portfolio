@@ -4,15 +4,13 @@
 namespace Photography_Portfolio\Settings;
 
 
-use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
-
-
 /**
  * Class General_Portfolio_Settings
  * @package Photography_Portfolio\Settings
  */
-class General_Portfolio_Settings implements Options_Page_Settings_Interface {
+class General_Portfolio_Settings {
 
+	public    $registry;
 	protected $defaults = [];
 	protected $settings = [];
 
@@ -23,11 +21,11 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 	public function __construct() {
 
 
+		$this->registry = new Setting_Registry();
+
 		/**
 		 * Allow the defaults to be modified from other themes/plugins
 		 * Note: Defaults are only set after the user clicks “Save Changes” in Portfolio Settings.
-		 *
-		 * @TODO: Need a better solution for managing default layout values with solid fallbacks
 		 */
 		$this->defaults = apply_filters(
 			'phort/general_portfolio_settings/defaults',
@@ -55,29 +53,13 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 			]
 		);
 
+		$this->set_fields();
 
 	}
 
 
-	/**
-	 * This will set `General_Portfolio_Settings` title in WordPress Dashboard
-	 * @return string
-	 */
-	public function get_page_title() {
 
-		return esc_html__( 'Portfolio Settings', 'phort-plugin' );
-
-	}
-
-
-	/**
-	 *
-	 * Use CMB2 to set the fields.
-	 * This is where all the settings are.
-	 *
-	 * @param \CMB2 $cmb
-	 */
-	public function set_fields( \CMB2 $cmb ) {
+	public function set_fields() {
 
 
 		$PP = phort_instance();
@@ -92,7 +74,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		 * ======== Core Settings
 		 *
 		 */
-		$cmb->add_field(
+		$this->registry->add(
 			[
 				'name' => 'Main',
 				'type' => 'title',
@@ -100,7 +82,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 			]
 		);
 
-		$cmb->add_field(
+		$this->registry->add(
 			[
 				'id'               => "portfolio_page",
 				'name'             => esc_html__( 'Main Portfolio Page', 'phort-plugin' ),
@@ -117,7 +99,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		 */
 
 		if ( $has_layout_settings ) {
-			$cmb->add_field(
+			$this->registry->add(
 				[
 					'name' => 'Layout',
 					'type' => 'title',
@@ -130,7 +112,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		 * Hide "Single Portfolio Layout" Option, if there is only 1 layout available
 		 */
 		if ( count( $single_layouts ) > 1 ) {
-			$cmb->add_field(
+			$this->registry->add(
 				[
 					'name'    => esc_html__( 'Single Portfolio Layout', 'phort-plugin' ),
 					'id'      => 'single_portfolio_layout',
@@ -143,7 +125,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		}
 
 		if ( count( $archive_layouts ) > 1 ) {
-			$cmb->add_field(
+			$this->registry->add(
 				[
 					'name'    => esc_html__( 'Portfolio Archive Layout', 'phort-plugin' ),
 					'id'      => 'portfolio_layout',
@@ -162,7 +144,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		 *
 		 */
 
-		$cmb->add_field(
+		$this->registry->add(
 			[
 				'name' => 'Other',
 				'type' => 'title',
@@ -172,7 +154,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 
 
 		if ( $this->settings_exist( 'popup_gallery' ) ) {
-			$cmb->add_field(
+			$this->registry->add(
 				[
 					'id'      => "popup_gallery",
 					'name'    => esc_html__( 'Pop-up Gallery', 'phort-plugin' ),
@@ -184,7 +166,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		}
 
 
-		$cmb->add_field(
+		$this->registry->add(
 			[
 				'id'      => "archive_description",
 				'name'    => esc_html__( 'Show Archive Titles & Descriptions', 'phort-plugin' ),
@@ -202,7 +184,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		);
 
 
-		$cmb->add_field(
+		$this->registry->add(
 			[
 				'id'      => "portfolio_subtitles",
 				'name'    => esc_html__( 'Album Subtitle', 'phort-plugin' ),
@@ -221,7 +203,7 @@ class General_Portfolio_Settings implements Options_Page_Settings_Interface {
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
 		if ( ! phort_has_theme_support() ) {
-			$cmb->add_field(
+			$this->registry->add(
 				[
 					'id'      => "wrapper_class",
 					'name'    => esc_html__( 'Wrapper CSS Classes', 'phort-plugin' ),

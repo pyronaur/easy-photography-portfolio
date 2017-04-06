@@ -4,30 +4,28 @@
 namespace Photography_Portfolio\Admin_View;
 
 
-use Photography_Portfolio\Contracts\Options_Page_Settings_Interface;
+class CMB2_Options_Page {
 
-class Options_Page {
-
-	protected $title        = '';
+	protected $name         = '';
 	protected $options_page = '';
 
-	private $key        = 'phort_options';
-	private $metabox_id = 'phort_options_metabox';
-
+	private $key;
+	private $metabox_id;
 	private $settings;
 
 
 	/**
-	 * Options_Page constructor.
+	 * CMB2_Options_Page constructor.
 	 */
-	public function __construct( Options_Page_Settings_Interface $settings ) {
+	public function __construct( $key, $name, $settings ) {
 
+		$this->key      = $key;
+		$this->name     = $name;
 		$this->settings = $settings;
 
-		$this->title        = $this->settings->get_page_title();
-		$this->options_page = '';
+		$this->metabox_id = $key . '_metabox';
 
-		add_action( 'admin_init', [ $this, 'init' ] );
+		add_action( 'admin_init', [ $this, 'register_setting' ] );
 		add_action( 'admin_menu', [ $this, 'add_options_page' ] );
 		add_action( 'cmb2_admin_init', [ $this, 'add_options_page_metabox' ] );
 
@@ -96,7 +94,9 @@ class Options_Page {
 			]
 		);
 
-		$this->settings->set_fields( $cmb );
+		foreach ( $this->settings as $setting ) {
+			$cmb->add_field( $setting );
+		}
 
 	}
 
@@ -124,8 +124,8 @@ class Options_Page {
 
 		$this->options_page = add_submenu_page(
 			'edit.php?post_type=phort_post',
-			$this->title,
-			$this->title,
+			$this->name,
+			$this->name,
 			'manage_options',
 			$this->key,
 			[ $this, 'admin_page_display' ]
@@ -140,7 +140,7 @@ class Options_Page {
 	 * Register our setting to WP
 	 * @since  0.1.0
 	 */
-	public function init() {
+	public function register_setting() {
 
 		register_setting( $this->key, $this->key );
 	}
