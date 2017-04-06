@@ -88,4 +88,28 @@ function phort_set_option( $option, $value ) {
 }
 
 
+function phort_set_defaults( $settings ) {
+
+	$phort_settings = phort_instance()->settings;
+
+	foreach ( $settings as $option_id => $value ) {
+
+		// Validate that an option exists, before trying to set the default value
+		if ( defined( "WP_DEBUG" ) && WP_DEBUG && ! $phort_settings->exists( $option_id ) ) {
+			trigger_error( "Trying to set a default for {$option_id}, but there is no such option in the registry" );
+			continue;
+		}
+
+		$option            = $phort_settings->get( $option_id );
+		$option['default'] = $value;
+
+		$phort_settings->update( $option );
+
+	}
+
+
+}
+
+
+
 
