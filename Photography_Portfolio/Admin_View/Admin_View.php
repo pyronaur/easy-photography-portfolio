@@ -38,10 +38,14 @@ class Admin_View {
 		// Create a global setting registry
 		$registry = new Setting_Registry();
 
-		// Setup General Settings, add them to $registry
+		// Setup General Settings
 		$general_settings = new General_Portfolio_Settings();
 
+		// Add all settings to the registry
 		$registry->add_all( $general_settings->get_all() );
+
+		// Expose the registry to modification
+		do_action( 'phort/options/registry', $registry );
 
 
 		// Add General Portfolio Settings in the Options page
