@@ -45,7 +45,7 @@ class General_Portfolio_Settings {
 				],
 			],
 			'1.1.4',
-			'phort/options/registry',
+			'phort_set_defaults()',
 			'Use add_action("phort/core/loaded"); and `phort_instance()->settings;` instead to modify settings'
 		);
 
@@ -67,7 +67,7 @@ class General_Portfolio_Settings {
 				],
 			],
 			'1.1.4',
-			'phort/core/loaded',
+			'phort_instance()->settings',
 			'Use add_action("phort/core/loaded"); and `phort_instance()->settings;` instead to modify settings'
 		);
 
