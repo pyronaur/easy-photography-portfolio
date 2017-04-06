@@ -9,6 +9,7 @@ use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Frontend\Public_View;
+use Photography_Portfolio\Settings\Setting_Registry;
 
 /**
  * Colormelon_Photography_Portfolio
@@ -23,6 +24,12 @@ final class Colormelon_Photography_Portfolio {
 	 * Singletons are almost always bad, surely not this time. Right?....
 	 */
 	protected static $_instance = NULL;
+
+	/**
+	 * All plugin options will be added in the option_registry
+	 * @var Setting_Registry $option_registry
+	 */
+	public $option_registry;
 
 
 	/**
@@ -68,6 +75,7 @@ final class Colormelon_Photography_Portfolio {
 
 		$this->attachment_meta = new Add_Attachment_Meta();
 		$this->query           = new Query();
+		$this->option_registry = new Setting_Registry();
 
 
 		// Setup sub-classes
