@@ -17,10 +17,7 @@ class General_Portfolio_Settings {
 	/**
 	 * General_Portfolio_Settings constructor.
 	 */
-	public function __construct( $core ) {
-
-		$this->core = $core;
-
+	public function __construct() {
 
 		/**
 		 * Don't modify defaults through `phort/general_portfolio_settings/defaults`
@@ -76,8 +73,8 @@ class General_Portfolio_Settings {
 
 		$settings = [];
 
-		$archive_layouts     = $this->core->layouts->available_layouts( 'archive' );
-		$single_layouts      = $this->core->layouts->available_layouts( 'single' );
+		$archive_layouts     = phort_instance()->layouts->available_layouts( 'archive' );
+		$single_layouts      = phort_instance()->layouts->available_layouts( 'single' );
 		$has_layout_settings = ( count( $archive_layouts ) > 1 || count( $single_layouts ) > 1 );
 
 

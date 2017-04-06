@@ -53,18 +53,12 @@ final class Colormelon_Photography_Portfolio {
 	private $version = '1.1.3';
 
 
-	private $attachment_meta;
-
-
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
 
 		define( 'CLM_VERSION', $this->version );
-
-		// If there is anything you want to do before the plugin configures itself
-		do_action( 'phort/core/prepare', $this );
 
 		/**
 		 * Register post types on `init` action
@@ -73,25 +67,93 @@ final class Colormelon_Photography_Portfolio {
 		 */
 		Register_Post_Type::initialize();
 
-		$this->attachment_meta = new Add_Attachment_Meta();
-		$this->query           = new Query();
-		$this->settings        = new Setting_Registry();
+		/**
+		 * Everything else is handled in $this->boot(), so that `phort_instance()` is available if needed
+		 */
 
+	}
+
+
+	public function load_view() {
+
+		/**
+		 * == Boot ==
+		 * Either the front or backend
+		 */
+		if ( is_admin() ) {
+			new Admin_View();
+		}
+		else {
+			new Public_View();
+		}
+
+	}
+
+
+	/**
+	 * Main Instance.
+	 *
+	 * Ensures only one instance of Colormelon_Photography_Portfolio is loaded or can be loaded.
+	 *
+	 * @static
+	 * @return Colormelon_Photography_Portfolio instance
+	 *
+	 * Very Heavily inspired by WooCommerce
+	 */
+	public static function instance() {
+
+		if ( is_null( self::$_instance ) ) {
+			// Create instance
+			self::$_instance = new self();
+
+			// Boot immediately
+			self::$_instance->boot();
+		}
+
+		return self::$_instance;
+	}
+
+
+	/**
+	 * Constructor is only going to set up the core
+	 */
+	public function boot() {
+
+		// If there is anything you want to do before the plugin configures itself
+		do_action( 'phort/core/prepare', $this );
+
+		$this->query = new Query();
 
 		// Setup sub-classes
 		// Register Layouts
 		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
+		// Setup settings
+		$this->setup_settings();
+
+		// Setup attachment meta
+		if ( apply_filters( 'phort/attachment/video_enabled', true ) ) {
+			new Add_Attachment_Meta();
+		}
 
 		// Initialize Hooks
 		$this->hooks();
 
-		// Setup settings
-		$this->setup_settings();
-
-
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
 		do_action( 'phort/core/loaded', $this );
+
+	}
+
+
+	public function setup_settings() {
+
+		$this->settings = new Setting_Registry();
+
+		// Setup General Settings
+		$general_settings = new General_Portfolio_Settings( $this );
+
+		// Add all settings to the registry
+		$this->settings->add_all( $general_settings->get_all() );
 	}
 
 
@@ -127,52 +189,6 @@ final class Colormelon_Photography_Portfolio {
 			}
 		);
 
-	}
-
-
-	public function setup_settings() {
-
-		// Setup General Settings
-		$general_settings = new General_Portfolio_Settings( $this );
-
-		// Add all settings to the registry
-		$this->settings->add_all( $general_settings->get_all() );
-	}
-
-
-	public function load_view() {
-
-		/**
-		 * == Boot ==
-		 * Either the front or backend
-		 */
-		if ( is_admin() ) {
-			new Admin_View();
-		}
-		else {
-			new Public_View();
-		}
-
-	}
-
-
-	/**
-	 * Main Instance.
-	 *
-	 * Ensures only one instance of Colormelon_Photography_Portfolio is loaded or can be loaded.
-	 *
-	 * @static
-	 * @return Colormelon_Photography_Portfolio instance
-	 *
-	 * Very Heavily inspired by WooCommerce
-	 */
-	public static function instance() {
-
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
 	}
 
 
