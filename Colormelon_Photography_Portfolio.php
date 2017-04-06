@@ -1,7 +1,6 @@
 <?php
 
 use Photography_Portfolio\Admin_View\Admin_View;
-use Photography_Portfolio\Admin_View\Welcome_Message;
 use Photography_Portfolio\Core\Add_Attachment_Meta;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
