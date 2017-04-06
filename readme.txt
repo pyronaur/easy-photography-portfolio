@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.3
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -74,12 +74,18 @@ We respect our users and believe that one can recognize quality on their own, wi
 
 == Frequently Asked Questions ==
 
-= Is this plugin on Github ? =
+= Is it easy to set up ? =
+Easy as pie. Watch the video - everything you need to know in 7 minutes:
+[youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
 
-Of course it is! Have a look here: https://github.com/justnorris/easy-photography-portfolio
+= Is it Developer Friendly? =
+Yes. Very friendly.
+We use this plugin in all our themes, and it's important to make it easily extendable.
+Browse the source on Github: https://github.com/justnorris/easy-photography-portfolio
 
 = Any examples on how to extend or integrate the plugin in my theme? =
-More to come in time. For now, there is this wiki article: https://github.com/justnorris/easy-photography-portfolio/wiki/Useful-Snippets
+More to come in time.
+For now, there is this wiki article: https://github.com/justnorris/easy-photography-portfolio/wiki/Useful-Snippets
 
 == Installation ==
 
@@ -95,6 +101,13 @@ More to come in time. For now, there is this wiki article: https://github.com/ju
 
 
 == Changelog ==
+= 1.1.4 =
+* Better default setting managemengt. Defaults are now used by....default. Even before the options object is populated. Yay.
+* Set image height to auto, because as it turns out some themes don't do that out of the box.
+* Introduce `phort_set_defaults`, deprecate setting defaults with hooks
+* Refactor a lot of code, hopefully making it easier to read
+* You're actually reading this. I like you. Here, have a cookie 🍪
+
 = 1.1.3 =
 * Show a message with a link to a setup guide when the plugin is activated
 * Add a default portfolio entry if none already exist
