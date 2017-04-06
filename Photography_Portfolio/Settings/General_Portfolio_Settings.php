@@ -23,45 +23,49 @@ class General_Portfolio_Settings {
 
 		/**
 		 * Don't modify defaults through `phort/general_portfolio_settings/defaults`
-		 * Use Setting Registry instead
+		 * Use phort_instance()->registry instead
 		 *
-		 * @deprecated 1.1.4 Use `phort/options/registry` instead
+		 * @deprecated 1.1.4 Use `phort/core/loaded` to wait for the plugin to setup, then modify `phort_instance()->settings`
 		 * @TODO       : Remove at version 1.2.0
 		 *
 		 */
 		$this->defaults = apply_filters_deprecated(
 			'phort/general_portfolio_settings/defaults',
 			[
-				'portfolio_layout'        => 'masonry-hovercard',
-				'single_portfolio_layout' => 'masonry',
-				'archive_description'     => 'disable',
-				'portfolio_subtitles'     => 'only_subtitles',
-				'popup_gallery'           => 'lightgallery',
+				[
+					'portfolio_layout'        => 'masonry-hovercard',
+					'single_portfolio_layout' => 'masonry',
+					'archive_description'     => 'disable',
+					'portfolio_subtitles'     => 'only_subtitles',
+					'popup_gallery'           => 'lightgallery',
 
+				],
 			],
 			'1.1.4',
 			'phort/options/registry',
-			'Use add_action("phort/options/registry", $registry); action instead to modify settings'
+			'Use add_action("phort/core/loaded"); and `phort_instance()->settings;` instead to modify settings'
 		);
 
 
 		/**
 		 * Setup filterable settings
 		 *
-		 * @deprecated 1.1.4 Use `phort/options/registry` instead
+		 * @deprecated 1.1.4 Use `phort/core/loaded` instead
 		 * @TODO       : Remove at version 1.2.0
 		 */
 		$this->settings = apply_filters_deprecated(
 			'phort/general_portfolio_settings/settings',
 			[
-				'popup_gallery' => [
-					'disable'      => esc_html__( 'Disable', 'phort-plugin' ),
-					'lightgallery' => esc_html__( 'Enable', 'phort-plugin' ),
+				[
+					'popup_gallery' => [
+						'disable'      => esc_html__( 'Disable', 'phort-plugin' ),
+						'lightgallery' => esc_html__( 'Enable', 'phort-plugin' ),
+					],
 				],
 			],
 			'1.1.4',
-			'phort/options/registry',
-			'Use add_action("phort/options/registry", $registry); action instead to modify settings'
+			'phort/core/loaded',
+			'Use add_action("phort/core/loaded"); and `phort_instance()->settings;` instead to modify settings'
 		);
 
 	}
