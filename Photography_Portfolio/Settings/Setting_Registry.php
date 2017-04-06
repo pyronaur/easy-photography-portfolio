@@ -9,15 +9,29 @@ class Setting_Registry {
 	protected $registry = [];
 
 
-	public function add_all( $settings ) {
+	public function update( $id, $new_value ) {
 
-		foreach ( $settings as $setting ) {
-			$this->add( $setting );
+		if ( $this->exists( $id ) && $this->is_valid( $new_value ) ) {
+
+			$this->remove( $id );
+			$this->add( $new_value );
+
+			return true;
 		}
+
+		return false;
+
 	}
 
 
-	public function add( $setting ) {
+	public function exists( $id ) {
+
+		return isset( $this->registry[ $id ] );
+
+	}
+
+
+	public function is_valid( $setting ) {
 
 		/**
 		 * Setting must have an ID
@@ -28,12 +42,38 @@ class Setting_Registry {
 			return false;
 		}
 
+
+		return true;
+
+	}
+
+
+	public function remove( $id ) {
+
+		if ( $this->exists( $id ) ) {
+			$this->registry[ $id ];
+
+			return true;
+		}
+
+		return false;
+
+	}
+
+
+	public function add( $setting ) {
+
+
+		if ( ! $this->is_valid( $setting ) ) {
+			return false;
+		}
+
 		$id = $setting['id'];
 
 		/**
 		 * Setting ID must be Unique
 		 */
-		if ( isset( $this->registry[ $id ] ) ) {
+		if ( $this->exists( $id ) ) {
 			trigger_error( 'Setting `' . $id . '` already exists in `Photography_Portfolio\Settings\Setting_Registry`' );
 
 			return false;
@@ -50,12 +90,10 @@ class Setting_Registry {
 	}
 
 
-	public function remove( $key ) {
+	public function get( $id ) {
 
-		if ( isset( $this->registry[ $key ] ) ) {
-			$this->registry[ $key ];
-
-			return true;
+		if ( $this->exists( $id ) ) {
+			return $this->registry[ $id ];
 		}
 
 		return false;
@@ -67,4 +105,13 @@ class Setting_Registry {
 
 		return $this->registry;
 	}
+
+
+	public function add_all( $settings ) {
+
+		foreach ( $settings as $setting ) {
+			$this->add( $setting );
+		}
+	}
+
 }
