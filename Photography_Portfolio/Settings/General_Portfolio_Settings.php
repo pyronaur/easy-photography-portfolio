@@ -25,10 +25,11 @@ class General_Portfolio_Settings {
 		 * Don't modify defaults through `phort/general_portfolio_settings/defaults`
 		 * Use Setting Registry instead
 		 *
-		 * @deprecated `phort/general_portfolio_settings/defaults`
-		 * @since      1.1.4
+		 * @deprecated 1.1.4 Use `phort/options/registry` instead
+		 * @TODO       : Remove at version 1.2.0
+		 *
 		 */
-		$this->defaults = apply_filters(
+		$this->defaults = apply_filters_deprecated(
 			'phort/general_portfolio_settings/defaults',
 			[
 				'portfolio_layout'        => 'masonry-hovercard',
@@ -37,21 +38,30 @@ class General_Portfolio_Settings {
 				'portfolio_subtitles'     => 'only_subtitles',
 				'popup_gallery'           => 'lightgallery',
 
-			]
+			],
+			'1.1.4',
+			'phort/options/registry',
+			'Use add_action("phort/options/registry", $registry); action instead to modify settings'
 		);
 
 
 		/**
 		 * Setup filterable settings
+		 *
+		 * @deprecated 1.1.4 Use `phort/options/registry` instead
+		 * @TODO       : Remove at version 1.2.0
 		 */
-		$this->settings = apply_filters(
+		$this->settings = apply_filters_deprecated(
 			'phort/general_portfolio_settings/settings',
 			[
 				'popup_gallery' => [
 					'disable'      => esc_html__( 'Disable', 'phort-plugin' ),
 					'lightgallery' => esc_html__( 'Enable', 'phort-plugin' ),
 				],
-			]
+			],
+			'1.1.4',
+			'phort/options/registry',
+			'Use add_action("phort/options/registry", $registry); action instead to modify settings'
 		);
 
 	}
