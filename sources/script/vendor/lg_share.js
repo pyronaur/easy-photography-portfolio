@@ -68,17 +68,70 @@
 
         _this.core.$el.on('onAfterSlide.lg.tm', function(event, prevIndex, index) {
 
-            setTimeout(function() { 
-                $('#lg-share-facebook').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + (encodeURIComponent(_this.core.$items.eq(index).attr('data-facebook-share-url') || window.location.href)));
+            setTimeout(function() {
 
-                $('#lg-share-twitter').attr('href', 'https://twitter.com/intent/tweet?text=' + _this.core.$items.eq(index).attr('data-tweet-text') + '&url=' + (encodeURIComponent(_this.core.$items.eq(index).attr('data-twitter-share-url') || window.location.href)));
+                // Set the $current_item
+                // If core.$items is doesn't have an eq method - $current_item is unknown and should be false
+                var $current_item;
+                $current_item = (_this.core.$items.eq) ? _this.core.$items(index) : false;
 
-                $('#lg-share-googleplus').attr('href', 'https://plus.google.com/share?url=' + (encodeURIComponent(_this.core.$items.eq(index).attr('data-googleplus-share-url') || window.location.href)));
+                var share_data = {
+                    facebook: {
+                        url: _this.getShareURL('facebook-share-url', $current_item)
+                    },
+                    googleplus: {
+                        url: _this.getShareURL('googleplus-share-url', $current_item)
+                    },
+                    twitter: {
+                        text: '',
+                        url: _this.getShareURL('twitter-share-url', $current_item)
+                    },
+                    pinterest: {
+                        media: '',
+                        text: '',
+                        url: _this.getShareURL('data-pinterest-share-url', $current_item)
+                    }
+                };
 
-                $('#lg-share-pinterest').attr('href', 'http://www.pinterest.com/pin/create/button/?url=' + (encodeURIComponent(_this.core.$items.eq(index).attr('data-pinterest-share-url') || window.location.href)) + '&media=' + encodeURIComponent(_this.core.$items.eq(index).attr('href') || _this.core.$items.eq(index).attr('data-src')) + '&description=' + _this.core.$items.eq(index).attr('data-pinterest-text'));
+
+                // Setup twitter text
+                if ($current_item) {
+                    // Setup Twitter Text
+                    share_data.twitter.text = $current_item.attr('data-tweet-text');
+
+                    // Setup Pinterest Media and Text
+                    share_data.pinterest.media = encodeURIComponent($current_item.attr('href') || $current_item.attr('data-src'));
+                    share_data.pinterest.text = $current_item.attr('data-pinterest-text');
+                }
+
+
+                // Set the attributes to the gathered data
+                $('#lg-share-facebook').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + share_data.facebook.url);
+
+                $('#lg-share-twitter').attr('href', 'https://twitter.com/intent/tweet?text=' + share_data.twitter.text + '&url=' + share_data.twitter.url );
+
+                $('#lg-share-googleplus').attr('href', 'https://plus.google.com/share?url=' + share_data.googleplus.url);
+
+                $('#lg-share-pinterest').attr('href', 'http://www.pinterest.com/pin/create/button/?url=' + share_data.pinterest.url + '&media=' + share_data.pinterest.media + '&description=' + share_data.pinterest.text);
 
             }, 100);
         });
+    };
+
+
+    Share.prototype.getShareURL = function(dataAttribute, $el) {
+
+        var url;
+
+        if( $el ) {
+            url = $el.attr('data-' + dataAttribute);
+        }
+
+        if( ! url ) {
+            url = window.location.href;
+        }
+
+        return encodeURIComponent(url);
     };
 
     Share.prototype.destroy = function() {
