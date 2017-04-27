@@ -12,15 +12,18 @@ class Portfolio_Entry_Metaboxes {
 	 */
 	public function __construct() {
 
-		add_action( 'cmb2_init', [ $this, 'before_content' ] );
-		add_action( 'cmb2_init', [ $this, 'after_content' ] );
 
-		/**
-		 * CMB2 supports `after_title` since version 2.2.4
-		 * But this way is still prettier for the user:
-		 */
-		add_action( 'edit_form_after_title', [ $this, 'move_metabox_to_after_title' ] );
+		add_action( 'cmb2_init', [ $this, 'add_entry_gallery' ] );
 
+		if ( phort_get_option( 'portfolio_subtitles' ) !== 'disable' ) {
+			add_action( 'cmb2_init', [ $this, 'add_entry_subtitle' ] );
+
+			/**
+			 * CMB2 supports `after_title` since version 2.2.4
+			 * But this way is still prettier for the user:
+			 */
+			add_action( 'edit_form_after_title', [ $this, 'move_metabox_to_after_title' ] );
+		}
 
 	}
 
@@ -56,27 +59,27 @@ class Portfolio_Entry_Metaboxes {
 	}
 
 
-	public function before_content() {
+	public function add_entry_subtitle() {
 
 		$cmb = new_cmb2_box(
-			array(
+			[
 				'id'           => 'phort_post_before_meta',
 				'object_types' => [ 'phort_post' ],
 				'show_names'   => true,
 				'context'      => 'normal',
 				'priority'     => 'high',
-			)
+			]
 		);
 
 		$cmb->add_field(
-			array(
+			[
 
 				'desc'  => '',
 				'name'  => esc_html__( 'Entry Subtitle', 'phort-plugin' ),
 				'title' => 'Portfolio',
 				'id'    => 'phort_subtitle',
 				'type'  => 'text',
-			)
+			]
 		);
 
 
@@ -85,20 +88,20 @@ class Portfolio_Entry_Metaboxes {
 	}
 
 
-	public function after_content() {
+	public function add_entry_gallery() {
 
 		$cmb = new_cmb2_box(
-			array(
+			[
 				'id'           => 'phort_post_after_meta',
 				'title'        => __( 'Photography Portfolio', 'phort-plugin' ),
 				'object_types' => [ 'phort_post' ],
 				'context'      => 'normal',
 				'priority'     => 'high',
-			)
+			]
 		);
 
 		$cmb->add_field(
-			array(
+			[
 
 				'desc'         => '',
 				'id'           => 'phort_gallery',
@@ -112,7 +115,7 @@ class Portfolio_Entry_Metaboxes {
 					'file_download_text'    => esc_html__( 'Download', 'phort-plugin' ),
 					'remove_text'           => esc_html__( 'Remove', 'phort-plugin' ),
 				],
-			)
+			]
 		);
 
 
