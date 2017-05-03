@@ -73,7 +73,7 @@
                 // Set the $current_item
                 // If core.$items is doesn't have an eq method - $current_item is unknown and should be false
                 var $current_item;
-                $current_item = (_this.core.$items.eq) ? _this.core.$items(index) : false;
+                $current_item = (_this.core.$items && _this.core.$items.eq) ? _this.core.$items(index) : false;
 
                 var share_data = {
                     facebook: {
