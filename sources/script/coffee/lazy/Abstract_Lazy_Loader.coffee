@@ -67,6 +67,8 @@ class Abstract_Lazy_Loader
 		.find( ".#{@Elements.placeholder}" )
 		.fadeOut( 400, -> $( this ).remove() )
 
+		Hooks.doAction 'phort.lazy.loaded_item', item
+
 	get_item_html: ( thumb, full ) ->
 
 		if 'disable' is window.__phort.popup_gallery
