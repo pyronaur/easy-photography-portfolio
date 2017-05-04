@@ -8,7 +8,7 @@ Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easy Photography Portfolio is an elegant plugin designed for Photographers. Install the plugin, add portfolio entries and you have a portfolio!
+Easy Photography Portfolio is an elegant plugin designed for Photographers. Install the plugin, add portfolio entries and you'll have a portfolio in minutes!
 
 == Description ==
 
