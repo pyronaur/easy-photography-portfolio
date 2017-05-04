@@ -54,8 +54,10 @@ class Welcome_Message {
 	}
 
 
-	public
-	function the_message() {
+	/**
+	 * @TODO: Make the message translatable
+	 */
+	public function the_message() {
 
 		?>
 		<div class="Phort_Welcome notice">
