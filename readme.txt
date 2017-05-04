@@ -23,7 +23,6 @@ I think it might be easier to explain with a demo.
 ### Plugin Demo ###
 * Default: **[Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/)** - default plugin settings and layout
 * [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - customized plugin views in a premium theme
-* [Horizon Portfolio](http://horizon.bycolormelon.com/) - completely custom horizontal layout in a premium theme
 
 To help you setup the plugin, I've made a video tutorial:
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
