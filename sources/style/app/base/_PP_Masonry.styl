@@ -39,14 +39,17 @@ mason_width( $columns )
 			margin-right: auto
 
 
-	&__item
-		border: $masonry_gutter_size solid transparent
-		position: relative
+.PP_Masonry__item
+	border: $masonry_gutter_size solid transparent
+	position: relative
 
-		@media $palm
-			border-width: 0px
-			margin-bottom: $p
+	a, img
+		display: block
 
-	&__header
-			margin-top: $p
-			margin-bottom: $p - 0.35rem
+	@media $palm
+		border-width: 0px
+		margin-bottom: $p
+
+.PP_Masonry__header
+		margin-top: $p
+		margin-bottom: $p - 0.35rem
