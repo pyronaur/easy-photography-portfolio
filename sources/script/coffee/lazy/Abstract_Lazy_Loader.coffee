@@ -138,9 +138,6 @@ class Abstract_Lazy_Loader
 
 		)
 
-	remove_placeholder: ( item ) ->
-		item.$el.find( ".#{@Elements.placeholder}, noscript" ).remove()
-
 	destroy: ->
 		@detach_events()
 
