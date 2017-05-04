@@ -1,4 +1,5 @@
 $ = require( 'jQuery' )
+Hooks = require( "wp_hooks" )
 Abstract_Lazy_Loader = require( './Abstract_Lazy_Loader' )
 __WINDOW = require( '../core/Window' )
 
@@ -17,6 +18,10 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 
 		# Run all other cleanups
 		super( item )
+
+		Hooks.doAction 'phort.portfolio.refresh'
+
+		return
 
 	attach_events: ->
 		# Call Parent first, it's going to create @throttled_autoload
