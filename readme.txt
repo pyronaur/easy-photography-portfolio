@@ -104,6 +104,13 @@ For now, there is this wiki article: https://github.com/justnorris/easy-photogra
 
 
 == Changelog ==
+= 1.1.5 =
+* Translations are now working!
+* Trigger `phort.lazy.loaded_item` after each lazy-loading item has loaded
+* Fix lightGallery social sharing issues
+* Improve inline documentation
+* Better masonry alignment
+
 = 1.1.4 =
 * Better default setting management. Defaults are now used by....default. Even before the options object is populated. Yay.
 * Set image height to auto, because as it turns out some themes don't do that out of the box.
