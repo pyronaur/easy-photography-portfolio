@@ -8,7 +8,7 @@ Gulp.task "pot", ->
 	.pipe( Sort() )
 	.pipe( WP_Pot( {
 
-					  domain: 'phort-plugin',
+					  domain: 'photography-portfolio',
 					  destFile: 'photography-portfolio.pot',
 					  package: 'Photography Portfolio',
 					  bugReport: 'http://help.colormelon.com',

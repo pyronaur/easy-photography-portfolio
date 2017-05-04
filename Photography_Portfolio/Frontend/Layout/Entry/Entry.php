@@ -183,7 +183,7 @@ class Entry {
 			$gallery     = new Gallery( $this->id );
 			$image_count = $gallery->count();
 
-			$subtitle = sprintf( esc_html__( '%d images', 'phort-plugin' ), $image_count );
+			$subtitle = sprintf( esc_html__( '%d images', 'photography-portfolio' ), $image_count );
 
 		}
 

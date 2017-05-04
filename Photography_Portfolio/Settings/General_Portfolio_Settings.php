@@ -61,8 +61,8 @@ class General_Portfolio_Settings {
 			[
 				[
 					'popup_gallery' => [
-						'disable'      => esc_html__( 'Disable', 'phort-plugin' ),
-						'lightgallery' => esc_html__( 'Enable', 'phort-plugin' ),
+						'disable'      => esc_html__( 'Disable', 'photography-portfolio' ),
+						'lightgallery' => esc_html__( 'Enable', 'photography-portfolio' ),
 					],
 				],
 			],
@@ -96,7 +96,7 @@ class General_Portfolio_Settings {
 
 		$settings[] = [
 			'id'               => "portfolio_page",
-			'name'             => esc_html__( 'Main Portfolio Page', 'phort-plugin' ),
+			'name'             => esc_html__( 'Main Portfolio Page', 'photography-portfolio' ),
 			'type'             => 'select',
 			'show_option_none' => true,
 			'options'          => $this->get_all_pages(),
@@ -121,7 +121,7 @@ class General_Portfolio_Settings {
 		 */
 		if ( count( $single_layouts ) > 1 ) {
 			$settings[] = [
-				'name'    => esc_html__( 'Single Portfolio Layout', 'phort-plugin' ),
+				'name'    => esc_html__( 'Single Portfolio Layout', 'photography-portfolio' ),
 				'id'      => 'single_portfolio_layout',
 				'type'    => 'select',
 				'options' => $single_layouts,
@@ -132,7 +132,7 @@ class General_Portfolio_Settings {
 
 		if ( count( $archive_layouts ) > 1 ) {
 			$settings[] = [
-				'name'    => esc_html__( 'Portfolio Archive Layout', 'phort-plugin' ),
+				'name'    => esc_html__( 'Portfolio Archive Layout', 'photography-portfolio' ),
 				'id'      => 'portfolio_layout',
 				'type'    => 'select',
 				'options' => $archive_layouts,
@@ -158,7 +158,7 @@ class General_Portfolio_Settings {
 		if ( $this->settings_exist( 'popup_gallery' ) ) {
 			$settings[] = [
 				'id'      => "popup_gallery",
-				'name'    => esc_html__( 'Pop-up Gallery', 'phort-plugin' ),
+				'name'    => esc_html__( 'Pop-up Gallery', 'photography-portfolio' ),
 				'type'    => 'select',
 				'default' => $this->defaults['popup_gallery'],
 				'options' => $this->settings['popup_gallery'],
@@ -168,30 +168,30 @@ class General_Portfolio_Settings {
 
 		$settings[] = [
 			'id'      => "archive_description",
-			'name'    => esc_html__( 'Show Archive Titles & Descriptions', 'phort-plugin' ),
+			'name'    => esc_html__( 'Show Archive Titles & Descriptions', 'photography-portfolio' ),
 			'desc'    => esc_html__(
 				'"Archives" are places like "Categories" and your "Main Portfolio Page".',
-				'phort-plugin'
+				'photography-portfolio'
 			),
 			'type'    => 'select',
 			'default' => $this->defaults['archive_description'],
 			'options' => [
-				'disable' => esc_html__( 'Disable', 'phort-plugin' ),
-				'enable'  => esc_html__( 'Enable', 'phort-plugin' ),
+				'disable' => esc_html__( 'Disable', 'photography-portfolio' ),
+				'enable'  => esc_html__( 'Enable', 'photography-portfolio' ),
 			],
 		];
 
 
 		$settings[] = [
 			'id'      => "portfolio_subtitles",
-			'name'    => esc_html__( 'Album Subtitle', 'phort-plugin' ),
+			'name'    => esc_html__( 'Album Subtitle', 'photography-portfolio' ),
 			'type'    => 'select',
 			'default' => $this->defaults['portfolio_subtitles'],
 			'options' => [
-				'disable'            => esc_html__( 'Disable', 'phort-plugin' ),
-				'only_subtitles'     => esc_html__( 'Show Only Subtitle', 'phort-plugin' ),
-				'only_count'         => esc_html__( 'Show Only Image Count', 'phort-plugin' ),
-				'subtitles_or_count' => esc_html__( 'Show Subtitle or Image Count', 'phort-plugin' ),
+				'disable'            => esc_html__( 'Disable', 'photography-portfolio' ),
+				'only_subtitles'     => esc_html__( 'Show Only Subtitle', 'photography-portfolio' ),
+				'only_count'         => esc_html__( 'Show Only Image Count', 'photography-portfolio' ),
+				'subtitles_or_count' => esc_html__( 'Show Subtitle or Image Count', 'photography-portfolio' ),
 			],
 		];
 
@@ -201,11 +201,11 @@ class General_Portfolio_Settings {
 		if ( ! phort_has_theme_support() ) {
 			$settings[] = [
 				'id'      => "wrapper_class",
-				'name'    => esc_html__( 'Wrapper CSS Classes', 'phort-plugin' ),
+				'name'    => esc_html__( 'Wrapper CSS Classes', 'photography-portfolio' ),
 				'desc'    => esc_html__(
 					'Some themes use different wrapper class-names than the standard.
 					 You can enter custom CSS classnames here to make the plugin compatible with your theme',
-					'phort-plugin'
+					'photography-portfolio'
 				),
 				'type'    => 'text',
 				'default' => '',

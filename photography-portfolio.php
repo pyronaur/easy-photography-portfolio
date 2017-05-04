@@ -12,7 +12,8 @@
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:       phort-plugin
+ * Text Domain:       photography-portfolio
+ * Domain Path:       /languages
  */
 /**
  * This file should work without errors on PHP 5.2.17

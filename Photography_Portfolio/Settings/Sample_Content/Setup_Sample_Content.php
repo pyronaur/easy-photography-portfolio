@@ -42,14 +42,14 @@ class Setup_Sample_Content {
 		 * Make sure that "Portfolio" doesn't already exists as a page.
 		 * If it does, and EPP settings haven't caught that above, create "Easy Photography Portfolio" page instead.
 		 */
-		$portfolio_page_title = esc_html__( 'Portfolio', 'phort-plugin' );
+		$portfolio_page_title = esc_html__( 'Portfolio', 'photography-portfolio' );
 		$phort_page_id        = $this->get_portfolio_page( $portfolio_page_title );
 
 		/**
 		 * If "Portfolio" already exists, use "Easy Photography Portfolio"
 		 */
 		if ( $phort_page_id ) {
-			$portfolio_page_title = esc_html__( 'Easy Photography Portfolio', 'phort-plugin' );
+			$portfolio_page_title = esc_html__( 'Easy Photography Portfolio', 'photography-portfolio' );
 			$phort_page_id        = $this->get_portfolio_page( $portfolio_page_title );
 		}
 
@@ -116,7 +116,7 @@ class Setup_Sample_Content {
 			'post_status'  => 'publish',
 			'post_type'    => 'phort_post',
 			'post_author'  => 1,
-			'post_title'   => esc_html__( 'First Portfolio Entry', 'phort-plugin' ),
+			'post_title'   => esc_html__( 'First Portfolio Entry', 'photography-portfolio' ),
 			'post_content' => $this->get_the_first_portfolio_entry_content(),
 		];
 
@@ -159,7 +159,7 @@ class Setup_Sample_Content {
 		/**
 		 * Set the subtitle!
 		 */
-		update_post_meta($phort_post_id, 'phort_subtitle', esc_html__( 'With a subtitle', 'phort-plugin' ));
+		update_post_meta($phort_post_id, 'phort_subtitle', esc_html__( 'With a subtitle', 'photography-portfolio' ));
 		return $phort_post_id;
 
 	}

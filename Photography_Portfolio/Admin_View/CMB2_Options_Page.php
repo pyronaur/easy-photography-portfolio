@@ -48,7 +48,7 @@ class CMB2_Options_Page {
 			return;
 		}
 
-		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'phort-plugin' ), 'updated' );
+		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'photography-portfolio' ), 'updated' );
 		settings_errors( $this->key . '-notices' );
 	}
 

@@ -166,6 +166,8 @@ final class Colormelon_Photography_Portfolio {
 		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
+		// Load Translations:
+		add_action( 'init', [ $this, 'load_translations' ] );
 
 		/**
 		 * Autoload Archive Data
@@ -192,12 +194,18 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+	public function load_translations() {
+
+		load_plugin_textdomain( 'photography-portfolio', false, dirname( CLM_ABSPATH ) . '/languages' );
+	}
+
+
 	/**
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'phort-plugin' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
 	}
 
 
@@ -206,7 +214,7 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'phort-plugin' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
 	}
 
 

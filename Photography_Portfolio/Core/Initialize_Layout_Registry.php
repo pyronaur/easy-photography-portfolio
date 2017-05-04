@@ -27,7 +27,7 @@ class Initialize_Layout_Registry {
 			'Photography_Portfolio\Frontend\Layout\Archive\Masonry_Hovercard\Archive_Masonry_Hovercard_Layout',
 			'archive',
 			'masonry-hovercard',
-			esc_html__( 'Masonry with hover', 'phort-plugin' )
+			esc_html__( 'Masonry with hover', 'photography-portfolio' )
 
 		);
 
@@ -38,7 +38,7 @@ class Initialize_Layout_Registry {
 			'Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout',
 			'single',
 			'masonry',
-			esc_html__( 'Masonry', 'phort-plugin' )
+			esc_html__( 'Masonry', 'photography-portfolio' )
 		);
 
 		/**

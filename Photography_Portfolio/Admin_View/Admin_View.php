@@ -39,7 +39,7 @@ class Admin_View {
 		// Add General Portfolio Settings in the Options page
 		$this->general_options_page = new CMB2_Options_Page(
 			'phort_options',
-			esc_html__( 'Portfolio Settings', 'phort-plugin' ),
+			esc_html__( 'Portfolio Settings', 'photography-portfolio' ),
 
 			// For now, there is only 1 admin page, $registry->get_all() is okay for that.
 			phort_instance()->settings->get_all()

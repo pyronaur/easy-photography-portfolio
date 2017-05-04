@@ -75,7 +75,7 @@ class Portfolio_Entry_Metaboxes {
 			[
 
 				'desc'  => '',
-				'name'  => esc_html__( 'Entry Subtitle', 'phort-plugin' ),
+				'name'  => esc_html__( 'Entry Subtitle', 'photography-portfolio' ),
 				'title' => 'Portfolio',
 				'id'    => 'phort_subtitle',
 				'type'  => 'text',
@@ -93,7 +93,7 @@ class Portfolio_Entry_Metaboxes {
 		$cmb = new_cmb2_box(
 			[
 				'id'           => 'phort_post_after_meta',
-				'title'        => __( 'Photography Portfolio', 'phort-plugin' ),
+				'title'        => __( 'Photography Portfolio', 'photography-portfolio' ),
 				'object_types' => [ 'phort_post' ],
 				'context'      => 'normal',
 				'priority'     => 'high',
@@ -109,11 +109,11 @@ class Portfolio_Entry_Metaboxes {
 				'preview_size' => [ 125, 125, true ], // Default: [50,50]
 				// Optional, override default text strings
 				'text'         => [
-					'add_upload_files_text' => esc_html__( 'Add Images', 'phort-plugin' ),
-					'remove_image_text'     => esc_html__( 'Remove Image', 'phort-plugin' ),
-					'file_text'             => esc_html__( 'File:', 'phort-plugin' ),
-					'file_download_text'    => esc_html__( 'Download', 'phort-plugin' ),
-					'remove_text'           => esc_html__( 'Remove', 'phort-plugin' ),
+					'add_upload_files_text' => esc_html__( 'Add Images', 'photography-portfolio' ),
+					'remove_image_text'     => esc_html__( 'Remove Image', 'photography-portfolio' ),
+					'file_text'             => esc_html__( 'File:', 'photography-portfolio' ),
+					'file_download_text'    => esc_html__( 'Download', 'photography-portfolio' ),
+					'remove_text'           => esc_html__( 'Remove', 'photography-portfolio' ),
 				],
 			]
 		);

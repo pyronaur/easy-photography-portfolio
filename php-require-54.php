@@ -61,7 +61,7 @@ class Photography_Portfolio_Require_PHP54 {
 			__(
 				'<p>Your hosting environment is <strong>outdated</strong> and <strong>insecure</strong>! <br> Minimum version required for Photography Portfolio is PHP 5.4. Read more information about <a href="http://www.wpupdatephp.com/update/">how you can update your server</a>!</p>'
 				,
-				'phort-plugin'
+				'photography-portfolio'
 			)
 		);
 		echo '</div>';
