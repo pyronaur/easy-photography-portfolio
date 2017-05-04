@@ -48,8 +48,8 @@ class Abstract_Lazy_Loader
 
 		# Create elements
 		item.$el
-		.prepend( @get_item_html( thumb, full ) )
-		.removeClass( 'Lazy-Image' )
+			.prepend( @get_item_html( thumb, full ) )
+			.removeClass( 'Lazy-Image' )
 
 		# Make sure this image isn't loaded again
 		item.loaded = true
@@ -60,14 +60,15 @@ class Abstract_Lazy_Loader
 
 		item.$el
 
-		# Remove `PP_Lazy_Image`, as this is not a lazy-loadable image anymore
-		.removeClass( @Elements.item )
+			# Remove `PP_Lazy_Image`, as this is not a lazy-loadable image anymore
+			.removeClass( @Elements.item )
 
-		# Remove Placeholder
-		.find( ".#{@Elements.placeholder}" )
-		.fadeOut( 400, -> $( this ).remove() )
+			# Remove Placeholder
+			.find( ".#{@Elements.placeholder}" )
+			.fadeOut( 400, -> $( this ).remove() )
 
 		Hooks.doAction 'phort.lazy.loaded_item', item
+
 
 	get_item_html: ( thumb, full ) ->
 
@@ -99,6 +100,8 @@ class Abstract_Lazy_Loader
 			$el   : $el
 			data  : new Item_Data( $el )
 			loaded: false
+
+
 		return
 
 
