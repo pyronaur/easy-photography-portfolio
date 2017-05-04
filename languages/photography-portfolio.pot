@@ -215,31 +215,31 @@ msgid ""
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:75
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:78
 msgid "Entry Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:93
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:96
 msgid "Photography Portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:109
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:112
 msgid "Add Images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:110
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:113
 msgid "Remove Image"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:111
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:114
 msgid "File:"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:112
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:115
 msgid "Download"
 msgstr ""
 
-#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:113
+#: Photography_Portfolio/Settings/Portfolio_Entry_Metaboxes.php:116
 msgid "Remove"
 msgstr ""
 
