@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy
 Requires at least: 4.6.0
 Tested up to: 4.7.3
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,10 @@ Easy Photography Portfolio is based on the idea of albums with images that can o
 By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer.
 I think it might be easier to explain with a demo.
 
-Have a look: **[Easy Photography Portfolio Demo](http://default.portfolio.bycolormelon.com/)** with default settings and "Twenty Seventeen Theme".
+### Plugin Demo ###
+* Default: **[Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/)** - default plugin settings and layout
+* [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - customized plugin views in a premium theme
+* [Horizon Portfolio](http://horizon.bycolormelon.com/) - completely custom horizontal layout in a premium theme
 
 To help you setup the plugin, I've made a video tutorial:
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
