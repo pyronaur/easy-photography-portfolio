@@ -944,6 +944,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   border: 9px solid transparent;
   position: relative;
 }
+.PP_Masonry__item a,
+.PP_Masonry__item img {
+  display: block;
+}
 @media screen and (max-width: 640px) {
   .PP_Masonry__item {
     border-width: 0px;
