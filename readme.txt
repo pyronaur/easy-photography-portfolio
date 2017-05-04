@@ -20,12 +20,18 @@ Easy Photography Portfolio is based on the idea of albums with images that can o
 By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer.
 I think it might be easier to explain with a demo.
 
-### Plugin Demo ###
+### Plugin Demo
 * Default: **[Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/)** - default plugin settings and layout
-* [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - customized plugin views in a premium theme
+* Custom: [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - custom design in a premium theme
 
-To help you setup the plugin, I've made a video tutorial:
+
+## How to setup
+The plugin is easy to use to setup, but to make it even easier for you, I've made this video tutorial:
+
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
+
+You can also read the [full setup guide here](https://colormelon.com/easy-photography-portfolio-full-setup-guide/)
+
 
 
 ### Designed for Photographers
@@ -91,14 +97,15 @@ For now, there is this wiki article: https://github.com/justnorris/easy-photogra
 
 == Installation ==
 
-**This plugin requires at least PHP 5.4**
+This plugin requires at least **PHP 5.4**
+
+You can read the [full setup guide here](https://colormelon.com/easy-photography-portfolio-full-setup-guide/) or watch the [video tutorial](https://www.youtube.com/watch?v=b5mevuD-hPI)
 
 1. Upload "Photography Portfolio" plugin to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to "Pages -> Add New" and create a page for your portfolio. Call it "Whatever you like" :)
-4. Go to "Portfolio -> Portfolio Settings" and set "Portfolio Page" to the page you called "Whatever you like"
-5. Add a few Portfolio entries in "Portfolio -> New Portfolio Entry", don't forget to set a thumbnail!
-6. That's it! Enjoy your Portfolio!
+3. Add a few Portfolio entries in "Portfolio -> New Portfolio Entry"
+4. Make sure your portfolio entries have a thumbnail.
+5. That's it! Enjoy your Portfolio!
 
 
 
