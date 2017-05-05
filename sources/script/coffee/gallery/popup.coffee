@@ -37,6 +37,8 @@ Gallery = ($items) ->
 		settings.dynamicEl     = gallery_data()
 		settings.videoMaxWidth = $( window ).width( ) * 0.8
 
+		settings = Hooks.applyFilters 'phort.lightGallery.settings', settings
+
 		$(document).lightGallery(settings)
 
 
