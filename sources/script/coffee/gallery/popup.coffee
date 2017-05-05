@@ -24,10 +24,19 @@ get_item_data = ->
 		thumb: item_data.get_url( 'thumb' )
 	}
 
+open_gallery = ( $el ) ->
+	$items = get_items( $el )
+	data = $items.map( get_item_data )
 
-###
-    @TODO: Need detach/destroy methods
-###
+	$el.lightGallery
+		dynamic      : true
+		dynamicEl    : data
+		index        : $items.index( $el )
+		speed        : 350
+		preload      : 3
+		download     : false
+		videoMaxWidth: $( window ).width( ) * 0.8
+
 Hooks.addAction 'phort.core.ready', ->
 
 	# Only enable jQuery lightGallery if the popup gallery class is found
@@ -36,17 +45,5 @@ Hooks.addAction 'phort.core.ready', ->
 
 	$( document ).on 'click', '.PP_Popup--lightgallery .PP_Gallery__item', ( e ) ->
 		e.preventDefault( )
-		$el = $( this )
+		open_gallery( $(this) )
 
-		$items = get_items( $el )
-		data = $items.map( get_item_data )
-
-
-		$el.lightGallery
-			dynamic      : true
-			dynamicEl    : data
-			index        : $items.index( $el )
-			speed        : 350
-			preload      : 3
-			download     : false
-			videoMaxWidth: $( window ).width( ) * 0.8
