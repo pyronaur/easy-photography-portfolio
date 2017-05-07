@@ -6,7 +6,7 @@ Hooks = require( "wp_hooks" )
 Item_Data = require( '../lazy/Item_Data' )
 
 
-Gallery = ($items) ->
+Gallery = ( $items ) ->
 
 	settings =
 		dynamic      : true
@@ -16,6 +16,8 @@ Gallery = ($items) ->
 
 
 	single_item_data = ($item) ->
+
+	single_item_data = ( $item ) ->
 		data = new Item_Data( $item )
 
 		if data.get_type( ) is 'video'
@@ -29,20 +31,17 @@ Gallery = ($items) ->
 		}
 
 	gallery_data = ->
-		$items.map -> single_item_data( $(this) )
+		$items.map -> single_item_data( $( this ) )
 
 	open: ( index ) ->
 
-		settings.index         = index
-		settings.dynamicEl     = gallery_data()
+		settings.index = index
+		settings.dynamicEl = gallery_data( )
 		settings.videoMaxWidth = $( window ).width( ) * 0.8
 
 		settings = Hooks.applyFilters 'phort.lightGallery.settings', settings
 
-		$(document).lightGallery(settings)
-
-
-
+		$( document ).lightGallery( settings )
 
 
 Hooks.addAction 'phort.core.ready', ->
@@ -54,9 +53,9 @@ Hooks.addAction 'phort.core.ready', ->
 	$( document ).on 'click', '.PP_Popup--lightgallery .PP_Gallery__item', ( e ) ->
 		e.preventDefault( )
 
-		$el = $(this)
-		$items = $el.closest( '.PP_Gallery' ).find('.PP_Gallery__item')
+		$el = $( this )
+		$items = $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' )
 		index = $items.index( $el )
 
-		Gallery($items).open(index)
+		Gallery( $items ).open( index )
 
