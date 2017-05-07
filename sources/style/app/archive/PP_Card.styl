@@ -1,63 +1,63 @@
 .PP_Card
 
-	.PP_Entry
-		&__thumbnail > img
-			display: block
-			max-width: 100%
-			padding: 0
-			margin: 0
+	.PP_Entry__thumbnail > img
+		display: block
+		max-width: 100%
+		padding: 0
+		margin: 0
 
-		&__header
-			position: absolute
-			bottom: $p
-			left: $p
+	.PP_Entry__header
+		position: absolute
+		bottom: $p
+		left: $p
 
-			transform: translate3d(0,0,0)
-			transition: transform .35s ease-out, opacity .3s ease
+		transform: translate3d(0,0,0)
+		transition: transform .35s ease-out, opacity .3s ease
 
-		&__title, &__subtitle
-			color: white
+	.PP_Entry__title, .PP_Entry__subtitle
+		color: white
+		padding: 0
 
-		&__subtitle
-			font-size: 1rem
-			font-weight: 300
-			text-transform: none
-			margin-bottom: 1rem
+	.PP_Entry__subtitle
+		font-size: 1rem
+		font-weight: 300
+		text-transform: none
+		margin-bottom: 1rem
 
-		&__view
-			font-size: 1rem
-			display: block
-			position: absolute
-			bottom: 1rem
-			text-transform: uppercase
+	.PP_Entry__view
+		font-size: 1rem
+		display: block
+		position: absolute
+		bottom: 1rem
+		text-transform: uppercase
 
-		/*!
-		*  Hovercard Layout
-		*/
-		&__more
-			display: block
-			position: absolute
-			left: 0
-			bottom: 0
-			width: 100%
-			height: 100%
-			padding: $p
+	/*!
+	*  Hovercard Layout
+	*/
+	.PP_Entry__more
+		display: block
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+		padding: $p
 
-			background-color: transparentize(black, 0.5)
+		background-color: transparentize(black, 0.5)
 
-			opacity: 0
+		opacity: 0
 
-			transition: opacity .35s ease
-			cursor: pointer
+		transition: opacity .35s ease
+		cursor: pointer
 
 
-		&__inner
-			width: 100%
-			height: 100%
-			transform: translateY(15px)
-			opacity: 0
-			display: block
-			transition: transform .35s ease-out, opacity .3s ease
+	.PP_Entry__inner
+		width: 100%
+		height: 100%
+		transform: translateY(15px)
+		opacity: 0
+		display: block
+		transition: transform .35s ease-out, opacity .3s ease
 
 
 	// In cases when someone forgets to add a thumbnail
