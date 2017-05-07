@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.6.0
 Tested up to: 4.7.4
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,14 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 
 == Changelog ==
+= 1.1.6 =
+* Fix lightGallery social sharing issues, for real.
+* Close the whole gallery on ESC key
+* Add options to disable thumbnails or hide them by default
+* CSS Improvements
+* Reorganize settings this much -> 👌
+* Make a few more strings translatable
+
 = 1.1.5 =
 * Translations are now working!
 * Trigger `phort.lazy.loaded_item` after each lazy-loading item has loaded
