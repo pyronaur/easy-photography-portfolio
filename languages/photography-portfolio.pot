@@ -157,16 +157,24 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:179, Photography_Portfolio/Settings/General_Portfolio_Settings.php:191
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:174, Photography_Portfolio/Settings/General_Portfolio_Settings.php:204, Photography_Portfolio/Settings/General_Portfolio_Settings.php:216
 msgid "Disable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65, Photography_Portfolio/Settings/General_Portfolio_Settings.php:180
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65, Photography_Portfolio/Settings/General_Portfolio_Settings.php:205
 msgid "Enable"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:92
+msgid "Main"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:99
 msgid "Main Portfolio Page"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:113
+msgid "Layout"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:124
@@ -177,39 +185,63 @@ msgstr ""
 msgid "Portfolio Archive Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:161
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:154
+msgid "Pop-up Gallery Settings"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:162
 msgid "Pop-up Gallery"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:171
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:170
+msgid "Pop-up Gallery: Thumbnails"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:175
+msgid "Hide by default"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:176
+msgid "Show by default"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:188
+msgid "Titles & Descriptions"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:196
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:172
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:197
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:187
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:212
 msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:192
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:217
 msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:193
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:218
 msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:194
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:219
 msgid "Show Subtitle or Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:204
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:230
+msgid "Theme Compatibility"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:237
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:205
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:238
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
