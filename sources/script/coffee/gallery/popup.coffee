@@ -8,14 +8,18 @@ Item_Data = require( '../lazy/Item_Data' )
 
 Gallery = ( $items ) ->
 
-	settings =
-		dynamic      : true
-		speed        : 350
-		preload      : 3
-		download     : false
+	defaults =
+		dynamic : true
+		speed   : 350
+		preload : 3
+		download: false
 
+		thumbnail         : true
+		showThumbByDefault: true
 
-	single_item_data = ($item) ->
+	settings = _.defaults( window.__phort.lightGallery, defaults )
+
+	console.log settings
 
 	single_item_data = ( $item ) ->
 		data = new Item_Data( $item )

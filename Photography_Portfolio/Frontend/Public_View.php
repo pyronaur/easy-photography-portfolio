@@ -43,12 +43,26 @@ class Public_View {
 
 	public function javascript_settings() {
 
+
+		$thumbnails = phort_get_option( 'lg_thumbnails' );
+
 		$settings = [
 			'popup_gallery' => phort_get_option( 'popup_gallery' ),
+
+			/**
+			 * lightGallery.js specific settings.
+			 * You can inspect all the available settings here:
+			 * @link http://sachinchoolur.github.io/lightGallery/docs/api.html
+			 */
+			'lightGallery'  => [
+				'thumbnail'          => ( $thumbnails !== 'disable' ),
+				'showThumbByDefault' => ( $thumbnails === 'show' ),
+			],
+
 		];
 
 
-		return $settings;
+		return apply_filters( 'phort/js/__phort', $settings );
 	}
 
 

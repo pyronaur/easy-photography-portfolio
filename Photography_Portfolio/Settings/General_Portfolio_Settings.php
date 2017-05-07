@@ -195,6 +195,19 @@ class General_Portfolio_Settings {
 			],
 		];
 
+
+		$settings[] = [
+			'id'      => "lg_thumbnails",
+			'name'    => esc_html__( 'Popup Gallery Thumbnails', 'photography-portfolio' ),
+			'type'    => 'select',
+			'default' => 'show',
+			'options' => [
+				'disable' => esc_html__( 'Disable', 'photography-portfolio' ),
+				'hide'    => esc_html__( 'Hide by default', 'photography-portfolio' ),
+				'show'    => esc_html__( 'Show by default', 'photography-portfolio' ),
+			],
+		];
+
 		/**
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
