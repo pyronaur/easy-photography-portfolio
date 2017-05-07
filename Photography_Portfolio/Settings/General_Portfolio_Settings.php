@@ -144,18 +144,19 @@ class General_Portfolio_Settings {
 
 		/**
 		 *
-		 * ======== Layout Settings
+		 * ======== Pop-up Gallery Settings
 		 *
 		 */
 
-		$settings[] = [
-			'name' => 'Other',
-			'type' => 'title',
-			'id'   => 'misc_settings_title',
-		];
-
-
 		if ( $this->settings_exist( 'popup_gallery' ) ) {
+
+			$settings[] = [
+				'name' => 'Pop-up Gallery Settings',
+				'type' => 'title',
+				'id'   => 'popup_gallery_settings_title',
+			];
+
+
 			$settings[] = [
 				'id'      => "popup_gallery",
 				'name'    => esc_html__( 'Pop-up Gallery', 'photography-portfolio' ),
@@ -163,7 +164,31 @@ class General_Portfolio_Settings {
 				'default' => $this->defaults['popup_gallery'],
 				'options' => $this->settings['popup_gallery'],
 			];
+
+			$settings[] = [
+				'id'      => "lg_thumbnails",
+				'name'    => esc_html__( 'Pop-up Gallery: Thumbnails', 'photography-portfolio' ),
+				'type'    => 'select',
+				'default' => 'show',
+				'options' => [
+					'disable' => esc_html__( 'Disable', 'photography-portfolio' ),
+					'hide'    => esc_html__( 'Hide by default', 'photography-portfolio' ),
+					'show'    => esc_html__( 'Show by default', 'photography-portfolio' ),
+				],
+			];
 		}
+
+
+		/**
+		 *
+		 * ======== Other Settings
+		 *
+		 */
+		$settings[] = [
+			'name' => 'Titles & Descriptions',
+			'type' => 'title',
+			'id'   => 'misc_settings_title',
+		];
 
 
 		$settings[] = [
@@ -196,22 +221,17 @@ class General_Portfolio_Settings {
 		];
 
 
-		$settings[] = [
-			'id'      => "lg_thumbnails",
-			'name'    => esc_html__( 'Popup Gallery Thumbnails', 'photography-portfolio' ),
-			'type'    => 'select',
-			'default' => 'show',
-			'options' => [
-				'disable' => esc_html__( 'Disable', 'photography-portfolio' ),
-				'hide'    => esc_html__( 'Hide by default', 'photography-portfolio' ),
-				'show'    => esc_html__( 'Show by default', 'photography-portfolio' ),
-			],
-		];
-
 		/**
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
 		if ( ! phort_has_theme_support() ) {
+
+			$settings[] = [
+				'name' => 'Theme Compatibility',
+				'type' => 'title',
+				'id'   => 'theme_compatibility_settings_title',
+			];
+
 			$settings[] = [
 				'id'      => "wrapper_class",
 				'name'    => esc_html__( 'Wrapper CSS Classes', 'photography-portfolio' ),
