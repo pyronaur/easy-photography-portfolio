@@ -19,8 +19,6 @@ Gallery = ( $items ) ->
 
 	settings = _.defaults( window.__phort.lightGallery, defaults )
 
-	console.log settings
-
 	single_item_data = ( $item ) ->
 		data = new Item_Data( $item )
 
