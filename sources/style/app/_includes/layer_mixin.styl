@@ -1,0 +1,7 @@
+unused_z_layers = clone(z_layers)
+
+layer(group, adjust = 0)
+	if group in unused_z_layers
+		used = remove(unused_z_layers, group)
+
+	z-index: z_layers[group] + adjust
