@@ -53,24 +53,41 @@ class Welcome_Message {
 
 	}
 
-
-	/**
-	 * @TODO: Make the message translatable
-	 */
 	public function the_message() {
 
+		$url_video_tutorial = "https://colormelon.com/easy-photography-portfolio-full-setup-guide/?utm_source=easy-photography-portfolio&utm_medium=welcome";
+		$url_documentation  = "http://go.colormelon.com/epp-tutorial";
 		?>
 		<div class="Phort_Welcome notice">
-			<h4><span>Welcome To</span> Easy Photography Portfolio</h4>
+			<h4><?php esc_html_e( 'Welcome to Easy Photography Portfolio', 'MELON_TXT' ); ?></h4>
 			<p>
-				To get started, have a look at the
-				<a target="_blank"
-				   href="https://colormelon.com/easy-photography-portfolio-full-setup-guide/?utm_source=easy-photography-portfolio&utm_medium=welcome">full
-					setup guide</a>
-				or the <a target="_blank" href="http://go.colormelon.com/epp-tutorial">video tutorial</a>
+
+				<?php
+				printf(
+					wp_kses(
+						__(
+							'To get started, have a look at the <a target="_blank" href="%1$s">full setup guide</a> or the <a target="_blank" href="%2$s">video tutorial</a>',
+							'MELON_TXT'
+						),
+						// Kses rules:
+						[
+							// Allow links with targets and hrefs
+							'a' => [
+								'href'   => [],
+								'target' => [],
+							],
+						]
+					),
+
+					// Pass variables to printf()
+					$url_video_tutorial,
+					$url_documentation
+				);
+				?>
 			</p>
 			<a class="Phort_Hide" href="?<?php echo $this->action_close ?>=1">&times;</a>
 		</div>
+
 		<?php
 	}
 
