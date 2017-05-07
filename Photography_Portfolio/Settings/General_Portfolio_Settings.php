@@ -89,7 +89,7 @@ class General_Portfolio_Settings {
 		 *
 		 */
 		$settings[] = [
-			'name' => 'Main',
+			'name' => esc_html__( 'Main', 'photography-portfolio' ),
 			'type' => 'title',
 			'id'   => 'main_settings_title',
 		];
@@ -110,7 +110,7 @@ class General_Portfolio_Settings {
 
 		if ( $has_layout_settings ) {
 			$settings[] = [
-				'name' => 'Layout',
+				'name' => esc_html__( 'Layout', 'photography-portfolio' ),
 				'type' => 'title',
 				'id'   => 'layout_settings_title',
 			];
@@ -151,7 +151,7 @@ class General_Portfolio_Settings {
 		if ( $this->settings_exist( 'popup_gallery' ) ) {
 
 			$settings[] = [
-				'name' => 'Pop-up Gallery Settings',
+				'name' => esc_html__( 'Pop-up Gallery Settings', 'photography-portfolio' ),
 				'type' => 'title',
 				'id'   => 'popup_gallery_settings_title',
 			];
@@ -185,7 +185,7 @@ class General_Portfolio_Settings {
 		 *
 		 */
 		$settings[] = [
-			'name' => 'Titles & Descriptions',
+			'name' => esc_html__( 'Titles & Descriptions', 'photography-portfolio' ),
 			'type' => 'title',
 			'id'   => 'misc_settings_title',
 		];
@@ -227,7 +227,7 @@ class General_Portfolio_Settings {
 		if ( ! phort_has_theme_support() ) {
 
 			$settings[] = [
-				'name' => 'Theme Compatibility',
+				'name' => esc_html__( 'Theme Compatibility', 'photography-portfolio' ),
 				'type' => 'title',
 				'id'   => 'theme_compatibility_settings_title',
 			];
