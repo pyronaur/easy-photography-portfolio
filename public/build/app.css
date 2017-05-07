@@ -978,6 +978,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .PP_Card .PP_Entry__title,
 .PP_Card .PP_Entry__subtitle {
   color: #fff;
+  padding: 0;
 }
 .PP_Card .PP_Entry__subtitle {
   font-size: 1rem;
@@ -993,8 +994,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   text-transform: uppercase;
 }
 /*
-		*  Hovercard Layout
-		*/
+	*  Hovercard Layout
+	*/
 .PP_Card .PP_Entry__more {
   display: block;
   position: absolute;
@@ -1008,7 +1009,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease;
   cursor: pointer;
-  z-index: 200;
 }
 .PP_Card .PP_Entry__inner {
   width: 100%;
@@ -1022,7 +1022,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   transition: transform 0.35s ease-out, opacity 0.3s ease;
   transition: transform 0.35s ease-out, opacity 0.3s ease, -webkit-transform 0.35s ease-out;
 }
-.PP_Card .PP_Entry--no-thumbnail {
+.PP_Card.PP_Entry--no-thumbnail {
   height: 300px;
 }
 .PP_Card .PP_Entry__thumbnail--replacement {
@@ -1050,7 +1050,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 *   Hover State
 */
 .PP_Card--hoverable:hover .PP_Entry__header {
-  z-index: 550;
+  z-index: 50;
   -webkit-transform: translateY(-3rem);
           transform: translateY(-3rem);
 }
@@ -1152,9 +1152,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .PP_Gallery__item--video:after {
   content: ' ';
   display: block;
-  z-index: 500;
   position: absolute;
   pionter-events: none;
+  cursor: pointer;
 }
 .PP_Gallery__item--video:before {
   background-color: rgba(0,0,0,0.22);
