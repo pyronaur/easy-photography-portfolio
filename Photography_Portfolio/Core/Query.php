@@ -21,7 +21,8 @@ class Query {
 	 */
 	public function __construct() {
 
-		add_action( 'pre_get_posts', [ $this, 'set_variables' ] );
+		add_action( 'pre_get_posts', [ $this, 'set_variables' ], 5 );
+		add_action( 'pre_get_posts', [ $this, 'increase_ppp_limit' ], 25 );
 	}
 
 
@@ -30,6 +31,7 @@ class Query {
 		if ( ! $query->is_main_query() ) {
 			return;
 		}
+
 
 		// Store the original query
 		$this->original_query = clone $query;
@@ -69,10 +71,6 @@ class Query {
 			$query->set( 'post_type', 'phort_post' );  // override 'post_type'
 			$query->set( 'pagename', NULL );  // override 'pagename'
 			$query->set( 'page_id', '' );  // override 'pagename'
-
-
-			$query->set( 'posts_per_page', 100 );
-			$query->set( 'numberposts', 100 );
 
 
 			$query->is_singular = 0;
@@ -173,6 +171,20 @@ class Query {
 		}
 
 		return $id;
+	}
+
+
+	/**
+	 * Increase the posts per page limit
+	 */
+	public function increase_ppp_limit( \WP_Query $query ) {
+
+		if ( $this->is_archive || $this->is_category ) {
+			$query->set( 'numberposts', 100 );
+			$query->set( 'posts_per_page', 100 );
+		}
+
+
 	}
 
 
