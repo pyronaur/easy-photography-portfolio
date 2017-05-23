@@ -109,11 +109,12 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 
 == Changelog ==
+= 1.1.8 =
+* Fix compatibility issue with WooCommerce. Thank you @miraaz for reporting it.
+
 = 1.1.7 =
 * Increase the /portfolio/ archive limit from default WP setting to 100
 
-
-== Changelog ==
 = 1.1.6 =
 * Fix lightGallery social sharing issues, for real.
 * Close the whole gallery on ESC key
