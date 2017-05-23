@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.6.0
 Tested up to: 4.7.4
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,10 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 4. Make sure your portfolio entries have a thumbnail.
 5. That's it! Enjoy your Portfolio!
 
+
+== Changelog ==
+= 1.1.7 =
+* Increase the /portfolio/ archive limit from default WP setting to 100
 
 
 == Changelog ==
