@@ -88,7 +88,7 @@ class Query {
 
 	protected function set_is_category( \WP_Query $query ) {
 
-		$result = $query->is_tax( get_object_taxonomies( 'phort_post_category' ) );
+		$result = $query->is_tax( get_object_taxonomies( 'phort_post' ) );
 
 
 		$this->is_category = $result;
