@@ -3,7 +3,7 @@ Contributors: colormelon, justnorris
 Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.6.0
-Tested up to: 4.7.4
+Tested up to: 4.8.0
 Stable tag: 1.1.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -23,6 +23,7 @@ I think it might be easier to explain with a demo.
 ### Plugin Demo
 * Default: **[Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/)** - default plugin settings and layout
 * Custom: [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - custom design in a premium theme
+* Custom: [Horizon Portfolio Theme](http://horizon.bycolormelon.com/) - horizontal layout in a premium theme
 
 
 ## How to setup
@@ -109,6 +110,10 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 
 == Changelog ==
+= 1.1.9 =
+* Fix plugin in themes that don't load jQuery
+* Add password protection support
+
 = 1.1.8 =
 * Fix compatibility issue with WooCommerce. Thank you @miraaz for reporting it.
 
