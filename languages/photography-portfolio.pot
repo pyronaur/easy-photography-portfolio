@@ -294,3 +294,7 @@ msgstr ""
 #: public/templates/archive/entry.php:37
 msgid "View Gallery"
 msgstr ""
+
+#: public/templates/single/protected-portfolio-entry.php:3
+msgid "Protected Gallery"
+msgstr ""
