@@ -31,7 +31,7 @@ GLOBAL.config =
 	# 	Sass
 	# **************************
 	styl:
-		app: "./sources/style/app"
+		app: "./sources/style/frontend"
 		admin: "./sources/style/admin"
 
 	# **************************

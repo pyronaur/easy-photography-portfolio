@@ -8,7 +8,7 @@ Utilities = require "gulp-util"
 Stylus = require 'gulp-stylus'
 
 production = ->
-	Gulp.src("#{Config.styl.app}/app.styl")
+	Gulp.src("#{Config.styl.app}/photography-portfolio.styl")
 	.pipe Stylus(
 		'include css': true
 	)
@@ -18,7 +18,7 @@ production = ->
 
 
 development = ->
-	Gulp.src("#{Config.styl.app}/app.styl")
+	Gulp.src("#{Config.styl.app}/photography-portfolio.styl")
 	.pipe(Sourcemap.init())
 	.pipe Stylus(
 		'include css': true

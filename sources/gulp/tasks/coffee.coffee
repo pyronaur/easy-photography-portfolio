@@ -32,7 +32,7 @@ get_source = (debug) ->
 	.on("error", Error_Handle)
 	.bundle()
 	.on("error", Error_Handle)
-	.pipe(Stream('app.js'))
+	.pipe(Stream('photography-portfolio.js'))
 	.pipe(Buffer())
 	.on("error", Error_Handle)
 
@@ -43,7 +43,7 @@ development = ->
 	.pipe(Sourcemap.init(loadMaps: true))
 
 	# Concat
-	.pipe(Concat("app.js"))
+	.pipe(Concat("photography-portfolio.js"))
 	.pipe(Sourcemap.write())
 	.pipe(Gulp.dest(Config.build))
 
@@ -53,7 +53,7 @@ production = ->
 	get_source(false)
 
 	# Concat
-	.pipe(Concat("app.js"))
+	.pipe(Concat("photography-portfolio.js"))
 
 	# Remove console.logs
 	.pipe(Strip_Debug())

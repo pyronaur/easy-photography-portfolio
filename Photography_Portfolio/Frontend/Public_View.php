@@ -45,11 +45,11 @@ class Public_View {
 	public function register() {
 
 		// Styles
-		wp_register_style( 'phort-style', $this->build_dir . 'app.css' );
+		wp_register_style( 'phort-style', $this->build_dir . 'photography-portfolio.css' );
 
 		// Scripts
-		wp_register_script( 'phort-libs', $this->build_dir . 'libs.js', [ 'jquery' ], CLM_VERSION, true );
-		wp_register_script( 'phort-app', $this->build_dir . 'app.js', [ 'jquery', 'phort-libs', 'underscore' ], CLM_VERSION, true );
+		wp_register_script( 'phort-libs', $this->build_dir . 'photography-portfolio-libs.js', [ 'jquery' ], CLM_VERSION, true );
+		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', [ 'jquery', 'phort-libs', 'underscore' ], CLM_VERSION, true );
 
 		// Pass options to JavaScript side
 		wp_localize_script( 'phort-app', '__phort', $this->javascript_settings() );
