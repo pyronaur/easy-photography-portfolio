@@ -7,6 +7,9 @@ namespace Photography_Portfolio\Frontend;
 class Public_View {
 
 
+	protected $build_dir;
+
+
 	/**
 	 * Public_View constructor.
 	 */
@@ -24,20 +27,32 @@ class Public_View {
 		// Adjust .PP_Wrapper classes
 		add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
 
-
+		$this->build_dir = CLM_PLUGIN_DIR_URL . 'public/build/';
 	}
 
 
 	public function enqueue() {
 
-		$build_directory = CLM_PLUGIN_DIR_URL . 'public/build';
+		$this->register();
 
-		wp_enqueue_style( 'phort-style', $build_directory . '/app.css' );
-		wp_enqueue_script( 'phort-libs', $build_directory . '/libs.js', [ 'jquery' ], CLM_VERSION, true );
-		wp_enqueue_script( 'phort-app', $build_directory . '/app.js', [ 'jquery', 'phort-libs', 'underscore' ], CLM_VERSION, true );
+		wp_enqueue_style( 'phort-style' );
+		wp_enqueue_script( 'phort-app' );
 
+
+	}
+
+
+	public function register() {
+
+		// Styles
+		wp_register_style( 'phort-style', $this->build_dir . 'app.css' );
+
+		// Scripts
+		wp_register_script( 'phort-libs', $this->build_dir . 'libs.js', [ 'jquery' ], CLM_VERSION, true );
+		wp_register_script( 'phort-app', $this->build_dir . 'app.js', [ 'jquery', 'phort-libs', 'underscore' ], CLM_VERSION, true );
+
+		// Pass options to JavaScript side
 		wp_localize_script( 'phort-app', '__phort', $this->javascript_settings() );
-
 	}
 
 
