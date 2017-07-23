@@ -49,15 +49,19 @@ class Public_View {
 			'underscore', // @TODO: Don't require underscore.js
 			'imagesloaded',
 			'jquery-masonry',
-			'phort-libs', // @TODO: Remove libs.js
+			'wp-js-hooks',
 
+			'phort-light-gallery', // @TODO: Remove from dependencies when adding another gallery script
 		];
+
 
 		// Styles
 		wp_register_style( 'phort-style', $this->build_dir . 'photography-portfolio.css' );
 
 		// Scripts
-		wp_register_script( 'phort-libs', $this->build_dir . 'photography-portfolio-libs.js', [ 'jquery' ], CLM_VERSION, true );
+		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );
+		wp_register_script( 'phort-light-gallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
+
 		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 		// Pass options to JavaScript side

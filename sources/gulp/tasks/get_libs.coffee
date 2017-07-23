@@ -11,4 +11,4 @@ Gulp.task "getlibs", ->
 
 		Download( url )
 		.pipe( Rename( basename: key ) )
-		.pipe( Gulp.dest( Config.libs.source ) )
+		.pipe( Gulp.dest( Config.libs.dest ) )
