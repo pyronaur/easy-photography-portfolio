@@ -33,12 +33,21 @@ class Public_View {
 
 	public function enqueue() {
 
+		// Register scripts & styles
 		$this->register();
 
+		// Enqueue style
 		wp_enqueue_style( 'phort-style' );
+
+
+		// Enqueue dependencies dynamically
+		if ( in_array( phort_slug_current(), [ 'masonry', 'masonry-hovercard' ] ) ) {
+			wp_enqueue_script( 'jquery-masonry' );
+		}
+
+
+		// Enqueue photography-portfolio last
 		wp_enqueue_script( 'phort-app' );
-
-
 	}
 
 
@@ -48,7 +57,6 @@ class Public_View {
 			'jquery',
 			'underscore', // @TODO: Don't require underscore.js
 			'imagesloaded',
-			'jquery-masonry',
 			'wp-js-hooks',
 
 			'phort-light-gallery', // @TODO: Remove from dependencies when adding another gallery script
@@ -100,7 +108,9 @@ class Public_View {
 	}
 
 
-	public function adjust_body_class( $classes ) {
+	public function adjust_body_class(
+		$classes
+	) {
 
 		if ( ! phort_is_portfolio() ) {
 			return $classes;
@@ -135,7 +145,10 @@ class Public_View {
 	}
 
 
-	public function adjust_wrapper_class( $classes, $class ) {
+	public function adjust_wrapper_class(
+		$classes,
+		$class
+	) {
 
 		/**
 		 * Only affect .PP_Wrapper
