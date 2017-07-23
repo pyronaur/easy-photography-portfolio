@@ -17,7 +17,6 @@ GLOBAL.config =
 		lg_autoplay: "https://raw.githubusercontent.com/sachinchoolur/lg-autoplay/master/dist/lg-autoplay.js"
 
 		# Essentials
-		fitvids: "https://raw.githubusercontent.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
 		# velocity: "https://raw.githubusercontent.com/julianshapiro/velocity/master/velocity.js"
 		wp_js_hooks: "https://raw.githubusercontent.com/carldanley/WP-JS-Hooks/master/src/event-manager.js"
 
