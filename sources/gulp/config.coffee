@@ -8,9 +8,8 @@ GLOBAL.config =
 	external_libs:
 		# Essentials
 		"wp-js-hooks": "https://raw.githubusercontent.com/carldanley/WP-JS-Hooks/master/build/event-manager.min.js"
-
-
-
+		"photoswipe"   : "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe.js"
+		"photoswipe-ui": "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe-ui-default.js"
 
 
 	# **************************

@@ -62,7 +62,8 @@ class General_Portfolio_Settings {
 				[
 					'popup_gallery' => [
 						'disable'      => esc_html__( 'Disable', 'photography-portfolio' ),
-						'lightgallery' => esc_html__( 'Enable', 'photography-portfolio' ),
+						'lightgallery' => esc_html__( 'lightGallery', 'photography-portfolio' ),
+						'photoswipe'   => esc_html__( 'Photoswipe', 'photography-portfolio' ),
 					],
 				],
 			],

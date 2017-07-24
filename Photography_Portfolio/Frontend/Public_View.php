@@ -29,6 +29,13 @@ class Public_View {
 		// Adjust .PP_Wrapper classes
 		add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
 
+
+		// Add Photoswipe template
+		// @TODO: This probably doesn't really belong here.
+		if ( 'photoswipe' === phort_get_option( 'popup_gallery' ) ) {
+			add_action( 'get_footer', [ $this, 'display_photoswipe_html' ], 1000 );
+		}
+
 		$this->build_dir = CLM_PLUGIN_DIR_URL . 'public/build/';
 	}
 
@@ -73,6 +80,9 @@ class Public_View {
 		// Styles
 		wp_register_style( 'phort-style', $this->build_dir . 'photography-portfolio.css' );
 		wp_register_style( 'phort-gallery-lightgallery', $this->build_dir . 'libs/lightgallery.css' );
+		wp_register_style( 'phort-gallery-photoswipe-ui', $this->build_dir . 'libs/photoswipe-ui.css' );
+		wp_register_style( 'phort-gallery-photoswipe', $this->build_dir . 'libs/photoswipe.css', [ 'phort-gallery-photoswipe-ui' ] );
+
 
 		// Scripts
 		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );
@@ -80,6 +90,14 @@ class Public_View {
 
 		// Gallery Scripts
 		wp_register_script( 'phort-gallery-lightgallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
+		wp_register_script( 'phort-gallery-photoswipe-ui', $this->build_dir . 'libs/photoswipe-ui.js', NULL, NULL, true );
+		wp_register_script(
+			'phort-gallery-photoswipe',
+			$this->build_dir . 'libs/photoswipe.js',
+			[ 'jquery', 'phort-gallery-photoswipe-ui' ],
+			NULL,
+			true
+		);
 
 
 		// Pass options to JavaScript side
@@ -176,6 +194,12 @@ class Public_View {
 	public function render_wrapper_end() {
 
 		phort_get_template( 'partials/wrapper-end' );
+	}
+
+
+	public function display_photoswipe_html() {
+
+		phort_get_template( 'partials/photoswipe' );
 	}
 
 }
