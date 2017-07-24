@@ -4,6 +4,8 @@
 namespace Photography_Portfolio\Frontend;
 
 
+use Photography_Portfolio\Settings\Gallery\lightGallery;
+
 class Public_View {
 
 
@@ -67,9 +69,11 @@ class Public_View {
 
 		// Scripts
 		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );
+		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
+
+		// Gallery Scripts
 		wp_register_script( 'phort-gallery-lightgallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
 
-		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 		// Pass options to JavaScript side
 		wp_localize_script( 'phort-app', '__phort', $this->javascript_settings() );
@@ -79,23 +83,14 @@ class Public_View {
 	public function javascript_settings() {
 
 
-		$thumbnails = phort_get_option( 'lg_thumbnails' );
+		$gallery = phort_get_option( 'popup_gallery' );
+
 
 		$settings = [
-			'popup_gallery' => phort_get_option( 'popup_gallery' ),
-
-			/**
-			 * lightGallery.js specific settings.
-			 * You can inspect all the available settings here:
-			 * @link http://sachinchoolur.github.io/lightGallery/docs/api.html
-			 */
-			'lightGallery'  => [
-				'thumbnail'          => ( $thumbnails !== 'disable' ),
-				'showThumbByDefault' => ( $thumbnails === 'show' ),
-			],
-
+			'popup_gallery' => $gallery,
 		];
 
+		lightGallery::register();
 
 		return apply_filters( 'phort/js/__phort', $settings );
 	}
@@ -107,9 +102,7 @@ class Public_View {
 	}
 
 
-	public function adjust_body_class(
-		$classes
-	) {
+	public function adjust_body_class( $classes ) {
 
 		if ( ! phort_is_portfolio() ) {
 			return $classes;
@@ -144,10 +137,7 @@ class Public_View {
 	}
 
 
-	public function adjust_wrapper_class(
-		$classes,
-		$class
-	) {
+	public function adjust_wrapper_class( $classes, $class ) {
 
 		/**
 		 * Only affect .PP_Wrapper
