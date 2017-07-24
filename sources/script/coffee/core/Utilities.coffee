@@ -1,1 +1,0 @@
-module.exports = ( wait, func ) -> _.delay(func, wait)
