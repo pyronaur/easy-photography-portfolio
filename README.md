@@ -24,8 +24,8 @@ You can use filters and actions based on [WP-JS-Hooks](https://github.com/carlda
 ### Demos
 
 * [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
-* [Luka - Modern Photography Portfolio](http://luka.bycolormelon.com/) - with a custom Horizontal Layout
-* [Eugene - Photojournalism Type of Theme](http://eugene.bycolormelon.com/) - customized category display, quite a few custom templates and a horizontal layout. Really shows the flexibility of the plugin.
+* [Luka - Modern Photography Portfolio](https://colormelon.com/theme/luka/) - with a custom Horizontal Layout
+* [Eugene - Photojournalism Type of Theme](https://colormelon.com/theme/eugene/) - customized category display, quite a few custom templates and a horizontal layout. Really shows the flexibility of the plugin.
 
 
 ---
