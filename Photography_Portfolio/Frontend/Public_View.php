@@ -55,7 +55,6 @@ class Public_View {
 
 		$dependencies = [
 			'jquery',
-			'underscore', // @TODO: Don't require underscore.js
 			'imagesloaded',
 			'wp-js-hooks',
 
