@@ -35,6 +35,7 @@ class Public_View {
 
 	public function enqueue() {
 
+
 		// Register scripts & styles
 		$this->register();
 
@@ -48,7 +49,12 @@ class Public_View {
 		}
 
 		// Enqueue the active gallery script
-		wp_enqueue_script( 'phort-gallery-' . phort_get_option( 'popup_gallery' ) );
+		$gallery = phort_get_option( 'popup_gallery' );
+		if ( $gallery !== 'disabled' ) {
+			wp_enqueue_script( 'phort-gallery-' . $gallery );
+			wp_enqueue_style( 'phort-gallery-' . $gallery );
+		}
+
 
 		// Enqueue photography-portfolio.js last
 		wp_enqueue_script( 'phort-app' );
@@ -66,6 +72,7 @@ class Public_View {
 
 		// Styles
 		wp_register_style( 'phort-style', $this->build_dir . 'photography-portfolio.css' );
+		wp_register_style( 'phort-gallery-lightgallery', $this->build_dir . 'libs/lightgallery.css' );
 
 		// Scripts
 		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );

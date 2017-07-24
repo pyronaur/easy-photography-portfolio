@@ -1,10 +1,13 @@
 Config = GLOBAL.config
-Gulp = require( 'gulp' )
-Error_Handle = require( '../util/handleErrors' )
+Gulp = require 'gulp'
+Error_Handle = require '../util/handleErrors'
 Concat = require "gulp-concat"
 Sourcemap = require "gulp-sourcemaps"
 Uglify = require 'gulp-uglify'
 Utilities = require 'gulp-util'
+replace = require 'gulp-replace'
+clean_css = require 'gulp-clean-css'
+Download = require 'gulp-download'
 
 
 get_source = ->
@@ -25,12 +28,15 @@ get_source = ->
 
 
 development = ->
+
 	ugly_opts =
 		mangle          : false
 		preserveComments: 'all'
 		compress        : false
 		output          :
 			beautify: true
+
+	download_stylesheet( )
 
 	get_source( )
 		.pipe( Sourcemap.init( loadMaps: true ) )
@@ -45,6 +51,16 @@ production = ->
 		.pipe( Concat( "light-gallery-custom.js" ) )
 		.pipe( Gulp.dest( Config.libs.dest ) )
 
+	download_stylesheet( )
+
+download_stylesheet = ->
+
+	download = Download( 'https://raw.githubusercontent.com/sachinchoolur/lightGallery/master/dist/css/lightgallery.css' )
+
+	if GLOBAL.production( )
+		download.pipe( clean_css( ) )
+
+	download.pipe( Gulp.dest( Config.libs.dest ) )
 
 Gulp.task "light_gallery", ->
 	console.log ""
