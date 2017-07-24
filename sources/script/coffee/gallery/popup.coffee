@@ -32,6 +32,7 @@ Gallery = ( $el ) ->
 		return {
 			src  : full
 			thumb: data.get_url( 'thumb' )
+			subHtml: $item.find('.PP_Gallery__caption').html() || ''
 		}
 
 	gallery_data = ( $items ) ->
