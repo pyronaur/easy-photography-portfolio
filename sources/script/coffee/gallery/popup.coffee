@@ -18,7 +18,8 @@ Gallery = ( $el ) ->
 		thumbnail         : true
 		showThumbByDefault: true
 
-	settings = _.defaults( window.__phort.lightGallery, defaults )
+	settings = $.extend( {}, defaults, window.__phort.lightGallery )
+
 
 	single_item_data = ( $item ) ->
 		data = new Item_Data( $item )
@@ -33,12 +34,12 @@ Gallery = ( $el ) ->
 			thumb: data.get_url( 'thumb' )
 		}
 
-	gallery_data = ($items) ->
+	gallery_data = ( $items ) ->
 		$items.map -> single_item_data( $( this ) )
 
 	get_settings = ( $items, index ) ->
-		settings.index = index
-		settings.dynamicEl = gallery_data( $items )
+		settings.index         = index
+		settings.dynamicEl     = gallery_data( $items )
 		settings.videoMaxWidth = $( window ).width( ) * 0.8
 
 		Hooks.applyFilters 'phort.lightGallery.settings', settings
@@ -47,9 +48,8 @@ Gallery = ( $el ) ->
 	destroy: ->
 		$el.data( 'lightGallery' ).destroy( )
 
-	open: ($items, index) ->
+	open: ( $items, index ) ->
 		$el.lightGallery( get_settings( $items, index ) )
-
 
 
 Hooks.addAction 'phort.core.ready', ->
@@ -76,8 +76,8 @@ Hooks.addAction 'phort.core.ready', ->
 	if Hooks.applyFilters 'phort.gallery.custom_esc', true
 		$( window ).on 'keydown', ( e ) ->
 			if $el && e.keyCode is 27
-				e.preventDefault()
-				Gallery( $el ).destroy()
+				e.preventDefault( )
+				Gallery( $el ).destroy( )
 				$el = false
 
 			return # nothing
