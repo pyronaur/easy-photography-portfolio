@@ -110,6 +110,13 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 
 == Changelog ==
+= 1.2.0 =
+* Rename app[.css|.js} to photography-portfolio[.css|.js]
+* Enqueue libraries separately instead of bundling everyting into libs.js
+* Don't rely on underscore.js anymore
+* Don't load jQuery Masonry when it's not needed
+
+
 = 1.1.9 =
 * Fix plugin in themes that don't load jQuery
 * Add password protection support
