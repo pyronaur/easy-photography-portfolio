@@ -7,11 +7,11 @@ namespace Photography_Portfolio\Core;
 //-----------------------------------*/
 // Add attachment meta for attachment Video URL
 //-----------------------------------*/
-class Add_Attachment_Meta {
+class Add_Attachment_Video_Meta {
 
 
 	/**
-	 * Add_Attachment_Meta constructor.
+	 * Add_Attachment_Video_Meta constructor.
 	 */
 	public function __construct() {
 
