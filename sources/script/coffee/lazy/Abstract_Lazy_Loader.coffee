@@ -5,6 +5,7 @@ $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
 Item_Data = require( './Item_Data' )
 __WINDOW = require( '../core/Window' )
+throttle = require('../core/Utilities').throttle
 
 class Abstract_Lazy_Loader
 	constructor: ->
@@ -143,7 +144,7 @@ class Abstract_Lazy_Loader
 
 	attach_events: ->
 		# Create a debounced `autoload` function
-		@throttled_autoload = _.throttle( @autoload, 50 )
+		@throttled_autoload = throttle( @autoload, 50 )
 		Hooks.addAction 'phort.portfolio.refresh', @throttled_autoload, 100
 
 
