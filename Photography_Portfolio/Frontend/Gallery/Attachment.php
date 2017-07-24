@@ -1,4 +1,5 @@
 <?php
+
 namespace Photography_Portfolio\Frontend\Gallery;
 
 
@@ -44,7 +45,7 @@ class Attachment {
 
 	private function setup_type() {
 
-		if ( $this->get_video_url() ) {
+		if ( $this->get_video_url() && phort_has_video_support() ) {
 			return 'video';
 		}
 

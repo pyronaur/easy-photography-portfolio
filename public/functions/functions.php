@@ -1,4 +1,5 @@
 <?php
+use Photography_Portfolio\Core\Gallery_Attachment_Video_Support;
 use Photography_Portfolio\Frontend\Layout\View;
 
 /**
@@ -42,4 +43,10 @@ function phort_has_theme_support() {
 function phort_is_front_page() {
 
 	return phort_instance()->query->is_portfolio_front_page();
+}
+
+
+function phort_has_video_support() {
+
+	return Gallery_Attachment_Video_Support::$video_enabled;
 }

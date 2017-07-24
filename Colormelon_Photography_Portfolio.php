@@ -1,7 +1,7 @@
 <?php
 
 use Photography_Portfolio\Admin_View\Admin_View;
-use Photography_Portfolio\Core\Add_Attachment_Video_Meta;
+use Photography_Portfolio\Core\Gallery_Attachment_Video_Support;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
@@ -132,9 +132,7 @@ final class Colormelon_Photography_Portfolio {
 		$this->setup_settings();
 
 		// Setup attachment meta
-		if ( apply_filters( 'phort/attachment/video_enabled', true ) ) {
-			new Add_Attachment_Video_Meta();
-		}
+		new Gallery_Attachment_Video_Support();
 
 		// Initialize Hooks
 		$this->hooks();
