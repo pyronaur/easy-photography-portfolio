@@ -115,6 +115,7 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 * Enqueue libraries separately instead of bundling everyting into libs.js
 * Don't rely on underscore.js anymore
 * Don't load jQuery Masonry when it's not needed
+* Increase gallery z-index to fix popup gallery display poorly coded themes
 
 
 = 1.1.9 =
