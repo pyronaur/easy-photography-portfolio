@@ -45,8 +45,10 @@ class Public_View {
 			wp_enqueue_script( 'jquery-masonry' );
 		}
 
+		// Enqueue the active gallery script
+		wp_enqueue_script( 'phort-gallery-' . phort_get_option( 'popup_gallery' ) );
 
-		// Enqueue photography-portfolio last
+		// Enqueue photography-portfolio.js last
 		wp_enqueue_script( 'phort-app' );
 	}
 
@@ -57,8 +59,6 @@ class Public_View {
 			'jquery',
 			'imagesloaded',
 			'wp-js-hooks',
-
-			'phort-light-gallery', // @TODO: Remove from dependencies when adding another gallery script
 		];
 
 
@@ -67,7 +67,7 @@ class Public_View {
 
 		// Scripts
 		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );
-		wp_register_script( 'phort-light-gallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
+		wp_register_script( 'phort-gallery-lightgallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
 
 		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
