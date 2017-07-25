@@ -3,8 +3,6 @@
 ###
 $ = require( "jQuery" )
 Hooks = require( "wp_hooks" )
-Item_Data = require( '../lazy/Item_Data' )
-
 
 defaults =
 	dynamic : true
@@ -36,17 +34,18 @@ single_item_data = ( item ) ->
 get_settings = ( gallery, index ) ->
 	settings.index         = index
 	settings.dynamicEl     = gallery.map( single_item_data )
-	settings.videoMaxWidth = $( window ).width( ) * 0.8
+	settings.videoMaxWidth = window.innerWidth * 0.8
 
 	Hooks.applyFilters 'phort.lightGallery.settings', settings
 
 
 module.exports = ( $el ) ->
-	destroy: ->
-		$el.data( 'lightGallery' ).destroy( )
+	close: ->
+		Gallery = $el.data( 'lightGallery' )
+		Gallery.destroy( ) if Gallery and Gallery.destroy?
 
 	open: ( $gallery_items, index ) ->
-		$el.lightGallery( get_settings( $gallery_items, index ) )
+		Gallery = $el.lightGallery( get_settings( $gallery_items, index ) )
 
 
 

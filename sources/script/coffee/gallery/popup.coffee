@@ -6,12 +6,12 @@ Hooks = require( "wp_hooks" )
 Item_Data = require( '../lazy/Item_Data' )
 
 
-active_gallery = window.__phort.popup_gallery || 'lightgallery'
+gallery_type = window.__phort.popup_gallery || 'lightgallery'
 
-if active_gallery is 'lightgallery'
+if gallery_type is 'lightgallery'
 	Gallery = require( './lightGallery' )
 
-if active_gallery is 'photoswipe'
+if gallery_type is 'photoswipe'
 	Gallery = require( './photoswipe' )
 
 return if not Gallery
@@ -24,6 +24,8 @@ gallery_item = ( key, el ) ->
 	caption: $el.find( '.PP_Gallery__caption' ).html( ) || ''
 
 
+active_gallery = false
+
 $( document ).on 'click', '.PP_Gallery__item', ( e ) ->
 	e.preventDefault( )
 
@@ -33,7 +35,9 @@ $( document ).on 'click', '.PP_Gallery__item', ( e ) ->
 	if $items.length > 0
 		index = $items.index( $el )
 		gallery_items = $.makeArray( $items.map( gallery_item ) )
-		Gallery( $el ).open( gallery_items, index )
+		active_gallery = Gallery( $el )
+
+		active_gallery.open( gallery_items, index )
 
 
 # Move from lightGallery phort.core.ready

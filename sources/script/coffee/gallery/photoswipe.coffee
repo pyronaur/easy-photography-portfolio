@@ -38,6 +38,13 @@ thumbnail_position = ( $el ) -> return ->
 
 
 module.exports = ( $el ) ->
+	Gallery = false
+
+	close: ->
+		return if not Gallery
+		Gallery.close()
+		Gallery = false
+
 	open: ( gallery, index ) ->
 		Gallery = new Photoswipe_Factory( getThumbBoundsFn: thumbnail_position( $el ) )
 		Gallery.open( gallery.map( single_item_data ), index: index )

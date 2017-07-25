@@ -29,13 +29,6 @@ class Photoswipe_Factory
 	close: =>
 		@instance.close()
 
-	handle_close: =>
-		@is_open = false
-		return
-
-	trigger_change: ->
-		Hooks.doAction 'theme.gallery/move', @getCurrentIndex()
-
 	open: (data = {}, opts = {}) ->
 
 		options = $.extend( {}, @defaults, opts)
@@ -50,7 +43,6 @@ class Photoswipe_Factory
 
 		@instance = new PhotoSwipe(@el, @UI, data , options)
 		@instance.init()
-		@instance.listen 'close', @handle_close
 		@instance.listen 'afterChange', @trigger_change
 		@is_open = true
 
