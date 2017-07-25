@@ -26,14 +26,13 @@
 
 				<div class="pswp__counter"></div>
 
-				<?php // @TODO: i18n ?>
-				<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+				<button class="pswp__button pswp__button--close" title="<?php esc_html_e( 'Close (Esc)', 'photography-portfolio' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--share" title="Share"></button>
+				<button class="pswp__button pswp__button--share" title="<?php esc_html_e( 'Share', 'photography-portfolio' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+				<button class="pswp__button pswp__button--fs" title="<?php esc_html_e( 'Toggle fullscreen', 'photography-portfolio' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+				<button class="pswp__button pswp__button--zoom" title="<?php esc_html_e( 'Zoom in/out', 'photography-portfolio' ); ?>"></button>
 
 				<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
 				<!-- element will get class pswp__preloader--active when preloader is running -->
@@ -50,10 +49,10 @@
 				<div class="pswp__share-tooltip"></div>
 			</div>
 
-			<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+			<button class="pswp__button pswp__button--arrow--left" title="<?php esc_html_e( 'Previous (arrow left)', 'photography-portfolio' ); ?>">
 			</button>
 
-			<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+			<button class="pswp__button pswp__button--arrow--right" title="<?php esc_html_e( 'Next (arrow right)', 'photography-portfolio' ); ?>">
 			</button>
 
 			<div class="pswp__caption">
