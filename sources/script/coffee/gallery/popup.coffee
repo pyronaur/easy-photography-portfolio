@@ -43,11 +43,11 @@ $( document ).on 'click', '.PP_Gallery__item', ( e ) ->
 # Move from lightGallery phort.core.ready
 # By default EPP will close the whole gallery on close
 # Use this hooks to prevent that
-#	if Hooks.applyFilters 'phort.gallery.custom_esc', true
-#		$( window ).on 'keydown', ( e ) ->
-#			if $el && e.keyCode is 27
-#				e.preventDefault( )
-#				lightGallery( $el ).destroy( )
-#				$el = false
-#
-#			return # nothing
+if Hooks.applyFilters 'phort.gallery.custom_esc', true
+	$( window ).on 'keydown', ( e ) ->
+		if active_gallery && e.keyCode is 27
+			e.preventDefault( )
+			active_gallery.close()
+			active_gallery = false
+
+		return
