@@ -16,38 +16,43 @@ if gallery_type is 'photoswipe'
 
 return if not Gallery
 
-gallery_item = ( key, el ) ->
+
+active_gallery = false
+
+parse_gallery_item = ( key, el ) ->
 	$el = $( el )
 
 	index  : key
 	data   : new Item_Data( $el )
 	caption: $el.find( '.PP_Gallery__caption' ).html( ) || ''
 
-
-active_gallery = false
-
-$( document ).on 'click', '.PP_Gallery__item', ( e ) ->
-	e.preventDefault( )
-
-	$el = $( this )
+open_gallery = ( el ) ->
+	$el = $( el )
 	$items = $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' )
 
 	if $items.length > 0
 		index = $items.index( $el )
-		gallery_items = $.makeArray( $items.map( gallery_item ) )
-		active_gallery = Gallery( $el )
+		gallery_items = $.makeArray( $items.map( parse_gallery_item ) )
 
+		active_gallery = Gallery( $el )
 		active_gallery.open( gallery_items, index )
 
+close_gallery = ->
+	return false if not active_gallery
+	active_gallery.close( )
+	active_gallery = false
 
-# Move from lightGallery phort.core.ready
-# By default EPP will close the whole gallery on close
-# Use this hooks to prevent that
+
+##
+## Attach Events
+##
+$( document ).on 'click', '.PP_Gallery__item', ( e ) ->
+	e.preventDefault( )
+	open_gallery( this )
+
 if Hooks.applyFilters 'phort.gallery.custom_esc', true
 	$( window ).on 'keydown', ( e ) ->
-		if active_gallery && e.keyCode is 27
-			e.preventDefault( )
-			active_gallery.close()
-			active_gallery = false
+		return unless e.keyCode is 27
+		close_gallery( )
+		e.preventDefault( )
 
-		return

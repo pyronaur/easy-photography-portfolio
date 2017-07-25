@@ -1,10 +1,7 @@
 ###
     Dependencies
 ###
-$ = require( 'jQuery' )
-Hooks = require( 'wp_hooks' )
 Photoswipe_Factory = require( './photoswipe_factory' )
-Item_Data = require( '../lazy/Item_Data' )
 
 single_item_data = ( item ) ->
 	# PhotoSwipe supports only images

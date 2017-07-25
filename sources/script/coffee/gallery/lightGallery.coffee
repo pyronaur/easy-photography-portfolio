@@ -14,6 +14,7 @@ defaults =
 	thumbnail         : true
 	showThumbByDefault: true
 
+# @TODO: Use Object.assign() with Babel
 settings = $.extend( {}, defaults, window.__phort.lightGallery )
 
 
