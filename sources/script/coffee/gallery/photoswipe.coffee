@@ -23,7 +23,7 @@ PhotoSwipe = window.PhotoSwipe
 
 
 create = ( data, opts = {} ) ->
-	options = $.extend( {}, defaults, opts )
+	options = Hooks.applyFilters( "phort.photoswipe.options", $.extend( {}, defaults, opts ) )
 
 	# Index is 0 by default
 	if not options.index?
@@ -52,8 +52,7 @@ single_item_data = ( item ) ->
 	h    : height
 	title: item.caption
 
-# @TODO: Add option to prevent animation
-# @TODO: Make sure lazy loading works when closing Photoswipe
+
 thumbnail_position = ( $el ) -> return ->
 	return false if not $el
 
