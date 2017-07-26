@@ -5,7 +5,7 @@ $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
 Portfolio_Interface = require( './Portfolio_Interface' )
 
-
+# @TODO: Need a heavvy refactor - no more classes please
 class Portfolio_Masonry extends Portfolio_Interface
 
 	constructor: ->
