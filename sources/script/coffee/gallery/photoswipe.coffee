@@ -41,8 +41,7 @@ create = ( data, opts = {} ) ->
 
 single_item_data = ( item ) ->
 	# PhotoSwipe supports only images
-	return if item.data.get('type') isnt 'image'
-
+	return if item.data.get( 'type' ) isnt 'image'
 
 
 	[width, height] = item.data.size( 'full' )
@@ -55,8 +54,10 @@ single_item_data = ( item ) ->
 	title: item.caption
 
 
-thumbnail_position = ( $el ) -> return ->
-	return false if not $el
+thumbnail_position = ( $gallery ) -> return ( index ) ->
+	return false if not $gallery.length
+
+	$el = $gallery.eq( index )
 
 	thumbnail = $el.find( 'img' ).get( 0 )
 	pageYScroll = window.pageYOffset || document.documentElement.scrollTop
@@ -82,7 +83,7 @@ module.exports = ( $el ) ->
 	open: ( gallery, index ) ->
 
 		options =
-			getThumbBoundsFn: thumbnail_position( $el )
+			getThumbBoundsFn: thumbnail_position( $el.parent().children( '.PP_Gallery__item' ) )
 			index           : index
 
 		Gallery = create( gallery.map( single_item_data ), options )
