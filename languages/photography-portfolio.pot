@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:208, Colormelon_Photography_Portfolio.php:217
+#: Colormelon_Photography_Portfolio.php:206, Colormelon_Photography_Portfolio.php:215
 msgid "Can't do this thing."
 msgstr ""
 
@@ -157,91 +157,99 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:174, Photography_Portfolio/Settings/General_Portfolio_Settings.php:204, Photography_Portfolio/Settings/General_Portfolio_Settings.php:216
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:175, Photography_Portfolio/Settings/General_Portfolio_Settings.php:205, Photography_Portfolio/Settings/General_Portfolio_Settings.php:217
 msgid "Disable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65, Photography_Portfolio/Settings/General_Portfolio_Settings.php:205
-msgid "Enable"
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65
+msgid "lightGallery"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:92
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:66
+msgid "Photoswipe"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:93
 msgid "Main"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:99
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:100
 msgid "Main Portfolio Page"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:113
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:114
 msgid "Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:124
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:125
 msgid "Single Portfolio Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:135
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:136
 msgid "Portfolio Archive Layout"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:154
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:155
 msgid "Pop-up Gallery Settings"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:162
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:163
 msgid "Pop-up Gallery"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:170
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:171
 msgid "Pop-up Gallery: Thumbnails"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:175
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:176
 msgid "Hide by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:176
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:177
 msgid "Show by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:188
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:189
 msgid "Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:196
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:197
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:197
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:198
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:212
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:206
+msgid "Enable"
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:213
 msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:217
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:218
 msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:218
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:219
 msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:219
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:220
 msgid "Show Subtitle or Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:230
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:231
 msgid "Theme Compatibility"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:237
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:238
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:238
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:239
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
@@ -293,6 +301,30 @@ msgstr ""
 
 #: public/templates/archive/entry.php:37
 msgid "View Gallery"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:29
+msgid "Close (Esc)"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:31
+msgid "Share"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:33
+msgid "Toggle fullscreen"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:35
+msgid "Zoom in/out"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:52
+msgid "Previous (arrow left)"
+msgstr ""
+
+#: public/templates/partials/photoswipe.php:55
+msgid "Next (arrow right)"
 msgstr ""
 
 #: public/templates/single/protected-portfolio-entry.php:3
