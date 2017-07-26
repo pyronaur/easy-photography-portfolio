@@ -3,7 +3,7 @@
 ###
 $ = require( 'jQuery' )
 Hooks = require( "wp_hooks" )
-Item_Data = require( './Item_Data' )
+gallery_item = require( '../gallery/gallery_item_factory' )
 __WINDOW = require( '../core/Window' )
 throttle = require('../core/Utilities').throttle
 
@@ -44,8 +44,8 @@ class Abstract_Lazy_Loader
 	load_image: ( item ) ->
 
 		# Get image URLs
-		thumb = item.data.get_url( 'thumb' )
-		full = item.data.get_url( 'full' )
+		thumb = item.data.url( 'thumb' )
+		full = item.data.url( 'full' )
 
 		# Create elements
 		item.$el
@@ -99,7 +99,7 @@ class Abstract_Lazy_Loader
 		@Items.push
 			el    : el
 			$el   : $el
-			data  : new Item_Data( $el )
+			data  : gallery_item( $el )
 			loaded: false
 
 

@@ -20,14 +20,14 @@ settings = $.extend( {}, defaults, window.__phort.lightGallery )
 
 single_item_data = ( item ) ->
 
-	if item.data.get_type( ) is 'video'
-		full = item.data.get_or_false( 'video_url' )
+	if item.data.get( 'type' ) is 'video'
+		full = item.data.get( 'video_url' )
 	else
-		full = item.data.get_url( 'full' )
+		full = item.data.url( 'full' )
 
 	return {
 		src    : full
-		thumb  : item.data.get_url( 'thumb' )
+		thumb  : item.data.url( 'thumb' )
 		subHtml: item.caption
 	}
 

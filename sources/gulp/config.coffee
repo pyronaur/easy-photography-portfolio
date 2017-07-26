@@ -1,7 +1,7 @@
 GLOBAL.config =
 
 	# General Config
-	url  : "http://peebles.demmoo.com"
+	url  : "http://horizon.demmoo.com"
 	build: "./public/build"
 
 	### External Libraries & Their URLs ###

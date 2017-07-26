@@ -41,13 +41,15 @@ create = ( data, opts = {} ) ->
 
 single_item_data = ( item ) ->
 	# PhotoSwipe supports only images
-	return if item.data.get_type( ) isnt 'image'
+	return if item.data.get('type') isnt 'image'
 
-	[width, height] = item.data.get_size( 'full' )
+
+
+	[width, height] = item.data.size( 'full' )
 
 	# return
-	src  : item.data.get_url( 'full' )
-	msrc : item.data.get_url( 'full' )
+	src  : item.data.url( 'full' )
+	msrc : item.data.url( 'full' )
 	w    : width
 	h    : height
 	title: item.caption

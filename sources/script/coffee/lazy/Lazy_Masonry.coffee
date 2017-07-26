@@ -10,7 +10,7 @@ class Lazy_Masonry extends Abstract_Lazy_Loader
 		super()
 
 	resize: ( item ) ->
-		item.$el.css 'min-height': Math.floor( @placeholder_width / item.data.get_ratio() )
+		item.$el.css 'min-height': Math.floor( @placeholder_width / item.data.get('ratio') )
 
 	cleanup_after_load: (item) ->
 		# Remove min-height

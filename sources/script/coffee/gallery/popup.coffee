@@ -3,7 +3,7 @@
 ###
 $ = require( "jQuery" )
 Hooks = require( "wp_hooks" )
-Item_Data = require( '../lazy/Item_Data' )
+galery_item = require( './gallery_item_factory' )
 
 
 gallery_type = window.__phort.popup_gallery || 'lightgallery'
@@ -23,7 +23,7 @@ parse_gallery_item = ( key, el ) ->
 	$el = $( el )
 
 	index  : key
-	data   : new Item_Data( $el )
+	data   : galery_item( $el )
 	caption: $el.find( '.PP_Gallery__caption' ).html( ) || ''
 
 open_gallery = ( el ) ->
