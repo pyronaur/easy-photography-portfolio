@@ -111,6 +111,7 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 == Changelog ==
 = 1.2.0 =
+* Add an alternative pop-up gallery - PhotoSwipe 🖼
 * Add full support for captions and descriptions 🎉 🎉 🎉
 * Rename app[.css|.js} to photography-portfolio[.css|.js]
 * Enqueue libraries separately instead of bundling everyting into libs.js
