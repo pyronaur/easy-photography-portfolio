@@ -10,7 +10,7 @@ window.PP_Modules =
 	# Extend Portfolio Interface to build custom portfolio layouts based on PP Events
 	Portfolio_Interface: require( './portfolio/Portfolio_Interface' )
 
-	# Use `Item_Data` to get formatted item image sizes for lazy laoding
+	# Use `Item_Data` to get formatted item image sizes for lazy loading
 	Item_Data: require( './lazy/Item_Data' )
 
 	# Extend Abstract_Lazy_Loder to implement lazy loader for your layout
