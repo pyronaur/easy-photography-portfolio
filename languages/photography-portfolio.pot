@@ -157,6 +157,18 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
+#: Photography_Portfolio/Frontend/Public_View.php:118
+msgid "Share on Facebook"
+msgstr ""
+
+#: Photography_Portfolio/Frontend/Public_View.php:119
+msgid "Tweet"
+msgstr ""
+
+#: Photography_Portfolio/Frontend/Public_View.php:120
+msgid "Pin it"
+msgstr ""
+
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:175, Photography_Portfolio/Settings/General_Portfolio_Settings.php:205, Photography_Portfolio/Settings/General_Portfolio_Settings.php:217
 msgid "Disable"
 msgstr ""

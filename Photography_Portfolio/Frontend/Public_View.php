@@ -113,6 +113,13 @@ class Public_View {
 
 		$settings = [
 			'popup_gallery' => $gallery,
+			'i18n'          => [
+				'photoswipe' => [
+					'facebook'  => esc_html__( 'Share on Facebook', 'photography-portfolio' ),
+					'twitter'   => esc_html__( 'Tweet', 'photography-portfolio' ),
+					'pinterest' => esc_html__( 'Pin it', 'photography-portfolio' ),
+				],
+			],
 		];
 
 		lightGallery::register();

@@ -4,16 +4,21 @@
 $ = require( "jQuery" )
 Hooks = require( "wp_hooks" )
 
+labels = $.extend( {}, {
+	'facebook': 'Share on Facebook',
+	'twitter': 'Tweet',
+	'pinterest': 'Pin it',
+}, window.__phort.i18n.photoswipe )
+
 
 defaults =
 	index       : 0
 	preload     : [ 1, 3 ]
 	escKey      : false
 	shareButtons: [
-		# @TODO: i18n for labels
-		{ id: 'facebook', label: 'Share on Facebook', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' }
-		{ id: 'twitter', label: 'Tweet', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}' }
-		{ id: 'pinterest', label: 'Pin it', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}' }
+		{ id: 'facebook', label: labels.facebook, url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' }
+		{ id: 'twitter', label : labels.twitter, url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}' }
+		{ id: 'pinterest', label: labels.pinterest, url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}' }
 	]
 
 
