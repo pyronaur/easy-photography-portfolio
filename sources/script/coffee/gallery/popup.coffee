@@ -17,7 +17,7 @@ if gallery_type is 'photoswipe'
 return if not Gallery
 
 
-active_gallery = false
+popup = false
 
 parse_gallery_item = ( key, el ) ->
 	$el = $( el )
@@ -34,13 +34,13 @@ open_gallery = ( el ) ->
 		index = $items.index( $el )
 		gallery_items = $.makeArray( $items.map( parse_gallery_item ) )
 
-		active_gallery = Gallery( $el )
-		active_gallery.open( gallery_items, index )
+		popup = Gallery( $el )
+		popup.open( gallery_items, index )
 
 close_gallery = ->
-	return false if not active_gallery
-	active_gallery.close( )
-	active_gallery = false
+	return false if not popup
+	popup.close( )
+	popup = false
 
 
 ##
