@@ -169,16 +169,16 @@ msgstr ""
 msgid "Pin it"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:175, Photography_Portfolio/Settings/General_Portfolio_Settings.php:205, Photography_Portfolio/Settings/General_Portfolio_Settings.php:217
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:189, Photography_Portfolio/Settings/General_Portfolio_Settings.php:219, Photography_Portfolio/Settings/General_Portfolio_Settings.php:231
 msgid "Disable"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:65
-msgid "lightGallery"
+msgid "LightGallery"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:66
-msgid "Photoswipe"
+msgid "PhotoSwipe (recommended)"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:93
@@ -209,59 +209,63 @@ msgstr ""
 msgid "Pop-up Gallery"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:171
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:168
+msgid "sprintf<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>. <br> You can find <a href=\"%s\" target=\"%s\">more info about the gallery types here</a> "
+msgstr ""
+
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:185
 msgid "Pop-up Gallery: Thumbnails"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:176
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:190
 msgid "Hide by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:177
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:191
 msgid "Show by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:189
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:203
 msgid "Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:197
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:211
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:198
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:212
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:206
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:220
 msgid "Enable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:213
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:227
 msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:218
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:232
 msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:219
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:233
 msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:220
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:234
 msgid "Show Subtitle or Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:231
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:245
 msgid "Theme Compatibility"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:238
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:252
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:239
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:253
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
