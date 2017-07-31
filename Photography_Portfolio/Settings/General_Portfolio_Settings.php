@@ -40,7 +40,7 @@ class General_Portfolio_Settings {
 					'single_portfolio_layout' => 'masonry',
 					'archive_description'     => 'disable',
 					'portfolio_subtitles'     => 'only_subtitles',
-					'popup_gallery'           => 'lightgallery',
+					'popup_gallery'           => 'photoswipe',
 
 				],
 			],
@@ -62,8 +62,8 @@ class General_Portfolio_Settings {
 				[
 					'popup_gallery' => [
 						'disable'      => esc_html__( 'Disable', 'photography-portfolio' ),
-						'lightgallery' => esc_html__( 'lightGallery', 'photography-portfolio' ),
-						'photoswipe'   => esc_html__( 'Photoswipe', 'photography-portfolio' ),
+						'lightgallery' => esc_html__( 'LightGallery', 'photography-portfolio' ),
+						'photoswipe'   => esc_html__( 'PhotoSwipe (recommended)', 'photography-portfolio' ),
 					],
 				],
 			],
