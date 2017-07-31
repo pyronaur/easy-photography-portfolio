@@ -9,7 +9,7 @@ Stylus = require 'gulp-stylus'
 
 
 development = ->
-	Gulp.src("#{Config.styl.admin}/admin.styl")
+	Gulp.src("#{Config.styl.admin}/phort-admin.styl")
 	.pipe(Sourcemap.init())
 	.pipe Stylus(
 		'include css': true
