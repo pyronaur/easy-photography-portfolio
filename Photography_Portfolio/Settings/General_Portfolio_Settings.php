@@ -54,7 +54,7 @@ class General_Portfolio_Settings {
 		 * Setup filterable settings
 		 *
 		 * @deprecated 1.1.4 Use `phort/core/loaded` instead
-		 * @TODO       : Remove at version 1.2.0
+		 * @TODO       : Remove at version 1.3.0
 		 */
 		$this->settings = apply_filters_deprecated(
 			'phort/general_portfolio_settings/settings',
