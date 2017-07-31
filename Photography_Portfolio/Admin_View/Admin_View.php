@@ -68,6 +68,7 @@ class Admin_View {
 		}
 
 		wp_enqueue_style( 'phort-admin', CLM_PLUGIN_DIR_URL . 'public/build/phort-admin.css' );
+		wp_enqueue_script('phort-admin', CLM_PLUGIN_DIR_URL . 'sources/script/admin/phort-admin.js');
 	}
 
 
