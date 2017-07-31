@@ -43,6 +43,11 @@ close_gallery = ->
 	popup = false
 
 
+#
+# @TODO: Roll our own hash tracker, or unify lightgallery and photoswipe hash structure
+# @TODO: Fix bug: When hash is enabled, but gallery isn't open (after a page reload) - photoswipe tries to open hash based image instead of click source
+#
+
 ##
 ## Attach Events
 ##
