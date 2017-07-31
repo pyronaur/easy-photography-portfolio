@@ -63,8 +63,11 @@ thumbnail_position = ( $gallery ) -> return ( index ) ->
 	return false if not $gallery.length
 
 	$el = $gallery.eq( index )
-
 	thumbnail = $el.find( 'img' ).get( 0 )
+
+	# Thumbnail must exist before dimensions can be obtained
+	return if not thumbnail
+
 	pageYScroll = window.pageYOffset || document.documentElement.scrollTop
 	rect = thumbnail.getBoundingClientRect( )
 
