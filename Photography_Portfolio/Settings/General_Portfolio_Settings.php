@@ -164,6 +164,20 @@ class General_Portfolio_Settings {
 				'type'    => 'select',
 				'default' => $this->defaults['popup_gallery'],
 				'options' => $this->settings['popup_gallery'],
+				'desc'    => '<span>' . wp_kses(
+					__(
+						sprintf(
+							'<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>. <br> You can find <a href="%s" target="%s">more info about the gallery types here</a> ',
+							'https://colormelon.com/best-javascript-popup-gallery/#photoswipe-vs-lightgallery',
+							'_blank'
+						),
+						'photography-portfolio'
+					)
+					,
+					// Allow <a>, <br>, <b>
+					[ 'a' => [ 'href' => [], 'target' => [] ], 'br' => [], 'b' => [] ]
+				) . '</span>',
+
 			];
 
 			$settings[] = [
