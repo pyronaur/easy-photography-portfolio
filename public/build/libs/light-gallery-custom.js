@@ -2055,7 +2055,7 @@
 });
 /*
 * @modified from <lg-hash - v1.0.1 - 2016-09-30>*
-* Renamed `lg=` to `gid=` and `slide=` to `pid` to match PhotoSwipe
+* Renamed `lg=` to `&gid=` and `slide=` to `pid` to match PhotoSwipe
 */
 (function(root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -2091,14 +2091,14 @@
             var _hash;
             // Change hash value on after each slide transition
             _this.core.$el.on("onAfterSlide.lg.tm", function(event, prevIndex, index) {
-                window.location.hash = "gid=" + _this.core.s.galleryId + "&pid=" + index;
+                window.location.hash = "&gid=" + _this.core.s.galleryId + "&pid=" + index;
             });
             // Listen hash change and change the slide according to slide value
             $(window).on("hashchange.lg.hash", function() {
                 _hash = window.location.hash;
                 var _idx = parseInt(_hash.split("&pid=")[1], 10);
                 // it galleryId doesn't exist in the url close the gallery
-                if (_hash.indexOf("gid=" + _this.core.s.galleryId) > -1) {
+                if (_hash.indexOf("&gid=" + _this.core.s.galleryId) > -1) {
                     _this.core.slide(_idx, false, false);
                 } else if (_this.core.lGalleryOn) {
                     _this.core.destroy();
@@ -2110,7 +2110,7 @@
                 return;
             }
             // Reset to old hash value
-            if (this.oldHash && this.oldHash.indexOf("gid=" + this.core.s.galleryId) < 0) {
+            if (this.oldHash && this.oldHash.indexOf("&gid=" + this.core.s.galleryId) < 0) {
                 window.location.hash = this.oldHash;
             } else {
                 if (history.pushState) {

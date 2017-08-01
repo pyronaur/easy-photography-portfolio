@@ -1,8 +1,8 @@
 ###
     Dependencies
 ###
-$ = require( "jQuery" )
-Hooks = require( "wp_hooks" )
+$ = require( 'jQuery' )
+Hooks = require( 'wp_hooks' )
 galery_item = require( './gallery_item_factory' )
 
 
@@ -43,9 +43,10 @@ close_gallery = ->
 	popup = false
 
 
-#
-# @TODO: Fix bug: When hash is enabled, but gallery isn't open (after a page reload) - photoswipe tries to open hash based image instead of click source
-#
+initialize_from_hash = ->
+	index = parseInt(location.hash.split('&pid=')[1], 10)
+	el = $('.PP_Gallery').first().find( '.PP_Gallery__item' ).get( index )
+	open_gallery( el )
 
 ##
 ## Attach Events
@@ -60,3 +61,5 @@ if Hooks.applyFilters 'phort.gallery.custom_esc', true
 		close_gallery( )
 		e.preventDefault( )
 
+if window.location.hash
+	Hooks.addAction 'phort.core.loaded', initialize_from_hash
