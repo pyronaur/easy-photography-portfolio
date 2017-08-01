@@ -1,4 +1,4 @@
-item = ( data_obj ) ->
+item_data = ( data_obj ) ->
 
 	pluck = ( object, key ) ->
 		if object and object[ key ]
@@ -25,4 +25,4 @@ item = ( data_obj ) ->
 	get: get
 
 
-module.exports = item
+module.exports = item_data

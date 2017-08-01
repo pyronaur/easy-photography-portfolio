@@ -45,8 +45,9 @@ module.exports = ( $el ) ->
 		Gallery = $el.data( 'lightGallery' )
 		Gallery.destroy( ) if Gallery and Gallery.destroy?
 
-	open: ( $gallery_items, index ) ->
-		Gallery = $el.lightGallery( get_settings( $gallery_items, index ) )
+	open: ( gallery_items, index ) ->
+		Gallery = $el.lightGallery( get_settings( gallery_items, index ) )
+
 
 
 

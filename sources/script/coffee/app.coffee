@@ -26,7 +26,7 @@ window.PP_Modules =
 require './portfolio/start'
 
 # Gallery
-require './gallery/popup'
+require './gallery/initialize'
 
 # Lazy Loading
 require './lazy/start'
