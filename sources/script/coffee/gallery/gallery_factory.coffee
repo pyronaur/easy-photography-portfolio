@@ -18,7 +18,7 @@ parse_gallery_item = ( key, el ) ->
 module.exports = ( Gallery_Driver ) ->
 	instance = false
 
-	open: ( el ) ->
+	open = (el) ->
 		$el = $( el )
 		$items = $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' )
 
@@ -28,6 +28,14 @@ module.exports = ( Gallery_Driver ) ->
 
 			instance = Gallery_Driver( $el )
 			instance.open( gallery_items, index )
+
+
+	open: open
+
+	handle_hash: ->
+		index = parseInt( window.location.hash.split( '&pid=' )[ 1 ], 10 )
+		el = $( '.PP_Gallery' ).first( ).find( '.PP_Gallery__item' ).get( index )
+		open( el )
 
 	close: ->
 		return false if not instance
