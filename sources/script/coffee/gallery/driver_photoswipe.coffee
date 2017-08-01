@@ -90,9 +90,10 @@ module.exports = ( $el ) ->
 
 	open: ( gallery, index ) ->
 		options =
-			getThumbBoundsFn: thumbnail_position( $el.parent().children( '.PP_Gallery__item' ) )
+			getThumbBoundsFn: thumbnail_position( $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' ) )
 			index           : index
 
 		Gallery = create( gallery.map( single_item_data ), options )
+
 
 
