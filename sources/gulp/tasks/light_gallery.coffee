@@ -14,7 +14,6 @@ get_source = ->
 	scripts =
 		lg_core      : "https://raw.githubusercontent.com/sachinchoolur/lightGallery/master/dist/js/lightgallery.js"
 		lg_video     : "https://raw.githubusercontent.com/sachinchoolur/lg-video/master/dist/lg-video.js"
-		lg_hash      : "https://raw.githubusercontent.com/sachinchoolur/lg-hash/master/dist/lg-hash.js"
 		lg_thumbs    : "https://raw.githubusercontent.com/sachinchoolur/lg-thumbnail/master/dist/lg-thumbnail.js"
 		lg_share     : "https://raw.githubusercontent.com/sachinchoolur/lg-share/master/dist/lg-share.js"
 		lg_fullscreen: "https://raw.githubusercontent.com/sachinchoolur/lg-fullscreen/master/dist/lg-fullscreen.js"
@@ -23,6 +22,9 @@ get_source = ->
 	lib_order = Object.keys( scripts )
 
 	libs = lib_order.map ( str ) -> "./sources/script/libs/light_gallery/#{str}.js"
+
+	# Append the custom_lg_hash
+	libs.push "./sources/script/libs/light_gallery/custom_lg_hash.js"
 
 	Gulp.src( libs )
 
