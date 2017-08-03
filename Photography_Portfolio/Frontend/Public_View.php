@@ -42,9 +42,16 @@ class Public_View {
 
 	public function enqueue() {
 
-
 		// Register scripts & styles
 		$this->register();
+
+
+		/**
+		 * Enqueue scripts and styles only in portfolio
+		 */
+		if ( ! apply_filters( 'phort/enqueue', phort_is_portfolio() ) ) {
+			return false;
+		}
 
 		// Enqueue style
 		wp_enqueue_style( 'phort-style' );
