@@ -14,7 +14,6 @@ function phort_get_option( $option, $deprecated = '' ) {
 	$default    = '';
 	$_undefined = '[undefined]';
 
-
 	/**
 	 * @deprecated at 1.1.4
 	 * @todo       Remove at 1.2.0
@@ -23,6 +22,7 @@ function phort_get_option( $option, $deprecated = '' ) {
 		// Never implemented
 		_deprecated_argument( __FUNCTION__, '1.1.4' );
 	}
+
 
 	/**
 	 * Priority #1: `apply_filters()`
@@ -51,10 +51,10 @@ function phort_get_option( $option, $deprecated = '' ) {
 	 * Get `$option` from post meta
 	 */
 	if ( in_the_loop() ) {
-		$value = get_post_meta( get_the_ID(), 'phort_' . $option, true );
+		$meta = get_post_meta( get_the_ID(), 'phort_' . $option, true );
 
-		if ( $value && $value !== $default ) {
-			return $value;
+		if ( $meta && $meta !== $default ) {
+			return $meta;
 		}
 	}
 
