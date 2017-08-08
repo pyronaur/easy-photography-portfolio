@@ -1,5 +1,16 @@
 <?php
+function phort_get_meta( $option, $default = NULL ) {
 
+	if ( in_the_loop() ) {
+		$meta = get_post_meta( get_the_ID(), 'phort_' . $option, true );
+
+		if ( $meta && $meta !== $default ) {
+			return $meta;
+		}
+	}
+
+	return $default;
+}
 
 /**
  * Easy way to get option values
@@ -50,13 +61,7 @@ function phort_get_option( $option, $deprecated = '' ) {
 	 * Priority #2: `get_post_meta()`
 	 * Get `$option` from post meta
 	 */
-	if ( in_the_loop() ) {
-		$meta = get_post_meta( get_the_ID(), 'phort_' . $option, true );
-
-		if ( $meta && $meta !== $default ) {
-			return $meta;
-		}
-	}
+	$value = phort_get_meta( $option, $default );
 
 	/**
 	 * Priority #3: `cmb2_get_option()`
