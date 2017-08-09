@@ -59,7 +59,7 @@ class Welcome_Message {
 		$url_documentation  = "http://go.colormelon.com/epp-tutorial";
 		?>
 		<div class="Phort_Welcome notice">
-			<h4><?php esc_html_e( 'Welcome to Easy Photography Portfolio', 'MELON_TXT' ); ?></h4>
+			<h4><?php esc_html_e( 'Welcome to Easy Photography Portfolio', 'photography-portfolio' ); ?></h4>
 			<p>
 
 				<?php
@@ -67,7 +67,7 @@ class Welcome_Message {
 					wp_kses(
 						__(
 							'To get started, have a look at the <a target="_blank" href="%1$s">full setup guide</a> or the <a target="_blank" href="%2$s">video tutorial</a>',
-							'MELON_TXT'
+							'photography-portfolio'
 						),
 						// Kses rules:
 						[
