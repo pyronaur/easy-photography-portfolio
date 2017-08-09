@@ -48,14 +48,14 @@ class Setup_Sample_Content {
 		/**
 		 * If "Portfolio" already exists, use "Easy Photography Portfolio"
 		 */
-		if ( $phort_page_id ) {
+		if ( ! $phort_page_id ) {
 			$portfolio_page_title = esc_html__( 'Easy Photography Portfolio', 'photography-portfolio' );
 			$phort_page_id        = $this->get_portfolio_page( $portfolio_page_title );
 		}
 
 
 		/**
-		 * If either "Portfolio" or "Easy Photography Portfolio" doesn't exist, create a new page with the available title
+		 * If both "Portfolio" or "Easy Photography Portfolio" doesn't exist, create a new page with the available title
 		 */
 		if ( ! $phort_page_id ) {
 			$page_data = [
