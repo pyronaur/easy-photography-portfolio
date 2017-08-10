@@ -29,6 +29,14 @@ msgstr ""
 msgid "Settings updated."
 msgstr ""
 
+#: Photography_Portfolio/Admin_View/Welcome_Message.php:62
+msgid "Welcome to Easy Photography Portfolio"
+msgstr ""
+
+#: Photography_Portfolio/Admin_View/Welcome_Message.php:68
+msgid "To get started, have a look at the <a target=\"_blank\" href=\"%1$s\">full setup guide</a> or the <a target=\"_blank\" href=\"%2$s\">video tutorial</a>"
+msgstr ""
+
 #: Photography_Portfolio/Core/Initialize_Layout_Registry.php:30
 msgid "Masonry with hover"
 msgstr ""
@@ -157,15 +165,15 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:118
+#: Photography_Portfolio/Frontend/Public_View.php:125
 msgid "Share on Facebook"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:119
+#: Photography_Portfolio/Frontend/Public_View.php:126
 msgid "Tweet"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:120
+#: Photography_Portfolio/Frontend/Public_View.php:127
 msgid "Pin it"
 msgstr ""
 
