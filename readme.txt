@@ -110,6 +110,16 @@ You can read the [full setup guide here](https://colormelon.com/easy-photography
 
 
 == Changelog ==
+= 1.2.2 =
+* Code clean-ups 🛁
+* Add new hook `phort/layout/init` - run before the view genertation has started
+* Make masonry fit the PP_Wrapper from edge to edge
+
+= 1.2.1 =
+* Only create "Easy Photography Portfolio" page when "Portfolio" doesn't exist
+* Add function `phort_get_meta()`
+
+
 = 1.2.0 =
 * Automatically open the popup gallery based on the URL 🤘
 * Add an alternative pop-up gallery - PhotoSwipe 🖼
