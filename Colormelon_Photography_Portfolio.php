@@ -167,27 +167,23 @@ final class Colormelon_Photography_Portfolio {
 		// Load Translations:
 		add_action( 'init', [ $this, 'load_translations' ] );
 
-		/**
-		 * Autoload Archive Data
-		 */
-		add_action(
-			'phort/load_template/archive/layout',
-			function () {
 
+		$instance = $this;
+		add_action('phort/layout/init', function() use ($instance) {
+			/*
+			 * @TODO: need a function to check wheter is archive or not
+			 * This is not dry, and is repeated @`phort_slug_current()`
+			 */
+			if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
 				Layout_Factory::autoload( 'archive', phort_slug_archive() );
 			}
-		);
 
-		/**
-		 * Autoload Single Portfolio entry data
-		 */
-		add_action(
-			'phort/load_template/single/layout',
-			function () {
-
+			if ( phort_instance()->query->is_single() ) {
 				Layout_Factory::autoload( 'single', phort_slug_single() );
 			}
-		);
+
+		});
+
 
 	}
 
