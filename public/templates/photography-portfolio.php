@@ -18,6 +18,8 @@
  *   There are plenty of other hooks and template files where you can tap into.
  */
 
+do_action('phort/layout/init');
+
 /**
  * Start Content Wrapper
  *
