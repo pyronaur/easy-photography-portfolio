@@ -8,7 +8,7 @@ Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easy Photography Portfolio is an elegant plugin designed for Photographers. Install the plugin, add portfolio entries and you'll have a portfolio in minutes!
+Easy Photography Portfolio is an elegant portfolio gallery plugin designed for Photographers. Install the plugin, add portfolio entries and galleries and you'll have a portfolio in minutes!
 
 == Description ==
 
@@ -17,7 +17,7 @@ Building a photography portfolio for WordPress should be easy. So we made a plug
 
 ### Quick Overview
 Easy Photography Portfolio is based on the idea of albums with images that can optionally be grouped in categories!
-By default, albums and images are displayed in a masonry  layout. You open up an album to see all the images. then click on an image to look at it closer.
+By default, albums and images are displayed in a masonry gallery. You open up an album to see all the images. then click on an image to look at it closer.
 I think it might be easier to explain with a demo.
 
 ### Plugin Demo
