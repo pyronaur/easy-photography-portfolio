@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @param      $option
+ * @param null $default
+ *
+ * @return mixed|null
+ */
 function phort_get_meta( $option, $default = NULL ) {
 
 	if ( in_the_loop() ) {
