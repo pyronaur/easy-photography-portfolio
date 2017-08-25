@@ -5,6 +5,7 @@ Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content 
 Requires at least: 4.7.0
 Tested up to: 4.8.1
 Stable tag: 1.2.2
+Requires PHP: 5.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,18 +21,45 @@ Easy Photography Portfolio is based on the idea of albums with images that can o
 By default, albums and images are displayed in a masonry gallery. You open up an album to see all the images. then click on an image to look at it closer.
 I think it might be easier to explain with a demo.
 
-### Plugin Demo
-* Default: **[Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/)** - default plugin settings and layout
-* Custom: [Aventine Portfolio Theme](http://aventine.bycolormelon.com/) - custom design in a premium theme
-* Custom: [Horizon Portfolio Theme](http://horizon.bycolormelon.com/) - horizontal layout in a premium theme
+###  Plugin Demo
+Easy Photography Portfolio is extremely flexible, from the most basic to completely custom designs.
+
+**📌 Demo: Twenty Seventeen Portfolio**
+
+**[Twenty Seventeen Theme Demo](http://default.portfolio.bycolormelon.com/)** works out of the box with Easy Photography Portfolio. This demo demonstrates the basic default plugin settings and layout.
+
+But there is a lot you can do to customize Easy Photography Portfolio in themes, here are a few more examples...
+
+**📌 Demo: Minimalist Portfolio**
+
+Minimalist Portfolio is a **free** Hamilton child theme - customized to look great with Easy Photography Portfolio plugin!
+
+* **[Minimalist Portfolio Demo](http://befree.bycolormelon.com/)**
+* [Tutorial](https://colormelon.com/free-portfolio-website-tutorial/) - full theme and plugin setup
+* [Source Code](https://github.com/justnorris/minimalist-portfolio) on GitHub
 
 
-## How to setup
-The plugin is easy to use to setup, but to make it even easier for you, I've made this video tutorial:
+**📌 Demo: Premium WordPress Themes**
 
+The plugin is customizable to an almost unrecognizable degree.
+Here are a few examples of how we've utilized the plugin in our premium photography portfolio themes:
+
+Premium theme demo links:
+
+* [Horizon Theme](http://horizon.bycolormelon.com/) - Horizontal Fullscreen Layout
+* [Aventine Theme](http://aventine.bycolormelon.com/) - Custom Masonry Design, Horizontal Layout
+* [Bluebird Theme](http://bluebird.bycolormelon.com/) - Horizontal Layout, Multiple layout options
+
+
+## 📚 Setup Tutorials
+The plugin name gave it away - it's really easy to set up a portfolio with it. And yet, here are some extra resources for you:
+
+* [Full setup guide](https://colormelon.com/easy-photography-portfolio-full-setup-guide/) - as close to documentation as you can get
+* [A-Z Photography Portfolio tutorial](https://colormelon.com/free-portfolio-website-tutorial/) with Hamilton child theme
+
+### 🎥 Video Tutorial
+If detailed documentation and guides aren't enough for you, watch the video tutorial:
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
-
-You can also read the [full setup guide here](https://colormelon.com/easy-photography-portfolio-full-setup-guide/)
 
 
 
@@ -74,33 +102,37 @@ The JavaScript side is also very opinionated and easily extensible. You can use 
 
 
 ### WordPress Themes
-We also build premium [WordPress themes for Photographers](https://colormelon.com). Have a look at our *Portfolio* and maybe you fall in love with one of them!
+We also build premium [WordPress themes for Photographers](https://colormelon.com/themes). Have a look at our *Portfolio* and maybe you fall in love with one of them!
 
-Because our business is to build WordPress themes, **this is not "Photography Portfolio Lite"** with a billion up-sells. This is a fully featured Photography Portfolio plugin with albums, images, categories, a Pop-up gallery and even video support.
+Because we make money designing WordPress themes, this is **not** "Photography Portfolio Lite with a million up-sells. This is a fully featured Photography Portfolio plugin with albums, images, categories, a 2 popup gallery options and even video support.
 
 We respect our users and believe that one can recognize quality on their own, without being bombarded with constant "buy extra functionality" junk. We know we build awesome *ship*, now you know it too. You can have a look at our premium stuff when you feel like it, if not - that's cool too. Especially if you're just starting out, you might have to cut some corners and bootstrap everything on your own, and even then, we truly believe this plugin is going to do wonders for you! Pick a simple minimalistic theme, install the plugin, and enjoy a clean portfolio website that you can grow on your own!
 
 
 == Frequently Asked Questions ==
 
-= Is it easy to set up ? =
-Easy as pie. Watch the video - everything you need to know in 7 minutes:
+= Help!!!! =
+[Okay](https://wordpress.org/support/plugin/photography-portfolio)
+
+= How to use the plugin? =
+It's quite easy to set up the plugin. Here are a few resources:
+
+* [Full setup guide](https://colormelon.com/easy-photography-portfolio-full-setup-guide/) - as close to documentation as you can get
+* [A-Z Photography Portfolio tutorial](https://colormelon.com/free-portfolio-website-tutorial/) with Hamilton child theme
+
+There is also a 7 minute video tutorial:
+
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
 
-= Is it Developer Friendly? =
-Yes. Very friendly.
-We use this plugin in all our themes, and it's important to make it easily extendable.
-Browse the source on Github: https://github.com/justnorris/easy-photography-portfolio
-
-= Any examples on how to extend or integrate the plugin in my theme? =
-More to come in time.
-For now, there is this wiki article: https://github.com/justnorris/easy-photography-portfolio/wiki/Useful-Snippets
+= Is this Developer friendly? Any examples? =
+Everything code-related can be found on [GitHub](https://github.com/justnorris/easy-photography-portfolio/) and [Github Wiki](https://github.com/justnorris/easy-photography-portfolio/wiki/)
+If you have questions, you can ask them in [Support Forums](https://wordpress.org/support/plugin/photography-portfolio) or in [GitHub issues](https://github.com/justnorris/easy-photography-portfolio/issues) or tweet me [@justnorris](https://twitter.com/justnorris)
 
 == Installation ==
 
 This plugin requires at least **PHP 5.4**
 
-You can read the [full setup guide here](https://colormelon.com/easy-photography-portfolio-full-setup-guide/) or watch the [video tutorial](https://www.youtube.com/watch?v=b5mevuD-hPI)
+You can read the **[full setup guide here](https://colormelon.com/easy-photography-portfolio-full-setup-guide/)** or watch the [video tutorial](https://www.youtube.com/watch?v=b5mevuD-hPI)
 
 1. Upload "Photography Portfolio" plugin to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
