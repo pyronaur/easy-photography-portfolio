@@ -2,13 +2,14 @@ transparentize(args...)
 	transparentify(args)
 
 
-balc(size, add = 0)
-	"calc(100% + %s)" % (add)
+calc_sub_func(w = 100%, subtract = 0)
+	return "calc(%s - %s)" % (w subtract)
 
-calc_sub(width, subtract)
-	width: 100%
-	width: "calc(100% - %s)" % (subtract)
+calc_add_func(w = 100%, subtract = 0)
+	return "calc(%s + %s)" % (w subtract)
 
-calc_add(width, subtract)
-	width: 100%
-	width: "calc(100% + %s)" % (subtract)
+calc_sub(w = 100%, subtract)
+	width: calc_sub_func(w, subtract)
+
+calc_add(w = 100%, subtract)
+	width: calc_add_func(w, subtract)

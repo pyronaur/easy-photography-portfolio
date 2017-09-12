@@ -3,13 +3,16 @@
  * 3rd party plugins & themes compatibility.
  * Load files individually.
  *
- * @since 1.1.2
+ * @since   1.1.2
+ * @updated 1.2.3
  */
 
 /**
- * This file should work without errors on PHP 5.2.17
- * Use this instead of __DIR__
+ * Add WPML Compatiblity
  */
-$__DIR = dirname( __FILE__ );
+require_once __DIR__ . '/wpml.php';
 
-require_once $__DIR . '/wpml.php';
+/**
+ * Add some defaults for themes that don't natively support Easy Photography Portfolio
+ */
+require_once __DIR__ . '/unsupported-theme-defaults.php';

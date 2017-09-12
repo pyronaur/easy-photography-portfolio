@@ -1,7 +1,7 @@
 GLOBAL.config =
 
 	# General Config
-	url  : "http://horizon.demmoo.com"
+	url  : "http://bird.demmoo.com"
 	build: "./public/build"
 
 	### External Libraries & Their URLs ###

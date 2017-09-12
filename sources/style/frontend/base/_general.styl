@@ -1,9 +1,12 @@
 .PP_Wrapper
-	max-width: 1600px
+	max-width: $site_max_width
 	min-height: 75vh
 	clear: both
 	margin-left: auto
 	margin-right: auto
+	width: 96%
+	@media screen and (max-width: 1599px)
+		max-width: calc_sub_func(96vw, ($masonry_gutter_size * 2))
 
 	/**
 		Some themes don't handle images properly

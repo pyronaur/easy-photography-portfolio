@@ -1,14 +1,10 @@
-$site_max_width = 1200px
-$masonry_gutter_size = 10px
-$masonry_entry_width = $site_max_width / 3
-
 
 //-----------------------------------*/
 // Masonry Entries
 //-----------------------------------*/
 .PP_Masonry
-	margin-left: - $masonry_gutter_size
-	calc_add(100%, $masonry_gutter_size*2)
+	margin-left: $masonry_gutter_size * -1
+	calc_add(100%, $masonry_gutter_size * 2)
 	opacity: 1
 	transition: opacity 500ms ease
 
@@ -44,8 +40,8 @@ $masonry_entry_width = $site_max_width / 3
 
 	@media $palm
 		border-width: 0px
-		margin-bottom: $p
+		margin-bottom: $masonry_gutter_size
 
 .PP_Masonry__header
 		margin-top: $p
-		margin-bottom: $p - 0.35rem
+		margin-bottom: $p
