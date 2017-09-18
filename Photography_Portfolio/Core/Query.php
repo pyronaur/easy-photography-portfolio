@@ -21,8 +21,10 @@ class Query {
 	 */
 	public function __construct() {
 
+		add_action( 'pre_get_posts', [$this, 'store_original_query'], 2 );
 		add_action( 'pre_get_posts', [ $this, 'set_variables' ], 5 );
 		add_action( 'pre_get_posts', [ $this, 'increase_ppp_limit' ], 25 );
+
 	}
 
 
@@ -32,16 +34,11 @@ class Query {
 			return;
 		}
 
-
-		// Store the original query
-		$this->original_query = clone $query;
-
 		// Alter the $wp_query
 		$this->set_is_archive( $query );
 		$this->set_is_category( $query );
 		$this->set_is_single( $query );
 	}
-
 
 	protected function set_is_archive( \WP_Query $query ) {
 
@@ -209,6 +206,10 @@ class Query {
 	public function is_category() {
 
 		return $this->is_category;
+	}
+
+	public function store_original_query( \WP_Query $query ) {
+		$this->original_query = clone $query;
 	}
 
 
