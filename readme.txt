@@ -4,7 +4,7 @@ Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.7.0
 Tested up to: 4.8.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 Requires PHP: 5.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -142,6 +142,10 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.2.4 =
+* Improve custom portfolio query compatiblity
+* Improve default layout styling
+
 = 1.2.2 =
 * Code clean-ups 🛁
 * Add new hook `phort/layout/init` - run before the view genertation has started
@@ -161,7 +165,6 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 * Don't rely on underscore.js anymore
 * Don't load jQuery Masonry when it's not needed
 * Increase gallery z-index to fix popup gallery display poorly coded themes
-
 
 
 = 1.1.9 =
