@@ -209,6 +209,11 @@ class Query {
 	}
 
 	public function store_original_query( \WP_Query $query ) {
+
+		if ( ! $query->is_main_query() ) {
+			return;
+		}
+
 		$this->original_query = clone $query;
 	}
 
