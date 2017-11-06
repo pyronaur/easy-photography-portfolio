@@ -4,7 +4,7 @@
  * Photography Portfolio
  *
  * ---
- * Welcome to the public facing part of the Photography Portfolio plugin/
+ * Welcome to the public facing part of the "Easy Photography Portfolio" plugin
  * ---
  *
  * + public/assets/
@@ -15,7 +15,7 @@
  *
  * + public/templates/
  *      That magical direcotry where the plugin looks for layouts.
- *      Copy this to your /your-theme-name/photography-portfolio/ and override what you must.
+ *      You can copy this to your /your-theme-name/photography-portfolio/ and override what you must.
  *
  *
  */

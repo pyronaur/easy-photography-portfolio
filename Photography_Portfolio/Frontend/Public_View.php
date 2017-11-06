@@ -9,7 +9,10 @@ use Photography_Portfolio\Settings\Gallery\lightGallery;
 class Public_View {
 
 
-	protected $build_dir;
+	/**
+	 * @var string - Where all the scripts and styles live
+	 */
+	protected $build_directory_url;
 
 
 	/**
@@ -27,7 +30,9 @@ class Public_View {
 		add_action( 'phort/wrapper/end', [ $this, 'render_wrapper_end' ] );
 
 		// Adjust .PP_Wrapper classes
-		add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
+		if ( ! phort_has_theme_support() ) {
+			add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
+		}
 
 
 		// Add Photoswipe template
@@ -36,10 +41,13 @@ class Public_View {
 			add_action( 'get_footer', [ $this, 'display_photoswipe_html' ], 1000 );
 		}
 
-		$this->build_dir = CLM_PLUGIN_DIR_URL . 'public/build/';
+		$this->build_directory_url = CLM_PLUGIN_DIR_URL . 'public/build/';
 	}
 
 
+	/**
+	 * @return bool
+	 */
 	public function enqueue() {
 
 		// Register scripts & styles
@@ -75,6 +83,10 @@ class Public_View {
 	}
 
 
+	/**
+	 * Register Scripts and Styles
+	 * This doesn't enqueue anything yet.
+	 */
 	public function register() {
 
 		$dependencies = [
@@ -85,22 +97,22 @@ class Public_View {
 
 
 		// Styles
-		wp_register_style( 'phort-style', $this->build_dir . 'photography-portfolio.css' );
-		wp_register_style( 'phort-gallery-lightgallery', $this->build_dir . 'libs/lightgallery.css' );
-		wp_register_style( 'phort-gallery-photoswipe-ui', $this->build_dir . 'libs/photoswipe-ui.css' );
-		wp_register_style( 'phort-gallery-photoswipe', $this->build_dir . 'libs/photoswipe.css', [ 'phort-gallery-photoswipe-ui' ] );
+		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );
+		wp_register_style( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/lightgallery.css' );
+		wp_register_style( 'phort-gallery-photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.css' );
+		wp_register_style( 'phort-gallery-photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'phort-gallery-photoswipe-ui' ] );
 
 
 		// Scripts
-		wp_register_script( 'wp-js-hooks', $this->build_dir . 'libs/wp-js-hooks.js', NULL, NULL, true );
-		wp_register_script( 'phort-app', $this->build_dir . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
+		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, NULL, true );
+		wp_register_script( 'phort-app', $this->build_directory_url . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 		// Gallery Scripts
-		wp_register_script( 'phort-gallery-lightgallery', $this->build_dir . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
-		wp_register_script( 'phort-gallery-photoswipe-ui', $this->build_dir . 'libs/photoswipe-ui.js', NULL, NULL, true );
+		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
+		wp_register_script( 'phort-gallery-photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, NULL, true );
 		wp_register_script(
 			'phort-gallery-photoswipe',
-			$this->build_dir . 'libs/photoswipe.js',
+			$this->build_directory_url . 'libs/photoswipe.js',
 			[ 'jquery', 'phort-gallery-photoswipe-ui' ],
 			NULL,
 			true
@@ -112,6 +124,10 @@ class Public_View {
 	}
 
 
+	/**
+	 * Return JavaScript settings to be included in a global
+	 * @return mixed|void
+	 */
 	public function javascript_settings() {
 
 
@@ -141,6 +157,15 @@ class Public_View {
 	}
 
 
+	/**
+	 * Adjust CSS Classes on the <body> element
+	 *
+	 * @filter body_class
+	 *
+	 * @param $classes
+	 *
+	 * @return array
+	 */
 	public function adjust_body_class( $classes ) {
 
 		if ( ! phort_is_portfolio() ) {
@@ -176,12 +201,18 @@ class Public_View {
 	}
 
 
+	/**
+	 * If there is no theme support, users can add their own class name to the wrapper.
+	 * Attach that classname with this funciton:
+	 *
+	 * @param $classes
+	 * @param $class
+	 *
+	 * @return array
+	 */
 	public function adjust_wrapper_class( $classes, $class ) {
 
-		/**
-		 * Only affect .PP_Wrapper
-		 */
-
+		// Only affect .PP_Wrapper
 		if ( ! in_array( 'PP_Wrapper', $classes ) ) {
 			return $classes;
 		}
