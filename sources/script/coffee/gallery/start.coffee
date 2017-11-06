@@ -8,10 +8,12 @@ Hooks = require( 'wp_hooks' )
 # Gallery Driver:
 # The driver is responsible for adapting the popup gallery to Easy Photography Portfolio
 driver_name = window.__phort.popup_gallery || 'lightgallery'
+
 if driver_name is 'lightgallery'
-	Gallery_Driver = require( './driver_lightgallery' )
+	Gallery_Driver = require( './drivers/lightgallery' )
+
 if driver_name is 'photoswipe'
-	Gallery_Driver = require( './driver_photoswipe' )
+	Gallery_Driver = require( './drivers/photoswipe' )
 
 Gallery_Driver = Hooks.applyFilters( 'phort.gallery.driver', Gallery_Driver )
 return if not Gallery_Driver
