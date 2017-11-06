@@ -4,7 +4,6 @@
 Hooks = require( 'wp_hooks' )
 $ = require( 'jQuery' )
 
-
 # Expose some Photography Portfolio modules to the public for extensibility
 window.PP_Modules =
 	# Extend Portfolio Interface to build custom portfolio layouts based on PP Events
