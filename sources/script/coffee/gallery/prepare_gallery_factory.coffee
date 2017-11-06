@@ -1,3 +1,5 @@
+Hooks = require("wp_hooks")
+
 #
 # This file is going to return a [Gallery Factory] instance
 # Easy Photography Portfolio is using that to open/close/destroy galleries
@@ -33,8 +35,8 @@ setup_factory = ->
 #
 # Return a factory instance
 #
-module.exports = ->
-	gallery_driver = setup_driver( window.__phort.popup_gallery )
-	gallery_factory = setup_factory( )
 
-	return gallery_factory( gallery_driver )
+gallery_driver = setup_driver( window.__phort.popup_gallery )
+gallery_factory = setup_factory( )
+
+module.exports = gallery_factory( gallery_driver )
