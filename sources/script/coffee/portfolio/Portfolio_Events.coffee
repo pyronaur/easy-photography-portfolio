@@ -1,4 +1,4 @@
-Hooks = require( "wp_hooks" )
+Hooks = require( 'wp_hooks' )
 
 ###
 
@@ -9,7 +9,7 @@ Hooks = require( "wp_hooks" )
 	---
 
 ###
-class Portfolio_Event_Manager
+module.exports =
 
 	prepare: ->
 		Hooks.doAction 'phort.portfolio.prepare'
@@ -29,6 +29,3 @@ class Portfolio_Event_Manager
 		# Destroy
 		Hooks.doAction 'phort.portfolio.destroy'
 		return
-
-
-module.exports = Portfolio_Event_Manager

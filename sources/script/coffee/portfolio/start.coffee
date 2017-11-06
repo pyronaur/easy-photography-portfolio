@@ -1,13 +1,11 @@
 ###
     Dependencies
 ###
-Hooks = require( "wp_hooks" )
-Portfolio_Event_Manager = require( './Portfolio_Event_Manager' )
 $ = require( 'jQuery' )
+Hooks = require( "wp_hooks" )
 
 # Portfolio manager will trigger portfolio events when necessary
-Portfolio = new Portfolio_Event_Manager()
-
+Trigger = require( './Portfolio_Events' )
 
 is_masonry = ->
 	return ( $( '.PP_Masonry' ).length isnt 0 )
@@ -26,8 +24,8 @@ maybe_lazy_masonry = ( handler ) ->
 
 
 # Start Portfolio
-Hooks.addAction 'phort.core.ready', Portfolio.prepare, 50
-Hooks.addAction 'phort.core.loaded', Portfolio.create, 50
+Hooks.addAction 'phort.core.ready', Trigger.prepare, 50
+Hooks.addAction 'phort.core.loaded', Trigger.create, 50
 
 # Initialize Masonry Layout
 Hooks.addAction 'phort.core.ready', start_masonry
