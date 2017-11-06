@@ -17,7 +17,7 @@ if window.location.hash and Gallery.handle_hash
 # ESC Key
 if Hooks.applyFilters 'phort.gallery.custom_esc', true
 	$( window ).on 'keydown', ( e ) ->
-		return unless e.keyCode is 27
+		return unless e.key is 'Escape'
 		e.preventDefault( )
 		Gallery.close( )
 
