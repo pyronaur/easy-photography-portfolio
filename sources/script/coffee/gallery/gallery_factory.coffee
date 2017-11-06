@@ -47,5 +47,5 @@ module.exports = ( Gallery_Driver ) ->
 		instance.close( )
 		instance = false
 
-		Hooks.doAction( 'phort.gallery.open', instance )
+		Hooks.doAction( 'phort.gallery.close', instance )
 		return
