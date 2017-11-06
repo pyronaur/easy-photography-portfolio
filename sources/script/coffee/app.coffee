@@ -20,7 +20,7 @@ window.PP_Modules =
 
 
 window.Photography_Portfolio =
-	Core            : require( './core/Photography_Portfolio' )
+	Core            : require( './core/start' )
 	Portfolio_Layout: require( './portfolio/start' )
 	Gallery         : require( './gallery/start' )
 	Lazy_Loader     : require( './lazy/start' )
@@ -34,7 +34,5 @@ $( document ).ready ->
 	return if not $( 'body' ).hasClass( 'PP_Portfolio' )
 
 	# Boot
-	portfolio = new Photography_Portfolio.Core( )
-	portfolio.ready( )
-
+	Photography_Portfolio.Core.ready( )
 	return
