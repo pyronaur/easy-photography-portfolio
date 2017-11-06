@@ -6,7 +6,6 @@ Hooks = require( 'wp_hooks' )
 galery_item_data = require( './gallery_item_factory' )
 
 
-
 parse_gallery_item = ( key, el ) ->
 	$el = $( el )
 
@@ -18,7 +17,7 @@ parse_gallery_item = ( key, el ) ->
 module.exports = ( Gallery_Driver ) ->
 	instance = false
 
-	open = (el) ->
+	open = ( el ) ->
 		$el = $( el )
 		$items = $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' )
 
@@ -29,6 +28,9 @@ module.exports = ( Gallery_Driver ) ->
 			instance = Gallery_Driver( $el )
 			instance.open( gallery_items, index )
 
+			Hooks.doAction( 'phort.gallery.open', instance, gallery_items, index )
+
+		return
 
 	open: open
 
@@ -37,8 +39,13 @@ module.exports = ( Gallery_Driver ) ->
 		el = $( '.PP_Gallery' ).first( ).find( '.PP_Gallery__item' ).get( index )
 		open( el )
 
+		return
+
 	close: ->
 		return false if not instance
 
 		instance.close( )
 		instance = false
+
+		Hooks.doAction( 'phort.gallery.open', instance )
+		return
