@@ -21,3 +21,5 @@ if Hooks.applyFilters 'phort.gallery.custom_esc', true
 		e.preventDefault( )
 		Gallery.close( )
 
+
+module.exports = Gallery
