@@ -82,7 +82,7 @@ thumbnail_position = ( $gallery ) -> return ( index ) ->
 
 module.exports = ( $el ) ->
 	Gallery = false
-
+	instance: -> Gallery
 	close: ->
 		return if not Gallery
 		Gallery.close( )

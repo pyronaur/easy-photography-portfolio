@@ -41,6 +41,7 @@ get_settings = ( gallery, index ) ->
 
 
 module.exports = ( $el ) ->
+	instance: -> Gallery
 	close: ->
 		Gallery = $el.data( 'lightGallery' )
 		Gallery.destroy( ) if Gallery and Gallery.destroy?
