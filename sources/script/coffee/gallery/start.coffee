@@ -5,7 +5,7 @@ $ = require( 'jQuery' )
 Hooks = require( 'wp_hooks' )
 Gallery = require( './prepare_gallery_factory' )
 
-Hooks.addAction 'phort.core.ready', ->
+$(document).ready ->
 
 	handle_clicks = Hooks.applyFilters( 'phort.gallery.handle_clicks', true )
 	handle_hash = Hooks.applyFilters( 'phort.gallery.handle_hash', true )
