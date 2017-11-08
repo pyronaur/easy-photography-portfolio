@@ -63,3 +63,24 @@ function phort_has_video_support() {
 }
 
 
+/**
+ * **EXPERIMENTAL**
+ * Shorthand to easily attach a class to `phort_get_class`
+ *
+ * @param $where - Which class to attach your custom class to
+ * @param $class - The custom class to attach
+ */
+function phort_attach_class( $where, $class ) {
+
+	add_filter(
+		'phort_get_class',
+		function ( $classes ) use ( $where, $class ) {
+
+			if ( in_array( $where, $classes ) ) {
+				$classes[] = $class;
+			}
+
+			return $classes;
+		}
+	);
+}
