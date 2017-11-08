@@ -1,4 +1,5 @@
 <?php
+
 use Photography_Portfolio\Core\Gallery_Attachment_Video_Support;
 use Photography_Portfolio\Frontend\Layout\View;
 
@@ -36,7 +37,17 @@ function phort_get_home_page() {
 
 function phort_has_theme_support() {
 
-	return get_theme_support( 'photography-portfolio-plugin' );
+	return (
+
+		/**
+		 * @deprecated: `photography-portfolio-plugin`
+		 * Use `easy-photography-portfolio` instead
+		 */
+		get_theme_support( 'photography-portfolio-plugin' )
+		||
+		get_theme_support( 'easy-photography-portfolio' )
+
+	);
 }
 
 
@@ -50,3 +61,5 @@ function phort_has_video_support() {
 
 	return Gallery_Attachment_Video_Support::$video_enabled;
 }
+
+
