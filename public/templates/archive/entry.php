@@ -2,11 +2,11 @@
 /*
  * Generic Archive Entry
  * @since 1.0.0
- * @modified 1.0.0
+ * @modified 1.3.0
  */
 ?>
 
-<div <?php phort_class( 'PP_Entry' ); ?> <?php phort_entry_data_attribute() ?> id="PP_Entry-<?php the_ID() ?>">
+<div <?php phort_class( 'PP_Entry' ); ?> <?php phort_entry_data_attributes() ?> id="PP_Entry-<?php the_ID() ?>">
 
 	<?php if ( phort_entry_has_featured_image() ): ?>
 		<div class="PP_Entry__thumbnail">

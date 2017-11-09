@@ -89,6 +89,7 @@ else {
 	require_once $__DIR . '/public/functions/functions.php';
 	require_once $__DIR . '/public/functions/slugs.php';
 	require_once $__DIR . '/public/functions/template-tags.php';
+	require_once $__DIR . '/public/functions/hooks.php';
 
 
 	/**

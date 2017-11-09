@@ -1,4 +1,5 @@
 <?php
+
 use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Template;
@@ -100,17 +101,24 @@ function phort_entry_has_featured_image() {
 	return $phort_layout->entry->has_featured_image();
 }
 
+
+/**
+ * @deprecated  since 1.3.0 use phort_entry_data_attributes() instead
+ */
 function phort_entry_data_attribute() {
 
-	global $phort_layout;
-
-	if ( ! phort_entry_has_featured_image() ) {
-		return false;
-	}
-
-	$data = new Gallery_Data_Renderer( $phort_layout->entry->featured_image, $phort_layout->attached_sizes );
-	$data->render();
+	_deprecated_function( __FUNCTION__, "1.3.0", "phort_entry_data_attributes" );
+	phort_entry_data_attributes();
 }
+
+/**
+ * Allow custom attributes to be added to entries
+ */
+function phort_entry_data_attributes() {
+
+	do_action( 'phort/archive/entry/attributes' );
+}
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Portfolio Gallery
