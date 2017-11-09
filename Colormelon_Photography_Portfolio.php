@@ -50,7 +50,7 @@ final class Colormelon_Photography_Portfolio {
 	 *
 	 * @var string
 	 */
-	private $version = '1.2.5';
+	private $version = '1.3.0';
 
 
 	/**
