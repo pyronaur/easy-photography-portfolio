@@ -28,7 +28,9 @@ PhotoSwipe = window.PhotoSwipe
 
 
 create = ( data, opts = {} ) ->
-	options = Hooks.applyFilters( "phort.photoswipe.options", $.extend( {}, defaults, opts ) )
+
+	options = $.extend( {}, defaults, opts )
+	options = Hooks.applyFilters( "phort.photoswipe.options", options, data, opts )
 
 	# Index is 0 by default
 	if not options.index?
