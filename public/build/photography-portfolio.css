@@ -59,6 +59,7 @@
 }
 .PP_Masonry__item {
   border: 10px solid transparent;
+  margin: 0;
   position: relative;
 }
 .PP_Masonry__item a,

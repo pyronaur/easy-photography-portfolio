@@ -165,15 +165,15 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:125
+#: Photography_Portfolio/Frontend/Public_View.php:141
 msgid "Share on Facebook"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:126
+#: Photography_Portfolio/Frontend/Public_View.php:142
 msgid "Tweet"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:127
+#: Photography_Portfolio/Frontend/Public_View.php:143
 msgid "Pin it"
 msgstr ""
 
