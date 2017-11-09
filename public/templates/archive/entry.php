@@ -19,7 +19,7 @@
 	<div class="PP_Entry__header">
 
 		<h3 class="PP_Entry__title">
-			<a href="<?php the_permalink(); ?>" <?php phort_class('PP_Entry__permalink') ?>>
+			<a href="<?php the_permalink(); ?>" <?php phort_class( 'PP_Entry__permalink' ) ?>>
 				<?php the_title(); ?>
 			</a>
 		</h3>
