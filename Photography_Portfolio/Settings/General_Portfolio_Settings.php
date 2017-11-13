@@ -103,33 +103,46 @@ class General_Portfolio_Settings {
 			'options'          => $this->get_all_pages(),
 		];
 
-		$settings[] = [
-			'id'      => "portfolio_page_displays",
-			'name'    => esc_html__( 'In Portfolio Home Page', 'photography-portfolio' ),
-			'type'    => 'select',
-			'default' => 'all',
-			'options' => [
-				'all'            => esc_html__( 'Show all Portfolio entries', 'photography-portfolio' ),
-				'phort_post_category' => esc_html__( 'Show a Portfolio category', 'photography-portfolio' ),
-				'phort_post'     => esc_html__( 'Show a single Portfolio entry', 'photography-portfolio' ),
-			],
-		];
+		/**
+		 * Add custom home page query in themes where the theme isn't already runnign a custom query
+		 */
+		if ( ! class_exists( '\Theme\Page_Template_Query_Filter' ) ) {
 
-		$settings[] = [
-			'id'               => "portfolio_home_category",
-			'name'             => esc_html__( 'Category to Display', 'photography-portfolio' ),
-			'type'             => 'select',
-			'show_option_none' => true,
-			'options'          => $this->get_portfolio_categories(),
-		];
+			$setting_requires_homepage = esc_html__(
+				'Please note that this setting will only work if the "Portfolio Home Page" is also set as the home page in "Settings" -> "General" -> "Reading" -> "Front page displays"',
+				'photography-portfolio'
+			);
 
-		$settings[] = [
-			'id'               => "portfolio_home_entry",
-			'name'             => esc_html__( 'Portfolio Entry to Display', 'photography-portfolio' ),
-			'type'             => 'select',
-			'show_option_none' => true,
-			'options'          => $this->get_portfolio_entries(),
-		];
+			$settings[] = [
+				'id'      => "portfolio_page_displays",
+				'name'    => esc_html__( 'In Portfolio Home Page', 'photography-portfolio' ),
+				'type'    => 'select',
+				'default' => 'all',
+				'options' => [
+					'all'                 => esc_html__( 'Show all Portfolio entries', 'photography-portfolio' ),
+					'phort_post_category' => esc_html__( 'Show a Portfolio category', 'photography-portfolio' ),
+					'phort_post'          => esc_html__( 'Show a single Portfolio entry', 'photography-portfolio' ),
+				],
+			];
+
+			$settings[] = [
+				'id'               => "portfolio_home_category",
+				'name'             => esc_html__( 'Category to Display', 'photography-portfolio' ),
+				'type'             => 'select',
+				'show_option_none' => true,
+				'options'          => $this->get_portfolio_categories(),
+				'desc'             => $setting_requires_homepage,
+			];
+
+			$settings[] = [
+				'id'               => "portfolio_home_entry",
+				'name'             => esc_html__( 'Portfolio Entry to Display', 'photography-portfolio' ),
+				'type'             => 'select',
+				'show_option_none' => true,
+				'options'          => $this->get_portfolio_entries(),
+				'desc'             => $setting_requires_homepage,
+			];
+		}
 
 		/**
 		 *
