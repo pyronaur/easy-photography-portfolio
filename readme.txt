@@ -1,5 +1,5 @@
 === Easy Photography Portfolio ===
-Contributors: colormelon, justnorris
+Contributors: Colormelon
 Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.7.0
@@ -32,7 +32,7 @@ But there is a lot you can do to customize Easy Photography Portfolio in themes,
 
 **📌 Demo: Minimalist Portfolio**
 
-Minimalist Portfolio is a **free** Hamilton child theme - customized to look great with Easy Photography Portfolio plugin!
+[Minimalist Portfolio](https://wordpress.org/themes/minimalist-portfolio/) is a **free** WordPress theme - customized to look great with Easy Photography Portfolio plugin!
 
 * **[Minimalist Portfolio Demo](http://befree.bycolormelon.com/)**
 * [Tutorial](https://colormelon.com/free-portfolio-website-tutorial/) - full theme and plugin setup
@@ -44,11 +44,11 @@ Minimalist Portfolio is a **free** Hamilton child theme - customized to look gre
 The plugin is customizable to an almost unrecognizable degree.
 Here are a few examples of how we've utilized the plugin in our premium photography portfolio themes:
 
-Premium theme demo links:
+Our Premium WordPress themes work really great with Easy Photography Portfolio!
 
-* [Horizon Theme](http://horizon.bycolormelon.com/) - Horizontal Fullscreen Layout
-* [Aventine Theme](http://aventine.bycolormelon.com/) - Custom Masonry Design, Horizontal Layout
-* [Bluebird Theme](http://bluebird.bycolormelon.com/) - Horizontal Layout, Multiple layout options
+* [Horizon Theme](http://colormelon.com/theme/horizon) - Horizontal Fullscreen Layout
+* [Aventine Theme](http://colormelon.com/theme/aventine) - Custom Masonry Design, Horizontal Layout
+* [Bluebird Theme](http://colormelon.com/theme/bluebird) - Horizontal Layout, Multiple layout options
 
 
 ## 📚 Setup Tutorials
@@ -142,6 +142,21 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.3.0 =
+* It's finally here! You asked for it, and now it's here! Drumroll please!
+* 🥁 🥁 🥁 🥁 🥁 🍗 🥁
+* 🎉 Added option to set a single portfolio gallery as your home page!
+* 🎉 Added option to set a portfolio category as your home page!
+* 🎉 Added option to hide gallery captions in post-view while showing them in pop-up galleries!
+* Also, some under-the hood moficiations for the way galleries are handled. Makes it easier to style the plugin
+* Also, fixed bugs 🐛
+* Most probably introduced a bug or two with the new homepage functionality!
+* What do you call a lazy doctor? Dr. Do Little. 👀
+* 🛠 Deprecate `phort_entry_data_attribute` in favor of `phort_entry_data_attributes` in `/templates/archive/entry.php` template
+
+= 1.2.5 =
+* Fixed bugs. 🐜
+
 = 1.2.4 =
 * Improve custom portfolio query compatiblity
 * Improve default layout styling
