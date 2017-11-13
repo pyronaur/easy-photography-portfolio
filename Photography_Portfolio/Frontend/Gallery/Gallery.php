@@ -1,4 +1,5 @@
 <?php
+
 namespace Photography_Portfolio\Frontend\Gallery;
 
 
@@ -69,7 +70,7 @@ class Gallery {
 	 *
 	 * @return array|bool|mixed
 	 */
-	protected function get_item_ids( $count = 0 ) {
+	public function get_item_ids( $count = 0 ) {
 
 		$gallery = get_post_meta( $this->ID, 'phort_gallery', true );
 
@@ -78,7 +79,7 @@ class Gallery {
 		}
 
 		if ( is_int( $count ) && $count > 0 ) {
-			$gallery = array_splice( $gallery, 0, $count );
+			$gallery = array_slice( $gallery, 0, $count, true );
 		}
 
 		return array_keys( $gallery );
