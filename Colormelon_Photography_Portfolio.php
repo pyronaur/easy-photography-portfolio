@@ -214,7 +214,7 @@ final class Colormelon_Photography_Portfolio {
 
 	public function action_links( $links ) {
 
-		$links[] = '<a href="' . esc_url( get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' ) ) . '">Settings</a>';
+		array_unshift($links, '<a href="' . esc_url( get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' ) ) . '">Settings</a>');
 
 		return $links;
 	}
