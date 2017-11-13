@@ -97,10 +97,38 @@ class General_Portfolio_Settings {
 
 		$settings[] = [
 			'id'               => "portfolio_page",
-			'name'             => esc_html__( 'Main Portfolio Page', 'photography-portfolio' ),
+			'name'             => esc_html__( 'Portfolio Home Page', 'photography-portfolio' ),
 			'type'             => 'select',
 			'show_option_none' => true,
 			'options'          => $this->get_all_pages(),
+		];
+
+		$settings[] = [
+			'id'      => "portfolio_page_displays",
+			'name'    => esc_html__( 'In Portfolio Home Page', 'photography-portfolio' ),
+			'type'    => 'select',
+			'default' => 'all',
+			'options' => [
+				'all'            => esc_html__( 'Show all Portfolio entries', 'photography-portfolio' ),
+				'phort_post_category' => esc_html__( 'Show a Portfolio category', 'photography-portfolio' ),
+				'phort_post'     => esc_html__( 'Show a single Portfolio entry', 'photography-portfolio' ),
+			],
+		];
+
+		$settings[] = [
+			'id'               => "portfolio_home_category",
+			'name'             => esc_html__( 'Category to Display', 'photography-portfolio' ),
+			'type'             => 'select',
+			'show_option_none' => true,
+			'options'          => $this->get_portfolio_categories(),
+		];
+
+		$settings[] = [
+			'id'               => "portfolio_home_entry",
+			'name'             => esc_html__( 'Portfolio Entry to Display', 'photography-portfolio' ),
+			'type'             => 'select',
+			'show_option_none' => true,
+			'options'          => $this->get_portfolio_entries(),
 		];
 
 		/**
@@ -291,10 +319,62 @@ class General_Portfolio_Settings {
 		if ( ! is_admin() ) {
 			return [];
 		}
-		
+
 		$args = [
 			'posts_per_page' => - 1,
 			'post_type'      => 'page',
+			'post_status'    => 'publish',
+		];
+
+		$pages = [];
+
+		foreach ( get_posts( $args ) as $post ) {
+			$pages[ (int) $post->ID ] = esc_html( $post->post_title );
+		}
+
+		return $pages;
+	}
+
+
+	/**
+	 * Get all WordPress Pages and return an array that will direclty fit in a select field.
+	 * @return array
+	 */
+	public function get_portfolio_categories() {
+
+		/*
+		 * Don't execute on the front-end
+		 */
+		if ( ! is_admin() ) {
+			return [];
+		}
+
+		$terms = [];
+
+		foreach ( get_terms( 'phort_post_category' ) as $taxonomy ) {
+			$terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name );
+		}
+
+		return $terms;
+	}
+
+
+	/**
+	 * Get all WordPress Pages and return an array that will direclty fit in a select field.
+	 * @return array
+	 */
+	public function get_portfolio_entries() {
+
+		/*
+		 * Don't execute on the front-end
+		 */
+		if ( ! is_admin() ) {
+			return [];
+		}
+
+		$args = [
+			'posts_per_page' => - 1,
+			'post_type'      => 'phort_post',
 			'post_status'    => 'publish',
 		];
 

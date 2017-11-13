@@ -50,7 +50,6 @@
 		display: flex
 		align-items: center
 
-
 		&:before
 			content: "\f348"
 			font-family: dashicons
@@ -61,7 +60,6 @@
 			font-weight: 400
 			-webkit-font-smoothing: antialiased
 			width: 2rem
-
 
 	.cmb-th
 		width: 250px
@@ -80,9 +78,12 @@
 		.cmb2-metabox-title
 			margin: .5em 0
 
-
-
 // Specificity war with CMB2
 .cmb2-wrap.cmb2-wrap
 	input:focus, textarea:focus
 		background-color: #fff
+
+// Prevent flash of unstyled settings
+.js
+	#cmb2-id-lg-thumbnails, #cmb2-id-portfolio-home-category, #cmb2-id-portfolio-home-entry
+		display: none
