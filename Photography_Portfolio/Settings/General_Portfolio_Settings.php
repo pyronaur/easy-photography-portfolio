@@ -29,7 +29,7 @@ class General_Portfolio_Settings {
 		 * Use phort_instance()->registry instead
 		 *
 		 * @deprecated 1.1.4 Use `phort/core/loaded` to wait for the plugin to setup, then modify `phort_instance()->settings`
-		 * @TODO       : Remove at version 1.2.0
+		 * @TODO       : Remove at version 1.4.0
 		 *
 		 */
 		$this->defaults = apply_filters_deprecated(
@@ -54,7 +54,7 @@ class General_Portfolio_Settings {
 		 * Setup filterable settings
 		 *
 		 * @deprecated 1.1.4 Use `phort/core/loaded` instead
-		 * @TODO       : Remove at version 1.3.0
+		 * @TODO       : Remove at version 1.4.0
 		 */
 		$this->settings = apply_filters_deprecated(
 			'phort/general_portfolio_settings/settings',
@@ -165,18 +165,18 @@ class General_Portfolio_Settings {
 				'default' => $this->defaults['popup_gallery'],
 				'options' => $this->settings['popup_gallery'],
 				'desc'    => '<span>' . wp_kses(
-					__(
-						sprintf(
-							'<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>. <br> You can find <a href="%s" target="%s">more info about the gallery types here</a> ',
-							'https://colormelon.com/best-javascript-popup-gallery/#photoswipe-vs-lightgallery',
-							'_blank'
-						),
-						'photography-portfolio'
-					)
-					,
-					// Allow <a>, <br>, <b>
-					[ 'a' => [ 'href' => [], 'target' => [] ], 'br' => [], 'b' => [] ]
-				) . '</span>',
+						__(
+							sprintf(
+								'<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>. <br> You can find <a href="%s" target="%s">more info about the gallery types here</a> ',
+								'https://colormelon.com/best-javascript-popup-gallery/#photoswipe-vs-lightgallery',
+								'_blank'
+							),
+							'photography-portfolio'
+						)
+						,
+						// Allow <a>, <br>, <b>
+						[ 'a' => [ 'href' => [], 'target' => [] ], 'br' => [], 'b' => [] ]
+					) . '</span>',
 
 			];
 

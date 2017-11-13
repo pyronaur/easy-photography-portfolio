@@ -34,7 +34,7 @@ function phort_get_option( $option, $deprecated = '' ) {
 
 	/**
 	 * @deprecated at 1.1.4
-	 * @todo       Remove at 1.2.0
+	 * @TODO       Remove at 1.5.0
 	 */
 	if ( ! empty( $deprecated ) ) {
 		// Never implemented
