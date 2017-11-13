@@ -114,6 +114,8 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+
+
 	/**
 	 * Constructor is only going to set up the core
 	 */
@@ -169,25 +171,28 @@ final class Colormelon_Photography_Portfolio {
 
 
 		$instance = $this;
-		add_action('phort/layout/init', function() use ($instance) {
-			/*
-			 * @TODO: need a function to check wheter is archive or not
-			 * This is not dry, and is repeated @`phort_slug_current()`
-			 */
-			if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
-				Layout_Factory::autoload( 'archive', phort_slug_archive() );
-			}
+		add_action(
+			'phort/layout/init',
+			function () use ( $instance ) {
 
-			if ( phort_instance()->query->is_single() ) {
-				Layout_Factory::autoload( 'single', phort_slug_single() );
-			}
+				/*
+				 * @TODO: need a function to check wheter is archive or not
+				 * This is not dry, and is repeated @`phort_slug_current()`
+				 */
+				if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
+					Layout_Factory::autoload( 'archive', phort_slug_archive() );
+				}
 
-		});
+				if ( phort_instance()->query->is_single() ) {
+					Layout_Factory::autoload( 'single', phort_slug_single() );
+				}
+
+			}
+		);
 
 
 	}
-
-
+	
 	public function load_translations() {
 
 		load_plugin_textdomain( 'photography-portfolio', false, dirname( CLM_ABSPATH ) . '/languages' );
@@ -214,10 +219,17 @@ final class Colormelon_Photography_Portfolio {
 
 	public function action_links( $links ) {
 
-		array_unshift($links, '<a href="' . esc_url( get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' ) ) . '">Settings</a>');
+		$url = get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' );
+
+		array_unshift(
+			$links,
+			'<a href="' . esc_url( $url ) . '">' . esc_html__(
+				'Settings',
+				'photography-portfolio'
+			) . '</a>'
+		);
 
 		return $links;
 	}
-
 
 }
