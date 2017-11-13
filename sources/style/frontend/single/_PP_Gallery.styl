@@ -1,14 +1,16 @@
-.PP_Gallery
-	&__item
-		position: relative
+.PP_Gallery__item
+	position: relative
 
-	&__caption
-		font-size: 1rem
-		padding: .44rem
-		display: block
-		text-align: center
-		width: 100%
-		margin-bottom: $tiny
+.PP_Gallery__caption
+	font-size: 1rem
+	padding: .44rem
+	display: block
+	text-align: center
+	width: 100%
+	margin-bottom: $tiny
+
+	.PP_Gallery:not(.PP_Gallery--show-captions) &
+		display: none
 
 
 .PP_Gallery__item--video
@@ -35,7 +37,6 @@
 		border-width: 30px 0 30px 50px
 		border-color: transparent transparent transparent transparentify(white, 0.94)
 		transform: translate(-50%, -50%)
-
 
 /*
 	Make sure the text is white in the popup-gallery

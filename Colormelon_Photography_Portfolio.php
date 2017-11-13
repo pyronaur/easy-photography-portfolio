@@ -184,6 +184,17 @@ final class Colormelon_Photography_Portfolio {
 
 		});
 
+
+		/**
+		 * Show/Hide Gallery Captions
+		 */
+		$gallery_captions = phort_get_option( 'gallery_captions' );
+		if ( $gallery_captions === 'hide' ) {
+			add_filter( 'phort/get_template/gallery/caption', '__return_false' );
+		} else if( $gallery_captions === 'show_all' ) {
+			phort_attach_class('PP_Gallery', 'PP_Gallery--show-captions');
+		}
+
 	}
 
 

@@ -236,6 +236,19 @@ class General_Portfolio_Settings {
 		];
 
 
+		$settings[] = [
+			'id'      => "gallery_captions",
+			'name'    => esc_html__( 'Image Captions', 'photography-portfolio' ),
+			'type'    => 'select',
+			'default' => 'show',
+			'options' => [
+				'hide'     => esc_html__( 'Hide', 'photography-portfolio' ),
+				'show'     => esc_html__( 'Show only in pop-up galleries', 'photography-portfolio' ),
+				'show_all' => esc_html__( 'Always show ', 'photography-portfolio' ),
+			],
+		];
+
+
 		/**
 		 * Only add Wrapper Class option if theme has no native Photography Portfolio Support
 		 */
