@@ -114,90 +114,6 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
-	/**
-	 * Constructor is only going to set up the core
-	 */
-	protected function boot() {
-
-		// If there is anything you want to do before the plugin configures itself
-		do_action( 'phort/core/prepare', $this );
-
-		$this->query = new Query();
-
-		// Setup sub-classes
-		// Register Layouts
-		$this->layouts = Initialize_Layout_Registry::with_defaults();
-
-		// Setup settings
-		$this->setup_settings();
-
-		// Setup attachment meta
-		new Gallery_Attachment_Video_Support();
-
-		// Initialize Hooks
-		$this->hooks();
-
-		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
-		do_action( 'phort/core/loaded', $this );
-
-	}
-
-
-	protected function setup_settings() {
-
-		$this->settings = new Setting_Registry();
-
-		// Setup General Settings
-		$general_settings = new General_Portfolio_Settings( $this->layouts );
-
-		// Add all settings to the registry
-		$this->settings->add_all( $general_settings->get_all() );
-	}
-
-
-	protected function hooks() {
-
-		/*
-		 * Load Photography Portfolio templates when needed:
-		 */
-		add_action( 'init', [ $this, 'load_view' ] );
-		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
-		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
-
-		// Load Translations:
-		add_action( 'init', [ $this, 'load_translations' ] );
-
-
-		$instance = $this;
-		add_action('phort/layout/init', function() use ($instance) {
-			/*
-			 * @TODO: need a function to check wheter is archive or not
-			 * This is not dry, and is repeated @`phort_slug_current()`
-			 */
-			if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
-				Layout_Factory::autoload( 'archive', phort_slug_archive() );
-			}
-
-			if ( phort_instance()->query->is_single() ) {
-				Layout_Factory::autoload( 'single', phort_slug_single() );
-			}
-
-		});
-
-
-		/**
-		 * Show/Hide Gallery Captions
-		 */
-		$gallery_captions = phort_get_option( 'gallery_captions' );
-		if ( $gallery_captions === 'hide' ) {
-			add_filter( 'phort/get_template/gallery/caption', '__return_false' );
-		} else if( $gallery_captions === 'show_all' ) {
-			phort_attach_class('PP_Gallery', 'PP_Gallery--show-captions');
-		}
-
-	}
-
-
 	public function load_translations() {
 
 		load_plugin_textdomain( 'photography-portfolio', false, dirname( CLM_ABSPATH ) . '/languages' );
@@ -235,6 +151,108 @@ final class Colormelon_Photography_Portfolio {
 		);
 
 		return $links;
+	}
+
+
+	/**
+	 * Constructor is only going to set up the core
+	 */
+	protected function boot() {
+
+		// If there is anything you want to do before the plugin configures itself
+		do_action( 'phort/core/prepare', $this );
+
+		$this->query = new Query();
+
+		// Setup sub-classes
+		// Register Layouts
+		$this->layouts = Initialize_Layout_Registry::with_defaults();
+
+		// Initialize Hooks
+		$this->hooks();
+	}
+
+
+	public function setup_settings() {
+
+		$this->settings = new Setting_Registry();
+
+		// Setup General Settings
+		$general_settings = new General_Portfolio_Settings( $this->layouts );
+
+		// Add all settings to the registry
+		$this->settings->add_all( $general_settings->get_all() );
+	}
+
+
+	protected function hooks() {
+
+		/*
+		 * Load Photography Portfolio templates when needed:
+		 */
+		add_action( 'init', [ $this, 'setup_settings' ], 5 );
+		add_action( 'init', [ $this, 'load_view' ] );
+
+		// Load Translations:
+		add_action( 'init', [ $this, 'load_translations' ] );
+
+
+		/* @TODO Fix this temporary ugliness: */
+		add_action(
+			'init',
+			function () {
+
+				// Setup attachment meta
+				new Gallery_Attachment_Video_Support();
+
+
+
+				/**
+				 * Show/Hide Gallery Captions
+				 */
+				$gallery_captions = phort_get_option( 'gallery_captions' );
+				if ( $gallery_captions === 'hide' ) {
+					add_filter( 'phort/get_template/gallery/caption', '__return_false' );
+				}
+				else if ( $gallery_captions === 'show_all' ) {
+					phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
+				}
+
+
+				// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
+				do_action( 'phort/core/loaded', phort_instance() );
+			}
+		);
+
+		// Attach template loader
+		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
+
+		// Add "Settings" to plugin links in plugin page
+		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
+
+
+		$instance = $this;
+		add_action(
+			'phort/layout/init',
+			function () use ( $instance ) {
+
+				/*
+				 * @TODO: need a function to check wheter is archive or not
+				 * This is not dry, and is repeated @`phort_slug_current()`
+				 */
+				if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
+					Layout_Factory::autoload( 'archive', phort_slug_archive() );
+				}
+
+				if ( phort_instance()->query->is_single() ) {
+					Layout_Factory::autoload( 'single', phort_slug_single() );
+				}
+
+			}
+		);
+
+
+
 	}
 
 }
