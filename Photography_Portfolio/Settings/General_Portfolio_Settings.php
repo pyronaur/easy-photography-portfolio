@@ -285,6 +285,13 @@ class General_Portfolio_Settings {
 	 */
 	public function get_all_pages() {
 
+		/*
+		 * Don't execute on the front-end
+		 */
+		if ( ! is_admin() ) {
+			return [];
+		}
+		
 		$args = [
 			'posts_per_page' => - 1,
 			'post_type'      => 'page',
