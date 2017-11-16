@@ -40,6 +40,8 @@ GLOBAL.config =
 	libs:
 		dest  : "./public/build/libs"
 
+	scripts:
+		admin: "./sources/script/admin"
 
 	browserify: {}
 

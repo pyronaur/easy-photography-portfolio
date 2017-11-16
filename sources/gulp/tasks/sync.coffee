@@ -17,6 +17,9 @@ Gulp.task "sync", ["browser-sync"], ->
 	Watch "#{Config.coffee.source}/**", ->
 		Gulp.start "coffee"
 
+	Watch "#{Config.scripts.admin}/**", ->
+		Gulp.start "admin_scripts
+"
 	Watch "#{Config.libs.source}/**", ->
 		Gulp.start "libs"
 
