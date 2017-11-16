@@ -142,6 +142,13 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.3.1 =
+* As promised, a bug was introduced in 1.3.0 🐞
+* Fixed bug where portfolio would completely break down if pop-up galleries were disabled
+* Fixed bug where Admin JavaScript didn't load because it didn't exist
+* No additional bugs introduced in this version 😇
+
+
 = 1.3.0 =
 * It's finally here! You asked for it, and now it's here! Drumroll please!
 * 🥁 🥁 🥁 🥁 🥁 🍗 🥁
