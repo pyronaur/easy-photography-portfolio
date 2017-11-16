@@ -89,12 +89,17 @@ class Public_View {
 	 */
 	public function register() {
 
+
 		$dependencies = [
 			'jquery',
 			'imagesloaded',
 			'wp-js-hooks',
-			'phort-gallery-' . sanitize_html_class( phort_get_option( 'popup_gallery' ) ),
 		];
+
+		$gallery = phort_get_option( 'popup_gallery' );
+		if ( in_array( $gallery, [ 'lightgallery', 'photoswipe' ] ) ) {
+			$dependencies[] = 'phort-gallery-' . sanitize_html_class( $gallery );
+		}
 
 		// Styles
 		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );

@@ -8,7 +8,7 @@
  * Plugin URI:        http://colormelon.com/plugins/photography-portfolio
  * Description:       Add a photography portfolio to any WordPress theme. Designed for Photographers, yet made with theme developers in mind.
  * Version:           1.3.0
- * Author:            Colormelon, justnorris
+ * Author:            Colormelon
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
