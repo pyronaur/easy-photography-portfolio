@@ -69,7 +69,8 @@ abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 		/**
 		 * Setup entry data when `phort_get_template` is used
 		 */
-		add_action( 'phort/load_template/archive/entry', [ $this, 'setup_postdata' ] );
+		add_action( 'phort_get_template.archive/entry', [ $this, 'setup_postdata' ] );
+
 
 		/**
 		 * Maybe alter the entry class
