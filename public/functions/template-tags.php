@@ -28,13 +28,13 @@ function _phort_load_template( $template, $slug ) {
 function phort_remove_template( $template, $remove_when_slug = '*' ) {
 
 	add_action(
-		"phort_get_template_{$template}",
+		"phort_get_template/{$template}",
 
 		function ( $template, $current_slug ) use ( $remove_when_slug ) {
 
 			// Only remove action if conditional slug is unset or matches the $current_slug
 			if ( $remove_when_slug === '*' || $remove_when_slug === $current_slug ) {
-				remove_action( "phort_get_template_{$template}", '_phort_load_template', 50 );
+				remove_action( "phort_get_template/{$template}", '_phort_load_template', 50 );
 			}
 
 		},
@@ -48,7 +48,7 @@ function phort_remove_template( $template, $remove_when_slug = '*' ) {
 }
 
 /**
- * Shorthand to easily attach template to any `phort_get_template_{$template}` hook
+ * Shorthand to easily attach template to any `phort_get_template/{$template}` hook
  *
  * @param     $template - the template path, for example `single/layout`
  * @param     $callback
@@ -57,7 +57,7 @@ function phort_remove_template( $template, $remove_when_slug = '*' ) {
  */
 function phort_attach_template( $template, $callback, $priority = 50, $arguments = 2 ) {
 
-	add_action( "phort_get_template_{$template}", $callback, $priority, $arguments );
+	add_action( "phort_get_template/{$template}", $callback, $priority, $arguments );
 }
 
 /**
@@ -68,7 +68,7 @@ function phort_attach_template( $template, $callback, $priority = 50, $arguments
  * @param null $slug
  *
  * @updated 1.4.0
- * @hook    `phort_get_template_{$template}`
+ * @hook    `phort_get_template/{$template}`
  */
 function phort_get_template( $template, $slug = NULL ) {
 
@@ -90,7 +90,7 @@ function phort_get_template( $template, $slug = NULL ) {
 	/**
 	 * Load any templates that have been attached to this:
 	 */
-	do_action( "phort_get_template_{$template}", $template, $slug );
+	do_action( "phort_get_template/{$template}", $template, $slug );
 
 }
 
