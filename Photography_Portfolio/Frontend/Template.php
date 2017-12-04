@@ -6,7 +6,15 @@ namespace Photography_Portfolio\Frontend;
 
 class Template {
 
-	public static function get( $base, $slug = NULL ) {
+	/**
+	 * Directly and instantly load portfolio template file
+	 *
+	 * If you're looking for a function to use in themes, have a look at `phort_get_template` function instead
+	 *
+	 * @param      $base - The template path ( for exmaple: '/path-to/the/entry' )
+	 * @param null $slug - The portfolio layout modifier (for example: 'masonry' )
+	 */
+	public static function load( $base, $slug = NULL ) {
 
 		$search = [];
 
@@ -29,7 +37,7 @@ class Template {
 		 */
 		if ( $template ) {
 
-			do_action( "phort/load_template/{$base}", $template, $base, $slug );
+			do_action_deprecated( "phort/load_template/{$base}", [ $template, $base, $slug ], '1.4.0', 'phort_get_template' );
 			load_template( $template, false );
 
 		}
