@@ -23,7 +23,6 @@ function _phort_load_template( $template, $slug ) {
 
 /**
  * Easily unload a template
- *
  * @priority = 40
  */
 function phort_remove_template( $template, $remove_when_slug = '*' ) {
@@ -46,6 +45,19 @@ function phort_remove_template( $template, $remove_when_slug = '*' ) {
 		2
 	);
 
+}
+
+/**
+ * Shorthand to easily attach template to any `phort_get_template_{$template}` hook
+ *
+ * @param     $template - the template path, for example `single/layout`
+ * @param     $callback
+ * @param int $priority
+ * @param int $arguments
+ */
+function phort_attach_template( $template, $callback, $priority = 50, $arguments = 2 ) {
+
+	add_action( "phort_get_template_{$template}", $callback, $priority, $arguments );
 }
 
 /**
@@ -73,7 +85,7 @@ function phort_get_template( $template, $slug = NULL ) {
 	 * To load templates before - decrease the priority
 	 *
 	 */
-	add_action( "phort_get_template_{$template}", '_phort_load_template', 50, 2 );
+	phort_attach_template( $template, '_phort_load_template' );
 
 	/**
 	 * Load any templates that have been attached to this:
