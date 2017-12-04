@@ -4,6 +4,49 @@ use Photography_Portfolio\Frontend\Gallery\Attachment;
 use Photography_Portfolio\Frontend\Gallery_Data_Renderer;
 use Photography_Portfolio\Frontend\Template;
 
+/**
+ * == Instantly load a portfolio template
+ *
+ * Only use this function to UNSET a template!
+ * Never load templates with this function!
+ *
+ * Use `phort_get_template()` instead!
+ *
+ * @param $template
+ * @param $slug
+ */
+function _phort_load_template( $template, $slug ) {
+
+	Template::load( $template, $slug );
+}
+
+
+/**
+ * Easily unload a template
+ *
+ * @priority = 40
+ */
+function phort_remove_template( $template, $remove_when_slug = '*' ) {
+
+	add_action(
+		"phort_get_template_{$template}",
+
+		function ( $template, $current_slug ) use ( $remove_when_slug ) {
+
+			// Only remove action if conditional slug is unset or matches the $current_slug
+			if ( $remove_when_slug === '*' || $remove_when_slug === $current_slug ) {
+				remove_action( "phort_get_template_{$template}", '_phort_load_template', 50 );
+			}
+
+		},
+		// priority 50 - 10 = 40
+		40,
+
+		// arguments = 2
+		2
+	);
+
+}
 
 /**
  * Get Portfolio Template
@@ -11,6 +54,9 @@ use Photography_Portfolio\Frontend\Template;
  *
  * @param      $template
  * @param null $slug
+ *
+ * @updated 1.4.0
+ * @hook    `phort_get_template_{$template}`
  */
 function phort_get_template( $template, $slug = NULL ) {
 
@@ -18,8 +64,22 @@ function phort_get_template( $template, $slug = NULL ) {
 		$slug = phort_slug_current();
 	}
 
+	/**
+	 * Defer loading the requested $template path with `add_action()`
+	 * This way anyone can load a desired template bit before or after an Easy Photography Portfolio template is loaded
+	 *
+	 * @priority = 50
+	 * To load templates after a $template has loaded, increase the priority
+	 * To load templates before - decrease the priority
+	 *
+	 */
+	add_action( "phort_get_template_{$template}", '_phort_load_template', 50, 2 );
 
-	Template::get( $template, $slug );
+	/**
+	 * Load any templates that have been attached to this:
+	 */
+	do_action( "phort_get_template_{$template}", $template, $slug );
+
 }
 
 
