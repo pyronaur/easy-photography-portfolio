@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Gallery Item Caption
  *
  * @since 1.0.0

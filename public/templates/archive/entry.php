@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Generic Archive Entry
  * @since 1.0.0
  * @modified 1.3.0

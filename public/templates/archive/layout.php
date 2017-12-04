@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Generic Archive Layout
  * @since 1.0.0
  * @modified 1.1.1
