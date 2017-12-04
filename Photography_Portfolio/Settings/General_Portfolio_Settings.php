@@ -29,7 +29,7 @@ class General_Portfolio_Settings {
 		 * Use phort_instance()->registry instead
 		 *
 		 * @deprecated 1.1.4 Use `phort/core/loaded` to wait for the plugin to setup, then modify `phort_instance()->settings`
-		 * @TODO       : Remove at version 1.4.0
+		 * @TODO       : Remove at version 1.5.0
 		 *
 		 */
 		$this->defaults = apply_filters_deprecated(
@@ -54,7 +54,7 @@ class General_Portfolio_Settings {
 		 * Setup filterable settings
 		 *
 		 * @deprecated 1.1.4 Use `phort/core/loaded` instead
-		 * @TODO       : Remove at version 1.4.0
+		 * @TODO       : Remove at version 1.5.0
 		 */
 		$this->settings = apply_filters_deprecated(
 			'phort/general_portfolio_settings/settings',
