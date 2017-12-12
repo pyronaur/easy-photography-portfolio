@@ -3,7 +3,7 @@ Contributors: Colormelon
 Donate link: http://colormelon.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.7.0
-Tested up to: 4.9
+Tested up to: 4.9.1
 Stable tag: 1.3.1
 Requires PHP: 5.4.0
 License: GPLv3 or later
@@ -142,6 +142,13 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.4.0 =
+* 🛠 Major changes in template loading! From now on tempaltes are loaded through hooks, so you can tap into before AND after ANY template part has been loaded.
+* 🛠 Deprecate quite a few actions because they're not needed anymore!:  `phort/wrapper/start`, `phort/wrapper/end`, `phort/load_template/{$base}`
+* 🛠 Add `phort_attach_template()` function to easily attach a template file to another template file
+* Enable "shot_in_rest" for Gutenberg Compatibility!
+* Change PhotoSwipe.js queue handles from `phort-photoswipe-*` to `photoswipe-*`
+
 = 1.3.1 =
 * As promised, a bug was introduced in 1.3.0 🐞
 * Fixed bug where portfolio would completely break down if pop-up galleries were disabled
