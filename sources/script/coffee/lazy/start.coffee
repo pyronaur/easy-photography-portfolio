@@ -16,6 +16,8 @@ create = ->
 
 	# Handler required
 	Handler = Hooks.applyFilters "phort.lazy.handler", Lazy_Default
+
+	return if not ($( ".PP_Lazy_Image__placeholder" ).length > 0)
 	return if not Handler
 
 	# By default Lazy_Masonry is handling Lazy-Loading
