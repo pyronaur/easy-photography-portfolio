@@ -24,6 +24,7 @@ function phort_freemium_analytics() {
 						'override_exact' => true,
 						'account'        => false,
 						'support'        => false,
+						'contact'        => false,
 						'parent'         => [
 							'slug' => 'edit.php?post_type=phort_post',
 						],
@@ -40,6 +41,7 @@ function phort_freemium_analytics() {
 
 
 function phort_freemium_analytics_settings_url() {
+
 	return admin_url( 'edit.php?post_type=phort_post&page=phort_options' );
 }
 
