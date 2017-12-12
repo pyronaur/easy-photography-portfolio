@@ -24,11 +24,27 @@ class Layout_Factory {
 	}
 
 
-	public static function autoload( $layout, $slug ) {
+	public static function autoload() {
 
 
 		global $wp_query;
 		global $phort_layout;
+
+		// fallback
+		$layout = 'archive';
+		$slug   = '';
+
+		// Archive?
+		if ( phort_is_archive() ) {
+			$layout = 'archive';
+			$slug   = phort_slug_archive();
+		}
+
+		// Single
+		elseif ( phort_is_single() ) {
+			$layout = 'single';
+			$slug   = phort_slug_single();
+		}
 
 
 		$layout_class_name = phort_instance()->layouts->find_class( $layout, $slug );

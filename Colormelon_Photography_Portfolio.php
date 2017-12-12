@@ -14,7 +14,7 @@ use Photography_Portfolio\Settings\Setting_Registry;
 /**
  * Colormelon_Photography_Portfolio
  * @package Photography_Portfolio
- * @type `Singleton` God Object, the worst kind. Yet serves its function.
+ * @type    `Singleton` God Object, the worst kind. Yet serves its function.
  *
  */
 final class Colormelon_Photography_Portfolio {
@@ -230,21 +230,8 @@ final class Colormelon_Photography_Portfolio {
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
 
-		$instance = $this;
-		add_action(
-			'phort/layout/init',
-			function () use ( $instance ) {
-
-				if ( phort_is_archive() ) {
-					Layout_Factory::autoload( 'archive', phort_slug_archive() );
-				}
-
-				if ( phort_is_single() ) {
-					Layout_Factory::autoload( 'single', phort_slug_single() );
-				}
-
-			}
-		);
+		// Load the view layout settings
+		add_action( 'phort/layout/init', [ 'Photography_Portfolio\Frontend\Layout_Factory', 'autoload' ] );
 
 
 	}
