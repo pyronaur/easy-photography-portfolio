@@ -18,7 +18,7 @@
  *   There are plenty of other hooks and template files where you can tap into.
  */
 
-do_action('phort/layout/init');
+do_action( 'phort/layout/init' );
 
 /**
  * Start Content Wrapper
@@ -26,7 +26,8 @@ do_action('phort/layout/init');
  * @loads /partials/wrapper-start.php
  * @uses  get_header()
  */
-do_action( 'phort/wrapper/start' );
+do_action_deprecated( 'phort/wrapper/start', null, '1.4.0', 'phort_get_template/partials/wrapper-start' );
+phort_get_template( 'partials/wrapper-start' );
 
 /**
  * Start a loop and load all gallery items
@@ -43,4 +44,5 @@ phort_load_view();
  * @loads /partials/wrapper-end.php
  * @uses  get_footer()
  */
-do_action( 'phort/wrapper/end' );
+do_action_deprecated( 'phort/wrapper/end', null, '1.4.0', 'phort_get_template/partials/wrapper-end' );
+phort_get_template( 'partials/wrapper-end' );

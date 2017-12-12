@@ -25,10 +25,6 @@ class Public_View {
 		add_filter( 'body_class', [ $this, 'adjust_body_class' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 
-		// Hook into Self
-		add_action( 'phort/wrapper/start', [ $this, 'render_wrapper_start' ] );
-		add_action( 'phort/wrapper/end', [ $this, 'render_wrapper_end' ] );
-
 		// Adjust .PP_Wrapper classes
 		if ( ! phort_has_theme_support() ) {
 			add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
@@ -235,18 +231,6 @@ class Public_View {
 
 	}
 
-
-	// @TODO: Should this be here?
-	public function render_wrapper_start() {
-		phort_get_template( 'partials/wrapper-start' );
-	}
-
-
-	// @TODO: Should this be here?
-	public function render_wrapper_end() {
-
-		phort_get_template( 'partials/wrapper-end' );
-	}
 
 	// @TODO: Should this be here?
 	public function display_photoswipe_html() {
