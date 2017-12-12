@@ -50,7 +50,7 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 	}
 
 	if ( current_user_can( 'activate_plugins' ) ) {
-		add_action( 'admin_notices', array( &$PP_Requre_PHP54, 'admin_notice' ) );
+		add_action( 'admin_notices', [ &$PP_Requre_PHP54, 'admin_notice' ] );
 		add_action( 'admin_init', 'phort_auto_deactivate' );
 	}
 }
@@ -61,6 +61,10 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 //  Initialize Photography Portfolio
 // ============================================================================
 else {
+	/**
+	 * Add Freemius Analytics
+	 */
+	require_once $__DIR . '/analytics/initialize.php';
 
 	/**
 	 * Setup Autoloading
@@ -116,6 +120,7 @@ else {
 	 * @since 1.1.2
 	 */
 	require_once $__DIR . '/compatibility/compatibility.php';
+
 
 
 	/**
