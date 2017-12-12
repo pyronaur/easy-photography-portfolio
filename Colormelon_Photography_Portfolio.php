@@ -14,7 +14,7 @@ use Photography_Portfolio\Settings\Setting_Registry;
 /**
  * Colormelon_Photography_Portfolio
  * @package Photography_Portfolio
- * @type Singleton God Object, the worst kind. Yet serves its function.
+ * @type `Singleton` God Object, the worst kind. Yet serves its function.
  *
  */
 final class Colormelon_Photography_Portfolio {
