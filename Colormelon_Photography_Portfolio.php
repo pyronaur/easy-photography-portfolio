@@ -108,7 +108,7 @@ final class Colormelon_Photography_Portfolio {
 			self::$_instance = new self();
 
 			// Boot immediately
-			self::$_instance->boot();
+			self::$_instance->initialize();
 		}
 
 		return self::$_instance;
@@ -139,6 +139,13 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+	/**
+	 * Attach "Settings" in plugin action links (in the plugin list)
+	 *
+	 * @param $links
+	 *
+	 * @return mixed
+	 */
 	public function action_links( $links ) {
 
 		$url = get_admin_url( NULL, 'edit.php?post_type=phort_post&page=phort_options' );
@@ -155,6 +162,9 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+	/**
+	 * Setup the plugin setting registry and register the available options
+	 */
 	public function setup_settings() {
 
 		$this->settings = new Setting_Registry();
@@ -167,6 +177,14 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+	/**
+	 * Maybe start loading portfolio template files instead of whatever WordPress was going to do.
+	 * This is run @filter `template_include`
+	 *
+	 * @param $template - Current template path
+	 *
+	 * @return string
+	 */
 	public function maybe_load_portfolio_template_files( $template ) {
 
 		/**
@@ -191,13 +209,16 @@ final class Colormelon_Photography_Portfolio {
 			 * Return the initial template file
 			 */
 
-			return Template::locate( [ 'wrapper.php', 'photography-portfolio.php' ] );
+			$located_template = Template::locate( [ 'wrapper.php', 'photography-portfolio.php' ] );
+			if ( $located_template ) {
+				return $located_template;
+			}
 
 		}
 
 
 		/**
-		 * Return $template if this is not the portfolio
+		 * Return $template if this is not the portfolio or a template was not located
 		 */
 		return $template;
 
@@ -207,7 +228,7 @@ final class Colormelon_Photography_Portfolio {
 	/**
 	 * Constructor is only going to set up the core
 	 */
-	protected function boot() {
+	protected function initialize() {
 
 		// If there is anything you want to do before the plugin configures itself
 		do_action( 'phort/core/prepare', $this );
@@ -226,7 +247,7 @@ final class Colormelon_Photography_Portfolio {
 
 		/**
 		 *
-		 * Rgister Post Types
+		 * Register Post Types
 		 *
 		 * post_type:   `phort_post`
 		 * taxonomy:    `phort_post_category`
@@ -251,9 +272,6 @@ final class Colormelon_Photography_Portfolio {
 		// Load Translations:
 		add_action( 'init', [ $this, 'load_translations' ] );
 
-		// Maybe add video support
-		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ] );
-
 		/**
 		 * Load `Admin_View` or `Public_View`
 		 */
@@ -275,8 +293,14 @@ final class Colormelon_Photography_Portfolio {
 		}
 
 		/**
-		 * Miscellaneous
+		 *
+		 * == Miscellaneous ==
+		 *
 		 */
+
+		// Maybe add video support
+		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ] );
+
 		// Add "Settings" to plugin links in plugin page
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
