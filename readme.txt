@@ -143,6 +143,7 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 == Changelog ==
 = 1.4.0 =
+* New Portfolio Layout: Single Column in Single Portfolio Entries 🏛
 * Clean up a lot of the code 🚿
 * 🔥 Major changes in template loading! From now on tempaltes are loaded through hooks, so you can tap into before AND after ANY template part has been loaded.
 * 🛠 Deprecate quite a few actions because they're not needed anymore!:  `phort/wrapper/start`, `phort/wrapper/end`, `phort/load_template/{$base}`
