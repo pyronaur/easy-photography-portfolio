@@ -17,11 +17,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:128, Colormelon_Photography_Portfolio.php:137
+#: Colormelon_Photography_Portfolio.php:129, Colormelon_Photography_Portfolio.php:138
 msgid "Can't do this thing."
 msgstr ""
 
-#: Colormelon_Photography_Portfolio.php:147
+#: Colormelon_Photography_Portfolio.php:155
 msgid "Settings"
 msgstr ""
 
@@ -49,119 +49,123 @@ msgstr ""
 msgid "Masonry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:32
+#: Photography_Portfolio/Core/Initialize_Layout_Registry.php:48
+msgid "Single Column"
+msgstr ""
+
+#: Photography_Portfolio/Core/Register_Post_Type.php:15
 msgctxt "Post Type General Name"
 msgid "Portfolio Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:33
+#: Photography_Portfolio/Core/Register_Post_Type.php:16
 msgctxt "Post Type Singular Name"
 msgid "Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:34, Photography_Portfolio/Core/Register_Post_Type.php:52, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45
+#: Photography_Portfolio/Core/Register_Post_Type.php:17, Photography_Portfolio/Core/Register_Post_Type.php:35, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45
 msgid "Portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:35
+#: Photography_Portfolio/Core/Register_Post_Type.php:18
 msgid "Parent Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:36
+#: Photography_Portfolio/Core/Register_Post_Type.php:19
 msgid "All Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:37
+#: Photography_Portfolio/Core/Register_Post_Type.php:20
 msgid "View Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:38
+#: Photography_Portfolio/Core/Register_Post_Type.php:21
 msgid "Add New Portfolio  Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:39
+#: Photography_Portfolio/Core/Register_Post_Type.php:22
 msgid "New Portfolio  Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:40
+#: Photography_Portfolio/Core/Register_Post_Type.php:23
 msgid "Edit Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:41
+#: Photography_Portfolio/Core/Register_Post_Type.php:24
 msgid "Update Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:42
+#: Photography_Portfolio/Core/Register_Post_Type.php:25
 msgid "Search portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:43
+#: Photography_Portfolio/Core/Register_Post_Type.php:26
 msgid "No portfolio entries found"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:44
+#: Photography_Portfolio/Core/Register_Post_Type.php:27
 msgid "No portfolio entries found in Trash"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:51
+#: Photography_Portfolio/Core/Register_Post_Type.php:34
 msgid "portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:83
+#: Photography_Portfolio/Core/Register_Post_Type.php:67
 msgctxt "Taxonomy General Name"
 msgid "Portfolio Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:84
+#: Photography_Portfolio/Core/Register_Post_Type.php:68
 msgctxt "Taxonomy Singular Name"
 msgid "Portfolio Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:85
+#: Photography_Portfolio/Core/Register_Post_Type.php:69
 msgid "Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:86
+#: Photography_Portfolio/Core/Register_Post_Type.php:70
 msgid "All Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:87
+#: Photography_Portfolio/Core/Register_Post_Type.php:71
 msgid "Parent Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:88
+#: Photography_Portfolio/Core/Register_Post_Type.php:72
 msgid "Parent Category:"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:89
+#: Photography_Portfolio/Core/Register_Post_Type.php:73
 msgid "New Category Name"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:90
+#: Photography_Portfolio/Core/Register_Post_Type.php:74
 msgid "Add New Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:91
+#: Photography_Portfolio/Core/Register_Post_Type.php:75
 msgid "Edit Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:92
+#: Photography_Portfolio/Core/Register_Post_Type.php:76
 msgid "Update Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:93
+#: Photography_Portfolio/Core/Register_Post_Type.php:77
 msgid "Separate categories with commas"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:94
+#: Photography_Portfolio/Core/Register_Post_Type.php:78
 msgid "Search Portfolio categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:95
+#: Photography_Portfolio/Core/Register_Post_Type.php:79
 msgid "Add or remove categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:96
+#: Photography_Portfolio/Core/Register_Post_Type.php:80
 msgid "Choose from the most used categories"
 msgstr ""
 
@@ -169,15 +173,15 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:146
+#: Photography_Portfolio/Frontend/Public_View.php:150
 msgid "Share on Facebook"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:147
+#: Photography_Portfolio/Frontend/Public_View.php:151
 msgid "Tweet"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:148
+#: Photography_Portfolio/Frontend/Public_View.php:152
 msgid "Pin it"
 msgstr ""
 
