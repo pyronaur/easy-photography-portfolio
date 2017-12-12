@@ -25,7 +25,7 @@ function _phort_load_template( $template, $slug ) {
  * Easily unload a template
  * @priority = 40
  */
-function phort_remove_template( $template, $remove_when_slug = '*' ) {
+function phort_detach_template( $template, $remove_when_slug = '*' ) {
 
 	add_action(
 		"phort_get_template/{$template}",
