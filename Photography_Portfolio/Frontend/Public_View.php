@@ -66,11 +66,16 @@ class Public_View {
 			wp_enqueue_script( 'jquery-masonry' );
 		}
 
-		// Enqueue the active gallery script
+		// HOTFIX:
+		// @TODO: This is a hotfix. We need a better way to handle the (currently) 2 popup gallery scripts.
 		$gallery = phort_get_option( 'popup_gallery' );
-		if ( $gallery !== 'disabled' ) {
-			wp_enqueue_script( 'phort-gallery-' . $gallery );
-			wp_enqueue_style( 'phort-gallery-' . $gallery );
+		if ( 'lightgallery' === $gallery ) {
+			wp_enqueue_script( 'phort-gallery-lightgallery' );
+			wp_enqueue_style( 'phort-gallery-lightgallery' );
+		}
+		if ( 'photoswipe' === $gallery ) {
+			wp_enqueue_script( 'photoswipe' );
+			wp_enqueue_style( 'photoswipe' );
 		}
 
 
