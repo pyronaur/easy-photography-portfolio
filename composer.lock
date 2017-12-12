@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "webdevstudios/cmb2",
-            "version": "v2.2.4",
+            "version": "v2.2.6.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WebDevStudios/CMB2.git",
-                "reference": "badecc7f908781ac14b879c74526f9d055f4a41e"
+                "url": "https://github.com/CMB2/CMB2.git",
+                "reference": "b1a7e8fb9f0634337b390a098f0a1f70f0f64085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/badecc7f908781ac14b879c74526f9d055f4a41e",
-                "reference": "badecc7f908781ac14b879c74526f9d055f4a41e",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/b1a7e8fb9f0634337b390a098f0a1f70f0f64085",
+                "reference": "b1a7e8fb9f0634337b390a098f0a1f70f0f64085",
                 "shasum": ""
             },
             "require": {
@@ -40,16 +40,28 @@
                     "email": "contact@webdevstudios.com",
                     "homepage": "https://github.com/WebDevStudios",
                     "role": "Developer"
+                },
+                {
+                    "name": "Justin Sternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Zao",
+                    "email": "office@zao.com",
+                    "homepage": "http://zao.is",
+                    "role": "Developer"
                 }
             ],
             "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
-            "homepage": "https://github.com/WebDevStudios/CMB2",
+            "homepage": "https://github.com/CMB2/CMB2",
             "keywords": [
                 "metabox",
                 "plugin",
                 "wordpress"
             ],
-            "time": "2017-02-27T15:05:31+00:00"
+            "time": "2017-11-27T20:49:15+00:00"
         }
     ],
     "packages-dev": [],
@@ -59,8 +71,5 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "5.4"
-    }
+    "platform-dev": []
 }

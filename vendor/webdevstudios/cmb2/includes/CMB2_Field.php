@@ -6,9 +6,9 @@
  *
  * @category  WordPress_Plugin
  * @package   CMB2
- * @author    WebDevStudios
+ * @author    CMB2 team
  * @license   GPL-2.0+
- * @link      http://webdevstudios.com
+ * @link      https://cmb2.io
  *
  * @method string _id()
  * @method string type()
@@ -18,6 +18,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * The object properties name.
+	 *
 	 * @var   string
 	 * @since 2.2.3
 	 */
@@ -25,6 +26,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Field arguments
+	 *
 	 * @var   mixed
 	 * @since 1.1.0
 	 */
@@ -32,6 +34,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Field group object or false (if no group)
+	 *
 	 * @var   mixed
 	 * @since 1.1.0
 	 */
@@ -39,6 +42,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Field meta value
+	 *
 	 * @var   mixed
 	 * @since 1.1.0
 	 */
@@ -46,6 +50,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Field meta value
+	 *
 	 * @var   mixed
 	 * @since 1.1.0
 	 */
@@ -53,6 +58,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Grouped Field's current numeric index during the save process
+	 *
 	 * @var   mixed
 	 * @since 2.0.0
 	 */
@@ -60,6 +66,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Array of field options
+	 *
 	 * @var   array
 	 * @since 2.0.0
 	 */
@@ -67,6 +74,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Array of provided field text strings
+	 *
 	 * @var   array
 	 * @since 2.0.0
 	 */
@@ -74,6 +82,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * The field's render context. In most cases, 'edit', but can be 'display'.
+	 *
 	 * @var   string
 	 * @since 2.2.2
 	 */
@@ -107,6 +116,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Constructs our field object
+	 *
 	 * @since 1.1.0
 	 * @param array $args Field arguments
 	 */
@@ -135,6 +145,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Non-existent methods fallback to checking for field arguments of the same name
+	 *
 	 * @since  1.1.0
 	 * @param  string $name     Method name
 	 * @param  array  $arguments Array of passed-in arguments
@@ -151,6 +162,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Retrieves the field id
+	 *
 	 * @since  1.1.0
 	 * @param  boolean $raw Whether to retrieve pre-modidifed id
 	 * @return string       Field id
@@ -162,6 +174,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Get a field argument
+	 *
 	 * @since  1.1.0
 	 * @param  string $key  Argument to check
 	 * @param  string $_key Sub argument to check
@@ -184,9 +197,10 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Retrieve a portion of a field property
+	 *
 	 * @since  1.1.0
-	 * @param  string  $var Field property to check
-	 * @param  string  $key Field property array key to check
+	 * @param  string $var Field property to check
+	 * @param  string $key Field property array key to check
 	 * @return mixed        Queried property value or false
 	 */
 	public function _data( $var, $key = '' ) {
@@ -199,6 +213,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Get Field's value
+	 *
 	 * @since  1.1.0
 	 * @param  string $key If value is an array, is used to get array key->value
 	 * @return mixed       Field value or false if non-existent
@@ -209,6 +224,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Retrieves metadata/option data
+	 *
 	 * @since  1.0.1
 	 * @param  string $field_id Meta key/Option array key
 	 * @param  array  $args     Override arguments
@@ -217,7 +233,7 @@ class CMB2_Field extends CMB2_Base {
 	public function get_data( $field_id = '', $args = array() ) {
 		if ( $field_id ) {
 			$args['field_id'] = $field_id;
-		} else if ( $this->group ) {
+		} elseif ( $this->group ) {
 			$args['field_id'] = $this->group->id();
 		}
 
@@ -280,12 +296,15 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Updates metadata/option data
+	 *
 	 * @since  1.0.1
 	 * @param  mixed $new_value Value to update data with
 	 * @param  bool  $single    Whether data is an array (add_metadata)
 	 */
 	public function update_data( $new_value, $single = true ) {
-		$a = $this->data_args( array( 'single' => $single ) );
+		$a = $this->data_args( array(
+			'single' => $single,
+		) );
 
 		$a['value'] = $a['repeat'] ? array_values( $new_value ) : $new_value;
 
@@ -351,11 +370,14 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Removes/updates metadata/option data
+	 *
 	 * @since  1.0.1
 	 * @param  string $old Old value
 	 */
 	public function remove_data( $old = '' ) {
-		$a = $this->data_args( array( 'old' => $old ) );
+		$a = $this->data_args( array(
+			'old' => $old,
+		) );
 
 		/**
 		 * Filter whether to override removing of meta value.
@@ -401,8 +423,8 @@ class CMB2_Field extends CMB2_Base {
 		// If no override, remove as usual
 		if ( null !== $override ) {
 			return $override;
-		}
-		// Option page handling
+		} // End if().
+		// Option page handling.
 		elseif ( 'options-page' === $a['type'] || empty( $a['id'] ) ) {
 			return cmb2_options( $a['id'] )->remove( $a['field_id'] );
 		}
@@ -413,6 +435,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Data variables for get/set data methods
+	 *
 	 * @since  1.1.0
 	 * @param  array $args Override arguments
 	 * @return array       Updated arguments
@@ -430,6 +453,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Checks if field has a registered sanitization callback
+	 *
 	 * @since  1.0.1
 	 * @param  mixed $meta_value Meta value
 	 * @return mixed             Possibly sanitized meta value
@@ -480,6 +504,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Process $_POST data to save this field's value
+	 *
 	 * @since  2.0.3
 	 * @param  array $data_to_save $_POST data to check
 	 * @return array|int|bool                Result of save, false on failure
@@ -496,6 +521,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Sanitize/store a value to this field
+	 *
 	 * @since  2.0.0
 	 * @param  array $meta_value Desired value to sanitize/store
 	 * @return array|int|bool              Result of save. false on failure
@@ -573,6 +599,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Determine if current type is exempt from escaping
+	 *
 	 * @since  1.1.0
 	 * @return bool  True if exempt
 	 */
@@ -587,6 +614,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Determine if current type cannot be repeatable
+	 *
 	 * @since  1.1.0
 	 * @param  string $type Field type to check
 	 * @return bool         True if type cannot be repeatable
@@ -595,15 +623,20 @@ class CMB2_Field extends CMB2_Base {
 		// These types cannot be repeatable.
 		$internal_fields = array(
 			// Use file_list instead
-			'file'                => 1,
-			'radio'               => 1,
-			'title'               => 1,
-			'wysiwyg'             => 1,
-			'checkbox'            => 1,
-			'radio_inline'        => 1,
-			'taxonomy_radio'      => 1,
-			'taxonomy_select'     => 1,
-			'taxonomy_multicheck' => 1,
+			'file'                             => 1,
+			'radio'                            => 1,
+			'title'                            => 1,
+			'wysiwyg'                          => 1,
+			'checkbox'                         => 1,
+			'radio_inline'                     => 1,
+			'taxonomy_radio'                   => 1,
+			'taxonomy_radio_inline'            => 1,
+			'taxonomy_radio_hierarchical'      => 1,
+			'taxonomy_select'                  => 1,
+			'taxonomy_multicheck'              => 1,
+			'taxonomy_multicheck_inline'       => 1,
+			'taxonomy_multicheck_hierarchical' => 1,
+
 		);
 
 		/**
@@ -622,7 +655,44 @@ class CMB2_Field extends CMB2_Base {
 	}
 
 	/**
+	 * Determine if current type has its own defaults field-arguments method.
+	 *
+	 * @since  2.2.6
+	 * @param  string $type Field type to check
+	 * @return bool         True if has own method.
+	 */
+	public function has_args_method( $type ) {
+
+		// These types have their own arguments parser.
+		$type_methods = array(
+			'group'   => 'set_field_defaults_group',
+			'wysiwyg' => 'set_field_defaults_wysiwyg',
+		);
+
+		if ( isset( $type_methods[ $type ] ) ) {
+			return $type_methods[ $type ];
+		}
+
+		$all_or_nothing_types = array_flip( apply_filters( 'cmb2_all_or_nothing_types', array(
+			'select',
+			'radio',
+			'radio_inline',
+			'taxonomy_select',
+			'taxonomy_radio',
+			'taxonomy_radio_inline',
+			'taxonomy_radio_hierarchical',
+		), $this ) );
+
+		if ( isset( $all_or_nothing_types[ $type ] ) ) {
+			return 'set_field_defaults_all_or_nothing_types';
+		}
+
+		return false;
+	}
+
+	/**
 	 * Escape the value before output. Defaults to 'esc_attr()'
+	 *
 	 * @since  1.0.1
 	 * @param  callable $func       Escaping function (if not esc_attr())
 	 * @param  mixed    $meta_value Meta value
@@ -671,6 +741,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Return non-empty value or field default if value IS empty
+	 *
 	 * @since  2.0.0
 	 * @param  mixed $meta_value Field value
 	 * @return mixed             Field value, or default value
@@ -681,6 +752,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Offset a time value based on timezone
+	 *
 	 * @since  1.0.0
 	 * @return string Offset time string
 	 */
@@ -690,6 +762,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Return timezone string
+	 *
 	 * @since  1.0.0
 	 * @return string Timezone string
 	 */
@@ -699,9 +772,9 @@ class CMB2_Field extends CMB2_Base {
 		// Is timezone arg set?
 		if ( $this->args( 'timezone' ) ) {
 			$value = $this->args( 'timezone' );
-		}
+		} // End if().
 		// Is there another meta key with a timezone stored as its value we should use?
-		else if ( $this->args( 'timezone_meta_key' ) ) {
+		elseif ( $this->args( 'timezone_meta_key' ) ) {
 			$value = $this->get_data( $this->args( 'timezone_meta_key' ) );
 		}
 
@@ -710,6 +783,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Format the timestamp field value based on the field date/time format arg
+	 *
 	 * @since  2.0.0
 	 * @param  int    $meta_value Timestamp
 	 * @param  string $format     Either date_format or time_format
@@ -721,6 +795,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Return a formatted timestamp for a field
+	 *
 	 * @since  2.0.0
 	 * @param  string $format     Either date_format or time_format
 	 * @param  string $meta_value Optional meta value to check
@@ -741,6 +816,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Get timestamp from text date
+	 *
 	 * @since  2.2.0
 	 * @param  string $value Date value
 	 * @return mixed         Unix timestamp representing the date.
@@ -751,6 +827,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Get field render callback and Render the field row
+	 *
 	 * @since 1.0.0
 	 */
 	public function render_field() {
@@ -764,6 +841,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Default field render callback
+	 *
 	 * @since 2.1.1
 	 */
 	public function render_field_callback() {
@@ -845,7 +923,8 @@ class CMB2_Field extends CMB2_Base {
 		 * @param array $field_types The types of fields which should get the 'table-layout' class
 		 */
 		$repeat_table_rows_types = apply_filters( 'cmb2_repeat_table_row_types', array(
-			'text_url', 'text',
+			'text_url',
+			'text',
 		) );
 
 		$conditional_classes = array(
@@ -888,6 +967,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Get field display callback and render the display value in the column.
+	 *
 	 * @since 2.2.2
 	 */
 	public function render_column() {
@@ -901,6 +981,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Default callback to outputs field value in a display format.
+	 *
 	 * @since 2.2.2
 	 */
 	public function display_value_callback() {
@@ -949,6 +1030,7 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Replaces a hash key - {#} - with the repeatable index
+	 *
 	 * @since  1.2.0
 	 * @param  string $value Value to update
 	 * @return string        Updated value
@@ -963,8 +1045,8 @@ class CMB2_Field extends CMB2_Base {
 	 * For back-compatibility, falls back to checking the options array.
 	 *
 	 * @since  2.2.2
-	 * @param  string  $text_key Key in field's text array
-	 * @param  string  $fallback Fallback text
+	 * @param  string $text_key Key in field's text array
+	 * @param  string $fallback Fallback text
 	 * @return string            Text
 	 */
 	public function get_string( $text_key, $fallback ) {
@@ -993,28 +1075,15 @@ class CMB2_Field extends CMB2_Base {
 	}
 
 	/**
-	 * Retrieve options args. Calls options_cb if it exists.
+	 * Retrieve options args.
+	 *
 	 * @since  2.0.0
-	 * @param  string  $key Specific option to retrieve
+	 * @param  string $key Specific option to retrieve
 	 * @return array        Array of options
 	 */
 	public function options( $key = '' ) {
-		if ( ! empty( $this->field_options ) ) {
-			if ( $key ) {
-				return array_key_exists( $key, $this->field_options ) ? $this->field_options[ $key ] : false;
-			}
-
-			return $this->field_options;
-		}
-
-		$this->field_options = (array) $this->args['options'];
-
-		if ( is_callable( $this->args['options_cb'] ) ) {
-			$options = call_user_func( $this->args['options_cb'], $this );
-
-			if ( $options && is_array( $options ) ) {
-				$this->field_options = $options + $this->field_options;
-			}
+		if ( empty( $this->field_options ) ) {
+			$this->set_options();
 		}
 
 		if ( $key ) {
@@ -1025,7 +1094,29 @@ class CMB2_Field extends CMB2_Base {
 	}
 
 	/**
+	 * Generates/sets options args. Calls options_cb if it exists.
+	 *
+	 * @since  2.2.5
+	 *
+	 * @return array Array of options
+	 */
+	public function set_options() {
+		$this->field_options = (array) $this->args['options'];
+
+		if ( is_callable( $this->args['options_cb'] ) ) {
+			$options = call_user_func( $this->args['options_cb'], $this );
+
+			if ( $options && is_array( $options ) ) {
+				$this->field_options = $options + $this->field_options;
+			}
+		}
+
+		return $this->field_options;
+	}
+
+	/**
 	 * Store JS dependencies as part of the field args.
+	 *
 	 * @since 2.2.0
 	 * @param array $dependencies Dependies to register for this field.
 	 */
@@ -1045,62 +1136,31 @@ class CMB2_Field extends CMB2_Base {
 	 * @return mixed  Default field value
 	 */
 	public function get_default() {
-		if ( null !== $this->args['default'] ) {
-			return $this->args['default'];
+		$default = $this->args['default'];
+
+		if ( null !== $default ) {
+			return apply_filters( 'cmb2_default_filter', $default, $this );
 		}
 
 		$param = is_callable( $this->args['default_cb'] ) ? 'default_cb' : 'default';
-		$default = $this->get_param_callback_result( $param );
+		$default = $this->args['default'] = $this->get_param_callback_result( $param );
 
-		// Allow a filter override of the default value
-		$this->args['default'] = apply_filters( 'cmb2_default_filter', $default, $this );
-
-		return $this->args['default'];
+		// Allow a filter override of the default value.
+		return apply_filters( 'cmb2_default_filter', $this->args['default'], $this );
 	}
 
 	/**
 	 * Fills in empty field parameters with defaults
+	 *
 	 * @since 1.1.0
-	 * @param array $args Metabox field config array
-	 * @param array       Modified field config array.
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Modified field config array.
 	 */
 	public function _set_field_defaults( $args ) {
 
 		// Set up blank or default values for empty ones
-		$args = wp_parse_args( $args, array(
-			'type'              => '',
-			'name'              => '',
-			'desc'              => '',
-			'before'            => '',
-			'after'             => '',
-			'options'           => array(),
-			'options_cb'        => '',
-			'text'              => array(),
-			'text_cb'           => '',
-			'attributes'        => array(),
-			'protocols'         => null,
-			'default'           => null,
-			'default_cb'        => '',
-			'classes'           => null,
-			'classes_cb'        => '',
-			'select_all_button' => true,
-			'multiple'          => false,
-			'repeatable'        => isset( $args['type'] ) && 'group' == $args['type'],
-			'inline'            => false,
-			'on_front'          => true,
-			'show_names'        => true,
-			'save_field'        => true, // Will not save if false
-			'date_format'       => 'm\/d\/Y',
-			'time_format'       => 'h:i A',
-			'description'       => isset( $args['desc'] ) ? $args['desc'] : '',
-			'preview_size'      => 'file' == $args['type'] ? array( 350, 350 ) : array( 50, 50 ),
-			'render_row_cb'     => array( $this, 'render_field_callback' ),
-			'display_cb'        => array( $this, 'display_value_callback' ),
-			'label_cb'          => 'title' != $args['type'] ? array( $this, 'label' ) : '',
-			'column'            => false,
-			'js_dependencies'   => array(),
-			'show_in_rest'      => null,
-		) );
+		$args = wp_parse_args( $args, $this->get_default_field_args( $args ) );
 
 		/*
 		 * Deprecated usage:
@@ -1113,38 +1173,15 @@ class CMB2_Field extends CMB2_Base {
 
 		$args['repeatable'] = $args['repeatable'] && ! $this->repeatable_exception( $args['type'] );
 		$args['inline']     = $args['inline'] || false !== stripos( $args['type'], '_inline' );
-
-		$args['options']    = 'group' == $args['type'] ? wp_parse_args( $args['options'], array(
-			'add_button'    => esc_html__( 'Add Group', 'cmb2' ),
-			'remove_button' => esc_html__( 'Remove Group', 'cmb2' ),
-		) ) : $args['options'];
-
 		$args['_id']        = $args['id'];
 		$args['_name']      = $args['id'];
 
+		if ( $method = $this->has_args_method( $args['type'] ) ) {
+			$args = $this->{$method}( $args );
+		}
+
 		if ( $this->group ) {
-
-			$args['id']    = $this->group->args( 'id' ) . '_' . $this->group->index . '_' . $args['id'];
-			$args['_name'] = $this->group->args( 'id' ) . '[' . $this->group->index . '][' . $args['_name'] . ']';
-		}
-
-		if ( 'wysiwyg' == $args['type'] ) {
-			$args['id'] = strtolower( str_ireplace( '-', '_', $args['id'] ) );
-			$args['options']['textarea_name'] = $args['_name'];
-		}
-
-		$option_types = apply_filters( 'cmb2_all_or_nothing_types', array( 'select', 'radio', 'radio_inline', 'taxonomy_select', 'taxonomy_radio', 'taxonomy_radio_inline' ), $this );
-
-		if ( in_array( $args['type'], $option_types, true ) ) {
-
-			$args['show_option_none'] = isset( $args['show_option_none'] ) ? $args['show_option_none'] : null;
-			$args['show_option_none'] = true === $args['show_option_none'] ? esc_html__( 'None', 'cmb2' ) : $args['show_option_none'];
-
-			if ( null === $args['show_option_none'] ) {
-				$off_by_default = in_array( $args['type'], array( 'select', 'radio', 'radio_inline' ), true );
-				$args['show_option_none'] = $off_by_default ? false : esc_html__( 'None', 'cmb2' );
-			}
-
+			$args = $this->set_group_sub_field_defaults( $args );
 		}
 
 		$args['has_supporting_data'] = in_array(
@@ -1162,7 +1199,122 @@ class CMB2_Field extends CMB2_Base {
 	}
 
 	/**
+	 * Sets default arguments for the group field types.
+	 *
+	 * @since 2.2.6
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Modified field config array.
+	 */
+	protected function set_field_defaults_group( $args ) {
+		$args['options'] = wp_parse_args( $args['options'], array(
+			'add_button'    => esc_html__( 'Add Group', 'cmb2' ),
+			'remove_button' => esc_html__( 'Remove Group', 'cmb2' ),
+		) );
+
+		return $args;
+	}
+
+	/**
+	 * Sets default arguments for the wysiwyg field types.
+	 *
+	 * @since 2.2.6
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Modified field config array.
+	 */
+	protected function set_field_defaults_wysiwyg( $args ) {
+		$args['id'] = strtolower( str_ireplace( '-', '_', $args['id'] ) );
+		$args['options']['textarea_name'] = $args['_name'];
+
+		return $args;
+	}
+
+	/**
+	 * Sets default arguments for the all-or-nothing field types.
+	 *
+	 * @since 2.2.6
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Modified field config array.
+	 */
+	protected function set_field_defaults_all_or_nothing_types( $args ) {
+		$args['show_option_none'] = isset( $args['show_option_none'] ) ? $args['show_option_none'] : null;
+		$args['show_option_none'] = true === $args['show_option_none'] ? esc_html__( 'None', 'cmb2' ) : $args['show_option_none'];
+
+		if ( null === $args['show_option_none'] ) {
+			$off_by_default = in_array( $args['type'], array( 'select', 'radio', 'radio_inline' ), true );
+			$args['show_option_none'] = $off_by_default ? false : esc_html__( 'None', 'cmb2' );
+		}
+
+		return $args;
+	}
+
+	/**
+	 * Sets default arguments for group sub-fields.
+	 *
+	 * @since 2.2.6
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Modified field config array.
+	 */
+	protected function set_group_sub_field_defaults( $args ) {
+		$args['id']    = $this->group->args( 'id' ) . '_' . $this->group->index . '_' . $args['id'];
+		$args['_name'] = $this->group->args( 'id' ) . '[' . $this->group->index . '][' . $args['_name'] . ']';
+
+		return $args;
+	}
+
+	/**
+	 * Gets the default arguments for all fields.
+	 *
+	 * @since 2.2.6
+	 *
+	 * @param  array  $args Field config array.
+	 * @return array        Field defaults.
+	 */
+	protected function get_default_field_args( $args ) {
+		$type = isset( $args['type'] ) ? $args['type'] : '';
+
+		return array(
+			'type'              => $type,
+			'name'              => '',
+			'desc'              => '',
+			'before'            => '',
+			'after'             => '',
+			'options'           => array(),
+			'options_cb'        => '',
+			'text'              => array(),
+			'text_cb'           => '',
+			'attributes'        => array(),
+			'protocols'         => null,
+			'default'           => null,
+			'default_cb'        => '',
+			'classes'           => null,
+			'classes_cb'        => '',
+			'select_all_button' => true,
+			'multiple'          => false,
+			'repeatable'        => 'group' === $type,
+			'inline'            => false,
+			'on_front'          => true,
+			'show_names'        => true,
+			'save_field'        => true, // Will not save if false
+			'date_format'       => 'm\/d\/Y',
+			'time_format'       => 'h:i A',
+			'description'       => isset( $args['desc'] ) ? $args['desc'] : '',
+			'preview_size'      => 'file' === $type ? array( 350, 350 ) : array( 50, 50 ),
+			'render_row_cb'     => array( $this, 'render_field_callback' ),
+			'display_cb'        => array( $this, 'display_value_callback' ),
+			'label_cb'          => 'title' !== $type ? array( $this, 'label' ) : '',
+			'column'            => false,
+			'js_dependencies'   => array(),
+			'show_in_rest'      => null,
+		);
+	}
+
+	/**
 	 * Get default field arguments specific to this CMB2 object.
+	 *
 	 * @since  2.2.0
 	 * @param  array      $field_args  Metabox field config array.
 	 * @param  CMB2_Field $field_group (optional) CMB2_Field object (group parent)
@@ -1181,12 +1333,12 @@ class CMB2_Field extends CMB2_Base {
 	}
 
 	/**
-	 * Returns a cloned version of this field object with, but with
+	 * Returns a cloned version of this field object, but with
 	 * modified/overridden field arguments.
 	 *
 	 * @since  2.2.2
-	 * @param  array  $field_args Array of field arguments, or entire array of
-	 *                            arguments for CMB2_Field
+	 * @param  array $field_args Array of field arguments, or entire array of
+	 *                           arguments for CMB2_Field
 	 *
 	 * @return CMB2_Field         The new CMB2_Field instance.
 	 */
@@ -1211,8 +1363,9 @@ class CMB2_Field extends CMB2_Base {
 
 	/**
 	 * Converts deprecated field parameters to the current/proper parameter, and throws a deprecation notice.
+	 *
 	 * @since 2.2.3
-	 * @param array $args Metabox field config array.
+	 * @param array                                   $args Metabox field config array.
 	 * @param array       Modified field config array.
 	 */
 	protected function convert_deprecated_params( $args ) {
@@ -1221,7 +1374,6 @@ class CMB2_Field extends CMB2_Base {
 
 			// We'll let this one be.
 			// $this->deprecated_param( __CLASS__ . '::__construct()', '2.2.3', self::DEPRECATED_PARAM, 'row_classes', 'classes' );
-
 			// row_classes param could be a callback. This is definitely deprecated.
 			if ( is_callable( $args['row_classes'] ) ) {
 
@@ -1236,7 +1388,6 @@ class CMB2_Field extends CMB2_Base {
 
 			unset( $args['row_classes'] );
 		}
-
 
 		// default param can be passed a callback as well
 		if ( is_callable( $args['default'] ) ) {
