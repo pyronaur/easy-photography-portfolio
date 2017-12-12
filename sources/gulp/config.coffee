@@ -1,7 +1,7 @@
 GLOBAL.config =
 
 	# General Config
-	url  : "http://bird.demmoo.com"
+	url  : "http://theme.wp"
 	build: "./public/build"
 
 	### External Libraries & Their URLs ###

@@ -32,7 +32,7 @@ class Initialize_Layout_Registry {
 		);
 
 		/**
-		 * Single Portfolio
+		 * Single Portfolio - Masonry
 		 */
 		$layout_registry->add(
 			'Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Masonry_Layout',
@@ -40,6 +40,14 @@ class Initialize_Layout_Registry {
 			'masonry',
 			esc_html__( 'Masonry', 'photography-portfolio' )
 		);
+
+		$layout_registry->add(
+			'Photography_Portfolio\Frontend\Layout\Single\Masonry\Single_Column_Layout',
+			'single',
+			'single_column',
+			esc_html__( 'Single Column', 'photography-portfolio' )
+		);
+
 
 		/**
 		 * You can use this hook to either register or de-register any layout

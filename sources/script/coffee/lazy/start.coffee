@@ -15,7 +15,7 @@ create = ->
 	destroy( )
 
 	# Handler required
-	Handler = Hooks.applyFilters 'phort.lazy.handler', false
+	Handler = Hooks.applyFilters 'phort.lazy.handler', require( './Lazy_Default' )
 	return if not Handler
 
 	# By default Lazy_Masonry is handling Lazy-Loading

@@ -43,7 +43,7 @@ class Abstract_Lazy_Loader
 
 	load_image: ( item ) ->
 
-		# Get image URLs
+		# Get image URL
 		thumb = item.data.url( 'thumb' )
 		full = item.data.url( 'full' )
 
