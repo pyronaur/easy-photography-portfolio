@@ -57,6 +57,8 @@ class Layout_Factory {
 		 */
 		$phort_layout = $factory->create_layout_instance();
 
+		return $phort_layout;
+
 	}
 
 

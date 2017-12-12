@@ -16,21 +16,6 @@ class Query {
 	protected $is_category = false;
 
 
-	/**
-	 * Router constructor.
-	 */
-	public function __construct() {
-
-		if ( is_admin() ) {
-			// Don't modify admin posts queries
-			return;
-		}
-		add_action( 'pre_get_posts', [ $this, 'store_original_query' ], 2 );
-		add_action( 'pre_get_posts', [ $this, 'set_variables' ], 5 );
-		add_action( 'pre_get_posts', [ $this, 'increase_ppp_limit' ], 25 );
-
-	}
-
 
 	public function set_variables( \WP_Query $query ) {
 

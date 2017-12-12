@@ -8,6 +8,7 @@ use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Frontend\Public_View;
+use Photography_Portfolio\Frontend\Template;
 use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Setting_Registry;
 
@@ -44,6 +45,10 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public $query;
 
+	/**
+	 * @var $layout - The current Layout settings
+	 */
+	public $layout;
 
 	/**
 	 * Colormelon Photography Portfolio Version
@@ -59,13 +64,6 @@ final class Colormelon_Photography_Portfolio {
 	public function __construct() {
 
 		define( 'CLM_VERSION', $this->version );
-
-		/**
-		 * Register post types on `init` action
-		 * post_type:   `phort_post`
-		 * taxonomy:    `phort_post_category`
-		 */
-		Register_Post_Type::initialize();
 
 		/**
 		 * Everything else is handled in $this->boot(), so that `phort_instance()` is available if needed
@@ -167,6 +165,69 @@ final class Colormelon_Photography_Portfolio {
 
 
 	/**
+	 * @TODO: Obviously, refactor soon
+	 */
+	public function do_too_many_things() {
+
+		// Setup attachment meta
+		new Gallery_Attachment_Video_Support();
+
+
+		/**
+		 * Show/Hide Gallery Captions
+		 */
+		$gallery_captions = phort_get_option( 'gallery_captions' );
+		if ( $gallery_captions === 'hide' ) {
+			add_filter( 'phort/get_template/gallery/caption', '__return_false' );
+		}
+		else if ( $gallery_captions === 'show_all' ) {
+			phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
+		}
+
+
+		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
+		do_action( 'phort/core/loaded', phort_instance() );
+	}
+
+
+	public function maybe_load_portfolio_template_files( $template ) {
+
+		/**
+		 * Exceptions
+		 */
+		if ( is_embed() ) {
+			return $template;
+		}
+
+		/**
+		 * If the current query says that this is a portfolio -
+		 * Load the portfolio view
+		 */
+		if ( $this->query->is_portfolio() ) {
+
+			/*
+			 * Prepare the layout data
+			 */
+			$this->layout = Layout_Factory::autoload();
+
+			/*
+			 * Return the initial template file
+			 */
+
+			return Template::locate( [ 'wrapper.php', 'photography-portfolio.php' ] );
+
+		}
+
+
+		/**
+		 * Return $template if this is not the portfolio
+		 */
+		return $template;
+
+	}
+
+
+	/**
 	 * Constructor is only going to set up the core
 	 */
 	protected function boot() {
@@ -180,60 +241,70 @@ final class Colormelon_Photography_Portfolio {
 		// Register Layouts
 		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
-		// Initialize Hooks
-		$this->hooks();
+
+		$this->register_hooks();
 	}
 
 
-	protected function hooks() {
+	protected function register_hooks() {
 
 		/*
-		 * Load Photography Portfolio templates when needed:
+		 * Setup the settings
+		 * Crucial for `phort_get_option` to work properly, which is almost at the core of everything else further down the pipe
 		 */
 		add_action( 'init', [ $this, 'setup_settings' ], 5 );
-		add_action( 'init', [ $this, 'load_view' ] );
+
+
+		/**
+		 *
+		 * Rgister Post Types
+		 *
+		 * post_type:   `phort_post`
+		 * taxonomy:    `phort_post_category`
+		 * Turns out taxonomies have to be registered before the
+		 * post type is registered to get pretty URLs like `/portfolio/category/%cat`
+		 *
+		 * @link https://cnpagency.com/blog/the-right-way-to-do-wordpress-custom-taxonomy-rewrites/
+		 *
+		 * `add_action` order is improtant here:
+		 */
+		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_taxonomy' ], 5 );
+		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_post_type' ], 5 );
 
 		// Load Translations:
 		add_action( 'init', [ $this, 'load_translations' ] );
 
 
 		/* @TODO Fix this temporary ugliness: */
-		add_action(
-			'init',
-			function () {
+		add_action( 'init', [ $this, 'do_too_many_things' ] );
 
-				// Setup attachment meta
-				new Gallery_Attachment_Video_Support();
+		/**
+		 * Load `Admin_View` or `Public_View`
+		 */
+		add_action( 'init', [ $this, 'load_view' ], 30 );
 
+		/*
+		 *
+		 * This at the core of loading all of the template files
+		 */
+		add_filter( 'template_include', [ $this, 'maybe_load_portfolio_template_files' ], 150 );
 
-				/**
-				 * Show/Hide Gallery Captions
-				 */
-				$gallery_captions = phort_get_option( 'gallery_captions' );
-				if ( $gallery_captions === 'hide' ) {
-					add_filter( 'phort/get_template/gallery/caption', '__return_false' );
-				}
-				else if ( $gallery_captions === 'show_all' ) {
-					phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
-				}
+		/**
+		 * Modify the WP_Query before posts are queried.
+		 */
+		if ( ! is_admin() ) {
+			add_action( 'pre_get_posts', [ $this->query, 'store_original_query' ], 2 );
+			add_action( 'pre_get_posts', [ $this->query, 'set_variables' ], 5 );
+			add_action( 'pre_get_posts', [ $this->query, 'increase_ppp_limit' ], 25 );
+		}
 
-
-				// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
-				do_action( 'phort/core/loaded', phort_instance() );
-			}
-		);
-
-		// Attach template loader
-		add_filter( 'template_include', [ 'Photography_Portfolio\Core\Template_Loader', 'load' ], 150 );
-
+		/**
+		 * Miscellaneous
+		 */
 		// Add "Settings" to plugin links in plugin page
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
 
-
-		// Load the view layout settings
-		add_action( 'phort/layout/init', [ 'Photography_Portfolio\Frontend\Layout_Factory', 'autoload' ] );
-
-
 	}
+
 
 }

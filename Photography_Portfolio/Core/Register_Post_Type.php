@@ -7,23 +7,6 @@ namespace Photography_Portfolio\Core;
 class Register_Post_Type {
 
 
-	public static function initialize() {
-
-
-		/**
-		 * Turns out taxonomies have to be registered before the
-		 * post type is registered to get pretty URLs like `/portfolio/category/%cat`
-		 *
-		 * @link https://cnpagency.com/blog/the-right-way-to-do-wordpress-custom-taxonomy-rewrites/
-		 *
-		 * `add_action` order is improtant here:
-		 */
-		add_action( 'init', [ __CLASS__, 'register_taxonomy' ], 5 );
-		add_action( 'init', [ __CLASS__, 'register_post_type' ], 5 );
-
-	}
-
-
 	public static function register_post_type() {
 
 		$labels = apply_filters(

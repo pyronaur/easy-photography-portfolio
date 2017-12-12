@@ -120,6 +120,7 @@ else {
 
 	/**
 	 * Boot Colormelon_Photography_Portfolio
+	 * This happens before WordPress `init`
 	 */
 	add_action( 'after_setup_theme', 'phort_instance', 50 );
 
