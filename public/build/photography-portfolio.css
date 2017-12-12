@@ -311,11 +311,11 @@
   margin-left: auto;
   margin-right: auto;
 }
-.PP_Single_Column__item {
+.PP_Single_Column .PP_Single_Column__item {
   margin-bottom: 2.4em;
 }
-.PP_Single_Column__item,
-.PP_Single_Column__item img {
+.PP_Single_Column .PP_Single_Column__item,
+.PP_Single_Column .PP_Single_Column__item img {
   margin-left: auto;
   margin-right: auto;
 }
