@@ -248,13 +248,6 @@ final class Colormelon_Photography_Portfolio {
 
 	protected function register_hooks() {
 
-		/*
-		 * Setup the settings
-		 * Crucial for `phort_get_option` to work properly, which is almost at the core of everything else further down the pipe
-		 */
-		add_action( 'init', [ $this, 'setup_settings' ], 5 );
-
-
 		/**
 		 *
 		 * Rgister Post Types
@@ -270,6 +263,13 @@ final class Colormelon_Photography_Portfolio {
 		 */
 		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_taxonomy' ], 5 );
 		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_post_type' ], 5 );
+
+		/*
+		 * Setup the settings
+		 * Crucial for `phort_get_option` to work properly, which is almost at the core of everything else further down the pipe
+		 */
+		add_action( 'init', [ $this, 'setup_settings' ], 7 );
+
 
 		// Load Translations:
 		add_action( 'init', [ $this, 'load_translations' ] );
@@ -303,6 +303,7 @@ final class Colormelon_Photography_Portfolio {
 		 */
 		// Add "Settings" to plugin links in plugin page
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
+
 
 	}
 
