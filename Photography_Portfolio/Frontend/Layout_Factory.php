@@ -30,7 +30,9 @@ class Layout_Factory {
 		global $wp_query;
 		global $phort_layout;
 
+
 		$layout_class_name = phort_instance()->layouts->find_class( $layout, $slug );
+
 
 		$factory = new static( $wp_query, $slug, $layout_class_name );
 

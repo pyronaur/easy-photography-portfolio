@@ -59,7 +59,7 @@ class CMB2_Options_Page {
 	 *
 	 * @param  string $field Field to retrieve
 	 *
-	 * @return mixed          Field value or exception is thrown
+	 * @return mixed          Field value or false
 	 */
 	public function __get( $field ) {
 
@@ -67,8 +67,9 @@ class CMB2_Options_Page {
 		if ( in_array( $field, [ 'key', 'metabox_id', 'title', 'options_page' ], true ) ) {
 			return $this->{$field};
 		}
+		trigger_error( 'Invalid property: ' . $field );
 
-		throw new \Exception( 'Invalid property: ' . $field );
+		return false;
 	}
 
 

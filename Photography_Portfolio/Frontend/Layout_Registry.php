@@ -18,7 +18,6 @@ class Layout_Registry {
 	 * @param string $classname    - Fully qualified class name
 	 *
 	 * @return bool|Layout_Registry instance
-	 * @throws \Exception
 	 */
 	public function add( $classname, $layout_group, $slug, $label ) {
 
@@ -56,16 +55,18 @@ class Layout_Registry {
 	 * @param string $classname
 	 *
 	 * @return bool
-	 * @throws \Exception
 	 */
 	public function validate_registration_class( $layout_group, $classname ) {
-
 
 		/**
 		 * Make sure that class exists
 		 */
 		if ( ! class_exists( $classname ) ) {
-			throw new \Exception( "Class $classname does not exist" );
+
+			trigger_error( "Class $classname does not exist" );
+
+			return false;
+
 		}
 
 		return true;
@@ -78,7 +79,6 @@ class Layout_Registry {
 	 * @param Layout_Factory_Interface $classname - Fully qualified class name
 	 *
 	 * @return bool
-	 * @throws \Exception
 	 */
 	public function remove( $layout_group, $slug ) {
 
@@ -110,7 +110,6 @@ class Layout_Registry {
 	 * @param $slug
 	 *
 	 * @return Layout_Factory_Interface
-	 * @throws \Exception
 	 */
 	public function find_class( $group, $slug ) {
 
