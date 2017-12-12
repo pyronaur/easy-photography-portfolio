@@ -169,10 +169,6 @@ final class Colormelon_Photography_Portfolio {
 	 */
 	public function do_too_many_things() {
 
-		// Setup attachment meta
-		new Gallery_Attachment_Video_Support();
-
-
 		/**
 		 * Show/Hide Gallery Captions
 		 */
@@ -277,6 +273,7 @@ final class Colormelon_Photography_Portfolio {
 
 		/* @TODO Fix this temporary ugliness: */
 		add_action( 'init', [ $this, 'do_too_many_things' ] );
+		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ] );
 
 		/**
 		 * Load `Admin_View` or `Public_View`
