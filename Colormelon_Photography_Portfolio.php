@@ -154,6 +154,18 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
+	public function setup_settings() {
+
+		$this->settings = new Setting_Registry();
+
+		// Setup General Settings
+		$general_settings = new General_Portfolio_Settings( $this->layouts );
+
+		// Add all settings to the registry
+		$this->settings->add_all( $general_settings->get_all() );
+	}
+
+
 	/**
 	 * Constructor is only going to set up the core
 	 */
@@ -170,18 +182,6 @@ final class Colormelon_Photography_Portfolio {
 
 		// Initialize Hooks
 		$this->hooks();
-	}
-
-
-	public function setup_settings() {
-
-		$this->settings = new Setting_Registry();
-
-		// Setup General Settings
-		$general_settings = new General_Portfolio_Settings( $this->layouts );
-
-		// Add all settings to the registry
-		$this->settings->add_all( $general_settings->get_all() );
 	}
 
 
@@ -204,7 +204,6 @@ final class Colormelon_Photography_Portfolio {
 
 				// Setup attachment meta
 				new Gallery_Attachment_Video_Support();
-
 
 
 				/**
@@ -236,21 +235,16 @@ final class Colormelon_Photography_Portfolio {
 			'phort/layout/init',
 			function () use ( $instance ) {
 
-				/*
-				 * @TODO: need a function to check wheter is archive or not
-				 * This is not dry, and is repeated @`phort_slug_current()`
-				 */
-				if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
+				if ( phort_is_archive() ) {
 					Layout_Factory::autoload( 'archive', phort_slug_archive() );
 				}
 
-				if ( phort_instance()->query->is_single() ) {
+				if ( phort_is_single() ) {
 					Layout_Factory::autoload( 'single', phort_slug_single() );
 				}
 
 			}
 		);
-
 
 
 	}

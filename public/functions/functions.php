@@ -35,6 +35,11 @@ function phort_get_home_page() {
 }
 
 
+/**
+ * Check for theme support
+ *
+ * @return mixed
+ */
 function phort_has_theme_support() {
 
 	return (
@@ -51,11 +56,45 @@ function phort_has_theme_support() {
 }
 
 
+/**
+ * Detect whether current page is the portfolio front page AND the WordPress home page
+ *
+ * @return bool
+ */
 function phort_is_front_page() {
 
 	return phort_instance()->query->is_portfolio_front_page();
 }
 
+
+/**
+ * Detect whether current layout is an archive layout
+ *
+ * @return bool
+ */
+function phort_is_archive() {
+	return (
+		phort_instance()->query->is_archive() || phort_instance()->query->is_category()
+	);
+}
+
+/**
+ * Detect whether current layout is singular
+ *
+ * @param bool $layout_slug
+ *
+ * @return bool
+ */
+function phort_is_single( $layout_slug = false ) {
+
+	$is_single = phort_instance()->query->is_single();
+	if ( ! $layout_slug ) {
+		return $is_single;
+	}
+
+
+	return ( $is_single && phort_slug_single() === $layout_slug );
+}
 
 function phort_has_video_support() {
 

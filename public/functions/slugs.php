@@ -31,7 +31,7 @@ function phort_slug_archive() {
 		)
 	);
 
-	
+
 }
 
 
@@ -39,12 +39,10 @@ function phort_slug_current() {
 
 	$slug = false;
 	// Single Portfolio
-	if ( phort_instance()->query->is_single() ) {
+	if ( phort_is_single() ) {
 		$slug = phort_slug_single();
-	}
-
-	// Portfolio Archive & Categories
-	if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
+	} // Portfolio Archive & Categories
+	else if ( phort_is_archive() ) {
 		$slug = phort_slug_archive();
 	}
 
