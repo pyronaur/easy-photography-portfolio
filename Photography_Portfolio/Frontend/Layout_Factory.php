@@ -9,6 +9,7 @@ use Photography_Portfolio\Contracts\Layout_Factory_Interface;
 class Layout_Factory {
 
 	protected $query;
+	protected $classname;
 	private   $slug;
 
 
