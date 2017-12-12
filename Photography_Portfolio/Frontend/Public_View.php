@@ -97,30 +97,32 @@ class Public_View {
 		];
 
 		$gallery = phort_get_option( 'popup_gallery' );
-		if ( in_array( $gallery, [ 'lightgallery', 'photoswipe' ] ) ) {
-			$dependencies[] = 'phort-gallery-' . sanitize_html_class( $gallery );
+		if ( 'lightgallery' === $gallery ) {
+			$dependencies[] = 'phort-gallery-lightgallery';
 		}
-
+		if ( 'photoswipe' === $gallery ) {
+			$dependencies[] = 'photoswipe';
+		}
 		// Styles
 		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );
 		wp_register_style( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/lightgallery.css' );
-		wp_register_style( 'phort-gallery-photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.css' );
-		wp_register_style( 'phort-gallery-photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'phort-gallery-photoswipe-ui' ] );
+		wp_register_style( 'photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.css' );
+		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-ui' ] );
 
 
 		// Gallery Scripts
-		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
-		wp_register_script( 'phort-gallery-photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, NULL, true );
+		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], null, true );
+		wp_register_script( 'photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.js', null, '4.1.2', true );
 		wp_register_script(
-			'phort-gallery-photoswipe',
+			'photoswipe',
 			$this->build_directory_url . 'libs/photoswipe.js',
-			[ 'jquery', 'phort-gallery-photoswipe-ui' ],
-			NULL,
+			[ 'jquery', 'photoswipe-ui' ],
+			'4.1.2',
 			true
 		);
 
 		// Scripts
-		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, NULL, true );
+		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', null, null, true );
 		wp_register_script( 'phort-app', $this->build_directory_url . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 
