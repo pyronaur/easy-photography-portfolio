@@ -108,8 +108,8 @@ class Public_View {
 
 
 		// Gallery Scripts
-		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], null, true );
-		wp_register_script( 'photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.js', null, '4.1.2', true );
+		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
+		wp_register_script( 'photoswipe-ui', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, '4.1.2', true );
 		wp_register_script(
 			'photoswipe',
 			$this->build_directory_url . 'libs/photoswipe.js',
@@ -119,7 +119,7 @@ class Public_View {
 		);
 
 		// Scripts
-		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', null, null, true );
+		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, NULL, true );
 		wp_register_script( 'phort-app', $this->build_directory_url . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 
@@ -181,7 +181,7 @@ class Public_View {
 
 
 		// Single Portfolio
-		if ( phort_instance()->query->is_single() ) {
+		if ( phort_is_single() ) {
 
 			$classes[] = 'PP_Single';
 			$classes[] = 'PP_Single--' . phort_slug_single();
@@ -195,7 +195,7 @@ class Public_View {
 		}
 
 		// Portfolio Archive & Categories
-		if ( phort_instance()->query->is_archive() || phort_instance()->query->is_category() ) {
+		if ( phort_is_archive() ) {
 			$classes[] = 'PP_Archive';
 			$classes[] = 'PP_Archive--' . phort_slug_archive();
 		}
