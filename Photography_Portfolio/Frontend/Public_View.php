@@ -96,6 +96,7 @@ class Public_View {
 			'wp-js-hooks',
 		];
 
+		// @TODO: Should this be here?
 		$gallery = phort_get_option( 'popup_gallery' );
 		if ( 'lightgallery' === $gallery ) {
 			$dependencies[] = 'phort-gallery-lightgallery';
@@ -235,20 +236,19 @@ class Public_View {
 	}
 
 
+	// @TODO: Should this be here?
 	public function render_wrapper_start() {
-
 		phort_get_template( 'partials/wrapper-start' );
-
-
 	}
 
 
+	// @TODO: Should this be here?
 	public function render_wrapper_end() {
 
 		phort_get_template( 'partials/wrapper-end' );
 	}
 
-
+	// @TODO: Should this be here?
 	public function display_photoswipe_html() {
 
 		phort_get_template( 'partials/photoswipe' );
