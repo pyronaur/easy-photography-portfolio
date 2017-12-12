@@ -72,7 +72,7 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
-	public function load_view() {
+	public function prepare_view() {
 
 		/**
 		 * == Boot ==
@@ -84,6 +84,9 @@ final class Colormelon_Photography_Portfolio {
 		else {
 			new Public_View();
 		}
+
+		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
+		do_action( 'phort/core/loaded', $this );
 
 	}
 
@@ -164,28 +167,6 @@ final class Colormelon_Photography_Portfolio {
 	}
 
 
-	/**
-	 * @TODO: Obviously, refactor soon
-	 */
-	public function do_too_many_things() {
-
-		/**
-		 * Show/Hide Gallery Captions
-		 */
-		$gallery_captions = phort_get_option( 'gallery_captions' );
-		if ( $gallery_captions === 'hide' ) {
-			add_filter( 'phort/get_template/gallery/caption', '__return_false' );
-		}
-		else if ( $gallery_captions === 'show_all' ) {
-			phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
-		}
-
-
-		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
-		do_action( 'phort/core/loaded', phort_instance() );
-	}
-
-
 	public function maybe_load_portfolio_template_files( $template ) {
 
 		/**
@@ -233,7 +214,6 @@ final class Colormelon_Photography_Portfolio {
 
 		$this->query = new Query();
 
-		// Setup sub-classes
 		// Register Layouts
 		$this->layouts = Initialize_Layout_Registry::with_defaults();
 
@@ -264,25 +244,24 @@ final class Colormelon_Photography_Portfolio {
 		 * Setup the settings
 		 * Crucial for `phort_get_option` to work properly, which is almost at the core of everything else further down the pipe
 		 */
+
 		add_action( 'init', [ $this, 'setup_settings' ], 7 );
 
 
 		// Load Translations:
 		add_action( 'init', [ $this, 'load_translations' ] );
 
-
-		/* @TODO Fix this temporary ugliness: */
-		add_action( 'init', [ $this, 'do_too_many_things' ] );
+		// Maybe add video support
 		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ] );
 
 		/**
 		 * Load `Admin_View` or `Public_View`
 		 */
-		add_action( 'init', [ $this, 'load_view' ], 30 );
+		add_action( 'init', [ $this, 'prepare_view' ], 30 );
 
 		/*
 		 *
-		 * This at the core of loading all of the template files
+		 * This at the core of loading all of the Easy Photography Portfolio template files
 		 */
 		add_filter( 'template_include', [ $this, 'maybe_load_portfolio_template_files' ], 150 );
 
