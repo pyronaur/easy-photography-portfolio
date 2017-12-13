@@ -1,21 +1,26 @@
 ###
     Dependencies
 ###
-$ = require( 'jQuery' )
+$ = require( "jQuery" )
 Hooks = require( "wp_hooks" )
-Portfolio_Interface = require( './Portfolio_Interface' )
+Portfolio_Interface = require( "./Portfolio_Interface" )
+
+# Defering the refresh efent prevents masonry from triggering an error
+# This is an ugly quick fix.
+# @TODO: Rewrite the whole file.
+
+defer = ( cb ) -> setTimeout( cb, 1 )
 
 # @TODO: Need a heavvy refactor - no more classes please
 class Portfolio_Masonry extends Portfolio_Interface
-
+	once = false
 	constructor: ->
-
 		@Elements =
-			container: 'PP_Masonry'
-			sizer    : 'PP_Masonry__sizer'
-			item     : 'PP_Masonry__item'
+			container: "PP_Masonry"
+			sizer    : "PP_Masonry__sizer"
+			item     : "PP_Masonry__item"
 
-		super()
+		super( )
 
 	###
 		Initialize
@@ -32,12 +37,12 @@ class Portfolio_Masonry extends Portfolio_Interface
 	prepare: =>
 		return if @$container.length is 0
 
-		@$container.addClass( 'PP_JS__loading_masonry' )
+		@$container.addClass( "PP_JS__loading_masonry" )
 
-		@maybe_create_sizer()
+		@maybe_create_sizer( )
 
 		# Only initialize, if no masonry exists
-		masonry_settings = Hooks.applyFilters 'phort.masonry.settings',
+		masonry_settings = Hooks.applyFilters "phort.masonry.settings",
 			itemSelector: ".#{@Elements.item}"
 			columnWidth : ".#{@Elements.sizer}"
 			gutter      : 0
@@ -45,14 +50,17 @@ class Portfolio_Masonry extends Portfolio_Interface
 
 		@$container.masonry( masonry_settings )
 
-		@$container.masonry 'once', 'layoutComplete', =>
+		@$container.masonry "once", "layoutComplete", =>
 			@$container
-				.removeClass( 'PP_JS__loading_masonry' )
-				.addClass( 'PP_JS__loading_complete' )
+				.removeClass( "PP_JS__loading_masonry" )
+				.addClass( "PP_JS__loading_complete" )
 
 			# @trigger refresh event
 			# triggers `@refresh()`
-			Hooks.doAction 'phort.portfolio.refresh'
+			defer( -> Hooks.doAction( "phort.portfolio.refresh" ) )
+
+
+
 
 
 	###
@@ -60,7 +68,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 		@called on hook `phort.portfolio.create`
 	###
 	create: =>
-		@$container.masonry()
+		@$container.masonry( )
 		return
 
 
@@ -69,10 +77,10 @@ class Portfolio_Masonry extends Portfolio_Interface
 		@called on hook `phort.portfolio.destroy`
 	###
 	destroy: =>
-		@maybe_remove_sizer()
+		@maybe_remove_sizer( )
 
 		if @$container.length > 0
-			@$container.masonry( 'destroy' )
+			@$container.masonry( "destroy" )
 
 
 		return
@@ -83,7 +91,7 @@ class Portfolio_Masonry extends Portfolio_Interface
 		@called on hook `phort.portfolio.refresh`
 	###
 	refresh: =>
-		@$container.masonry( 'layout' )
+		@$container.masonry( "layout" )
 
 
 
@@ -91,12 +99,12 @@ class Portfolio_Masonry extends Portfolio_Interface
 		Create a sizer element for jquery-masonry to use
 	###
 	maybe_create_sizer: ->
-		@create_sizer() if @sizer_doesnt_exist()
+		@create_sizer( ) if @sizer_doesnt_exist( )
 		return
 
 	maybe_remove_sizer: ->
 		return if @$container.length isnt 1
-		@$container.find( ".#{@Elements.sizer}" ).remove()
+		@$container.find( ".#{@Elements.sizer}" ).remove( )
 		return
 
 	sizer_doesnt_exist: -> @$container.find( ".#{@Elements.sizer}" ).length is 0
