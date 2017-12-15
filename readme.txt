@@ -142,6 +142,10 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.4.2 =
+* Fix PhotoSwipe asset name collisions with WooCommerce
+* Update Dashboard UI
+
 = 1.4.1 =
 * Fix Single Column spacing in themes that don't natively support Easy Photography Portfolio
 
