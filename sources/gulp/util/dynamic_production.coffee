@@ -1,3 +1,4 @@
+util = require('gulp-util')
 ###
     Check if is Production Mode on ?
 ###
@@ -7,4 +8,4 @@ GLOBAL.set_production = ->
 	return
 
 GLOBAL.production = ->
-	return is_production
+	return (!!util.env.production || is_production)
