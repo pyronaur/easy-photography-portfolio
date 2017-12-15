@@ -74,8 +74,12 @@ class Public_View {
 			wp_enqueue_style( 'phort-gallery-lightgallery' );
 		}
 		if ( 'photoswipe' === $gallery ) {
-			wp_enqueue_script( 'photoswipe' );
+
+			wp_enqueue_style('photoswipe-default-skin'); // Explicit queuing
 			wp_enqueue_style( 'photoswipe' );
+
+			wp_enqueue_script( 'photoswipe-ui-default' ); // Explicit queuing is necessary, dependencies might get
+			wp_enqueue_script( 'photoswipe' );
 		}
 
 
@@ -103,13 +107,14 @@ class Public_View {
 			$dependencies[] = 'phort-gallery-lightgallery';
 		}
 		if ( 'photoswipe' === $gallery ) {
+			$dependencies[] = 'photoswipe-ui-default';
 			$dependencies[] = 'photoswipe';
 		}
 		// Styles
 		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );
 		wp_register_style( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/lightgallery.css' );
-		wp_register_style( 'photoswipe-ui-default', $this->build_directory_url . 'libs/photoswipe-ui.css' );
-		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-ui-default' ] );
+		wp_register_style( 'photoswipe-default-skin', $this->build_directory_url . 'libs/photoswipe-ui.css', NULL, '4.1.2' );
+		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-default-skin' ], '4.1.2' );
 
 
 		// Gallery Scripts
@@ -124,7 +129,7 @@ class Public_View {
 		);
 
 		// Scripts
-		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, NULL, true );
+		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, '1.0.0', true );
 		wp_register_script( 'phort-app', $this->build_directory_url . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 
