@@ -1,8 +1,8 @@
 <?php
 /**
  * Generic Archive Entry
- * @since 1.0.0
- * @modified 1.3.0
+ * @since    1.0.0
+ * @modified 1.4.3
  */
 ?>
 
@@ -30,13 +30,6 @@
 
 	</div> <!-- .PP_Entry__header -->
 
-
-	<a class="PP_Entry__more" href="<?php the_permalink(); ?>">
-			<span class="PP_Entry__inner">
-				<span class="PP_Entry__view">
-					<?php esc_html_e( 'View Gallery', 'photography-portfolio' ) ?>
-				</span>
-			</span>
-	</a> <!-- .PP_Entry__popup -->
+	<?php phort_get_template( 'archive/view-entry-link' ) ?>
 
 </div>
