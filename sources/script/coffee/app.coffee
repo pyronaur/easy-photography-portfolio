@@ -28,9 +28,7 @@ window.Photography_Portfolio =
 	Boot on `document.ready`
 ###
 $( document ).ready ->
-
-	# Only run this script when body has `PP_Portfolio` class
-	return if $( ".PP_Wrapper" ).length is 0
+	return if $( ".PP_Wrapper" ).length is 0 && not $( "body" ).hasClass( "PP_Portfolio" )
 
 	# Boot
 	Photography_Portfolio.Core.ready( )
