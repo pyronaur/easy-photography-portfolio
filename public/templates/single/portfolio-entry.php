@@ -8,5 +8,4 @@
 phort_get_template( 'single/description' );
 
 // Display the gallery
-phort_get_template( 'gallery/gallery-loop' )
-?>
+phort_get_template( 'gallery/gallery-loop' );
