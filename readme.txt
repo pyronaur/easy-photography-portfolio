@@ -142,6 +142,10 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.4.3 =
+* Automatically center Photoswipe Captions
+* Code clean-ups 🚰
+
 = 1.4.2 =
 * Fix PhotoSwipe asset name collisions with WooCommerce
 * Update Dashboard UI
