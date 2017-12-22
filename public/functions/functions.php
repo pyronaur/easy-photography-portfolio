@@ -98,7 +98,7 @@ function phort_is_single( $layout_slug = false ) {
 
 function phort_has_video_support() {
 
-	return Gallery_Attachment_Video_Support::$video_enabled;
+	return Gallery_Attachment_Video_Support::$has_video_support;
 }
 
 

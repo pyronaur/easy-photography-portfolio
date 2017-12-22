@@ -9,6 +9,8 @@ namespace Photography_Portfolio\Core;
 //-----------------------------------*/
 class Gallery_Attachment_Video_Support {
 
+	public static $has_video_support = false;
+
 
 	/**
 	 * Gallery_Attachment_Video_Support constructor.
@@ -27,6 +29,7 @@ class Gallery_Attachment_Video_Support {
 			add_action( 'edit_attachment', [ __CLASS__, 'store_meta' ] );
 		}
 
+		self::$has_video_support = $has_video_support;
 
 	}
 
