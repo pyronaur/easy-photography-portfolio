@@ -25,7 +25,7 @@ class Query {
 
 
 		/**
-		 * Add custom home page query in themes where the theme isn't already runnign a custom query
+		 * Add custom home page query in themes where the theme isn't already running a custom query
 		 */
 		if ( $this->is_portfolio_front_page() && ! class_exists( '\Theme\Page_Template_Query_Filter' ) ) {
 			$this->custom_home_page_query( $query );
