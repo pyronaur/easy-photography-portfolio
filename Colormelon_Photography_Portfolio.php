@@ -55,7 +55,7 @@ final class Colormelon_Photography_Portfolio {
 	 *
 	 * @var string
 	 */
-	private $version = '1.4.3';
+	private $version = '1.4.4';
 
 
 	/**
@@ -240,6 +240,8 @@ final class Colormelon_Photography_Portfolio {
 
 
 		$this->register_hooks();
+
+
 	}
 
 
