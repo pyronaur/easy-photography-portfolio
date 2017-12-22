@@ -62,7 +62,7 @@ class Setup_Sample_Content {
 				'post_status'    => 'publish',
 				'post_type'      => 'page',
 				'post_author'    => 1,
-				'post_title'     => $portfolio_page_title,
+				'post_title'     => esc_html__( 'Portfolio', 'photography-portfolio' ),
 				'post_content'   => '',
 				'comment_status' => 'closed',
 			];
