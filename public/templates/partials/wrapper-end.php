@@ -1,3 +1,6 @@
 </div> <!-- .PP_Wrapper -->
+<?php
 
-<?php get_footer( 'portfolio' ) ?>
+get_footer( 'portfolio' );
+
+// no trailing space
