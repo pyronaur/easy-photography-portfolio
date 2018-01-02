@@ -4,7 +4,8 @@
 namespace Photography_Portfolio\Frontend;
 
 
-use Photography_Portfolio\Settings\Gallery\lightGallery;
+use Photography_Portfolio\Frontend\Popup_Gallery\lightGallery;
+use Photography_Portfolio\Frontend\Popup_Gallery\Photoswipe;
 
 class Enqueue_Assets {
 
@@ -13,6 +14,7 @@ class Enqueue_Assets {
 	 * @var string - Where all the scripts and styles live
 	 */
 	protected $build_directory_url;
+	protected $popup_gallery = false;
 
 
 	/**
@@ -26,13 +28,29 @@ class Enqueue_Assets {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 
 
-		// Add Photoswipe template
-		// @TODO: This probably doesn't really belong here.
-		if ( 'photoswipe' === phort_get_option( 'popup_gallery' ) ) {
-			add_action( 'get_footer', [ $this, 'display_photoswipe_html' ], 1000 );
+		$this->popup_gallery       = $this->initialize_popup_gallery();
+		$this->build_directory_url = CLM_PLUGIN_DIR_URL . 'public/build/';
+
+	}
+
+
+	/**
+	 * Create a popup-gallery instance, according to plugin settings
+	 *
+	 * @return bool|lightGallery|Photoswipe
+	 */
+	public function initialize_popup_gallery() {
+
+		$gallery = phort_get_option( 'popup_gallery' );
+		if ( 'photoswipe' === $gallery ) {
+			return new Photoswipe();
 		}
 
-		$this->build_directory_url = CLM_PLUGIN_DIR_URL . 'public/build/';
+		if ( 'photoswipe' === $gallery ) {
+			return new lightGallery();
+		}
+
+		return false;
 	}
 
 
@@ -52,6 +70,12 @@ class Enqueue_Assets {
 			return false;
 		}
 
+		// Enqueue Popup-Gallery scripts & Styles
+		if ( $this->popup_gallery ) {
+			$this->popup_gallery->enqueue();
+		}
+
+
 		// Enqueue style
 		wp_enqueue_style( 'phort-style' );
 
@@ -60,23 +84,6 @@ class Enqueue_Assets {
 		if ( in_array( phort_slug_current(), [ 'masonry', 'masonry-hovercard' ] ) ) {
 			wp_enqueue_script( 'jquery-masonry' );
 		}
-
-		// HOTFIX:
-		// @TODO: This is a hotfix. We need a better way to handle the (currently) 2 popup gallery scripts.
-		$gallery = phort_get_option( 'popup_gallery' );
-		if ( 'lightgallery' === $gallery ) {
-			wp_enqueue_script( 'phort-gallery-lightgallery' );
-			wp_enqueue_style( 'phort-gallery-lightgallery' );
-		}
-		if ( 'photoswipe' === $gallery ) {
-
-			wp_enqueue_style('photoswipe-default-skin'); // Explicit queuing
-			wp_enqueue_style( 'photoswipe' );
-
-			wp_enqueue_script( 'photoswipe-ui-default' ); // Explicit queuing is necessary, dependencies might get
-			wp_enqueue_script( 'photoswipe' );
-		}
-
 
 		// Enqueue photography-portfolio.js last
 		wp_enqueue_script( 'phort-app' );
@@ -95,33 +102,16 @@ class Enqueue_Assets {
 			'imagesloaded',
 			'wp-js-hooks',
 		];
+		$dependencies = array_merge( $dependencies, $this->popup_gallery->script_handles() );
 
-		// @TODO: Should this be here?
-		$gallery = phort_get_option( 'popup_gallery' );
-		if ( 'lightgallery' === $gallery ) {
-			$dependencies[] = 'phort-gallery-lightgallery';
+
+		// Popup Gallery
+		if ( $this->popup_gallery ) {
+			$this->popup_gallery->register();
 		}
-		if ( 'photoswipe' === $gallery ) {
-			$dependencies[] = 'photoswipe-ui-default';
-			$dependencies[] = 'photoswipe';
-		}
+
 		// Styles
 		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );
-		wp_register_style( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/lightgallery.css' );
-		wp_register_style( 'photoswipe-default-skin', $this->build_directory_url . 'libs/photoswipe-ui.css', NULL, '4.1.2' );
-		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-default-skin' ], '4.1.2' );
-
-
-		// Gallery Scripts
-		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
-		wp_register_script( 'photoswipe-ui-default', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, '4.1.2', true );
-		wp_register_script(
-			'photoswipe',
-			$this->build_directory_url . 'libs/photoswipe.js',
-			[ 'jquery', 'photoswipe-ui-default' ],
-			'4.1.2',
-			true
-		);
 
 		// Scripts
 		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, '1.0.0', true );
@@ -139,22 +129,13 @@ class Enqueue_Assets {
 	 */
 	public function javascript_settings() {
 
-
-		$gallery = phort_get_option( 'popup_gallery' );
-
-
 		$settings = [
-			'popup_gallery' => $gallery,
-			'i18n'          => [
-				'photoswipe' => [
-					'facebook'  => esc_html__( 'Share on Facebook', 'photography-portfolio' ),
-					'twitter'   => esc_html__( 'Tweet', 'photography-portfolio' ),
-					'pinterest' => esc_html__( 'Pin it', 'photography-portfolio' ),
-				],
-			],
+			'popup_gallery' => phort_get_option( 'popup_gallery' ),
 		];
 
-		lightGallery::register();
+		if ( $this->popup_gallery ) {
+			$settings = array_merge_recursive( $settings, $this->popup_gallery->javascript_settings() );
+		}
 
 		return apply_filters( 'phort/js/__phort', $settings );
 	}
@@ -209,11 +190,5 @@ class Enqueue_Assets {
 		return $classes;
 	}
 
-
-	// @TODO: Should this be here?
-	public function display_photoswipe_html() {
-
-		phort_get_template( 'partials/photoswipe' );
-	}
 
 }
