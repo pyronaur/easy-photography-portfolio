@@ -18,7 +18,7 @@ class Popup_Gallery_Factory {
 			return new Photoswipe();
 		}
 
-		if ( 'photoswipe' === $gallery ) {
+		if ( 'lightgallery' === $gallery ) {
 			return new lightGallery();
 		}
 
