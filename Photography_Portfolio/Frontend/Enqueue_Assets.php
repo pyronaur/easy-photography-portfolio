@@ -6,7 +6,7 @@ namespace Photography_Portfolio\Frontend;
 
 use Photography_Portfolio\Settings\Gallery\lightGallery;
 
-class Public_View {
+class Enqueue_Assets {
 
 
 	/**
@@ -16,7 +16,7 @@ class Public_View {
 
 
 	/**
-	 * Public_View constructor.
+	 * Enqueue_Assets constructor.
 	 */
 	public function __construct() {
 
@@ -24,11 +24,6 @@ class Public_View {
 		add_action( 'wp_head', [ $this, 'detect_javascript' ] );
 		add_filter( 'body_class', [ $this, 'adjust_body_class' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
-
-		// Adjust .PP_Wrapper classes
-		if ( ! phort_has_theme_support() ) {
-			add_filter( 'phort_get_class', [ $this, 'adjust_wrapper_class' ], 10, 2 );
-		}
 
 
 		// Add Photoswipe template
@@ -212,33 +207,6 @@ class Public_View {
 
 
 		return $classes;
-	}
-
-
-	/**
-	 * If there is no theme support, users can add their own class name to the wrapper.
-	 * Attach that classname with this funciton:
-	 *
-	 * @param $classes
-	 * @param $class
-	 *
-	 * @return array
-	 */
-	public function adjust_wrapper_class( $classes, $class ) {
-
-		// Only affect .PP_Wrapper
-		if ( ! in_array( 'PP_Wrapper', $classes ) ) {
-			return $classes;
-		}
-
-		$custom_classes = phort_get_option( 'wrapper_class' );
-
-		if ( $custom_classes ) {
-			$classes = array_merge( $classes, phort_get_class( $custom_classes ) );
-		}
-
-		return $classes;
-
 	}
 
 

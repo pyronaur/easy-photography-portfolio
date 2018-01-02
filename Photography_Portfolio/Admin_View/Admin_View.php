@@ -15,7 +15,7 @@ class Admin_View {
 
 
 	/**
-	 * Public_View constructor.
+	 * Enqueue_Assets constructor.
 	 */
 	public function __construct() {
 

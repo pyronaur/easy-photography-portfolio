@@ -7,7 +7,7 @@ use Photography_Portfolio\Core\Query;
 use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
-use Photography_Portfolio\Frontend\Public_View;
+use Photography_Portfolio\Frontend\Enqueue_Assets;
 use Photography_Portfolio\Frontend\Template;
 use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Setting_Registry;
@@ -82,7 +82,7 @@ final class Colormelon_Photography_Portfolio {
 			new Admin_View();
 		}
 		else {
-			new Public_View();
+			new Enqueue_Assets();
 		}
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
@@ -275,7 +275,7 @@ final class Colormelon_Photography_Portfolio {
 		add_action( 'init', [ $this, 'load_translations' ] );
 
 		/**
-		 * Load `Admin_View` or `Public_View`
+		 * Load `Admin_View` or `Enqueue_Assets`
 		 */
 		add_action( 'init', [ $this, 'prepare_view' ], 30 );
 
