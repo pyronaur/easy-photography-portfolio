@@ -30,4 +30,4 @@ if ( 'enable' == phort_get_option( 'archive_description' ) ) {
 
 	</div>
 
-<?php do_action( 'phort/archive/container/open' ); ?>
+<?php do_action( 'phort/archive/container/close' ); ?>
