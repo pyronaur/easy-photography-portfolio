@@ -1,20 +1,12 @@
 <?php
 /**
  * Generic Archive Layout
- * @since 1.0.0
- * @modified 1.1.1
+ * @since    1.0.0
+ * @modified 1.4.6
  */
 ?>
 
-<?php
-/**
- * Display Archive Descriptions, if they're enabled
- */
-if ( 'enable' == phort_get_option( 'archive_description' ) ) {
-	phort_get_template( 'archive/description' );
-}
-?>
-
+<?php phort_get_template( 'archive/description' ); ?>
 
 <?php do_action( 'phort/archive/container/open' ); ?>
 

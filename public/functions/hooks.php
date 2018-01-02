@@ -19,24 +19,6 @@ function phort_inline_data_image_size() {
 add_action( 'phort/archive/entry/attributes', 'phort_inline_data_image_size' );
 
 
-/**
- * Show or hide captions in galleries
- * This still looks a bit odd, but at the moment there is no other place to put the gallery captions settings
- */
-function _phort_utilize_caption_settings() {
-
-
-	$gallery_captions = phort_get_option( 'gallery_captions' );
-	if ( $gallery_captions === 'hide' ) {
-		add_filter( 'phort/get_template/gallery/caption', '__return_false' );
-	}
-	else if ( $gallery_captions === 'show_all' ) {
-		phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
-	}
-}
-
-add_action( 'init', '_phort_utilize_caption_settings' );
-
 
 /**
  * Detect JavaScript
@@ -95,3 +77,53 @@ function phort_adjust_body_classes( $classes ) {
 
 	return $classes;
 }
+
+
+
+/*
+ * ==== PRIVATE Functions ====
+ * The following functions will be moved out of here soon..
+ */
+
+/**
+ * Hide archive description if the setting says so.
+ * @TODO: Move somewhere nice
+ *
+ * ========
+ * Do not tamper with this function/filter - it's likely going to be removed without warning
+ * That's why it's prefixed with `_phort`
+ * ========
+ */
+function _phort_utilize_archive_description_setting() {
+
+	if ( 'enable' !== phort_get_option( 'archive_description' ) ) {
+		phort_detach_template( 'phort_get_template' );
+	}
+
+}
+
+add_action( 'init', '_phort_utilize_archive_description_setting' );
+
+/**
+ * Show or hide captions in galleries
+ * This still looks a bit odd, but at the moment there is no other place to put the gallery captions settings
+ * @TODO: Move somewhere nice
+ *      
+ * ========
+ * Do not tamper with this function/filter - it's likely going to be removed without warning
+ * That's why it's prefixed with `_phort`
+ * ========
+ */
+function _phort_utilize_caption_settings() {
+
+
+	$gallery_captions = phort_get_option( 'gallery_captions' );
+	if ( $gallery_captions === 'hide' ) {
+		add_filter( 'phort/get_template/gallery/caption', '__return_false' );
+	}
+	else if ( $gallery_captions === 'show_all' ) {
+		phort_attach_class( 'PP_Gallery', 'PP_Gallery--show-captions' );
+	}
+}
+
+add_action( 'init', '_phort_utilize_caption_settings' );
