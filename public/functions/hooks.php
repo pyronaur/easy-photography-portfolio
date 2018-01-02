@@ -67,6 +67,10 @@ add_action( 'init', '_phort_utilize_caption_settings' );
 add_action( 'wp_head', 'phort_detect_javascript' );
 function phort_detect_javascript() {
 
+	if ( ! phort_is_portfolio() ) {
+		return;
+	}
+	
 	echo "<script>(function(html){html.classList.add('js');})(document.documentElement)</script>";
 }
 
