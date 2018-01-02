@@ -173,16 +173,6 @@ function phort_entry_has_featured_image() {
 	return $phort_layout->entry->has_featured_image();
 }
 
-
-/**
- * @deprecated  since 1.3.0 use phort_entry_data_attributes() instead
- */
-function phort_entry_data_attribute() {
-
-	_deprecated_function( __FUNCTION__, "1.3.0", "phort_entry_data_attributes" );
-	phort_entry_data_attributes();
-}
-
 /**
  * Allow custom attributes to be added to entries
  */

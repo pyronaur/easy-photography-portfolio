@@ -25,3 +25,39 @@ add_action(
 		do_action_deprecated( 'phort/gallery/loop/end', [], '1.4.0' );
 	}
 );
+
+
+/**
+ * @deprecated  since 1.3.0 use phort_entry_data_attributes() instead
+ */
+function phort_entry_data_attribute() {
+
+	_deprecated_function( __FUNCTION__, "1.3.0", "phort_entry_data_attributes" );
+	phort_entry_data_attributes();
+}
+
+
+/**
+ * @deprecated action `phort/wrapper/start`
+ */
+add_action(
+	'phort_get_template/partials/wrapper-start',
+	function () {
+
+		do_action_deprecated( 'phort/wrapper/start', NULL, '1.4.0', 'phort_get_template/partials/wrapper-start' );
+	}
+	,
+	$priority = 5
+);
+
+/**
+ * @deprecated action `phort/wrapper/end`
+ */
+add_action(
+	'phort_get_template/partials/wrapper-end',
+	function () {
+
+		do_action_deprecated( 'phort/wrapper/end', NULL, '1.4.0', 'phort_get_template/partials/wrapper-start' );
+	},
+	$priority = 5
+);

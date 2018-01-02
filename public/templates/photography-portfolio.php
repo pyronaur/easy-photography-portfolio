@@ -26,7 +26,7 @@ do_action( 'phort/layout/init' );
  * @loads /partials/wrapper-start.php
  * @uses  get_header()
  */
-do_action_deprecated( 'phort/wrapper/start', null, '1.4.0', 'phort_get_template/partials/wrapper-start' );
+
 phort_get_template( 'partials/wrapper-start' );
 
 /**
@@ -44,5 +44,4 @@ phort_load_view();
  * @loads /partials/wrapper-end.php
  * @uses  get_footer()
  */
-do_action_deprecated( 'phort/wrapper/end', null, '1.4.0', 'phort_get_template/partials/wrapper-end' );
 phort_get_template( 'partials/wrapper-end' );
