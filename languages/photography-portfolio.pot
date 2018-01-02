@@ -1,4 +1,4 @@
-# Copyright (C) 2017 Photography Portfolio
+# Copyright (C) 2018 Photography Portfolio
 # This file is distributed under the same license as the Photography Portfolio package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Colormelon <help@colormelon.com>\n"
 "Language-Team: Colormelon <help@colormelon.com>\n"
 "X-Poedit-Basepath: ..\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:129, Colormelon_Photography_Portfolio.php:138
+#: Colormelon_Photography_Portfolio.php:128, Colormelon_Photography_Portfolio.php:137
 msgid "Can't do this thing."
 msgstr ""
 
-#: Colormelon_Photography_Portfolio.php:155
+#: Colormelon_Photography_Portfolio.php:154
 msgid "Settings"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgctxt "Post Type Singular Name"
 msgid "Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:17, Photography_Portfolio/Core/Register_Post_Type.php:35, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45
+#: Photography_Portfolio/Core/Register_Post_Type.php:17, Photography_Portfolio/Core/Register_Post_Type.php:35, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:65
 msgid "Portfolio"
 msgstr ""
 
@@ -173,15 +173,15 @@ msgstr ""
 msgid "%d images"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:155
+#: Photography_Portfolio/Frontend/Popup_Gallery/Photoswipe.php:66
 msgid "Share on Facebook"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:156
+#: Photography_Portfolio/Frontend/Popup_Gallery/Photoswipe.php:67
 msgid "Tweet"
 msgstr ""
 
-#: Photography_Portfolio/Frontend/Public_View.php:157
+#: Photography_Portfolio/Frontend/Popup_Gallery/Photoswipe.php:68
 msgid "Pin it"
 msgstr ""
 
