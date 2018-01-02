@@ -8,7 +8,7 @@
  * Actions `phort/gallery/loop/*` are deprecated
  * Use `gallery-loop` instead of `gallery/loop` with `phort_get_template` hook
  */
-//  @TODO  Remove at 1.6.0
+//  @Todo: Remove at 1.6.0
 add_action(
 	'phort/gallery-loop/start',
 	function () {
@@ -17,7 +17,7 @@ add_action(
 	}
 );
 
-// @TODO: Remove at 1.6.0
+// @Todo: Remove at 1.6.0
 add_action(
 	'phort/gallery-loop/end',
 	function () {
@@ -60,4 +60,33 @@ add_action(
 		do_action_deprecated( 'phort/wrapper/end', NULL, '1.4.0', 'phort_get_template/partials/wrapper-start' );
 	},
 	$priority = 5
+);
+
+
+/**
+ * @deprecated action `phort/archive/container/open`
+ * @Todo       : Remove at 1.6.0
+ */
+add_action(
+	'phort_get_template/archive/description',
+	function () {
+
+		do_action_deprecated( 'phort/archive/container/open', NULL, '1.4.0', 'phort_get_template' );
+	}
+	,
+	$priority = 250
+);
+
+/**
+ * @deprecated action `phort/archive/container/close`
+ * @Todo       : Remove at 1.6.0
+ */
+add_action(
+	'phort_get_template/archive/layout',
+	function () {
+
+		do_action_deprecated( 'phort/archive/container/close', NULL, '1.4.0', 'phort_get_template' );
+	}
+	,
+	$priority = 250
 );
