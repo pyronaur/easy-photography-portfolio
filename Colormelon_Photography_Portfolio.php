@@ -1,13 +1,12 @@
 <?php
 
 use Photography_Portfolio\Admin_View\Admin_View;
-use Photography_Portfolio\Core\Gallery_Attachment_Video_Support;
 use Photography_Portfolio\Core\Initialize_Layout_Registry;
 use Photography_Portfolio\Core\Query;
-use Photography_Portfolio\Core\Register_Post_Type;
 use Photography_Portfolio\Frontend\Layout_Factory;
 use Photography_Portfolio\Frontend\Layout_Registry;
 use Photography_Portfolio\Frontend\Enqueue_Assets;
+use Photography_Portfolio\Frontend\Popup_Gallery\Popup_Gallery_Factory;
 use Photography_Portfolio\Frontend\Template;
 use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Setting_Registry;
@@ -82,7 +81,7 @@ final class Colormelon_Photography_Portfolio {
 			new Admin_View();
 		}
 		else {
-			new Enqueue_Assets();
+			new Enqueue_Assets( Popup_Gallery_Factory::create_instance() );
 		}
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded

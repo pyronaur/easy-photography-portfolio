@@ -59,3 +59,58 @@ function _phort_utilize_caption_settings() {
 }
 
 add_action( 'init', '_phort_utilize_caption_settings' );
+
+
+/**
+ * Detect JavaScript
+ */
+add_action( 'wp_head', 'phort_detect_javascript' );
+function phort_detect_javascript() {
+
+	echo "<script>(function(html){html.classList.add('js');})(document.documentElement)</script>";
+}
+
+
+/**
+ * Adjust CSS Classes on the <body> element
+ *
+ * @filter body_class
+ *
+ * @param $classes
+ *
+ * @return array
+ */
+add_filter( 'body_class', 'phort_adjust_body_classes' );
+function phort_adjust_body_classes( $classes ) {
+
+	if ( ! phort_is_portfolio() ) {
+		return $classes;
+	}
+
+	// If this is portfolio, add core portfolio class
+	$classes[] = 'PP_Portfolio';
+
+
+	// Single Portfolio
+	if ( phort_is_single() ) {
+
+		$classes[] = 'PP_Single';
+		$classes[] = 'PP_Single--' . phort_slug_single();
+
+		$gallery_type = phort_get_option( 'popup_gallery' );
+
+		if ( 'disabled' !== $gallery_type && ! empty( $gallery_type ) ) {
+			$classes[] = 'PP_Popup--' . sanitize_html_class( $gallery_type );
+		}
+
+	}
+
+	// Portfolio Archive & Categories
+	if ( phort_is_archive() ) {
+		$classes[] = 'PP_Archive';
+		$classes[] = 'PP_Archive--' . phort_slug_archive();
+	}
+
+
+	return $classes;
+}

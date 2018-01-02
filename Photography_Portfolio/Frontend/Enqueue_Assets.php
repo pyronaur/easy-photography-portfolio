@@ -4,9 +4,6 @@
 namespace Photography_Portfolio\Frontend;
 
 
-use Photography_Portfolio\Frontend\Popup_Gallery\lightGallery;
-use Photography_Portfolio\Frontend\Popup_Gallery\Photoswipe;
-
 class Enqueue_Assets {
 
 
@@ -14,43 +11,22 @@ class Enqueue_Assets {
 	 * @var string - Where all the scripts and styles live
 	 */
 	protected $build_directory_url;
-	protected $popup_gallery = false;
+
+	/**
+	 * @var \Photography_Portfolio\Frontend\Popup_Gallery\Abstract_Popup_Gallery
+	 */
+	protected $popup_gallery;
 
 
 	/**
 	 * Enqueue_Assets constructor.
 	 */
-	public function __construct() {
+	public function __construct( $popup_gallery = false ) {
 
-		// Hook into WordPress
-		add_action( 'wp_head', [ $this, 'detect_javascript' ] );
-		add_filter( 'body_class', [ $this, 'adjust_body_class' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
-
-
-		$this->popup_gallery       = $this->initialize_popup_gallery();
 		$this->build_directory_url = CLM_PLUGIN_DIR_URL . 'public/build/';
+		$this->popup_gallery       = $popup_gallery;
 
-	}
-
-
-	/**
-	 * Create a popup-gallery instance, according to plugin settings
-	 *
-	 * @return bool|lightGallery|Photoswipe
-	 */
-	public function initialize_popup_gallery() {
-
-		$gallery = phort_get_option( 'popup_gallery' );
-		if ( 'photoswipe' === $gallery ) {
-			return new Photoswipe();
-		}
-
-		if ( 'photoswipe' === $gallery ) {
-			return new lightGallery();
-		}
-
-		return false;
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 	}
 
 
@@ -138,56 +114,6 @@ class Enqueue_Assets {
 		}
 
 		return apply_filters( 'phort/js/__phort', $settings );
-	}
-
-
-	public function detect_javascript() {
-
-		echo "<script>document.documentElement.classList.add('js');</script>";
-	}
-
-
-	/**
-	 * Adjust CSS Classes on the <body> element
-	 *
-	 * @filter body_class
-	 *
-	 * @param $classes
-	 *
-	 * @return array
-	 */
-	public function adjust_body_class( $classes ) {
-
-		if ( ! phort_is_portfolio() ) {
-			return $classes;
-		}
-
-		// If this is portfolio, add core portfolio class
-		$classes[] = 'PP_Portfolio';
-
-
-		// Single Portfolio
-		if ( phort_is_single() ) {
-
-			$classes[] = 'PP_Single';
-			$classes[] = 'PP_Single--' . phort_slug_single();
-
-			$gallery_type = phort_get_option( 'popup_gallery' );
-
-			if ( 'disabled' !== $gallery_type && ! empty( $gallery_type ) ) {
-				$classes[] = 'PP_Popup--' . sanitize_html_class( $gallery_type );
-			}
-
-		}
-
-		// Portfolio Archive & Categories
-		if ( phort_is_archive() ) {
-			$classes[] = 'PP_Archive';
-			$classes[] = 'PP_Archive--' . phort_slug_archive();
-		}
-
-
-		return $classes;
 	}
 
 
