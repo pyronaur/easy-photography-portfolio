@@ -18,6 +18,7 @@ module.exports = ( Gallery_Driver ) ->
 	instance = false
 
 	open = ( el ) ->
+		return false if not Gallery_Driver
 		$el = $( el )
 		$items = $el.closest( '.PP_Gallery' ).find( '.PP_Gallery__item' )
 
