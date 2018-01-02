@@ -142,6 +142,9 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.4.5 =
+* Add Yoast SEO Compatibility. Go ahead - optimize your portfolio archive SEO! 🎯
+
 = 1.4.4 =
 * Fix Video Support
 * Fix first plugin initialization process - automatically create the Portfolio page
