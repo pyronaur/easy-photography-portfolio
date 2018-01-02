@@ -78,12 +78,11 @@ class Enqueue_Assets {
 			'imagesloaded',
 			'wp-js-hooks',
 		];
-		$dependencies = array_merge( $dependencies, $this->popup_gallery->script_handles() );
-
 
 		// Popup Gallery
 		if ( $this->popup_gallery ) {
 			$this->popup_gallery->register();
+			$dependencies = array_merge( $dependencies, $this->popup_gallery->script_handles() );
 		}
 
 		// Styles
