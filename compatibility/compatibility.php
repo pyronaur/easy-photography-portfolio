@@ -22,3 +22,9 @@ require_once __DIR__ . '/unsupported-theme-defaults.php';
  * Add Yoast SEO plugin support
  */
 require_once __DIR__ . '/wordpress-seo.php';
+
+
+/*
+ * Backwards Compatibility
+ */
+require_once __DIR__ . '/deprecated.php';

@@ -20,29 +20,6 @@ add_action( 'phort/archive/entry/attributes', 'phort_inline_data_image_size' );
 
 
 /**
- * @since 1.4.0
- * @TODO  Remove at 1.6.0
- * New gallery loop action hook:
- * `gallery-loop` instead of `gallery/loop`
- */
-add_action(
-	'phort/gallery-loop/start',
-	function () {
-
-		do_action_deprecated( 'phort/gallery/loop/start', [], '1.4.0' );
-	}
-);
-
-add_action(
-	'phort/gallery-loop/end',
-	function () {
-
-		do_action_deprecated( 'phort/gallery/loop/end', [], '1.4.0' );
-	}
-);
-
-
-/**
  * Show or hide captions in galleries
  * This still looks a bit odd, but at the moment there is no other place to put the gallery captions settings
  */
@@ -70,7 +47,7 @@ function phort_detect_javascript() {
 	if ( ! phort_is_portfolio() ) {
 		return;
 	}
-	
+
 	echo "<script>(function(html){html.classList.add('js');})(document.documentElement)</script>";
 }
 
