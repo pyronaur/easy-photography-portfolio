@@ -4,6 +4,8 @@
 namespace Photography_Portfolio\Frontend;
 
 
+use Photography_Portfolio\Frontend\Popup_Gallery\Popup_Gallery_Factory;
+
 class Enqueue_Assets {
 
 
@@ -108,6 +110,12 @@ class Enqueue_Assets {
 		}
 
 		return apply_filters( 'phort/js/__phort', $settings );
+	}
+
+
+	public static function boot() {
+
+		return new static( Popup_Gallery_Factory::create_instance() );
 	}
 
 
