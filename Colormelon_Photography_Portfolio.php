@@ -80,9 +80,6 @@ final class Colormelon_Photography_Portfolio {
 		if ( is_admin() ) {
 			new Admin_View();
 		}
-		else {
-			new Enqueue_Assets( Popup_Gallery_Factory::create_instance() );
-		}
 
 		// Trigger `phort/core/loaded` as soon as the plugin is fully loaded
 		do_action( 'phort/core/loaded', $this );
@@ -271,18 +268,18 @@ final class Colormelon_Photography_Portfolio {
 
 
 		// Load Translations:
-		add_action( 'init', [ $this, 'load_translations' ] );
+		add_action( 'init', [ $this, 'load_translations' ], 10 );
+
+		// Maybe add video support
+		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ], 15 );
 
 		/**
 		 * Load `Admin_View` or `Enqueue_Assets`
 		 */
 		add_action( 'init', [ $this, 'prepare_view' ], 30 );
 
-		/*
-		 *
-		 * This at the core of loading all of the Easy Photography Portfolio template files
-		 */
-		add_filter( 'template_include', [ $this, 'maybe_load_portfolio_template_files' ], 150 );
+		// Maybe add video support
+
 
 		/**
 		 * Modify the WP_Query before posts are queried.
@@ -293,19 +290,23 @@ final class Colormelon_Photography_Portfolio {
 			add_action( 'pre_get_posts', [ $this->query, 'increase_ppp_limit' ], 25 );
 		}
 
+		/*
+		 *
+		 * This at the core of loading all of the Easy Photography Portfolio template files
+		 */
+		add_filter( 'template_include', [ $this, 'maybe_load_portfolio_template_files' ], 150 );
+
+		// Enqueue Assets in the Head
+		add_action( 'wp', [ '\Photography_Portfolio\Frontend\Enqueue_Assets', 'boot' ] );
+
+
 		/**
 		 *
 		 * == Miscellaneous ==
 		 *
 		 */
-
-		// Maybe add video support
-		add_action( 'init', [ 'Photography_Portfolio\Core\Gallery_Attachment_Video_Support', 'maybe_add_hooks' ] );
-
 		// Add "Settings" to plugin links in plugin page
 		add_filter( 'plugin_action_links_' . CLM_PLUGIN_BASENAME, [ $this, 'action_links' ] );
-
-
 	}
 
 
