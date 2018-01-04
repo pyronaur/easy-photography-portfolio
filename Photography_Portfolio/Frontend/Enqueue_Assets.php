@@ -26,7 +26,9 @@ class Enqueue_Assets {
 		$this->build_directory_url = CLM_PLUGIN_DIR_URL . 'public/build/';
 		$this->popup_gallery       = $popup_gallery;
 
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
+		if ( phort_is_portfolio() ) {
+			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
+		}
 	}
 
 
@@ -38,13 +40,6 @@ class Enqueue_Assets {
 		// Register scripts & styles
 		$this->register();
 
-
-		/**
-		 * Enqueue scripts and styles only in portfolio
-		 */
-		if ( ! apply_filters( 'phort/enqueue', phort_is_portfolio() ) ) {
-			return false;
-		}
 
 		// Enqueue Popup-Gallery scripts & Styles
 		if ( $this->popup_gallery ) {
