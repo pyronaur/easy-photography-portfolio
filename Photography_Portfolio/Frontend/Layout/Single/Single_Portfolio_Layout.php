@@ -58,7 +58,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
 		$this->query = $query;
 		$this->slug  = $slug;
-		$this->id    = get_the_ID();
+		$this->id    = $query->get_queried_object_id();
 
 		/**
 		 * Allow themes to alter attached image sizes
