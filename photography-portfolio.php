@@ -7,7 +7,7 @@
  * Plugin Name:       Easy Photography Portfolio
  * Plugin URI:        http://colormelon.com/plugins/photography-portfolio
  * Description:       Add a photography portfolio to any WordPress theme. Designed for Photographers, yet made with theme developers in mind.
- * Version:           1.4.5
+ * Version:           1.4.6
  * Author:            Colormelon
  * Author URI:        http://colormelon.com
  * License:           GPL-3.0+
@@ -15,6 +15,10 @@
  * Text Domain:       photography-portfolio
  * Domain Path:       /languages
  */
+
+// Disable Formatter to prevent autoformatting to PHP 5.4+ array format
+// @formatter:off
+
 /**
  * This file should work without errors on PHP 5.2.17
  * Use this instead of __DIR__
@@ -50,7 +54,7 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 	}
 
 	if ( current_user_can( 'activate_plugins' ) ) {
-		add_action( 'admin_notices', [ &$PP_Requre_PHP54, 'admin_notice' ] );
+		add_action( 'admin_notices', array( &$PP_Requre_PHP54, 'admin_notice' ) );
 		add_action( 'admin_init', 'phort_auto_deactivate' );
 	}
 }
