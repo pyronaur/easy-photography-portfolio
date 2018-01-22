@@ -142,6 +142,9 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+= 1.4.7 =
+* Updated CMB to version 2.3.0 that fixes a problem in PHP 7.1+
+
 = 1.4.6 =
 * Gracefully deactivate plugin if PHP Requirements are not met
 
