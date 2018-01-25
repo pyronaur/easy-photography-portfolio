@@ -94,15 +94,11 @@ function phort_adjust_body_classes( $classes ) {
  * That's why it's prefixed with `_phort`
  * ========
  */
-function _phort_utilize_archive_description_setting() {
-
+add_action( 'init', function() {
 	if ( 'enable' !== phort_get_option( 'archive_description' ) ) {
-		phort_detach_template( 'phort_get_template' );
+		phort_detach_template( 'archive/description' );
 	}
-
-}
-
-add_action( 'init', '_phort_utilize_archive_description_setting' );
+} );
 
 /**
  * Show or hide captions in galleries
