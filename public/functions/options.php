@@ -27,7 +27,7 @@ function phort_get_meta( $option, $default = NULL ) {
  *
  * @return mixed|null
  */
-function phort_get_option( $option, $deprecated = '' ) {
+function phort_get_option( $option, $deprecated = false ) {
 
 	$default    = '';
 	$_undefined = '[undefined]';
@@ -36,7 +36,7 @@ function phort_get_option( $option, $deprecated = '' ) {
 	 * @deprecated at 1.1.4
 	 * @TODO       Remove at 1.5.0
 	 */
-	if ( ! empty( $deprecated ) ) {
+	if (  $deprecated ) {
 		// Never implemented
 		_deprecated_argument( __FUNCTION__, '1.1.4' );
 	}
