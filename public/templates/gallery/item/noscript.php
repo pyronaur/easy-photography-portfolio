@@ -9,5 +9,5 @@ $attachment = phort_get_gallery_attachment();
 ?>
 <noscript>
 	<img src="<?php echo esc_url( $attachment->get_image_url( 'large' ) ) ?>"
-	     alt="<?php echo esc_attr( $attachment->caption ) ?>"/>
+	     alt="<?php echo esc_attr( $attachment->get_alt_text() ) ?>"/>
 </noscript>

@@ -10,6 +10,7 @@ class Attachment {
 	public $data;
 	public $id;
 	public $orientation;
+	public $alt_text;
 
 
 	/**
@@ -34,6 +35,7 @@ class Attachment {
 
 
 		// Setup & Escape
+		$this->alt_text    = $data['alt'];
 		$this->description = html_entity_decode( htmlspecialchars( str_replace( '"', '&quot;', $description ), ENT_QUOTES ) );
 		$this->caption     = html_entity_decode( htmlspecialchars( str_replace( '"', '&quot;', $caption ), ENT_QUOTES ) );
 		$this->orientation = $data['orientation'];
@@ -142,6 +144,22 @@ class Attachment {
 		return $image_url;
 	}
 
+
+	/**
+	 * Get text for the `alt` attribute
+	 * @return string
+	 */
+	public function get_alt_text() {
+
+		$alt_text = $this->caption;
+
+		if ( ! empty( $this->alt_text ) ) {
+			$alt_text = $this->alt_text;
+		}
+
+		return (string) apply_filters( 'phort/attachment/alt_text', $alt_text, $this );
+
+	}
 
 	/**
 	 * Wrapper for wp_get_attachment_image
