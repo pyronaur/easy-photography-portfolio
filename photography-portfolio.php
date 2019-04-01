@@ -66,11 +66,6 @@ if ( version_compare( phpversion(), '5.4', '<' ) ) {
 // ============================================================================
 else {
 	/**
-	 * Add Freemius Analytics
-	 */
-	require_once $__DIR . '/analytics/initialize.php';
-
-	/**
 	 * Setup Autoloading
 	 */
 	require_once $__DIR . '/vendor/autoload.php';
