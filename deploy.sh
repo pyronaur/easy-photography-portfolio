@@ -10,7 +10,7 @@ CURRENTDIR=`pwd`
 PLUGINSLUG="photography-portfolio"
 SVNPATH="/Users/N/SVN/tmp/$PLUGINSLUG"
 SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
-SVNUSER="justnorris"
+SVNUSER="mannyq"
 PLUGINDIR="."
 MAINFILE="$PLUGINSLUG.php"
 
