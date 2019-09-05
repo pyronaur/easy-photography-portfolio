@@ -1,30 +1,32 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "5e1247d3ebfc6206380ec88a98c42c14",
     "packages": [
         {
             "name": "webdevstudios/cmb2",
-            "version": "v2.3.0",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9"
+                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9",
-                "reference": "a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
+                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
                 "shasum": ""
             },
             "require": {
                 "php": ">5.2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "apigen/apigen": "4.1.2",
+                "nette/utils": "2.5.3",
+                "phpunit/phpunit": "6.5.13"
             },
             "suggest": {
                 "composer/installers": "~1.0"
@@ -32,7 +34,7 @@
             "type": "wordpress-plugin",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -46,12 +48,6 @@
                     "email": "justin@dsgnwrks.pro",
                     "homepage": "https://dsgnwrks.pro",
                     "role": "Developer"
-                },
-                {
-                    "name": "Zao",
-                    "email": "office@zao.com",
-                    "homepage": "http://zao.is",
-                    "role": "Developer"
                 }
             ],
             "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
@@ -61,7 +57,8 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2017-12-20T14:18:52+00:00"
+            "abandoned": "cmb2/cmb2",
+            "time": "2019-01-21T04:30:08+00:00"
         }
     ],
     "packages-dev": [],
