@@ -13,7 +13,7 @@ use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 /**
  * Class Single_Portfolio_Layout
  * @property \Photography_Portfolio\Frontend\Gallery\Gallery gallery
- * @package Photography_Portfolio\Frontend\Layout\Single
+ * @package Easy_Photography_Portfolio\Frontend\Layout\Single
  */
 abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 

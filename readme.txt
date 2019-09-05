@@ -1,6 +1,6 @@
 === Easy Photography Portfolio ===
 Contributors: justnorris
-Donate link: http://colormelon.com/
+Donate link: https://justnorris.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.7.0
 Tested up to: 5.2.3
@@ -13,7 +13,7 @@ Easy Photography Portfolio is an elegant portfolio gallery plugin designed for P
 
 == Description ==
 
-Building a photography portfolio for WordPress should be easy. So we made a plugin to help you with that!
+Building a photography portfolio for WordPress should be easy. Here's a plugin to help you with that!
 
 
 ### Quick Overview

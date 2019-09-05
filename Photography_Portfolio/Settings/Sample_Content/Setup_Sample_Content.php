@@ -184,16 +184,8 @@ class Setup_Sample_Content {
 
 		$content = "Welcome to Easy Photography Portfolio! This is your first portfolio entry. Edit or delete it, and start building your portfolio!
 
-If you need help setting up - have a look at our <a href=\"http://colormelon.com/easy-photography-portfolio-full-setup-guide\">Easy Photography Portfolio setup guide</a>.
+If you need help setting up - have a look at our <a href=\"https://colormelon.com/easy-photography-portfolio-full-setup-guide\">Easy Photography Portfolio setup guide</a>.
 	";
-
-		/**
-		 * If the current theme doesn't support EPP - let's add a shameless plug about photography themes.
-		 */
-		if ( ! phort_has_theme_support() ) {
-			$content .= "
-We also design <a href=\"https://colormelon.com\">WordPress Themes for Photographers</a>, so if you like our plugin, consider picking up one of our themes!";
-		}
 
 		$content .= "
 <h4>Upload your first gallery!</h4>

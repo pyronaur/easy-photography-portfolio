@@ -5,11 +5,11 @@ use Photography_Portfolio\Frontend\Layout\View;
 
 /**
  * Easy access to our god-class
- * @return \Colormelon_Photography_Portfolio
+ * @return \Easy_Photography_Portfolio
  */
 function phort_instance() {
 
-	return Colormelon_Photography_Portfolio::instance();
+	return Easy_Photography_Portfolio::instance();
 }
 
 

@@ -10,7 +10,7 @@ use Photography_Portfolio\Frontend\Layout\Entry\Entry;
 
 /**
  * Class Archive_Portfolio_Layout
- * @package Photography_Portfolio\Frontend\Layout\Archive
+ * @package Easy_Photography_Portfolio\Frontend\Layout\Archive
  */
 abstract class Archive_Portfolio_Layout implements Layout_Factory_Interface {
 

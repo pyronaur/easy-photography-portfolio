@@ -12,12 +12,12 @@ use Photography_Portfolio\Settings\General_Portfolio_Settings;
 use Photography_Portfolio\Settings\Setting_Registry;
 
 /**
- * Colormelon_Photography_Portfolio
- * @package Photography_Portfolio
+ * Easy_Photography_Portfolio
+ * @package Easy_Photography_Portfolio
  * @type    `Singleton` God Object, the worst kind. Yet serves its function.
  *
  */
-final class Colormelon_Photography_Portfolio {
+class Easy_Photography_Portfolio {
 
 	/**
 	 * This is a Singleton class
@@ -50,11 +50,11 @@ final class Colormelon_Photography_Portfolio {
 	public $layout;
 
 	/**
-	 * Colormelon Photography Portfolio Version
+	 * Easy Photography Portfolio Version
 	 *
 	 * @var string
 	 */
-	private $version = '1.4.9';
+	private $version = '1.5.0';
 
 
 	/**
@@ -93,10 +93,10 @@ final class Colormelon_Photography_Portfolio {
 	/**
 	 * Main Instance.
 	 *
-	 * Ensures only one instance of Colormelon_Photography_Portfolio is loaded or can be loaded.
+	 * Ensures only one instance of Easy_Photography_Portfolio is loaded or can be loaded.
 	 *
 	 * @static
-	 * @return Colormelon_Photography_Portfolio instance
+	 * @return Easy_Photography_Portfolio instance
 	 *
 	 * Very Heavily inspired by WooCommerce
 	 */

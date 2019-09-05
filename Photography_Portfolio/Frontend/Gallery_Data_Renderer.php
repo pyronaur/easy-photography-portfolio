@@ -10,7 +10,7 @@ use Photography_Portfolio\Frontend\Gallery\Attachment;
 
 /**
  * Class Item
- * @package Photography_Portfolio\Frontend\Layout\Single
+ * @package Easy_Photography_Portfolio\Frontend\Layout\Single
  */
 class Gallery_Data_Renderer implements Render_Inline_Attribute {
 
