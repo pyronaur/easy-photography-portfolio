@@ -50,7 +50,7 @@ class Gallery_Attachment_Video_Support {
 	public static function store_meta( $attachment_id ) {
 
 		if ( isset( $_REQUEST['attachments'][ $attachment_id ]['video_url'] ) ) {
-			$video_url = $_REQUEST['attachments'][ $attachment_id ]['video_url'];
+			$video_url = esc_url_raw( $_REQUEST['attachments'][ $attachment_id ]['video_url'] );
 			update_post_meta( $attachment_id, '_attachment_video_url', $video_url );
 		}
 	}
