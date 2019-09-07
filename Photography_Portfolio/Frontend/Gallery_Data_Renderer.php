@@ -57,7 +57,7 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 		 */
 		foreach ( $this->sizes as $name => $size ) {
 			$data['images'][ $name ] = array(
-				'url'  => $this->attachment->get_image_url( $size ),
+				'url'  => esc_url( $this->attachment->get_image_url( $size ) ),
 				'size' => $this->attachment->get_size_string( $size ),
 			);
 		}
