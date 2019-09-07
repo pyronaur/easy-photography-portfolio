@@ -39,7 +39,7 @@ class Gallery_Data_Renderer implements Render_Inline_Attribute {
 		 * Note 1: Space before and after ` data-item='{JSON_DATA}' ` so we don't break HTML
 		 * Note 2: Single Quotes Used: data-item'{JSON_DATA}'
 		 */
-		echo ' data-item=\'' . wp_json_encode( $this->prepare_data() ) . '\' ';
+        echo " data-item='" . esc_attr( wp_json_encode( $this->prepare_data() ) ) . "' ";
 
 	}
 
