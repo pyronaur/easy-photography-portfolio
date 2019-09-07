@@ -22,7 +22,7 @@ function _phort_load_template( $template, $slug ) {
 
 
 /**
- * Easily unload a template
+ * Shorthand to easily detach template from any `phort_get_template/{$template}` hook
  * @priority = 40
  */
 function phort_detach_template( $template, $remove_when_slug = '*' ) {
