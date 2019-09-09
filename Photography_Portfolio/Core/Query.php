@@ -216,9 +216,8 @@ class Query {
 
 	public function remove_page_from_wp_query( \WP_Query $query ) {
 
-
-		$query->set( 'pagename', NULL );  // override 'pagename'
-		$query->set( 'page_id', NULL );  // override 'pagename'
+		$query->set( 'pagename', NULL );
+		$query->set( 'page_id', NULL );
 		$query->is_page = 0;
 
 	}
@@ -228,6 +227,7 @@ class Query {
 
 		/**
 		 * Very important to check strictly whether term exists ( !== ) otherwise it turns up false positives
+		 * @TODO: Add caching to `term_exists()`
 		 */
 		if ( false === term_exists( (int) $category_id, 'phort_post_category' ) ) {
 			return false;
@@ -249,9 +249,10 @@ class Query {
 
 		$query->is_tax      = 1;
 		$query->is_singular = 0;
-		$query->set( 'post_type', 'phort_post' );  // override 'post_type'
-		$query->set( 'posts_per_page', - 1 );
 
+		// overrides
+		$query->set( 'post_type', 'phort_post' );
+		$query->set( 'posts_per_page', - 1 );
 
 		$this->set_is_category( $query );
 		$this->set_is_archive( $query );
@@ -261,7 +262,8 @@ class Query {
 
 	public function load_entry_in_portfolio_home( $post_id, \WP_Query $query ) {
 
-		$query->set( 'post_type', 'phort_post' );  // override 'post_type'
+		// override 'post_type'.
+		$query->set( 'post_type', 'phort_post' );
 		$this->remove_page_from_wp_query( $query );
 
 		$query->set( 'posts_per_page', 1 );

@@ -67,8 +67,8 @@ class CMB2_Options_Page {
 		if ( in_array( $field, [ 'key', 'metabox_id', 'title', 'options_page' ], true ) ) {
 			return $this->{$field};
 		}
-		trigger_error( 'Invalid property: ' . $field );
 
+		phort_log_error( 'Invalid property: ' . $field );
 		return false;
 	}
 
@@ -109,7 +109,7 @@ class CMB2_Options_Page {
 	public function admin_page_display() {
 
 		?>
-		<div class="wrap cmb2-options-page <?php echo $this->key; ?>">
+		<div class="wrap cmb2-options-page <?php echo esc_attr( $this->key ); ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
 		</div>

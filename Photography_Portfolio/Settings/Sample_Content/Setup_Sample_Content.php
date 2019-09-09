@@ -159,7 +159,8 @@ class Setup_Sample_Content {
 		/**
 		 * Set the subtitle!
 		 */
-		update_post_meta($phort_post_id, 'phort_subtitle', esc_html__( 'With a subtitle', 'photography-portfolio' ));
+		update_post_meta( $phort_post_id, 'phort_subtitle', esc_html__( 'With a subtitle', 'photography-portfolio' ) );
+
 		return $phort_post_id;
 
 	}
@@ -178,6 +179,7 @@ class Setup_Sample_Content {
 
 	/**
 	 * Strings make the code look ugly, simplify $this->create_first_portfolio_entry by composing the content in this function:
+	 *
 	 * @return string
 	 */
 	public function get_the_first_portfolio_entry_content() {

@@ -23,6 +23,7 @@ function _phort_load_template( $template, $slug ) {
 
 /**
  * Shorthand to easily detach template from any `phort_get_template/{$template}` hook
+ *
  * @priority = 40
  */
 function phort_detach_template( $template, $remove_when_slug = '*' ) {
@@ -98,7 +99,7 @@ function phort_get_template( $template, $slug = NULL ) {
 /**
  * Kind of like `get_post_class()`
  *
- * @param array|string $class
+ * @param array|string $class - A list of escaped CSS Classes, ready for output
  *
  * @return array
  */
@@ -139,6 +140,8 @@ function phort_get_class( $class = '' ) {
 function phort_class( $class = [] ) {
 
 	// Separates classes with a double space, collates classes for post DIV
+	// phort_get_class is already using `esc_attr`
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo 'class="' . join( '  ', phort_get_class( $class ) ) . '"';
 }
 
@@ -195,6 +198,7 @@ function phort_gallery_data_attribute() {
 
 /**
  * Check if gallery exists and has attachments
+ *
  * @return bool
  */
 function phort_gallery_has_items() {
@@ -210,6 +214,7 @@ function phort_gallery_has_items() {
 
 /**
  * Setup the current attachment
+ *
  * @return mixed
  */
 function phort_gallery_setup_item() {
@@ -221,6 +226,7 @@ function phort_gallery_setup_item() {
 
 /**
  * Fetch the current attachment
+ *
  * @return Attachment
  */
 function phort_get_gallery_attachment() {
@@ -240,9 +246,7 @@ function phort_get_archive_title() {
 
 	if ( is_tax( 'phort_post_category' ) ) {
 		$title = single_term_title( '', false );
-	}
-
-	elseif ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_home() ) {
+	} elseif ( is_post_type_archive( 'phort_post' ) || phort_instance()->query->is_portfolio_home() ) {
 		$title = get_the_title( phort_get_option( 'portfolio_page' ) );
 		if ( $title ) {
 			return $title;
@@ -258,6 +262,8 @@ function phort_the_archive_title() {
 	$title = phort_get_archive_title();
 
 	if ( $title ) {
+		// This is just as safe as `the_title` or `single_term_title`.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $title;
 	}
 }
@@ -272,7 +278,7 @@ function phort_get_archive_content() {
 		$content = get_post( phort_get_option( 'portfolio_page' ) )->post_content;
 	}
 
-	return apply_filters( 'phort/template/archive_content', $content );
+	return apply_filters( 'phort/template/archive_content', wp_kses_post( $content ) );
 }
 
 function phort_the_archive_content() {
@@ -288,5 +294,5 @@ function phort_the_archive_content() {
 	$content = apply_filters( 'the_content', $content );
 	$content = str_replace( ']]>', ']]&gt;', $content );
 
-	echo $content;
+	echo wp_kses_post( $content );
 }

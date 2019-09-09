@@ -106,7 +106,7 @@ class Portfolio_Entry_Metaboxes {
 				'desc'         => '',
 				'id'           => 'phort_gallery',
 				'type'         => 'file_list',
-				'preview_size' => [ 125, 125, true ], // Default: [50,50]
+				'preview_size' => [ 125, 125, true ], // Default is 50, 50
 				// Optional, override default text strings
 				'text'         => [
 					'add_upload_files_text' => esc_html__( 'Add Images', 'photography-portfolio' ),

@@ -48,12 +48,15 @@ class Gallery_Attachment_Video_Support {
 
 
 	public static function store_meta( $attachment_id ) {
-		
+
 		if ( ! current_user_can( 'edit_post', $attachment_id ) ) {
 			return;
 		}
 
+		// Nonces should be validated by the time `wp_insert_post` is run
+		// phpcs:ignore WordPress.Security.NonceVerification
 		if ( isset( $_REQUEST['attachments'][ $attachment_id ]['video_url'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification
 			$video_url = esc_url_raw( $_REQUEST['attachments'][ $attachment_id ]['video_url'] );
 			update_post_meta( $attachment_id, '_attachment_video_url', $video_url );
 		}

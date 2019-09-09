@@ -125,7 +125,7 @@ class Easy_Photography_Portfolio {
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
 	}
 
 
@@ -134,7 +134,7 @@ class Easy_Photography_Portfolio {
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, __( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( "Can't do this thing.", 'photography-portfolio' ), '2.1' );
 	}
 
 

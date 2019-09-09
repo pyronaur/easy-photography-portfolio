@@ -14,4 +14,4 @@
 		<?php phort_get_template( 'single/portfolio-entry' ) ?>
 	<?php endif; ?>
 
-<?php endwhile; ?>
+<?php endwhile;
