@@ -259,8 +259,8 @@ class Easy_Photography_Portfolio {
 		 *
 		 * `add_action` order is improtant here:
 		 */
-		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_taxonomy' ], 5 );
-		add_action( 'init', [ 'Photography_Portfolio\Core\Register_Post_Type', 'register_post_type' ], 5 );
+		add_action( 'init', [ 'Photography_Portfolio\Core\Post_Type_Portfolio', 'register_taxonomy' ], 5 );
+		add_action( 'init', [ 'Photography_Portfolio\Core\Post_Type_Portfolio', 'register_post_type' ], 5 );
 
 		/*
 		 * Setup the settings

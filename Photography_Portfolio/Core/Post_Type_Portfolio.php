@@ -4,7 +4,7 @@
 namespace Photography_Portfolio\Core;
 
 
-class Register_Post_Type {
+class Post_Type_Portfolio {
 
 
 	public static function register_post_type() {

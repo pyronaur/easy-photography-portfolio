@@ -6,8 +6,8 @@
 function phort_plugin_activation_hook() {
 
 	// Register post types
-	Photography_Portfolio\Core\Register_Post_Type::register_post_type();
-	Photography_Portfolio\Core\Register_Post_Type::register_taxonomy();
+	Photography_Portfolio\Core\Post_Type_Portfolio::register_post_type();
+	Photography_Portfolio\Core\Post_Type_Portfolio::register_taxonomy();
 
 
 	// Flush rewrite rules
