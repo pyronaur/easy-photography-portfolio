@@ -48,6 +48,10 @@ class Gallery_Attachment_Video_Support {
 
 
 	public static function store_meta( $attachment_id ) {
+		
+		if ( ! current_user_can( 'edit_post', $attachment_id ) ) {
+			return;
+		}
 
 		if ( isset( $_REQUEST['attachments'][ $attachment_id ]['video_url'] ) ) {
 			$video_url = esc_url_raw( $_REQUEST['attachments'][ $attachment_id ]['video_url'] );
