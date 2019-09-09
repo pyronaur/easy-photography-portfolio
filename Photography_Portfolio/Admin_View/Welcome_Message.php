@@ -9,6 +9,7 @@ class Welcome_Message {
 
 	private $meta_key     = 'phort_welcome_status';
 	private $action_close = 'close_welcome';
+	private $nonce_name   = 'phort_close_welcome';
 
 
 	/**
@@ -26,8 +27,7 @@ class Welcome_Message {
 	}
 
 
-	public
-	function should_display() {
+	public function should_display() {
 
 		/**
 		 * Don't display welcome message,
@@ -37,10 +37,12 @@ class Welcome_Message {
 			return false;
 		}
 
-		global $current_user;
-		$user_id = $current_user->ID;
+		$user_id = get_current_user_id();
+		if ( ! $user_id ) {
+			return false;
+		}
 
-		return ( 'message_is_closed' != get_user_meta( $user_id, $this->meta_key, true ) );
+		return ( 'message_is_closed' !== get_user_meta( $user_id, $this->meta_key, true ) );
 	}
 
 
@@ -57,6 +59,8 @@ class Welcome_Message {
 
 		$url_video_tutorial = "https://colormelon.com/easy-photography-portfolio-full-setup-guide/?utm_source=easy-photography-portfolio&utm_medium=welcome";
 		$url_documentation  = "http://go.colormelon.com/epp-tutorial";
+		$nonce              = wp_create_nonce( $this->nonce_name );
+		$close_url          = admin_url( "/?{$this->action_close}=1&nonce={$nonce}" );
 		?>
 		<div class="Phort_Welcome notice">
 			<h4><?php esc_html_e( 'Welcome to Easy Photography Portfolio', 'photography-portfolio' ); ?></h4>
@@ -80,12 +84,12 @@ class Welcome_Message {
 					),
 
 					// Pass variables to printf()
-					$url_video_tutorial,
-					$url_documentation
+					esc_url( $url_video_tutorial ),
+					esc_url( $url_documentation )
 				);
 				?>
 			</p>
-			<a class="Phort_Hide" href="?<?php echo $this->action_close ?>=1">&times;</a>
+			<a class="Phort_Hide" href="<?php echo esc_url( $close_url ) ?>">&times;</a>
 		</div>
 
 		<?php
@@ -97,8 +101,16 @@ class Welcome_Message {
 		global $current_user;
 		$user_id = $current_user->ID;
 
-		if ( isset( $_GET[ $this->action_close ] ) && '1' == $_GET[ $this->action_close ] ) {
+		if (
+			isset( $_GET['nonce'], $_GET[ $this->action_close ] )
+			// Verifying nonce. it's ok not to escape.
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+			&& wp_verify_nonce( $_GET['nonce'], $this->nonce_name )
+			&& '1' == $_GET[ $this->action_close ]
+		) {
 			add_user_meta( $user_id, $this->meta_key, 'message_is_closed', true );
+			wp_safe_redirect( admin_url( '/' ) );
+			exit();
 		}
 	}
 
