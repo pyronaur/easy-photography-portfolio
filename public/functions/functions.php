@@ -5,6 +5,7 @@ use Photography_Portfolio\Frontend\Layout\View;
 
 /**
  * Easy access to our god-class
+ *
  * @return \Easy_Photography_Portfolio
  */
 function phort_instance() {
@@ -15,6 +16,7 @@ function phort_instance() {
 
 /**
  * Checks if the current query is a portfolio query
+ *
  * @return bool
  */
 function phort_is_portfolio() {
@@ -73,6 +75,7 @@ function phort_is_front_page() {
  * @return bool
  */
 function phort_is_archive() {
+
 	return (
 		phort_instance()->query->is_archive() || phort_instance()->query->is_category()
 	);
@@ -121,4 +124,20 @@ function phort_attach_class( $where, $class ) {
 			return $classes;
 		}
 	);
+}
+
+
+/**
+ *
+ * @param     $message - error message to log.
+ * @param int $type    - passed to `trigger_error`.
+ */
+function phort_log_error( $message, $type = E_USER_NOTICE ) {
+
+	// Only log errors in debug mode
+	if ( ! defined( "WP_DEBUG" ) || ! WP_DEBUG ) {
+		return;
+	}
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
+	trigger_error( $message, $type );
 }

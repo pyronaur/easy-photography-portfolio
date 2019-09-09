@@ -115,8 +115,8 @@ function phort_set_defaults( $defaults ) {
 	foreach ( $defaults as $option_id => $value ) {
 
 		// Validate that an option exists, before trying to set the default value
-		if ( defined( "WP_DEBUG" ) && WP_DEBUG && ! $phort_settings->exists( $option_id ) ) {
-			trigger_error( "Trying to set a default for {$option_id}, but there is no such option in the registry" );
+		if (  ! $phort_settings->exists( $option_id ) ) {
+			phort_log_error( "Trying to set a default for {$option_id}, but there is no such option in the registry" );
 			continue;
 		}
 

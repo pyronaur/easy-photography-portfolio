@@ -62,8 +62,8 @@ class Layout_Registry {
 		 * Make sure that class exists
 		 */
 		if ( ! class_exists( $classname ) ) {
+			phort_log_error( "Class $classname does not exist" );
 
-			trigger_error( "Class $classname does not exist" );
 
 			return false;
 
@@ -135,8 +135,6 @@ class Layout_Registry {
 			 * @TODO: Need a better solution for managing default layout values with solid fallbacks
 			 * Until then, disable this error. Layout is always going to revert to the correct slug if possible anyway.
 			 */
-			// trigger_error( "Layout `$slug` is not defined in Portfolio_Item_Factory`. Reverting layout to default." );
-
 			return $this->get_default_slug( $group );
 		}
 

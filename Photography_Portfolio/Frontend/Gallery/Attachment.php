@@ -102,7 +102,7 @@ class Attachment {
 			return $image;
 		}
 
-		trigger_error( "Size `$size` not found for attachment `$this->id`, using full image instead" );
+		phort_log_error( "Size `$size` not found for attachment `$this->id`, using full image instead" );
 
 		return $sizes['full'];
 	}

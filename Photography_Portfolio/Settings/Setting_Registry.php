@@ -49,7 +49,7 @@ class Setting_Registry {
 		 * Setting must have an ID
 		 */
 		if ( empty( $setting['id'] ) ) {
-			trigger_error( 'Setting ID is required in `Photography_Portfolio\Settings\Setting_Registry`' );
+			phort_log_error( 'Setting ID is required in `Photography_Portfolio\Settings\Setting_Registry`' );
 
 			return false;
 		}
@@ -98,7 +98,7 @@ class Setting_Registry {
 		 * Setting ID must be Unique
 		 */
 		if ( $this->exists( $id ) ) {
-			trigger_error( 'Setting `' . (int) $id . '` already exists in `Photography_Portfolio\Settings\Setting_Registry`' );
+			phort_log_error( 'Setting `' . $id . '` already exists in `Photography_Portfolio\Settings\Setting_Registry`' );
 
 			return false;
 		}
