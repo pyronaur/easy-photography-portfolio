@@ -111,6 +111,15 @@ You can read the **[full setup guide here](https://colormelon.com/easy-photograp
 
 
 == Changelog ==
+
+= 1.5.0 =
+* This isn't a significant major release, just a small increment.
+* Fixed escaping issues
+* Updated CMB to version 2.6.0
+
+= 1.4.9 =
+* Various minor improvements
+
 = 1.4.8 =
 * Fix: Bug which forced archive title & description
 
