@@ -24,19 +24,6 @@ You can use filters and actions based on [WP-JS-Hooks](https://github.com/carlda
 ### Demos
 
 * [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
-* [Luka - Modern Photography Portfolio](https://colormelon.com/theme/luka/) - with a custom Horizontal Layout
-* [Eugene - Photojournalism Type of Theme](https://colormelon.com/theme/eugene/) - customized category display, quite a few custom templates and a horizontal layout. Really shows the flexibility of the plugin.
-
-
----
-
-
-### WordPress Themes
-
-We also build premium [WordPress themes for Photographers](https://colormelon.com). Have a look at our *Portfolio* and maybe you fall in love with one of them!
-Because our business is to build WordPress themes, **this is not "Photography Portfolio Lite"** with a billion up-sells. This is a fully featured Photography Portfolio plugin with albums, images, categories, a Pop-up gallery and even video support.
-We respect our users and believe that one can recognize quality on their own, without being bombarded with constant "buy extra functionality" junk. We know we build awesome *ship*, now you know it too. You can have a look at our premium stuff when you feel like it, if not - that's cool too. Especially if you're just starting out, you might have to cut some corners and bootstrap everything on your own, and even then, we truly believe this plugin is going to do wonders for you! Pick a simple minimalistic theme, install the plugin, and enjoy a clean portfolio website that you can grow on your own!
-
 ---
 
 ## Installation
