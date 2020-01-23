@@ -1,15 +1,15 @@
-# Copyright (C) 2018 Photography Portfolio
+# Copyright (C) 2020 Photography Portfolio
 # This file is distributed under the same license as the Photography Portfolio package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Photography Portfolio\n"
-"Report-Msgid-Bugs-To: hi@pyronaur.com"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/photography-portfolio/\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Pyronaur <hi@Pyronaur.com>\n"
-"Language-Team: Pyronaur <hi@Pyronaur.com>\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Nauris <hi@pyronaur.com>\n"
+"Language-Team: Nauris <hi@pyronaur.com>\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Colormelon_Photography_Portfolio.php:128, Colormelon_Photography_Portfolio.php:137
+#: Easy_Photography_Portfolio.php:128, Easy_Photography_Portfolio.php:137
 msgid "Can't do this thing."
 msgstr ""
 
-#: Colormelon_Photography_Portfolio.php:154
+#: Easy_Photography_Portfolio.php:154
 msgid "Settings"
 msgstr ""
 
@@ -33,11 +33,11 @@ msgstr ""
 msgid "Settings updated."
 msgstr ""
 
-#: Photography_Portfolio/Admin_View/Welcome_Message.php:62
+#: Photography_Portfolio/Admin_View/Welcome_Message.php:66
 msgid "Welcome to Easy Photography Portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Admin_View/Welcome_Message.php:68
+#: Photography_Portfolio/Admin_View/Welcome_Message.php:72
 msgid "To get started, have a look at the <a target=\"_blank\" href=\"%1$s\">full setup guide</a> or the <a target=\"_blank\" href=\"%2$s\">video tutorial</a>"
 msgstr ""
 
@@ -53,119 +53,119 @@ msgstr ""
 msgid "Single Column"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:15
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:15
 msgctxt "Post Type General Name"
 msgid "Portfolio Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:16
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:16
 msgctxt "Post Type Singular Name"
 msgid "Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:17, Photography_Portfolio/Core/Register_Post_Type.php:35, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:65
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:17, Photography_Portfolio/Core/Post_Type_Portfolio.php:35, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:45, Photography_Portfolio/Settings/Sample_Content/Setup_Sample_Content.php:65
 msgid "Portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:18
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:18
 msgid "Parent Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:19
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:19
 msgid "All Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:20
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:20
 msgid "View Entries"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:21
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:21
 msgid "Add New Portfolio  Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:22
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:22
 msgid "New Portfolio  Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:23
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:23
 msgid "Edit Portfolio Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:24
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:24
 msgid "Update Entry"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:25
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:25
 msgid "Search portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:26
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:26
 msgid "No portfolio entries found"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:27
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:27
 msgid "No portfolio entries found in Trash"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:34
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:34
 msgid "portfolio"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:67
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:67
 msgctxt "Taxonomy General Name"
 msgid "Portfolio Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:68
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:68
 msgctxt "Taxonomy Singular Name"
 msgid "Portfolio Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:69
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:69
 msgid "Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:70
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:70
 msgid "All Categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:71
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:71
 msgid "Parent Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:72
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:72
 msgid "Parent Category:"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:73
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:73
 msgid "New Category Name"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:74
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:74
 msgid "Add New Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:75
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:75
 msgid "Edit Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:76
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:76
 msgid "Update Category"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:77
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:77
 msgid "Separate categories with commas"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:78
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:78
 msgid "Search Portfolio categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:79
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:79
 msgid "Add or remove categories"
 msgstr ""
 
-#: Photography_Portfolio/Core/Register_Post_Type.php:80
+#: Photography_Portfolio/Core/Post_Type_Portfolio.php:80
 msgid "Choose from the most used categories"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Pin it"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:230, Photography_Portfolio/Settings/General_Portfolio_Settings.php:260, Photography_Portfolio/Settings/General_Portfolio_Settings.php:272
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:64, Photography_Portfolio/Settings/General_Portfolio_Settings.php:226, Photography_Portfolio/Settings/General_Portfolio_Settings.php:256, Photography_Portfolio/Settings/General_Portfolio_Settings.php:268
 msgid "Disable"
 msgstr ""
 
@@ -254,78 +254,78 @@ msgid "Pop-up Gallery"
 msgstr ""
 
 #: Photography_Portfolio/Settings/General_Portfolio_Settings.php:209
-msgid "sprintf<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>. <br> You can find <a href=\"%s\" target=\"%s\">more info about the gallery types here</a> "
+msgid "<b>PhotoSwipe</b> is recommended. However, if you need video support or gallery thumbnails, use <b>lightGallery</b>."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:226
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:222
 msgid "Pop-up Gallery: Thumbnails"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:231
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:227
 msgid "Hide by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:232
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:228
 msgid "Show by default"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:244
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:240
 msgid "Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:252
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:248
 msgid "Show Archive Titles & Descriptions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:253
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:249
 msgid "\"Archives\" are places like \"Categories\" and your \"Main Portfolio Page\"."
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:261
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:257
 msgid "Enable"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:268
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:264
 msgid "Album Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:273
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:269
 msgid "Show Only Subtitle"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:274
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:270
 msgid "Show Only Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:275
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:271
 msgid "Show Subtitle or Image Count"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:282
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:278
 msgid "Image Captions"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:286
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:282
 msgid "Hide"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:287
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:283
 msgid "Show only in pop-up galleries"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:288
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:284
 msgid "Always show "
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:299
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:295
 msgid "Theme Compatibility"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:306
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:302
 msgid "Wrapper CSS Classes"
 msgstr ""
 
-#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:307
+#: Photography_Portfolio/Settings/General_Portfolio_Settings.php:303
 msgid ""
 "Some themes use different wrapper class-names than the standard.\n"
 "					 You can enter custom CSS classnames here to make the plugin compatible with your theme"
