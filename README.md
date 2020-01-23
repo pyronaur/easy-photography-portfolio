@@ -1,8 +1,8 @@
 ## Easy Photography Portfolio -  WordPress Plugin
-* [Basic Demo](http://default.portfolio.bycolormelon.com/) with Twenty Seventeen Theme
+* [Basic Demo](https://befree.pyronaur.com/) with Twenty Seventeen Theme
 * [Download on WordPress.org](https://wordpress.org/plugins/photography-portfolio/)
 * [How to setup Photography Portfolio Tutorial](https://youtu.be/b5mevuD-hPI?list=PLhppommwLJT7s8fdVDlGzrZoiS8j_yr7W)
-* [Useful Snippets in the Wiki](https://github.com/justnorris/easy-photography-portfolio/wiki)
+* [Useful Snippets in the Wiki](https://github.com/pyronaur/easy-photography-portfolio/wiki)
 
 ---
 
@@ -23,7 +23,7 @@ You can use filters and actions based on [WP-JS-Hooks](https://github.com/carlda
 
 ### Demos
 
-* [Default WordPress Twenty Seventeen Theme](http://default.portfolio.bycolormelon.com/) - default Photography Portfolio plugin, with the default WordPress theme.
+* [Minimalist Portfolio](http://befree.pyronaur.com/) - default Photography Portfolio plugin, with the default WordPress theme.
 ---
 
 ## Installation

@@ -11,9 +11,9 @@ Gulp.task "pot", ->
 					  domain: 'photography-portfolio',
 					  destFile: 'photography-portfolio.pot',
 					  package: 'Photography Portfolio',
-					  bugReport: 'http://help.colormelon.com',
-					  lastTranslator: 'Colormelon <help@colormelon.com>',
-					  team: 'Colormelon <help@colormelon.com>',
+					  bugReport: 'https://wordpress.org/support/plugin/photography-portfolio/',
+					  lastTranslator: 'Nauris <hi@pyronaur.com>',
+					  team: 'Nauris <hi@pyronaur.com>',
 				  } ) )
 	.pipe( Gulp.dest( 'languages' ) )
 	

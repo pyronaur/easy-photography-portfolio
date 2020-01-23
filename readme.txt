@@ -1,6 +1,6 @@
 === Easy Photography Portfolio ===
-Contributors: justnorris
-Donate link: https://justnorris.com/
+Contributors: pyronaur
+Donate link: https://pyronaur.com/
 Tags: portfolio, photography, gallery, grid, masonry, themeable, album, content gallery, fullscreen gallery, gallery, gallery lightbox, gallery widget, grid gallery, image gallery, masonry gallery, media gallery, photo album, photo gallery, portfolio gallery, post gallery, responsive gallery, thumbnail gallery, video gallery, wordpress gallery, wordpress gallery plugin, youtube gallery, easy photography portfolio, easy, wordpress portfolio plugin
 Requires at least: 4.7.0
 Tested up to: 5.2.3
@@ -24,25 +24,19 @@ I think it might be easier to explain with a demo.
 ###  Plugin Demo
 Easy Photography Portfolio is extremely flexible, from the most basic to completely custom designs.
 
-**📌 Demo: Twenty Seventeen Portfolio**
-
-**[Twenty Seventeen Theme Demo](http://default.portfolio.bycolormelon.com/)** works out of the box with Easy Photography Portfolio. This demo demonstrates the basic default plugin settings and layout.
-
-But there is a lot you can do to customize Easy Photography Portfolio in themes, here are a few more examples...
-
 **📌 Demo: Minimalist Portfolio**
 
 [Minimalist Portfolio](https://wordpress.org/themes/minimalist-portfolio/) is a **free** WordPress theme - customized to look great with Easy Photography Portfolio plugin!
 
-* **[Minimalist Portfolio Demo](http://befree.bycolormelon.com/)**
+* **[Minimalist Portfolio Demo](http://befree.pyronaur.com/)**
 * [Tutorial](https://colormelon.com/free-portfolio-website-tutorial/) - full theme and plugin setup
-* [Source Code](https://github.com/justnorris/minimalist-portfolio) on GitHub
+* [Source Code](https://github.com/pyronaur/minimalist-portfolio) on GitHub
 
 ## 📚 Setup Tutorials
 The plugin name gave it away - it's really easy to set up a portfolio with it. And yet, here are some extra resources for you:
 
 * [Full setup guide](https://colormelon.com/easy-photography-portfolio-full-setup-guide/) - as close to documentation as you can get
-* [A-Z Photography Portfolio tutorial](https://colormelon.com/free-portfolio-website-tutorial/) with Hamilton child theme
+* [A-Z Photography Portfolio tutorial](https://colormelon.com/free-portfolio-website-tutorial/) with Hamilton child theme (Minimalist Portfolio)
 
 ### 🎥 Video Tutorial
 If detailed documentation and guides aren't enough for you, watch the video tutorial:
@@ -94,8 +88,8 @@ There is also a 7 minute video tutorial:
 [youtube https://www.youtube.com/watch?v=b5mevuD-hPI]
 
 = Is this Developer friendly? Any examples? =
-Everything code-related can be found on [GitHub](https://github.com/justnorris/easy-photography-portfolio/) and [Github Wiki](https://github.com/justnorris/easy-photography-portfolio/wiki/)
-If you have questions, you can ask them in [Support Forums](https://wordpress.org/support/plugin/photography-portfolio) or in [GitHub issues](https://github.com/justnorris/easy-photography-portfolio/issues) or tweet me [@justnorris](https://twitter.com/justnorris)
+Everything code-related can be found on [GitHub](https://github.com/pyronaur/easy-photography-portfolio/) and [Github Wiki](https://github.com/pyronaur/easy-photography-portfolio/wiki/)
+If you have questions, you can ask them in [Support Forums](https://wordpress.org/support/plugin/photography-portfolio) or in [GitHub issues](https://github.com/pyronaur/easy-photography-portfolio/issues) or tweet me [@pyronaur](https://twitter.com/pyronaur)
 
 == Installation ==
 

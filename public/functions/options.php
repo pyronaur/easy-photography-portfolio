@@ -104,7 +104,7 @@ function phort_set_option( $option, $value ) {
  * Make it easy for themes and/or extensions to set their own defaults.
  * For example, if a new layout is added and prefered as the default.
  *
- * @see https://github.com/justnorris/easy-photography-portfolio/wiki#change-the-defaults
+ * @see https://github.com/pyronaur/easy-photography-portfolio/wiki#change-the-defaults
  *
  * @param array $defaults - An array of key => value pairs to customize the defaults
  */

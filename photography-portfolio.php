@@ -1,15 +1,15 @@
 <?php
 /**
  * @package           Easy Photography portfolio
- * @link              https://justnorris.com
+ * @link              https://pyronaur.com
  *
  * @wordpress-plugin
  * Plugin Name:       Easy Photography Portfolio
- * Plugin URI:        http://justnorris.com/plugins/photography-portfolio
+ * Plugin URI:        http://pyronaur.com/plugins/photography-portfolio
  * Description:       Add a photography portfolio to any WordPress theme. Designed for Photographers, yet made with theme developers in mind.
  * Version:           1.5.0
- * Author:            justnorris
- * Author URI:        https://justnorris.com
+ * Author:            Pyronaur
+ * Author URI:        https://pyronaur.com
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       photography-portfolio
