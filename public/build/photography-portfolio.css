@@ -30,7 +30,6 @@
   margin-left: -10px;
   width: calc(100% + 20px);
   opacity: 1;
-  -webkit-transition: opacity 500ms ease;
   transition: opacity 500ms ease;
 }
 .js .PP_Masonry:not(.PP_JS__loading_complete) {
@@ -86,12 +85,8 @@
   position: absolute;
   bottom: 1.4rem;
   left: 1.4rem;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.35s ease-out;
-  transition: opacity 0.3s ease, -webkit-transform 0.35s ease-out;
+  transform: translate3d(0, 0, 0);
   transition: transform 0.35s ease-out, opacity 0.3s ease;
-  transition: transform 0.35s ease-out, opacity 0.3s ease, -webkit-transform 0.35s ease-out;
 }
 .PP_Card .PP_Entry__title,
 .PP_Card .PP_Entry__subtitle {
@@ -124,28 +119,22 @@
   padding: 1.4rem;
   background-color: rgba(0,0,0,0.5);
   opacity: 0;
-  -webkit-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease;
   cursor: pointer;
 }
 .PP_Card .PP_Entry__inner {
   width: 100%;
   height: 100%;
-  -webkit-transform: translateY(15px);
-          transform: translateY(15px);
+  transform: translateY(15px);
   opacity: 0;
   display: block;
-  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.35s ease-out;
-  transition: opacity 0.3s ease, -webkit-transform 0.35s ease-out;
   transition: transform 0.35s ease-out, opacity 0.3s ease;
-  transition: transform 0.35s ease-out, opacity 0.3s ease, -webkit-transform 0.35s ease-out;
 }
 .PP_Card.PP_Entry--no-thumbnail {
   height: 300px;
 }
 .PP_Card .PP_Entry__thumbnail--replacement {
   background-color: #8c8c8c;
-  background: -webkit-linear-gradient(bottom, #8c8c8c, #b3b3b3);
   background: linear-gradient(to top, #8c8c8c, #b3b3b3);
   display: block;
   width: 100%;
@@ -169,13 +158,11 @@
 */
 .PP_Card--hoverable:hover .PP_Entry__header {
   z-index: 50;
-  -webkit-transform: translateY(-3rem);
-          transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
 .PP_Card--hoverable:hover .PP_Entry__inner {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
 }
 .PP_Card--hoverable:hover .PP_Entry__more {
   display: block;
@@ -208,27 +195,14 @@
   left: 50%;
   top: calc(50% - 12.5px);
   left: calc(50% - 12.5px);
-  -webkit-animation: PP_Spinner 400ms linear infinite;
-          animation: PP_Spinner 400ms linear infinite;
-}
-@-webkit-keyframes PP_Spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+  animation: PP_Spinner 400ms linear infinite;
 }
 @keyframes PP_Spinner {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .PP_Description {
@@ -290,8 +264,7 @@
   border-style: solid;
   border-width: 30px 0 30px 50px;
   border-color: transparent transparent transparent rgba(255,255,255,0.94);
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .lg-sub-html .PP_Caption__title,
 .pswp .PP_Caption__title,
