@@ -4,3 +4,4 @@ workspace.xml
 .idea
 .name
 *.sassc
+/phyncer.yml
