@@ -78,6 +78,7 @@
 .PP_Card .PP_Entry__thumbnail > img {
   display: block;
   max-width: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
