@@ -39,19 +39,19 @@ class Photoswipe extends Abstract_Popup_Gallery {
 		/*
 		 * Styles
 		 */
-		wp_register_style( 'photoswipe-default-skin', $this->build_directory_url . 'libs/photoswipe-ui.css', NULL, '4.1.2' );
-		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-default-skin' ], '4.1.2' );
+		wp_register_style( 'photoswipe-default-skin', $this->build_directory_url . 'libs/photoswipe-ui.css', NULL, '4.1.3' );
+		wp_register_style( 'photoswipe', $this->build_directory_url . 'libs/photoswipe.css', [ 'photoswipe-default-skin' ], '4.1.3' );
 
 		/*
 		 * Scripts
 		 */
 		wp_register_script( 'phort-gallery-lightgallery', $this->build_directory_url . 'libs/light-gallery-custom.js', [ 'jquery' ], NULL, true );
-		wp_register_script( 'photoswipe-ui-default', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, '4.1.2', true );
+		wp_register_script( 'photoswipe-ui-default', $this->build_directory_url . 'libs/photoswipe-ui.js', NULL, '4.1.3', true );
 		wp_register_script(
 			'photoswipe',
 			$this->build_directory_url . 'libs/photoswipe.js',
 			[ 'jquery', 'photoswipe-ui-default' ],
-			'4.1.2',
+			'4.1.3',
 			true
 		);
 
