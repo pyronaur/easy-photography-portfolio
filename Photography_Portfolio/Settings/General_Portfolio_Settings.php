@@ -119,9 +119,10 @@ class General_Portfolio_Settings {
                 'type'    => 'select',
                 'default' => 'all',
                 'options' => [
-                    'all'                 => esc_html__( 'Show all Portfolio entries', 'photography-portfolio' ),
-                    'phort_post_category' => esc_html__( 'Show a Portfolio category', 'photography-portfolio' ),
-                    'phort_post'          => esc_html__( 'Show a single Portfolio entry', 'photography-portfolio' ),
+                    'all'                       => esc_html__( 'Show all Portfolio entries', 'photography-portfolio' ),
+                    'all_phort_post_category'   => esc_html__( 'Show all Portfolio categories', 'photography-portfolio' ),
+                    'phort_post_category'       => esc_html__( 'Show a Portfolio category', 'photography-portfolio' ),
+                    'phort_post'                => esc_html__( 'Show a single Portfolio entry', 'photography-portfolio' ),
                 ],
             ];
 
@@ -395,6 +396,30 @@ class General_Portfolio_Settings {
 
         return $pages;
     }
+
+	public function get_all_categories() {
+
+		/*
+		 * Don't execute on the front-end
+		 */
+		if ( ! is_admin() ) {
+			return [];
+		}
+
+		$args = [
+			'posts_per_page' => - 1,
+			'post_type'      => 'phort_post',
+			'post_status'    => 'publish',
+		];
+
+		$pages = [];
+
+		foreach ( get_categories( $args ) as $category ) {
+			$pages[ (int) $category->id ] = esc_html( $category->name );
+		}
+
+		return $pages;
+	}
 
 
     public function settings_exist( $setting ) {

@@ -8,6 +8,19 @@
 
 <?php phort_get_template( 'archive/description' ); ?>
 
+<div <?php phort_class( 'PP_Archive_Filter' ); ?> >
+    <div <?php phort_class( 'PP_Archive_Filter_Categories' ); ?> >
+        <span>Categories: </span>
+
+         <?php
+
+         foreach  (get_terms( 'phort_post_category' ) as $taxonomy) {
+             echo '<a href="' . $terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name ) . '">' . $terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name ) . ' ' . '</a>';
+         }
+         ?>
+    </div>
+</div>
+
 <div <?php phort_class( 'PP_Archive_Container' ); ?>>
 
 	<?php do_action( 'phort/archive/loop/start' ); ?>
