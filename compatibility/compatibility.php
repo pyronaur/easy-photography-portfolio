@@ -8,7 +8,7 @@
  */
 
 /**
- * Add WPML Compatiblity
+ * Add WPML Compatibility
  */
 require_once __DIR__ . '/wpml.php';
 

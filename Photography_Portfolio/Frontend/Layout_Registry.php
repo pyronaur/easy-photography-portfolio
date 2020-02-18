@@ -105,7 +105,7 @@ class Layout_Registry {
 
 
 	/**
-	 * Find which PHP Class is resposnible for the requested layout name
+	 * Find which PHP Class is responsible for the requested layout name
 	 *
 	 * @param $slug
 	 *

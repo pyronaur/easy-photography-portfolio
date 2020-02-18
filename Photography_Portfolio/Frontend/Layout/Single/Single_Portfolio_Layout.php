@@ -62,7 +62,7 @@ abstract class Single_Portfolio_Layout implements Layout_Factory_Interface {
 
 		/**
 		 * Allow themes to alter attached image sizes
-		 * Example full string hook would look somthing like this: `phort/masonry/attached_sizes`
+		 * Example full string hook would look something like this: `phort/masonry/attached_sizes`
 		 *
 		 * @uses  apply_filters()
 		 * @since 1.0.5

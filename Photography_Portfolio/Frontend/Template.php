@@ -11,7 +11,7 @@ class Template {
 	 *
 	 * If you're looking for a function to use in themes, have a look at `phort_get_template` function instead
 	 *
-	 * @param      $base - The template path ( for exmaple: '/path-to/the/entry' )
+	 * @param      $base - The template path ( for example: '/path-to/the/entry' )
 	 * @param null $slug - The portfolio layout modifier (for example: 'masonry' )
 	 */
 	public static function load( $base, $slug = NULL ) {

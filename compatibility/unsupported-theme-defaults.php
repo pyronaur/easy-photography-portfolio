@@ -14,7 +14,7 @@ function phort_maybe_add_default_container_styles() {
 
 		/**
 		 * If there is no theme support, users can add their own class name to the wrapper.
-		 * Attach that classname with this funciton:
+		 * Attach that classname with this function:
 		 */
 		$custom_classes = phort_get_option( 'wrapper_class' );
 		if ( $custom_classes ) {
