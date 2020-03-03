@@ -16,7 +16,7 @@
 	        echo "<span>". esc_html("Categories: ") ."</span>";
 
 	        foreach  (get_terms( 'phort_post_category' ) as $taxonomy) {
-		        echo '<a href="' . esc_url(get_category_link($taxonomy->term_id)) . '">' . $terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name ) . ' ' . '</a>';
+		        echo '<a href="' . esc_url(get_category_link($taxonomy->term_id)) . '">' . esc_html( $taxonomy->name ) . ' ' . '</a>';
 	        }
         } else {
 	        echo "No categories found or is empty!";
