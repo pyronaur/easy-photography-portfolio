@@ -13,15 +13,12 @@
         <span>Categories: </span>
 
          <?php
-
          foreach  (get_terms( 'phort_post_category' ) as $taxonomy) {
-             echo '<a href="' . get_category_link($taxonomy->term_id) . '">' . $terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name ) . ' ' . '</a>';
+             echo '<a href="' . esc_url(get_category_link($taxonomy->term_id)) . '">' . $terms[ (int) $taxonomy->term_id ] = esc_html( $taxonomy->name ) . ' ' . '</a>';
          }
          ?>
     </div>
 </div>
-
-<h1><?php echo phort_get_archive_title()?></h1>
 
 <div <?php phort_class( 'PP_Archive_Container' ); ?>>
 
