@@ -12,15 +12,18 @@
     <div <?php phort_class( 'PP_Archive_Filter_Categories' ); ?> >
 	    <?php
 
-        if (count(get_terms( 'phort_post_category' )) !== 0 ) {
-	        echo "<span>". esc_html("Categories: ") ."</span>";
+        if (phort_get_option( 'archive_category' ) !== 'disable') {
+	        if (count(get_terms( 'phort_post_category' )) !== 0 ) {
+		        echo "<span>". esc_html("Categories: ") ."</span>";
 
-	        foreach  (get_terms( 'phort_post_category' ) as $taxonomy) {
-		        echo '<a href="' . esc_url(get_category_link($taxonomy->term_id)) . '">' . esc_html( $taxonomy->name ) . ' ' . '</a>';
+		        foreach  (get_terms( 'phort_post_category' ) as $taxonomy) {
+			        echo '<a href="' . esc_url(get_category_link($taxonomy->term_id)) . '">' . esc_html( $taxonomy->name ) . ' ' . '</a>';
+		        }
+	        } else {
+		        echo "No categories found or is empty!";
 	        }
-        } else {
-	        echo "No categories found or is empty!";
         }
+
          ?>
     </div>
 </div>
