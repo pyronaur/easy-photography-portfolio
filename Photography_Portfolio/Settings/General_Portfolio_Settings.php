@@ -146,7 +146,7 @@ class General_Portfolio_Settings {
         }
 
 	    $settings[] = [
-		    'id'      => "archive_category",
+		    'id'      => 'archive_category',
 		    'name'    => esc_html__( 'Show Category Navigation', 'photography-portfolio' ),
 		    'type'    => 'select',
 		    'default' => $this->defaults['archive_category'],
