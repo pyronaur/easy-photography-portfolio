@@ -19,7 +19,7 @@
 
 			         <?php foreach ( get_terms( 'phort_post_category' ) as $taxonomy ): ?>
                          <a href="<?php echo esc_url( get_category_link( $taxonomy->term_id ) ); ?>">
-                             <?php esc_html_e( $taxonomy->name, 'photography-portfolio' ); ?>
+                             <?php echo esc_html( $taxonomy->name ); ?>
                          </a>
 			         <?php endforeach; ?>
 		         <?php endif; ?>
