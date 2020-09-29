@@ -5,7 +5,7 @@
 * [Useful Snippets in the Wiki](https://github.com/pyronaur/easy-photography-portfolio/wiki)
 
 ---
-
+[![Run on Repl.it](https://repl.it/badge/github/pyronaur/easy-photography-portfolio)](https://repl.it/github/pyronaur/easy-photography-portfolio)
 
 ### Developed for Extensibility
 
