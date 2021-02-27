@@ -7,7 +7,7 @@
  * Plugin Name:       Easy Photography Portfolio
  * Plugin URI:        http://pyronaur.com/plugins/photography-portfolio
  * Description:       Add a photography portfolio to any WordPress theme. Designed for Photographers, yet made with theme developers in mind.
- * Version:           1.5.0
+ * Version:           1.5.1
  * Author:            Pyronaur
  * Author URI:        https://pyronaur.com
  * License:           GPL-3.0+
