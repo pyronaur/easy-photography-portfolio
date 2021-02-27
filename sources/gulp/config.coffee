@@ -7,7 +7,10 @@ GLOBAL.config =
 	### External Libraries & Their URLs ###
 	external_libs:
 		# Essentials
-		"wp-js-hooks": "https://raw.githubusercontent.com/carldanley/WP-JS-Hooks/master/build/event-manager.min.js"
+		# DEPRECATED:
+		# event-manager and WP-JS-Hooks doesn't exist anymore.
+		# Currently manually added `epp-js-hooks.js`
+		"epp-js-hooks": true
 		"photoswipe"   : "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe.js"
 		"photoswipe-ui": "https://raw.githubusercontent.com/dimsemenov/PhotoSwipe/master/dist/photoswipe-ui-default.js"
 
