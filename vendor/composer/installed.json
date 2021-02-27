@@ -1,58 +1,67 @@
-[
-    {
-        "name": "webdevstudios/cmb2",
-        "version": "v2.6.0",
-        "version_normalized": "2.6.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/CMB2/CMB2.git",
-            "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
-            "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">5.2.4"
-        },
-        "require-dev": {
-            "apigen/apigen": "4.1.2",
-            "nette/utils": "2.5.3",
-            "phpunit/phpunit": "6.5.13"
-        },
-        "suggest": {
-            "composer/installers": "~1.0"
-        },
-        "time": "2019-01-21T04:30:08+00:00",
-        "type": "wordpress-plugin",
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0-or-later"
-        ],
-        "authors": [
-            {
-                "name": "WebDevStudios",
-                "email": "contact@webdevstudios.com",
-                "homepage": "https://github.com/WebDevStudios",
-                "role": "Developer"
+{
+    "packages": [
+        {
+            "name": "webdevstudios/cmb2",
+            "version": "v2.8.0",
+            "version_normalized": "2.8.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CMB2/CMB2.git",
+                "reference": "8391c9ab88a564ca7c7b380e20152ca8554d5166"
             },
-            {
-                "name": "Justin Sternberg",
-                "email": "justin@dsgnwrks.pro",
-                "homepage": "https://dsgnwrks.pro",
-                "role": "Developer"
-            }
-        ],
-        "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
-        "homepage": "https://github.com/CMB2/CMB2",
-        "keywords": [
-            "metabox",
-            "plugin",
-            "wordpress"
-        ],
-        "abandoned": "cmb2/cmb2"
-    }
-]
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/8391c9ab88a564ca7c7b380e20152ca8554d5166",
+                "reference": "8391c9ab88a564ca7c7b380e20152ca8554d5166",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.4"
+            },
+            "require-dev": {
+                "apigen/apigen": "4.1.2",
+                "nette/utils": "2.5.3",
+                "phpunit/phpunit": "6.5.13"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2021-02-08T16:14:33+00:00",
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Sternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+            "homepage": "https://github.com/CMB2/CMB2",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/CMB2/CMB2/issues",
+                "source": "http://wordpress.org/support/plugin/cmb2"
+            },
+            "abandoned": "cmb2/cmb2",
+            "install-path": "../webdevstudios/cmb2"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
