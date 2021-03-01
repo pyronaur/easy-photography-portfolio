@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "webdevstudios/cmb2",
-            "version": "v2.6.0",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
+                "reference": "8391c9ab88a564ca7c7b380e20152ca8554d5166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
-                "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/8391c9ab88a564ca7c7b380e20152ca8554d5166",
+                "reference": "8391c9ab88a564ca7c7b380e20152ca8554d5166",
                 "shasum": ""
             },
             "require": {
@@ -38,15 +38,15 @@
             ],
             "authors": [
                 {
-                    "name": "WebDevStudios",
-                    "email": "contact@webdevstudios.com",
-                    "homepage": "https://github.com/WebDevStudios",
-                    "role": "Developer"
-                },
-                {
                     "name": "Justin Sternberg",
                     "email": "justin@dsgnwrks.pro",
                     "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
                     "role": "Developer"
                 }
             ],
@@ -57,8 +57,12 @@
                 "plugin",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/CMB2/CMB2/issues",
+                "source": "http://wordpress.org/support/plugin/cmb2"
+            },
             "abandoned": "cmb2/cmb2",
-            "time": "2019-01-21T04:30:08+00:00"
+            "time": "2021-02-08T16:14:33+00:00"
         }
     ],
     "packages-dev": [],
@@ -68,5 +72,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

@@ -6,7 +6,7 @@
   },
   "browserify-shim": {
     "jQuery": "global:jQuery",
-    "wp_hooks": "global:wp.hooks"
+    "wp_hooks": "global:epp.hooks"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

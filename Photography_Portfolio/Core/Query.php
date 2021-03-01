@@ -284,7 +284,7 @@ class Query {
 
 		$id = (int) get_queried_object_id();
 
-		if ( ! $id ) {
+		if ( ! $id && $this->original_query instanceof \WP_Query) {
 			$id = (int) $this->original_query->get( 'page_id' );
 		}
 

@@ -76,7 +76,7 @@ class Enqueue_Assets {
 		$dependencies = [
 			'jquery',
 			'imagesloaded',
-			'wp-js-hooks',
+			'epp-js-hooks',
 		];
 
 		// Popup Gallery
@@ -89,7 +89,7 @@ class Enqueue_Assets {
 		wp_register_style( 'phort-style', $this->build_directory_url . 'photography-portfolio.css' );
 
 		// Scripts
-		wp_register_script( 'wp-js-hooks', $this->build_directory_url . 'libs/wp-js-hooks.js', NULL, '1.0.0', true );
+		wp_register_script( 'epp-js-hooks', $this->build_directory_url . 'libs/epp-js-hooks.js', NULL, '1.0.0', true );
 		wp_register_script( 'phort-app', $this->build_directory_url . 'photography-portfolio.js', $dependencies, CLM_VERSION, true );
 
 

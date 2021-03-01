@@ -54,7 +54,7 @@ class Easy_Photography_Portfolio {
 	 *
 	 * @var string
 	 */
-	private $version = '1.5.0';
+	private $version = '1.5.1';
 
 
 	/**
