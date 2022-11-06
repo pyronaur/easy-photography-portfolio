@@ -16,7 +16,7 @@
     "coffee-script": "*",
     "coffeeify": "^2.0.1",
     "del": "^2.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.4.0",
     "gulp-coffee": "*",
